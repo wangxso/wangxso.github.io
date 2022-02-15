@@ -11,7 +11,7 @@ jobs:
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
-      - name: Checkout source
+      - name: Checkout hexo
         uses: actions/checkout@v2
         with:
           ref: hexo
@@ -38,4 +38,5 @@ jobs:
       - name: Deploy
         run: |
           hexo clean
+          hexo generate
           hexo deploy
