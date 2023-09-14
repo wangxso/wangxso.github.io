@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>非典型程序员的一生</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="程序员 | 工程师 | 摄影爱好者 | 骑行客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="非典型程序员的一生">
+<meta property="og:url" content="https://wangxso.github.io/blog./page/6/index.html">
+<meta property="og:site_name" content="非典型程序员的一生">
+<meta property="og:description" content="程序员 | 工程师 | 摄影爱好者 | 骑行客">
+<meta property="og:locale">
+<meta property="article:author" content="wangxso">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog./atom.xml" title="非典型程序员的一生" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog./favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog./css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog./fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog./" id="logo">非典型程序员的一生</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/blog./">Home</a>
+        
+          <a class="main-nav-link" href="/blog./archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/blog./atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wangxso.github.io/blog."></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Ant Vue a-table 分页功能" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2021/02/06/Ant%20Vue%20a-table%20%E5%88%86%E9%A1%B5%E5%8A%9F%E8%83%BD/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:26:00.000Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/zczb/">zczb</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2021/02/06/Ant%20Vue%20a-table%20%E5%88%86%E9%A1%B5%E5%8A%9F%E8%83%BD/">Ant Vue a-table 分页功能</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>要是用分页功能自定义配置，你需要创建一个pagination的配置对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">data</span>(<span class="params"></span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>&#123;</span><br><span class="line">                <span class="attr">pagination</span>:&#123;</span><br><span class="line">                    <span class="attr">current</span>: <span class="number">1</span>,</span><br><span class="line">                    <span class="attr">pageSize</span>: <span class="number">10</span>,</span><br><span class="line">                    <span class="attr">pageSizeOptions</span>: [<span class="string">&#x27;10&#x27;</span>, <span class="string">&#x27;20&#x27;</span>, <span class="string">&#x27;30&#x27;</span>],</span><br><span class="line">                    <span class="attr">showTotal</span>: <span class="function">(<span class="params">total, range</span>) =&gt;</span> &#123;</span><br><span class="line">                        <span class="keyword">return</span> range[<span class="number">0</span>] + <span class="string">&#x27;-&#x27;</span> +range[<span class="number">1</span>] + <span class="string">&#x27;共&#x27;</span> + total + <span class="string">&#x27;条&#x27;</span>;</span><br><span class="line">                    &#125;,</span><br><span class="line">                    <span class="attr">showQuickJumper</span>: <span class="literal">true</span>,</span><br><span class="line">                    <span class="attr">showSizeChanger</span>: <span class="literal">true</span>,</span><br><span class="line">                    <span class="attr">total</span>: <span class="number">0</span>,</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br></pre></td></tr></table></figure>
+<p>然后table是这样的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;a-table</span><br><span class="line">                :loading=<span class="string">&quot;loading&quot;</span></span><br><span class="line">                :columns=<span class="string">&quot;columns&quot;</span></span><br><span class="line">                :data-source=<span class="string">&quot;problemList&quot;</span></span><br><span class="line">                :pagination=<span class="string">&quot;pagination&quot;</span></span><br><span class="line">                @change=<span class="string">&quot;handleTableChange&quot;</span>&gt;</span><br><span class="line">            <span class="language-xml"><span class="tag">&lt;<span class="name">template</span> <span class="attr">slot</span>=<span class="string">&quot;operation&quot;</span> <span class="attr">slot-scope</span>=<span class="string">&quot;text, record&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;editable-row-operations&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">a</span>  @<span class="attr">click</span>=<span class="string">&quot;() =&gt; toEdit(record)&quot;</span>&gt;</span>Edit<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">template</span>&gt;</span></span></span><br><span class="line">        &lt;/a-table&gt;</span><br></pre></td></tr></table></figure>
+<p>有个方法是这样的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">handleTableChange</span>(<span class="params">pagination</span>) &#123;</span><br><span class="line">                <span class="variable language_">this</span>.<span class="property">pagination</span>.<span class="property">current</span> = pagination.<span class="property">current</span></span><br><span class="line">                <span class="variable language_">this</span>.<span class="property">pagination</span>.<span class="property">pageSize</span> = pagination.<span class="property">pageSize</span></span><br><span class="line"></span><br><span class="line">            &#125;,</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2021/02/06/Ant%20Vue%20a-table%20%E5%88%86%E9%A1%B5%E5%8A%9F%E8%83%BD/" data-id="clmivdq7w0006sjp681qm4gga" data-title="Ant Vue a-table 分页功能" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Vue router param 无法传参" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2021/02/06/Vue%20router%20param%20%E6%97%A0%E6%B3%95%E4%BC%A0%E5%8F%82/" class="article-date">
+  <time class="dt-published" datetime="2021-02-06T00:07:05.000Z" itemprop="datePublished">2021-02-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/zczb/">zczb</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2021/02/06/Vue%20router%20param%20%E6%97%A0%E6%B3%95%E4%BC%A0%E5%8F%82/">Vue router param 无法传参</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Vue-router-param-无法传参"><a href="#Vue-router-param-无法传参" class="headerlink" title="Vue router param 无法传参"></a>Vue router param 无法传参</h1><p>原因是</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">$router</span>.<span class="title function_">push</span>(&#123;<span class="attr">path</span>: <span class="string">&quot;/home&quot;</span>,<span class="attr">params</span>:&#123;...&#125;&#125;)</span><br></pre></td></tr></table></figure>
+<p>改为</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">$router</span>.<span class="title function_">push</span>(&#123;&#123;<span class="attr">path</span>: <span class="string">&quot;/home&quot;</span>, <span class="attr">name</span>: <span class="string">&quot;home&quot;</span>, <span class="attr">params</span>:&#123;...&#125;&#125;&#125;)</span><br></pre></td></tr></table></figure>
+<p>就行了</p>
+<h4 id="使用params传参只能使用name进行引入"><a href="#使用params传参只能使用name进行引入" class="headerlink" title="使用params传参只能使用name进行引入"></a>使用params传参只能使用name进行引入</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2021/02/06/Vue%20router%20param%20%E6%97%A0%E6%B3%95%E4%BC%A0%E5%8F%82/" data-id="clmivdq850017sjp6ar87b34o" data-title="Vue router param 无法传参" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-PV操作及经典同步问题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2020/08/15/PV%E6%93%8D%E4%BD%9C%E5%8F%8A%E7%BB%8F%E5%85%B8%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98/" class="article-date">
+  <time class="dt-published" datetime="2020-08-15T03:17:00.000Z" itemprop="datePublished">2020-08-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/zczb/">zczb</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2020/08/15/PV%E6%93%8D%E4%BD%9C%E5%8F%8A%E7%BB%8F%E5%85%B8%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98/">PV操作及经典同步问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="PV操作及经典同步问题"><a href="#PV操作及经典同步问题" class="headerlink" title="PV操作及经典同步问题"></a>PV操作及经典同步问题</h1><blockquote>
+<p>首先要确保你自己知道什么是信号量机制，什么是整型信号量下观看以下内容</p>
+</blockquote>
+<h2 id="一、使用信号量实现同步"><a href="#一、使用信号量实现同步" class="headerlink" title="一、使用信号量实现同步"></a>一、使用信号量实现同步</h2><p>设S为实现进程P1,P2同步的一个公共信号量，初始值为0。进程P2中语句y要使用进程P1中的语句x的结果所以当x执行完成之后才能执行语句y。实现进程同步的伪代码如下:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">semaphore S = <span class="number">0</span></span><br><span class="line">    <span class="built_in">p1</span>() &#123;</span><br><span class="line">    	x;</span><br><span class="line">    	<span class="built_in">V</span>(S);<span class="comment">//S=S+1 表示P1已经完成 相当于唤醒P2</span></span><br><span class="line">    	... ...</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">p2</span>() &#123;</span><br><span class="line">        ... ...</span><br><span class="line">        <span class="built_in">P</span>(s);<span class="comment">//若S&gt;0时，让S=S-1,不是就阻塞，执行下面的语句，相当于等待</span></span><br><span class="line">        y;</span><br><span class="line">        ... ...</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、-利用信号量实现互斥"><a href="#二、-利用信号量实现互斥" class="headerlink" title="二、 利用信号量实现互斥"></a>二、 利用信号量实现互斥</h2><p>设S为实现进程P1,P2互斥的信号量，由于每次只允许一个进程进入临界区，所以S的初值为1(就是可用资源数为1)。实现进程互斥的伪代码如下:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">semaphore S = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">P1</span>()&#123;</span><br><span class="line">    	...</span><br><span class="line">        <span class="built_in">P</span>(S); <span class="comment">//准备访问，加锁，若 S&gt;0 S = S - 1</span></span><br><span class="line">    	进程P1的临界区;</span><br><span class="line">    	<span class="built_in">V</span>(S); <span class="comment">//访问结束，解锁，S = S + 1</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">P2</span>()&#123;</span><br><span class="line">        ...</span><br><span class="line">        <span class="built_in">P</span>(S);<span class="comment">//准备访问，加锁，若 S&gt;0 S = S - 1</span></span><br><span class="line">        进程P2的临界区;</span><br><span class="line">        <span class="built_in">V</span>(S);<span class="comment">//访问结束，解锁，S = S + 1</span></span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里相当于一把锁，而要是只有一把，你锁住了别人就不能进入，只有当你出来的时候把钥匙给别人，别人才能进入。</p>
+<h2 id="三、利用信号量机制实现前驱关系"><a href="#三、利用信号量机制实现前驱关系" class="headerlink" title="三、利用信号量机制实现前驱关系"></a>三、利用信号量机制实现前驱关系</h2><p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/20200815175452.png"></p>
+<p>如图，其中S1,S2,S3,… …,S6为简单的程序段(只有一条语句)。为了程序段正确的执行，我们应设置若干初始值为”0”的信号量。有多少个关系就设置多少个信号量,设S1-&gt;S2,S1-&gt;S3，S2-&gt;S4,S2-&gt;S5,S3-&gt;S6,S4-&gt;S6,S5-&gt;S6分别为a1,a2,b1,b2,c,d,e,伪代码如下:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">semaphone a1=a2=b1=b2=c=d=e=<span class="number">0</span>;</span><br><span class="line"><span class="built_in">S1</span>() &#123;</span><br><span class="line">    ...;</span><br><span class="line">    <span class="built_in">V</span>(a1);<span class="built_in">V</span>(a2);<span class="comment">// a1+=1, a2+=1;相当于解锁 让下一个程序运行</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">S2</span>()&#123;</span><br><span class="line">    <span class="built_in">P</span>(a1); <span class="comment">// 若a1&gt;0 ,a1-=1,检查S1是否完成</span></span><br><span class="line">    ...;</span><br><span class="line">    <span class="built_in">V</span>(b1);<span class="built_in">V</span>(b2); <span class="comment">//S2运行完成，提醒下面的程序</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">S3</span>()&#123;</span><br><span class="line">    <span class="built_in">P</span>(a2); <span class="comment">// 检查S1运行完成</span></span><br><span class="line">    ...;</span><br><span class="line">    <span class="built_in">V</span>(c); <span class="comment">// S3运行完成，提醒</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">S4</span>()&#123;</span><br><span class="line">    <span class="built_in">P</span>(b1); <span class="comment">//检查S2是否完成</span></span><br><span class="line">    ...;</span><br><span class="line">    <span class="built_in">V</span>(d);<span class="comment">//S4运行完成</span></span><br><span class="line">&#125;</span><br><span class="line">.....以下省略</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、经典同步问题"><a href="#四、经典同步问题" class="headerlink" title="四、经典同步问题"></a>四、经典同步问题</h2><h3 id="1-生产者-消费者问题"><a href="#1-生产者-消费者问题" class="headerlink" title="1. 生产者-消费者问题"></a>1. 生产者-消费者问题</h3><p><strong>问题描述</strong></p>
+<blockquote>
+<p>一组生产者进程和一组消费者进程共享一个初始为空，大小为n的缓冲区，只有缓冲区没满时，生产者才能把消息放入缓冲区，否则必须等待；只有缓冲区不空时，消费者才能从中取出消息，否则必须等待。由于缓冲区是临界资源，他只允许一个生产者放入消息，一个消费者从中取出消息</p>
+</blockquote>
+<p>我们来分析一下关系</p>
+<p>生产者和消费者对缓冲区互斥访问是一个<strong>互斥关系</strong>，同时生产者和消费者是一个<strong>协作关系</strong>，只有在生产者生产之后，消费者才能消费，他们也是<strong>同步的关系</strong>。</p>
+<p>这里只有生产者和消费者<strong>两个进程</strong>，正好两个进程存在着<strong>互斥关系</strong>和<strong>同步关系</strong>，我们就只需要解决互斥和同步的PV操作的位置</p>
+<p>信号量的设置，信号量<strong>mutex</strong>作为互斥信号量，用来互斥的访问缓冲区，<strong>初始值为1</strong>；信号量<strong>full</strong>用来记录当前缓冲区中消息的个数<strong>初始值为0</strong>，信号量<strong>empty</strong>用于记录当前缓冲区空的数量，<strong>初始值为n</strong></p>
+<p><strong>伪代码如下</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">semaphore mutex = <span class="number">1</span>;</span><br><span class="line">semaphore empty = n;</span><br><span class="line">semaphore full = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">producer</span>()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">        produce an item in nextp;</span><br><span class="line">        <span class="built_in">P</span>(empty);<span class="comment">// 要用到空的缓冲区,empty-=1.要用到什么就P一下</span></span><br><span class="line">        <span class="built_in">P</span>(mutex);<span class="comment">// 互斥加锁</span></span><br><span class="line">        add nextp to buffer; <span class="comment">// 行为，加入缓冲区</span></span><br><span class="line">        <span class="built_in">V</span>(mutex);<span class="comment">//互斥解锁</span></span><br><span class="line">        <span class="built_in">V</span>(full);<span class="comment">// 增加缓存区消息个数的记录值,提供什么就V一下,full+=1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">comsumer</span>()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">P</span>(full); <span class="comment">//若full不为0，消费掉一个消息</span></span><br><span class="line">        <span class="built_in">P</span>(mutex);<span class="comment">//互斥加锁</span></span><br><span class="line">        remove an item from buffer; (行为)</span><br><span class="line">        <span class="built_in">V</span>(mutex); <span class="comment">//互斥解锁</span></span><br><span class="line">        <span class="built_in">V</span>(empty);<span class="comment">//空的缓冲区单元加一</span></span><br><span class="line">        comsume the item; <span class="comment">// 消费数据</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-读者-写者问题"><a href="#2-读者-写者问题" class="headerlink" title="2. 读者-写者问题"></a>2. 读者-写者问题</h3><p><strong>问题描述</strong></p>
+<blockquote>
+<p>有读者和写者两组并发进程，共享一个文件，当两个或以上的读进程同时访问共享数据不会产生副作用，但某个写进程和其他进程同时访问共享数据时则会导致数据不一致的错误，因此要求①允许多个读者可以同时对文件执行读操作②只允许一个写者往文件里写信息③任一写者完成写操作之前不允许其他读者或写者工作④写者执行写操作之前，应让已有的读者和写者全部退出</p>
+</blockquote>
+<p><strong>问题分析</strong></p>
+<p>读者和写者是<strong>互斥关系</strong>，写者和写者也是<strong>互斥关系</strong>，而读者和读者之间<strong>不存在</strong>互斥关系</p>
+<p>一个两个进程读者和写者，写者是比较简单，他和任何进程互斥，用<strong>PV操作进程互斥</strong>就行。读者的问题比较复杂，他必须和写者互斥，同时和其他读者同步，这里简单的PV操作就不能解决了，我们再这里用一个<strong>计数器</strong>，用它来判断当前是否有读者读文件，当有读者时，写者无法写文件，此时读者就会一直占用文件，当没有读者时，写者才可以写文件，这里不同的读者对于计数器的访问也是<strong>互斥的</strong></p>
+<p>设置信号量count，记录读者的数量，初始值为0；设置mutex为互斥信号量，初始值为1;设置互斥信号量rw，用于读者和写者的互斥访问，初始值为1</p>
+<p><strong>伪代码如下:</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> count = <span class="number">0</span>; <span class="comment">//用于记录当前的读者数量</span></span><br><span class="line">semaphore mutex = <span class="number">1</span>;</span><br><span class="line">semaphore rw = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">writer</span>()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">    	<span class="built_in">P</span>(rw); <span class="comment">//互斥访问共享文件</span></span><br><span class="line">    	writing; <span class="comment">//写入数据信息</span></span><br><span class="line">    	<span class="built_in">v</span>(rw); <span class="comment">//释放共享文件</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">reader</span>()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">P</span>(mutex); <span class="comment">//互斥访问count变量</span></span><br><span class="line">        <span class="keyword">if</span>(count==<span class="number">0</span>)</span><br><span class="line">            <span class="built_in">P</span>(rw); <span class="comment">//阻止写进程写</span></span><br><span class="line">        count++; <span class="comment">//读者计数器+1</span></span><br><span class="line">        <span class="built_in">V</span>(mutex);<span class="comment">//释放互斥变量cout</span></span><br><span class="line">        reading; <span class="comment">//读取数据</span></span><br><span class="line">        <span class="built_in">P</span>(mutex); <span class="comment">//互斥访问cout变量</span></span><br><span class="line">        count--;</span><br><span class="line">        <span class="keyword">if</span>(count == <span class="number">0</span>) <span class="comment">//当最后一个进程完成了读操作</span></span><br><span class="line">            <span class="built_in">V</span>(rw); <span class="comment">//允许写进程写</span></span><br><span class="line">        <span class="built_in">V</span>(mutex); <span class="comment">//释放互斥变量count</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个算法是读优先的，如果读用户一直占用文件，写进程就无法写入，会出现“饥饿现象”,我们可以让写进程优先。我们只要加一对PV操作就行。</p>
+<h3 id="3-哲学家进餐问题"><a href="#3-哲学家进餐问题" class="headerlink" title="3. 哲学家进餐问题"></a>3. 哲学家进餐问题</h3><p><strong>问题描述</strong></p>
+<blockquote>
+<p>一张圆桌边上坐着五名哲学家，每两名哲学家之间的桌上摆着一根筷子，两根筷子之间试试一碗米饭。如图所示。哲学家们倾注精力去思考和进餐。哲学家在思考时并不影响他人。只有当哲学家在思考时，并不影响他人。只有当哲学家饥饿时才会试图拿起左右两根筷子才可以开始进餐，进餐完毕后，放下筷子继续思考。</p>
+</blockquote>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/20200816143512.png"></p>
+<p><strong>问题分析</strong></p>
+<p>5名哲学家和左右邻居对其中间的筷子是互斥关系</p>
+<p>显然，这里有五个进程。关键是如何让一名哲学家拿到左右两根筷子而不构成死锁或饥饿现象。解决办法有两个 ：</p>
+<ul>
+<li>让他们同时拿两根筷子</li>
+<li>对每名哲学家的动作制定规则，避免饥饿或死锁现象</li>
+</ul>
+<p>定义互斥信号量数组mutexs[5] &#x3D; {1,1,1,1,1},用于对5根筷子的互斥访问。哲学家编号按顺序为0~4，哲学家i左边的筷子为i，右边的筷子为(i+1)%5</p>
+<p><strong>初步实现代码如下</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">semaphonre mutexs[<span class="number">5</span>] = &#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;</span><br><span class="line"><span class="built_in">Pi</span>()&#123;</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        <span class="built_in">P</span>(mutexs[i]); <span class="comment">//取左边的筷子</span></span><br><span class="line">        <span class="built_in">P</span>(mutexs[(i+<span class="number">1</span>)%<span class="number">5</span>]); <span class="comment">//取右边的筷子</span></span><br><span class="line">        eat; <span class="comment">//进餐</span></span><br><span class="line">        <span class="built_in">V</span>(mutexs[i]);<span class="comment">//放回左边的筷子</span></span><br><span class="line">        <span class="built_in">V</span>(mutexs[(i+<span class="number">1</span>)%<span class="number">5</span>]); <span class="comment">//放回右边的筷子</span></span><br><span class="line">        thinking; <span class="comment">// 思考</span></span><br><span class="line">    &#125;<span class="keyword">while</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>改算法会出现当所有的哲学家都拿起左边的筷子就会出现循环等待的死锁现象。</p>
+<p>为了防止死锁，我们要对哲学家进餐加一些限制，比如至多允许四个哲学家同时进餐；仅当一名哲学家左右两边的筷子均可用时才允许他抓起筷子；对哲学家的顺序进行编号要求奇数号先拿起左边的筷子，然后拿右边的筷子，偶数号相反。</p>
+<p>我们使用第一个规则来看一下，设置一个新的信号量记录进餐人数persons,初始值为4</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">semaphonre mutexs[<span class="number">5</span>] = &#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;</span><br><span class="line">semaphonre persons = <span class="number">4</span>;</span><br><span class="line"><span class="built_in">Pi</span>()&#123;</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        <span class="built_in">P</span>(persons); <span class="comment">// 占用一个进餐的位置</span></span><br><span class="line">        <span class="built_in">P</span>(mutexs[i]); <span class="comment">//取左边的筷子</span></span><br><span class="line">        <span class="built_in">P</span>(mutexs[(i+<span class="number">1</span>)%<span class="number">5</span>]); <span class="comment">//取右边的筷子</span></span><br><span class="line">        eat; <span class="comment">//进餐</span></span><br><span class="line">        <span class="built_in">V</span>(mutexs[i]);<span class="comment">//放回左边的筷子</span></span><br><span class="line">        <span class="built_in">V</span>(mutexs[(i+<span class="number">1</span>)%<span class="number">5</span>]); <span class="comment">//放回右边的筷子</span></span><br><span class="line">        <span class="built_in">V</span>(persons); <span class="comment">//返还进餐的位置</span></span><br><span class="line">        thinking; <span class="comment">// 思考</span></span><br><span class="line">    &#125;<span class="keyword">while</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-吸烟者问题"><a href="#5-吸烟者问题" class="headerlink" title="5. 吸烟者问题"></a>5. 吸烟者问题</h3><p><strong>问题描述</strong></p>
+<blockquote>
+<p> 假设一个系统有三个抽烟者进程和一个供应者进程。每个抽烟者不停地卷烟并抽掉他，但要卷起一根烟，抽烟者需要三种材料：</p>
+<ul>
+<li>烟草</li>
+<li>纸</li>
+<li>胶水</li>
+</ul>
+<p>三个抽烟者种，第一个拥有烟草，第二个拥有纸，第三个拥有胶水。供应者无限制的供应这三种材料，供应者每次放两种材料放在桌子上，拥有剩下那种材料的抽烟者卷一根烟并把它抽掉，并给供应者一个信号告诉他已完成，此时供应者会将另外两种材料放到桌子上，如从重复</p>
+</blockquote>
+<p><strong>问题分析</strong></p>
+<p>供应者和三个抽烟者为同步关系。由于供应者无法满足两个或两个以上的抽烟者，所以三个抽烟者对于抽烟这个动作是互斥的。</p>
+<p>显然这里有四个进程，供应者作为生产者向三个抽烟者提供材料。</p>
+<p>信号量offer1,offer2,offer3分别表示烟草和纸,烟草和胶水，胶水和纸的组合资源。信号量finish表示互斥的抽烟完成</p>
+<p><strong>代码如下</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> random; <span class="comment">//存储随机数</span></span><br><span class="line">semaphore offer1 = <span class="number">0</span>;</span><br><span class="line">semaphore offer2 = <span class="number">0</span>;</span><br><span class="line">semaphore offer3 = <span class="number">0</span>;</span><br><span class="line">semaphore finish = <span class="number">0</span>;</span><br><span class="line"><span class="function">process <span class="title">P1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        random = <span class="built_in">random</span>(); <span class="comment">// 任意一个整数随机数</span></span><br><span class="line">        random %= <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">if</span>(random==<span class="number">0</span>)</span><br><span class="line">            <span class="built_in">V</span>(offer1); <span class="comment">//提供烟草和纸</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(random == <span class="number">1</span>)</span><br><span class="line">            <span class="built_in">V</span>(offer2); <span class="comment">// 提供烟草和胶水</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(random == <span class="number">2</span>)</span><br><span class="line">            <span class="built_in">V</span>(offer3); <span class="comment">//提供胶水和纸</span></span><br><span class="line">        put two items to desktop;</span><br><span class="line">        <span class="built_in">P</span>(finish); <span class="comment">//等待抽烟完成</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">process <span class="title">P2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">P</span>(offer3);</span><br><span class="line">        拿纸和胶水，卷成烟，抽掉;</span><br><span class="line">        <span class="built_in">V</span>(finish); <span class="comment">//通知抽掉了</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">process <span class="title">P3</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">P</span>(offer2);</span><br><span class="line">        拿烟草和胶水，卷成烟，抽掉;</span><br><span class="line">        <span class="built_in">V</span>(finish);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">process <span class="title">P4</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">P</span>(offer1);</span><br><span class="line">        拿烟草和纸，卷成烟，抽掉;</span><br><span class="line">        <span class="built_in">V</span>(finish);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2020/08/15/PV%E6%93%8D%E4%BD%9C%E5%8F%8A%E7%BB%8F%E5%85%B8%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98/" data-id="clmivdq82000rsjp67r6iaxa5" data-title="PV操作及经典同步问题" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-从零开始数据结构的生活（三）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2020/08/10/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E7%94%9F%E6%B4%BB%EF%BC%88%E4%B8%89%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2020-08-10T03:52:00.000Z" itemprop="datePublished">2020-08-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/zczb/">zczb</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2020/08/10/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E7%94%9F%E6%B4%BB%EF%BC%88%E4%B8%89%EF%BC%89/">从零开始数据结构的生活（三）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="从零开始数据结构的生活（三）"><a href="#从零开始数据结构的生活（三）" class="headerlink" title="从零开始数据结构的生活（三）"></a>从零开始数据结构的生活（三）</h1><h2 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h2><h3 id="一、栈"><a href="#一、栈" class="headerlink" title="一、栈"></a>一、栈</h3><h4 id="1-什么是栈"><a href="#1-什么是栈" class="headerlink" title="1.什么是栈"></a>1.什么是栈</h4><blockquote>
+<p>栈(Stack)是只允许在一端进行插入或删除操作的线性表。首先栈是一种线性表，但限定只能在某一端进行插入和删除操作。</p>
+</blockquote>
+<h4 id="2-简单栈的实现"><a href="#2-简单栈的实现" class="headerlink" title="2. 简单栈的实现"></a>2. 简单栈的实现</h4><h5 id="1-顺序栈的实现"><a href="#1-顺序栈的实现" class="headerlink" title="(1) 顺序栈的实现"></a>(1) 顺序栈的实现</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 顺序栈的实现</span></span><br><span class="line"><span class="comment"> * @author wangx</span></span><br><span class="line"><span class="comment"> * @date 2020/08/10</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MaxSize 50 <span class="comment">// 定义栈中元素的个数</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> ElemType; <span class="comment">// 定义栈中元素的类型</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> &#123;</span><br><span class="line">    ElemType data[MaxSize]; <span class="comment">//存放栈中元素</span></span><br><span class="line">    <span class="type">int</span> top;</span><br><span class="line">&#125; SqStack;</span><br><span class="line"><span class="comment">//初始化栈</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">(SqStack &amp;S)</span> </span>&#123;</span><br><span class="line">    S.top = <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//判断栈空</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">StackEmpty</span><span class="params">(SqStack S)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (S.top == <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>; <span class="comment">// 栈空</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// 栈不空</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//入栈</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Push</span><span class="params">(SqStack &amp;S,ElemType x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(S.top == MaxSize - <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// 栈满，入栈失败</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        S.data[++S.top]=x; <span class="comment">// 指针先加一，然后入栈，因为top=-1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>; <span class="comment">//入栈成功</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 出栈</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Pop</span><span class="params">(SqStack &amp;S,ElemType &amp;x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (S.top == <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// 栈空，报错</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        x = S.data[S.top--]; <span class="comment">// 先出栈，然后再把指针减一</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取栈顶元素</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">getTop</span><span class="params">(SqStack S, ElemType &amp;x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (S.top == <span class="number">-1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// 栈空报错</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        x = S.data[S.top];</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Hello, World!&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="2-栈的链式存储结构的实现"><a href="#2-栈的链式存储结构的实现" class="headerlink" title="(2) 栈的链式存储结构的实现"></a>(2) 栈的链式存储结构的实现</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> ElemType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">LinkNode</span>&#123;</span><br><span class="line">    ElemType data; <span class="comment">// 数据域</span></span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">LinkNode</span> *next; <span class="comment">// 指针域</span></span><br><span class="line">&#125; StackNode;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">LINKSTACK</span>&#123;</span><br><span class="line">    StackNode top;</span><br><span class="line">    <span class="type">int</span> size;</span><br><span class="line">&#125; LinkStack;</span><br><span class="line"></span><br><span class="line"><span class="function">LinkStack* <span class="title">Init</span><span class="params">()</span></span>&#123;</span><br><span class="line">    LinkStack* stack = (LinkStack*) <span class="built_in">malloc</span>(<span class="built_in">sizeof</span>(LinkStack));</span><br><span class="line">    stack-&gt;size = <span class="number">0</span>;</span><br><span class="line">    stack-&gt;top.next = <span class="literal">NULL</span>; </span><br><span class="line">    <span class="keyword">return</span> stack;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Push</span><span class="params">(LinkStack* S, LinkNode* data)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (S == <span class="literal">NULL</span>) <span class="keyword">return</span>; <span class="comment">// 栈未初始化</span></span><br><span class="line">    <span class="keyword">if</span> (data == <span class="literal">NULL</span>) <span class="keyword">return</span>; <span class="comment">//传入的数据无效</span></span><br><span class="line">    data-&gt;next = S-&gt;top.next;</span><br><span class="line">    S-&gt;top.next = data;</span><br><span class="line">    S-&gt;size++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">LinkNode* <span class="title">Pop</span><span class="params">(LinkStack* S)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (S == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">NULL</span>; <span class="comment">// 栈未初始化</span></span><br><span class="line">    <span class="keyword">if</span> (S-&gt;size == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">NULL</span>;<span class="comment">// 栈空</span></span><br><span class="line"></span><br><span class="line">    LinkNode* pNext = S-&gt;top.next; <span class="comment">// 第一个有效节点</span></span><br><span class="line">    S-&gt;top.next = pNext-&gt;next;</span><br><span class="line">    S-&gt;size--;</span><br><span class="line">    <span class="keyword">return</span> pNext;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">LinkNode* <span class="title">getTop</span><span class="params">(LinkStack* S)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (S == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">NULL</span>; <span class="comment">// 栈未初始化</span></span><br><span class="line">    <span class="keyword">if</span> (S-&gt;size == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">NULL</span>;<span class="comment">// 栈空</span></span><br><span class="line">    <span class="keyword">return</span> S-&gt;top.next;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回栈中元素的个数</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getSize</span><span class="params">(LinkStack* S)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (S == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> S-&gt;size;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//清空栈</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">cleanStack</span><span class="params">(LinkStack* S)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(S == <span class="literal">NULL</span>) <span class="keyword">return</span>;</span><br><span class="line">    S-&gt;top.next = <span class="literal">NULL</span>;</span><br><span class="line">    S-&gt;size = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//销毁栈</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">destoryStack</span><span class="params">(LinkStack* S)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (S == <span class="literal">NULL</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="built_in">free</span>(S);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    LinkStack* S = <span class="built_in">Init</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、队列"><a href="#二、队列" class="headerlink" title="二、队列"></a>二、队列</h3><h4 id="1、什么是队列"><a href="#1、什么是队列" class="headerlink" title="1、什么是队列"></a>1、什么是队列</h4><blockquote>
+<p>​	队列(Queue)简称队,也是一种操作受限的线性表，只允许在表的一端进行插入而在表的另一端进行删除。向队列插入元素称为入队或进队；删除元素称为出队或离队，这和我们日常生活中的排队是一致的，最早排队的最早离开，其操作的特性是先进先出(First In First Out FIFO)</p>
+</blockquote>
+<h4 id="2、队列的顺序存储结构的实现"><a href="#2、队列的顺序存储结构的实现" class="headerlink" title="2、队列的顺序存储结构的实现"></a>2、队列的顺序存储结构的实现</h4><h5 id="1-、简单的栈的顺序实现"><a href="#1-、简单的栈的顺序实现" class="headerlink" title="(1)、简单的栈的顺序实现"></a>(1)、简单的栈的顺序实现</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MaxSize 50</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> ElemType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span>&#123;</span><br><span class="line">    ElemType data[MaxSize]; <span class="comment">// 存放队列元素</span></span><br><span class="line">    <span class="type">int</span> front,rear; <span class="comment">//队头和队尾指针</span></span><br><span class="line">&#125;SqQueue;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">(SqQueue &amp;q)</span></span>&#123;</span><br><span class="line">    q.front=<span class="number">0</span>;</span><br><span class="line">    q.rear=<span class="number">0</span>;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//入队</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">push</span><span class="params">(SqQueue &amp;q, ElemType e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (q.rear == MaxSize) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    q.data[q.rear++] = e; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//出队</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">pop</span><span class="params">(SqQueue &amp;q, ElemType &amp;data)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (q.rear == q.front &amp;&amp; q.front == <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">//队空</span></span><br><span class="line">    data = q.data[q.front++];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    SqQueue q;</span><br><span class="line">    <span class="built_in">init</span>(q);</span><br><span class="line">    <span class="built_in">push</span>(q, <span class="number">10</span>);</span><br><span class="line">    <span class="type">int</span> data = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">pop</span>(q, data);</span><br><span class="line">    cout&lt;&lt; data &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-、循环队列"><a href="#2-、循环队列" class="headerlink" title="(2)、循环队列"></a>(2)、循环队列</h5><ul>
+<li>初始时: q.front&#x3D;q.rear&#x3D;0</li>
+<li>队首指针进1:q.front&#x3D;(q.front+1)%MaxSize</li>
+<li>队尾指针进1:q.rear&#x3D;(q.rear+1)%MaxSize</li>
+<li>队列长度: (q.rear + MaxSize-q.front)%MaxSize</li>
+</ul>
+<p><strong>区分队空和队满的三种处理方式</strong></p>
+<ul>
+<li>牺牲一个单元来区分队空和队满<ul>
+<li>队满条件: (q.rear+1)%MaxSize&#x3D;&#x3D;q.front</li>
+<li>队空条件: q.front&#x3D;&#x3D;q.rear</li>
+<li>队列中元素的个数:(q.rear-q.front+MaxSize) % MaxSize</li>
+</ul>
+</li>
+<li>类型中增设表示元素个数的数据成员<ul>
+<li>队空为: q.size &#x3D;&#x3D; 0</li>
+<li>队满条件: q.size &#x3D;&#x3D; MaxSize</li>
+<li>队列中元素个数:q.size</li>
+</ul>
+</li>
+<li>类型中增设tag数据元素来区分队满还是队空<ul>
+<li>tag&#x3D;0时若因删除导致的q.front&#x3D;q.rear，则队空</li>
+<li>tag&#x3D;1,若因插入导致的q.front&#x3D;q.rear,则队满</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2020/08/10/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E7%94%9F%E6%B4%BB%EF%BC%88%E4%B8%89%EF%BC%89/" data-id="clmivdq8r004tsjp6eupo4un8" data-title="从零开始数据结构的生活（三）" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-群辉公网IPV6无法访问的一个小问题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2020/08/01/%E7%BE%A4%E8%BE%89%E5%85%AC%E7%BD%91IPV6%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E9%97%AE%E9%A2%98/" class="article-date">
+  <time class="dt-published" datetime="2020-08-01T04:26:00.000Z" itemprop="datePublished">2020-08-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/zczb/">zczb</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2020/08/01/%E7%BE%A4%E8%BE%89%E5%85%AC%E7%BD%91IPV6%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E9%97%AE%E9%A2%98/">群辉公网IPV6无法访问的一个小问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/08/2004770825.png"></p>
+<p>将自动改为DHCPv6 PD<br><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/08/769499012.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2020/08/01/%E7%BE%A4%E8%BE%89%E5%85%AC%E7%BD%91IPV6%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E9%97%AE%E9%A2%98/" data-id="clmivdq8w005hsjp60dqzd3cg" data-title="群辉公网IPV6无法访问的一个小问题" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-从零开始数据结构的生活(二) " class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2020/07/31/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E7%94%9F%E6%B4%BB(%E4%BA%8C)%20/" class="article-date">
+  <time class="dt-published" datetime="2020-07-31T00:22:00.000Z" itemprop="datePublished">2020-07-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/zczb/">zczb</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2020/07/31/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E7%94%9F%E6%B4%BB(%E4%BA%8C)%20/">从零开始数据结构的生活(二)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="从零开始数据结构的生活-二"><a href="#从零开始数据结构的生活-二" class="headerlink" title="从零开始数据结构的生活(二)"></a>从零开始数据结构的生活(二)</h1><h2 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h2><h3 id="一、什么线性表"><a href="#一、什么线性表" class="headerlink" title="一、什么线性表"></a>一、什么线性表</h3><p>​    线性表就是具有<font color="red"><strong>相同的数据类型</strong></font>的n(n≥0)个元素的有限序列，除了表头和表尾都具有唯一的前驱和后继。</p>
+<h4 id="1-特点"><a href="#1-特点" class="headerlink" title="1.特点"></a>1.特点</h4><pre><code> - 个数有限
+ - 逻辑上拥有顺序性，表中元素有先后顺序
+ - 都是数据元素
+ - 数据类型相同  
+</code></pre>
+<h4 id="2-基本操作"><a href="#2-基本操作" class="headerlink" title="2.基本操作"></a>2.基本操作</h4><ul>
+<li>InitList(&amp;L): 初始化表。构建一个空的线性表</li>
+<li>Length(L): 求表长。</li>
+<li>LocateElem(L, e)：按值查找元素，e为要查找的值</li>
+<li>getElem(L,i)：按位查找操作。获取表L的第i个位置的元素的值</li>
+<li>ListInsert(&amp;L, i, e): 插入操作</li>
+<li>ListDelete(&amp;L, i, &amp;e)：删除操作</li>
+<li>PrintList(L): 输出操作。按前后顺序输出线性表L的所有元素值</li>
+<li>Empty(L)：判空操作</li>
+<li>DestoryList(&amp;L)：销毁操作</li>
+</ul>
+<h3 id="二、顺序表"><a href="#二、顺序表" class="headerlink" title="二、顺序表"></a>二、顺序表</h3><h4 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h4><p>​	以地址连续的存储单元依次存储线性表中的数据元素称为顺序表</p>
+<h4 id="2-特点"><a href="#2-特点" class="headerlink" title="2. 特点"></a>2. 特点</h4><ul>
+<li>随机访问，通过首元素和元素序号可以O(1)内找到指定元素</li>
+<li>存储密度高，每个节点只存储数据元素</li>
+<li>逻辑上和物理上元素都相邻，所以插入和删除操作需要移动大量的元素</li>
+</ul>
+<h3 id="四、链表"><a href="#四、链表" class="headerlink" title="四、链表"></a>四、链表</h3><h4 id="1-定义-1"><a href="#1-定义-1" class="headerlink" title="1. 定义"></a>1. 定义</h4><p>​	以链式存储的线性表称为单链表，除了表结点外还要有一个指向t后继的指针</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">typeof <span class="keyword">struct</span> <span class="title class_">LNode</span>&#123;    <span class="comment">//定义单链表结点类型</span></span><br><span class="line">    ElemTyppe data;     <span class="comment">//数据域</span></span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">LNode</span> *next; <span class="comment">//指针域</span></span><br><span class="line">&#125;LNode, *LinkList;</span><br></pre></td></tr></table></figure>
+
+<h5 id="带头结点的指针"><a href="#带头结点的指针" class="headerlink" title="带头结点的指针"></a>带头结点的指针</h5><p>​	<strong>优点</strong></p>
+<ul>
+<li>首结点的操作和其他操作一致，比如删除，插入等</li>
+<li>空和非空链表不用特殊处理，不是这样如果空要进行空间释放</li>
+</ul>
+<h4 id="2-单链表的实现"><a href="#2-单链表的实现" class="headerlink" title="2. 单链表的实现"></a>2. 单链表的实现</h4><ul>
+<li><p>采用头插法建立单链表</p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/20200731143819.png"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">LinkList <span class="title">List_HeadInsert</span><span class="params">(LinkList &amp;L)</span> </span>&#123;</span><br><span class="line">    LNode *s; <span class="type">int</span> x;</span><br><span class="line">    L = (LinkList)<span class="built_in">malloc</span>(<span class="built_in">sizeof</span>(LNode)); <span class="comment">//创建头结点</span></span><br><span class="line">    L-&gt;next = <span class="literal">NULL</span>; <span class="comment">//初始化空链表</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;x); <span class="comment">//输入结点的值</span></span><br><span class="line">    <span class="keyword">while</span>(x!=<span class="number">9999</span>)&#123; <span class="comment">//输入9999表示结束</span></span><br><span class="line">        s = (LNode*)<span class="built_in">malloc</span>(<span class="built_in">sizeof</span>(LNode)); <span class="comment">//创建新节点</span></span><br><span class="line">        s-&gt;data = x;</span><br><span class="line">        s-&gt;next = L-&gt;next; <span class="comment">//图中操作①</span></span><br><span class="line">        L-&gt;next = s; <span class="comment">//图中操作②</span></span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> L;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用头插法输入的元素是顺序相反的，你最早输入的在最后，最晚输入的最前面。每个结点插入的时间复杂度是O(1),设链表长为n,则总时间复杂度为O(n)。</p>
+</li>
+<li><p>采用尾插法建立单链表</p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/20200731150226.png"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">LinkList <span class="title">List_TailInsert</span><span class="params">(LinkList &amp;L)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> x;</span><br><span class="line">    L = (LinkList)<span class="built_in">malloc</span>(<span class="built_in">sizeof</span>(LNode));</span><br><span class="line">    LNode *s, *r = L; <span class="comment">//r为表尾指针</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;x);  <span class="comment">//输入结点的值</span></span><br><span class="line">    <span class="keyword">while</span>(x!=<span class="number">9999</span>) &#123;</span><br><span class="line">        s = (LNode *)<span class="built_in">malloc</span>(<span class="built_in">sizeof</span>(LNode));</span><br><span class="line">        s-&gt;data=x;</span><br><span class="line">        r-&gt;next=s;</span><br><span class="line">        r=s;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;x);</span><br><span class="line">    &#125;</span><br><span class="line">    r-&gt;next=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> L;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>按序号查找结点值</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">LNode *<span class="title">GetElem</span><span class="params">(LinkList L, <span class="type">int</span> i)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> j = <span class="number">1</span>; <span class="comment">// 计数初始值为1</span></span><br><span class="line">    LNode *p = L-&gt;next; <span class="comment">//头结点指针赋给p</span></span><br><span class="line">    <span class="keyword">if</span>(i==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> L; <span class="comment">//若i等于0，则返回头结点</span></span><br><span class="line">    <span class="keyword">if</span>(i&lt;<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>; <span class="comment">//若i无效，则返回NULL</span></span><br><span class="line">    <span class="keyword">while</span>(p&amp;&amp;j&lt;i) &#123;</span><br><span class="line">        p=p-&gt;next;</span><br><span class="line">        j++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> p; <span class="comment">//返回第i个结点的指针，若i大于表长返回NULL</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>按值查找结点值</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Lnode *<span class="title">LocateElem</span><span class="params">(LinkList L,ElemType e)</span></span>&#123;</span><br><span class="line">    LNode *p = L-&gt;next;</span><br><span class="line">    <span class="keyword">while</span>(p!=<span class="literal">NULL</span>&amp;&amp;p-&gt;data!=e) </span><br><span class="line">        p=p-&gt;next;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>插入结点操作</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">insertElem</span><span class="params">(LinkList &amp;L, <span class="type">int</span> i, LNode s)</span></span>&#123;</span><br><span class="line">    LNode *p = <span class="built_in">getElem</span>(L, i<span class="number">-1</span>);</span><br><span class="line">    s-&gt;next=p-&gt;next;</span><br><span class="line">    p=&gt;next=s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除结点操作</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">deleteElem</span><span class="params">(LinkList &amp;L,<span class="type">int</span> i)</span></span>&#123;</span><br><span class="line">    LNode *p = <span class="built_in">getElem</span>(L, i);</span><br><span class="line">    LNode *q = p-&gt;next;</span><br><span class="line">    p-&gt;next = q-&gt;next;</span><br><span class="line">    <span class="built_in">free</span>(q);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>求表长操作</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">lenLinkList</span><span class="params">(LinkList L)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n = <span class="number">0</span>;</span><br><span class="line">    LNode *p = L-&gt;next;</span><br><span class="line">    <span class="keyword">while</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">        n++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="3-双链表"><a href="#3-双链表" class="headerlink" title="3. 双链表"></a>3. 双链表</h4><p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/20200731162125.png"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">DNode</span>&#123;</span><br><span class="line">    ElemType data; <span class="comment">//数据域</span></span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">DNode</span> *prior, *next; <span class="comment">//前驱和后继指针</span></span><br><span class="line">&#125;DNode, *DLinkList;</span><br><span class="line"><span class="function">DNode <span class="title">getElem</span><span class="params">(<span class="type">int</span> i, DLinkList L)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> j = <span class="number">1</span>; <span class="comment">//计数</span></span><br><span class="line">    DNode *p = L-&gt;next;</span><br><span class="line">    <span class="keyword">if</span>(i==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> L;</span><br><span class="line">    <span class="keyword">if</span>(i&lt;<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">while</span>(p!=<span class="literal">NULL</span> &amp;&amp; j&lt;i) &#123;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//插入操作</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">insertDLinkList</span><span class="params">(DLinkList &amp;L, <span class="type">int</span> i,LNode s)</span> </span>&#123;</span><br><span class="line">    DNode *p = <span class="built_in">getElem</span>(i<span class="number">-1</span>,L);</span><br><span class="line">    s-&gt;next = p-&gt;next;</span><br><span class="line">    p-&gt;next-&gt;prior=s;</span><br><span class="line">    s-&gt;prior=p;</span><br><span class="line">    p-&gt;next=s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//删除操作</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">deleteDNode</span><span class="params">(DLinkList &amp;L,<span class="type">int</span> i)</span> </span>&#123;</span><br><span class="line">    DNode *p = <span class="built_in">getElem</span>(i, L);</span><br><span class="line">    DNode *q = p-&gt;next;</span><br><span class="line">    p-&gt;next = q-&gt;next;</span><br><span class="line">    q-&gt;next =-&gt;prior=p;</span><br><span class="line">    <span class="built_in">free</span>(q); <span class="comment">//释放空间结点</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="五、顺序表和链表的区别"><a href="#五、顺序表和链表的区别" class="headerlink" title="五、顺序表和链表的区别"></a>五、顺序表和链表的区别</h3><ul>
+<li>读写方式<ul>
+<li>顺序表可以顺序读取也可以随机读取</li>
+<li>链表只能顺序读取</li>
+</ul>
+</li>
+<li>逻辑结构和物理结构<ul>
+<li>顺序表逻辑结构上相邻，物理结构上也相邻连续</li>
+<li>链表逻辑结构上相邻，但物理结构上分散</li>
+</ul>
+</li>
+<li>查找、插入和删除操作<ul>
+<li>顺序表<ul>
+<li>按值查找有序时使用折半查找为O(logn),无序时为O(n)</li>
+<li>按序号查找为O(1)</li>
+<li>插入、删除均为O(n)</li>
+</ul>
+</li>
+<li>链表<ul>
+<li>按值和按序号均为O(n)</li>
+<li>插入和删除均为O(1)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>空间分配<ul>
+<li>顺序表：连续的一部分空间，会造成外部碎片，需要预分配，可能会溢出</li>
+<li>链表：不连续的空间，利用空间充分</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2020/07/31/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E7%94%9F%E6%B4%BB(%E4%BA%8C)%20/" data-id="clmivdq8r004qsjp676y2c1vn" data-title="从零开始数据结构的生活(二)" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-建兴Zeta SSD(主控 SM2246EN) 复活记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2020/07/27/%E5%BB%BA%E5%85%B4Zeta%20SSD(%E4%B8%BB%E6%8E%A7%20SM2246EN)%20%E5%A4%8D%E6%B4%BB%E8%AE%B0/" class="article-date">
+  <time class="dt-published" datetime="2020-07-27T04:34:00.000Z" itemprop="datePublished">2020-07-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/zczb/">zczb</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2020/07/27/%E5%BB%BA%E5%85%B4Zeta%20SSD(%E4%B8%BB%E6%8E%A7%20SM2246EN)%20%E5%A4%8D%E6%B4%BB%E8%AE%B0/">建兴Zeta SSD(主控 SM2246EN) 复活记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>####题记<br>有一天我的电脑的SSD格式化了几下突然就挂了，怎么也格式化不了并且插入电脑会造成死机啥的，然后他就被我抛弃了。然后我就买了一块新的硬盘，直到有一天我看到网上说可以重新开卡来解决我就想试一试，然后买了sata转usb的线和几根公对公的杜邦线</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li>短接这两个开启恢复模式(大概？我猜的)</li>
+</ol>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/07/128186638.png" alt="1.png"></p>
+<ol start="2">
+<li><p>打开开卡工具，这里我是用的是O1207a<br>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1TT94kUGIC8j4dO86fD5mlg">https://pan.baidu.com/s/1TT94kUGIC8j4dO86fD5mlg</a><br>提取码：dt97<br>这里是下载<br><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/07/44471046.png"></p>
+</li>
+<li><p>点击扫描<br><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/07/3419478272.png"></p>
+</li>
+<li><p>查看闪存是够正确</p>
+</li>
+</ol>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/07/703335120.png"></p>
+<ol start="5">
+<li><p>选择parameter<br><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/07/1240640241.png"></p>
+</li>
+<li><p>点击编辑<br><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/07/2762875848.png"></p>
+</li>
+<li><p>输入密码两个空格</p>
+</li>
+<li><p>配置<br><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/07/2565793558.png"></p>
+</li>
+</ol>
+<h3 id="我这里闪存选的是1G-380Mhz，闪存选错会报错-check-faild-啥的"><a href="#我这里闪存选的是1G-380Mhz，闪存选错会报错-check-faild-啥的" class="headerlink" title="我这里闪存选的是1G 380Mhz，闪存选错会报错,check faild 啥的"></a>我这里闪存选的是1G 380Mhz，闪存选错会报错,check faild 啥的</h3><ol start="9">
+<li>点击开卡<br><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/07/1346202724.png"></li>
+</ol>
+<h2 id="注意-我这里也是到最后报错run-isp-faild-但是依旧是开卡成功了"><a href="#注意-我这里也是到最后报错run-isp-faild-但是依旧是开卡成功了" class="headerlink" title="注意 我这里也是到最后报错run isp faild 但是依旧是开卡成功了"></a>注意 我这里也是到最后报错run isp faild 但是依旧是开卡成功了</h2><p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/07/3418718974.png"></p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/07/2100544485.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2020/07/27/%E5%BB%BA%E5%85%B4Zeta%20SSD(%E4%B8%BB%E6%8E%A7%20SM2246EN)%20%E5%A4%8D%E6%B4%BB%E8%AE%B0/" data-id="clmivdq8v005dsjp6dyfaeova" data-title="建兴Zeta SSD(主控 SM2246EN) 复活记" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【JVM系列】03-运行时数据区" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2020/05/06/%E3%80%90JVM%E7%B3%BB%E5%88%97%E3%80%9103-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA/" class="article-date">
+  <time class="dt-published" datetime="2020-05-05T18:59:29.000Z" itemprop="datePublished">2020-05-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/JVM/">JVM</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2020/05/06/%E3%80%90JVM%E7%B3%BB%E5%88%97%E3%80%9103-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA/">【JVM系列】03-运行时数据区</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="1-运行时数据区的结构"><a href="#1-运行时数据区的结构" class="headerlink" title="1. 运行时数据区的结构"></a>1. 运行时数据区的结构</h2><p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/05/1729374742.png"><br>每个JVM只对应一个Runtime实例</p>
+<h2 id="2-线程"><a href="#2-线程" class="headerlink" title="2. 线程"></a>2. 线程</h2><p>JVM虚拟机允许一个应用程序创建多个线程并行执行<br>在HotSpot JVM中，每个线程都和本地操作系统本地线程进行直接的映射</p>
+<h2 id="3-程序计数器"><a href="#3-程序计数器" class="headerlink" title="3.程序计数器"></a>3.程序计数器</h2><p>1).什么是程序计数器？</p>
+<blockquote>
+<p>JVM中的PC寄存器是物理机器上的PC寄存器的一个模拟,存放下一条指令的位置</p>
+</blockquote>
+<p>2).作用</p>
+<blockquote>
+<p>存储下一条指令的地址<br> ps:线程私有的,无GC，无OOM，其中native方法在PC中为undefined</p>
+</blockquote>
+<p>3)常见面试问题</p>
+<ul>
+<li><p>使用PC寄存器存储字节码指令地址有什么用?</p>
+<blockquote>
+<p>因为CPU在不断的切换进程，用PC寄存，就能在切换回来的时候知道从哪里继续执行程序</p>
+</blockquote>
+</li>
+<li><p>为什么PC寄存器是线程私有的</p>
+<blockquote>
+<p>若不是私有的就会导致指令错乱,可能在CPU切换的时候运行别人的指令</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="4-虚拟机栈"><a href="#4-虚拟机栈" class="headerlink" title="4.虚拟机栈"></a>4.虚拟机栈</h2><p>1).什么是虚拟机栈?</p>
+<blockquote>
+<p>主管Java程序的运行，它保存方法的局部变量，部分结果并参与方法的调用和返回</p>
+</blockquote>
+<p>2).栈帧</p>
+<blockquote>
+<p>虚拟机栈的基本单位，一个栈帧对于一个方法<br>ps: 虚拟机栈是线程私有的</p>
+</blockquote>
+<ul>
+<li>局部变量表</li>
+<li>操作数栈</li>
+<li>动态链接(指向运行时常量池的方法引用)</li>
+<li>方法返回地址(方法正常退出或异常退出的定义)</li>
+</ul>
+<p>3).开发中遇到那些异常?</p>
+<blockquote>
+<p>允许设置Java栈为固定值，若超过设置的最大容量就会发送StackOverflowError<br>若动态添加，在扩容内存大于能分配的内存的时候就会产生OutOfMemoryError</p>
+</blockquote>
+<p>4)设置参数</p>
+<blockquote>
+<p>-Xss 设置最大的栈大小<br>如-Xss 256k,默认大小约为linux 1024KB Mac 1024KB</p>
+</blockquote>
+<p>5). 一些附加信息</p>
+<blockquote>
+<p>①.局部变量表<br> 定义一个数字数组，主要用于存储方法参数和定义在方法体内的局部变量，这些数据包括基本数据类型，对象引用以及returnaddress类型，在编译时就确定下来了，不存在数据安全问题<br> 最基本的单位slot，32位以内的数据类型只占用一个slot，64位的占用2个slot<br> 在构造方法或者实例方法中会将对象引用this存放在index为0的slot中，其余参数按照顺序排序。<br> slot可以重复利用，局部变量使用前必须显式赋值</p>
+</blockquote>
+<p> <strong><font color="red">局部变量表是重要的GCRoot，只要被局部变量表直接或者间接引用的变量不会被GC回收</font></strong></p>
+<blockquote>
+<p>②.操作数栈<br> 基本单位为栈深度，数组实现的栈<br> 栈顶缓存技术，缓存在cpu的寄存器，降低内存的IO次数，提升执行引擎的效率</p>
+</blockquote>
+<blockquote>
+<p>③.动态链接<br> 在JVM中，将符号引用转换为调用方法的直接引用与方法绑定机制有关。</p>
+</blockquote>
+<ul>
+<li>动态链接<br>  只是在运行时可知，对应的方法绑定机制为:早期绑定和晚期绑定，绑定时一个字段、方法或者类的符号引用呗替换为直接引用的过程，这仅仅发生一次<ul>
+<li>早期绑定(如调用父类构造器)<br> 目标方法在编译器可知，在运行期不变</li>
+<li>晚期绑定(如父类调用方法等)<br>与之相反</li>
+</ul>
+</li>
+<li>静态链接<br> 一个字节码文件被转载如虚拟机时，如果被调用目标方法在编译器可知</li>
+</ul>
+<p><strong>具备多态性就具有早期绑定和晚期绑定两种方法</strong></p>
+<h2 id="5-虚方法和非虚方法"><a href="#5-虚方法和非虚方法" class="headerlink" title="5.虚方法和非虚方法"></a>5.虚方法和非虚方法</h2><p>1).非虚方法:方法在编译期间就确定好了调用版本，这个版本运行时是不可变的<br>  如：静态方法，私有方法，final方法，实例构造器，父类方法都是非虚方法<br>2).虚方法<br>其他方法均称为虚方法</p>
+<h2 id="6-方法重写的本质"><a href="#6-方法重写的本质" class="headerlink" title="6.方法重写的本质"></a>6.方法重写的本质</h2><p>step1.找到操作数栈栈顶的第一个元素所执行的对象实际类型记为C<br>step2.若类型C中找到常量中的描述符合并且简单名称都符合的方法，则进行访问权限校验，如果通过返回这个方法的直接引用，查找过程结束<br>step3.否则按照继承关系从下往上一次对各个父类进行搜索和验证过程<br>step4.始终未找到，则抛出java.lang.AbstarctMethodError</p>
+<p><font color='red'>每次调用都会进行这么一个过程，为了提升性能，JVM在类中方法区建立一个虚方法表，来用索引代替查找</font></p>
+<h2 id="方法返回地址"><a href="#方法返回地址" class="headerlink" title="方法返回地址"></a>方法返回地址</h2><p>1）作用</p>
+<blockquote>
+<p>存放该方法PCC寄存器的值</p>
+</blockquote>
+<p>2).方法结束的方式</p>
+<blockquote>
+<p>①正常执行完成<br>②出现未处理的异常</p>
+</blockquote>
+<p> 无论哪种方式退出在方法退出后都会返回到该方法被调用的位置，方法正常退出，调用者的PC寄存器的值作为返回地址，即调用下一条指令的地址。而异常退出，返回地址是通过异常表确定的，栈帧中一般不会保存这部分信息</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2020/05/06/%E3%80%90JVM%E7%B3%BB%E5%88%97%E3%80%9103-%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA/" data-id="clmivdq8c002csjp654cld3nu" data-title="【JVM系列】03-运行时数据区" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【JVM系列】02-类加载子系统" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2020/04/08/%E3%80%90JVM%E7%B3%BB%E5%88%97%E3%80%9102-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/" class="article-date">
+  <time class="dt-published" datetime="2020-04-08T06:24:12.000Z" itemprop="datePublished">2020-04-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/JVM/">JVM</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2020/04/08/%E3%80%90JVM%E7%B3%BB%E5%88%97%E3%80%9102-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/">【JVM系列】02-类加载子系统</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>#类加载子系统</p>
+<h2 id="一、类加载器和类加载过程"><a href="#一、类加载器和类加载过程" class="headerlink" title="一、类加载器和类加载过程"></a>一、类加载器和类加载过程</h2><ol>
+<li><p>从文件或者网络中加载Class文件，Class文件开头具有特性的标识。<br><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/04/2493225977.jpg" alt="Screenshot_20200408_214835.jpg"></p>
+</li>
+<li><p>类加载的过程<br>1）. 加载</p>
+</li>
+</ol>
+<ul>
+<li>通过一个类的全限定名获取定义此类的二进制字节流</li>
+<li>将这个字节流所代表的静态存储结构转化为方法去的运行时数据结构</li>
+<li><font color=red>在内存中生成一个代表这个类的java.lang.class对象</font>作为方法去这个类的各种数据的访问入口</li>
+</ul>
+<p>2）.链接</p>
+<ul>
+<li><p>验证（verify）：保证Class的正确性，均由CAFEBABE开头</p>
+</li>
+<li><p>准备：为类变量分配内存，并且设置变量默认初始值<br>ps：这里不包含final修饰的static变量。因为他们在编译的时候就被分配了内存，准备阶段会显式初始化。<br>ps2:这里不会为实际变量初始化，实际变量和对象一起在堆中进行内存分配</p>
+</li>
+<li><p>解析 将常量池内的符号引用转换为直接引用</p>
+</li>
+</ul>
+<p> 3）.初始化</p>
+<ul>
+<li>初始化阶段就是执行类构造器方法<clinit>()的过程</li>
+<li>构造指令由出现顺序执行</li>
+</ul>
+<p> <font color=red>非法的前项引用，无static不会生成<clinit>方法</font><br> <init>为构造器，任何一个类至少有一个构造器，虚拟机必须保证一个类的<clinit>()方法在多线程下是同步加锁的。</p>
+<h2 id="二、类加载器的分类"><a href="#二、类加载器的分类" class="headerlink" title="二、类加载器的分类"></a>二、类加载器的分类</h2><p> 1.启动类加载器(BootstrapClassLoader)</p>
+<ul>
+<li>这个类加载器使用<font color=red>C&#x2F;C++</font>编写，嵌套在JVM内部，用来加载Java核心库，并不继承自java.lang.ClassLoader,无父加载器</li>
+</ul>
+<ol start="2">
+<li>拓展类加载器(ExtClassLoader)</li>
+</ol>
+<ul>
+<li>Java编写，派生自ClassLoader类，从java.ext.dirs或jre&#x2F;lib&#x2F;ext中加载</li>
+</ul>
+<ol start="3">
+<li>系统类加载器(AppClassLoader)</li>
+</ol>
+<ul>
+<li>默认的类加载器，父类为拓展类加载器，从CLASSPATH中加载</li>
+</ul>
+<ol start="4">
+<li>用户自定义类加载器<br> 在必要时才需要比如:①隔离加载类②修改加载方式③拓展加载源④防止源码泄露（加密，解密）<br> 写一个用户自定义加载类的方法：<br> step1 继承ClassLoader类<br> step2 重写findClass方法<br> ps若无特殊情况可以继承URLClassLoader</li>
+</ol>
+<h2 id="三、双亲委派机制"><a href="#三、双亲委派机制" class="headerlink" title="三、双亲委派机制"></a>三、双亲委派机制</h2><p> 作用：①避免类重复加载②保护程序安全，防止核心api被篡改。（引导类加载器会优先加载jdk的api）<br> 过程：<br> <img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/04/2447644365.jpg" alt="Screenshot_20200408_222135.jpg"><br> 类加载器收到加载请求会向上委派知道引导类加载器若父加载器能够完成任务则返回结束，若无法完成任务加载，子加载器才会进行加载</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2020/04/08/%E3%80%90JVM%E7%B3%BB%E5%88%97%E3%80%9102-%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%AD%90%E7%B3%BB%E7%BB%9F/" data-id="clmivdq8c0029sjp609n54ocu" data-title="【JVM系列】02-类加载子系统" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【LeetCode】166. 分数到小数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2020/04/08/%E3%80%90LeetCode%E3%80%91166.%20%E5%88%86%E6%95%B0%E5%88%B0%E5%B0%8F%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2020-04-07T19:41:00.000Z" itemprop="datePublished">2020-04-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/LeetCode/">LeetCode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2020/04/08/%E3%80%90LeetCode%E3%80%91166.%20%E5%88%86%E6%95%B0%E5%88%B0%E5%B0%8F%E6%95%B0/">【LeetCode】166. 分数到小数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="166-分数到小数"><a href="#166-分数到小数" class="headerlink" title="166. 分数到小数"></a>166. 分数到小数</h1><blockquote>
+<p>给定两个整数，分别表示分数的分子 numerator 和分母 denominator，以字符串形式返回小数。</p>
+</blockquote>
+<blockquote>
+<p>如果小数部分为循环小数，则将循环的部分括在括号内。</p>
+</blockquote>
+<blockquote>
+<p>示例 1:</p>
+</blockquote>
+<blockquote>
+<p>输入: numerator &#x3D; 1, denominator &#x3D; 2<br>输出: “0.5”<br>示例 2:</p>
+</blockquote>
+<blockquote>
+<p>输入: numerator &#x3D; 2, denominator &#x3D; 1<br>输出: “2”<br>示例 3:</p>
+</blockquote>
+<blockquote>
+<p>输入: numerator &#x3D; 2, denominator &#x3D; 3<br>输出: “0.(6)”</p>
+</blockquote>
+<blockquote>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/fraction-to-recurring-decimal">https://leetcode-cn.com/problems/fraction-to-recurring-decimal</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+</blockquote>
+<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><p>刚开始我看到这题非常的乱，做了将近40分钟都没做出来，我只想着把他变成小数然后toString，其实想想也是可以的emm，但是还是比较麻烦要判断的条件比较多。后面看了大佬的题解瞬间我升华了（蒟蒻本蒻就是我了）</p>
+<h4 id="敲黑板！！！"><a href="#敲黑板！！！" class="headerlink" title="敲黑板！！！"></a>敲黑板！！！</h4><p>首先我们要认知到所有整数相除除不尽的都是循环小数。<br>然后我们只要分三种情况就行：</p>
+<ol>
+<li>除的尽的，无小数部分</li>
+<li>除的尽的，有小数部分</li>
+<li>除不尽的</li>
+</ol>
+<p>判断重复部分我们可以用HashMap来实现。<br>然后我们要使用模拟竖式运算来求</p>
+<p>$$ \begin{array}{rll}↵ 0.16 \ 6 {\overline{\smash{\big)},1.00}} \[-1pt] \underline{0\phantom{.00}} \[-1pt] 1\phantom{.}0 \phantom{0} &amp;&amp; …\ 余数为\ 1，标记\ 1\ 出现在位置\ 0。\[-1pt] \underline{\phantom{0}6\phantom{0}} \[-1pt] \phantom{0}40 &amp;&amp; …\ 余数为\ 4，标记\ 4\ 出现在位置\ 1。\[-1pt]↵\underline{\phantom{0}36} \[-1pt] \phantom{00}4 &amp;&amp; …\ 余数为\ 4，在位置\ 1\ 出现过，所以循环节从位置\ 1\ 开始，为\ 1(6)。\[-1pt] \end{array} $$</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> String <span class="title function_">fractionToDecimal</span><span class="params">(<span class="type">int</span> numerator, <span class="type">int</span> denominator)</span> &#123;</span><br><span class="line">        <span class="type">long</span> <span class="variable">num</span> <span class="operator">=</span> numerator;</span><br><span class="line">        <span class="type">long</span> <span class="variable">den</span> <span class="operator">=</span> denominator;</span><br><span class="line">        <span class="type">String</span> <span class="variable">sign</span>  <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="comment">//确定符号</span></span><br><span class="line">        <span class="keyword">if</span> (num &gt; <span class="number">0</span> &amp;&amp; den &lt; <span class="number">0</span> || num &lt; <span class="number">0</span> &amp;&amp; den &gt; <span class="number">0</span> ) &#123;</span><br><span class="line">            sign  = <span class="string">&quot;-&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//转为正数</span></span><br><span class="line">        num = Math.abs(num);</span><br><span class="line">        den = Math.abs(den);</span><br><span class="line">        <span class="comment">//记录整数部分</span></span><br><span class="line">        <span class="type">long</span> <span class="variable">integer</span> <span class="operator">=</span> num / den;</span><br><span class="line">        <span class="comment">//计算余数</span></span><br><span class="line">        num = num - integer * den;</span><br><span class="line">        HashMap&lt;Long, Integer&gt; hashMap = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">decimal</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>; <span class="comment">//记录小数部分</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">repeatIndex</span> <span class="operator">=</span> -<span class="number">1</span>;<span class="comment">//保存重复的位置</span></span><br><span class="line">        <span class="keyword">while</span> (num!=<span class="number">0</span>)&#123;</span><br><span class="line">             num *= <span class="number">10</span>;</span><br><span class="line">             <span class="keyword">if</span> (hashMap.containsKey(num)) &#123;</span><br><span class="line">                 repeatIndex = hashMap.get(num);</span><br><span class="line">                 <span class="keyword">break</span>;</span><br><span class="line">             &#125;</span><br><span class="line">             hashMap.put(num, index);</span><br><span class="line">             <span class="type">long</span> <span class="variable">decimalPlace</span> <span class="operator">=</span> num / den;</span><br><span class="line">             decimal = decimal + decimalPlace;</span><br><span class="line">             num = num - decimalPlace * den;</span><br><span class="line">             index++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (repeatIndex != -<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> sign + integer + <span class="string">&quot;.&quot;</span> + decimal.substring(<span class="number">0</span>, repeatIndex) + <span class="string">&quot;(&quot;</span> + decimal.substring(repeatIndex)+<span class="string">&quot;)&quot;</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (decimal.equals(<span class="string">&quot;&quot;</span>)) &#123;</span><br><span class="line">                <span class="keyword">return</span> sign + integer;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> sign + integer + <span class="string">&quot;.&quot;</span> +decimal;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2020/04/08/%E3%80%90LeetCode%E3%80%91166.%20%E5%88%86%E6%95%B0%E5%88%B0%E5%B0%8F%E6%95%B0/" data-id="clmivdq8e002lsjp60aoeg9s4" data-title="【LeetCode】166. 分数到小数" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/blog./page/5/">&laquo; zurück</a><a class="page-number" href="/blog./">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog./page/4/">4</a><a class="page-number" href="/blog./page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/blog./page/7/">7</a><a class="page-number" href="/blog./page/8/">8</a><a class="extend next" rel="next" href="/blog./page/7/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JUC/">JUC</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JVM/">JVM</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/LeetCode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/bxjs/">bxjs</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/cuda/">cuda</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/default/">default</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/dsbj/">dsbj</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/jvmbook/">jvmbook</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/muban/">muban</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/selfdriving/">selfdriving</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/youji/">youji</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/zczb/">zczb</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/OpenCDA/" rel="tag">OpenCDA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/V2X/" rel="tag">V2X</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/%E6%91%84%E5%BD%B1/" rel="tag">摄影</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog./tags/OpenCDA/" style="font-size: 10px;">OpenCDA</a> <a href="/blog./tags/V2X/" style="font-size: 10px;">V2X</a> <a href="/blog./tags/%E6%91%84%E5%BD%B1/" style="font-size: 10px;">摄影</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog./2023/09/14/OpenCDA%20V2X%E9%80%9A%E4%BF%A1%E7%9B%B8%E5%85%B3/">OpenCDA V2X通信相关</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/28/%E5%8F%A4%E6%9C%B4%E9%9F%B5%E5%91%B3%E4%B8%8E%E8%8D%92%E9%87%8E%E4%B9%8B%E7%BE%8E%20-------%20%E8%A5%BF%E5%AE%89%E3%80%81%E9%9D%92%E6%B5%B7%E4%B9%8B%E6%97%85/">古朴韵味与荒野之美 ------- 西安、青海之旅</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/03/%E3%80%90OpenCDA%E3%80%91%E7%AE%97%E6%B3%95%E5%AE%9A%E5%88%B6%E5%8C%96%E5%BC%80%E5%8F%91/">【OpenCDA】算法定制化开发</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/01/zlib%20404/">zlib 404</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/07/19/V2X%E5%9C%BA%E6%99%AF%E5%8F%91%E5%B1%95%E5%92%8C%E4%BB%BF%E7%9C%9F/">V2X场景发展和仿真</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 wangxso<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog./" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog./archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog./js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/blog./fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog./js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

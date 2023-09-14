@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>非典型程序员的一生</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="程序员 | 工程师 | 摄影爱好者 | 骑行客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="非典型程序员的一生">
+<meta property="og:url" content="https://wangxso.github.io/blog./page/8/index.html">
+<meta property="og:site_name" content="非典型程序员的一生">
+<meta property="og:description" content="程序员 | 工程师 | 摄影爱好者 | 骑行客">
+<meta property="og:locale">
+<meta property="article:author" content="wangxso">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog./atom.xml" title="非典型程序员的一生" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog./favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog./css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog./fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog./" id="logo">非典型程序员的一生</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/blog./">Home</a>
+        
+          <a class="main-nav-link" href="/blog./archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/blog./atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wangxso.github.io/blog."></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-【转载】ClassNotFoundException和NoClassDefFoundError的区别" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2019/10/22/%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91ClassNotFoundException%E5%92%8CNoClassDefFoundError%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
+  <time class="dt-published" datetime="2019-10-22T05:08:00.000Z" itemprop="datePublished">2019-10-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2019/10/22/%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91ClassNotFoundException%E5%92%8CNoClassDefFoundError%E7%9A%84%E5%8C%BA%E5%88%AB/">【转载】ClassNotFoundException和NoClassDefFoundError的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>作者：Duke2016<br>　　　　<br>出处：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/duke2016/">http://www.cnblogs.com/duke2016/</a><br>　　　　<br>本文版权归作者和博客园共有，欢迎转载，但未经作者同意必须保留此段声明，且在文章页面明显位置给出原文连接，否则保留追究法律责任的权利。</p>
+<table>
+<thead>
+<tr>
+<th>ClassNotFoundException</th>
+<th>NoClassDefFoundError</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>从java.lang.Exception继承，是一个Exception类型</td>
+<td>从java.lang.Error继承，是一个Error类型</td>
+</tr>
+<tr>
+<td>当动态加载Class的时候找不到类会抛出该异常</td>
+<td>当编译成功以后执行过程中Class找不到导致抛出该错误</td>
+</tr>
+<tr>
+<td>一般在执行Class.forName()、ClassLoader.loadClass()或ClassLoader.findSystemClass()的时候抛出</td>
+<td>由JVM的运行时系统抛出</td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2019/10/22/%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91ClassNotFoundException%E5%92%8CNoClassDefFoundError%E7%9A%84%E5%8C%BA%E5%88%AB/" data-id="clmivdq8q004jsjp6915n869w" data-title="【转载】ClassNotFoundException和NoClassDefFoundError的区别" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【JDK8 源码】LinkedList" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2019/10/22/%E3%80%90JDK8%20%E6%BA%90%E7%A0%81%E3%80%91LinkedList/" class="article-date">
+  <time class="dt-published" datetime="2019-10-22T04:44:15.000Z" itemprop="datePublished">2019-10-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/default/">default</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2019/10/22/%E3%80%90JDK8%20%E6%BA%90%E7%A0%81%E3%80%91LinkedList/">【JDK8 源码】LinkedList</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="三、LinkedList"><a href="#三、LinkedList" class="headerlink" title="三、LinkedList"></a>三、LinkedList</h1><p>底层是由双向链表实现的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Node</span>&lt;E&gt; &#123;</span><br><span class="line">        E item;</span><br><span class="line">        Node&lt;E&gt; next;</span><br><span class="line">        Node&lt;E&gt; prev;</span><br><span class="line"></span><br><span class="line">        Node(Node&lt;E&gt; prev, E element, Node&lt;E&gt; next) &#123;</span><br><span class="line">            <span class="built_in">this</span>.item = element;</span><br><span class="line">            <span class="built_in">this</span>.next = next;</span><br><span class="line">            <span class="built_in">this</span>.prev = prev;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>相当于一个结构体</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line">    e item;</span><br><span class="line">    node *next;</span><br><span class="line">    node *prev;</span><br><span class="line">&#125;node;</span><br></pre></td></tr></table></figure>
+
+<p>有了头结点，其他的数据我们都可以获取得到了</p>
+<h2 id="3-1-构造方法"><a href="#3-1-构造方法" class="headerlink" title="3.1 构造方法"></a>3.1 构造方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Constructs an empty list.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">LinkedList</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Constructs a list containing the elements of the specified</span></span><br><span class="line"><span class="comment">     * collection, in the order they are returned by the collection&#x27;s</span></span><br><span class="line"><span class="comment">     * iterator.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span>  c the collection whose elements are to be placed into this list</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> NullPointerException if the specified collection is null</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">LinkedList</span><span class="params">(Collection&lt;? extends E&gt; c)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>();</span><br><span class="line">        addAll(c);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>一共两个构造方法，一个空构造方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">addAll</span><span class="params">(<span class="type">int</span> index, Collection&lt;? extends E&gt; c)</span> &#123;</span><br><span class="line">        checkPositionIndex(index);</span><br><span class="line"></span><br><span class="line">        Object[] a = c.toArray(); <span class="comment">//将c转换为数组</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">numNew</span> <span class="operator">=</span> a.length;<span class="comment">//存储a的长度</span></span><br><span class="line">        <span class="keyword">if</span> (numNew == <span class="number">0</span>)<span class="comment">//如果没有元素返回false</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        Node&lt;E&gt; pred, succ; <span class="comment">//创建节点</span></span><br><span class="line">        <span class="keyword">if</span> (index == size) &#123;<span class="comment">//如果index刚好等于链表大小，存入最后一个</span></span><br><span class="line">            succ = <span class="literal">null</span>;</span><br><span class="line">            pred = last;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            succ = node(index);</span><br><span class="line">            pred = succ.prev;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (Object o : a) &#123;</span><br><span class="line">            <span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span> <span class="type">E</span> <span class="variable">e</span> <span class="operator">=</span> (E) o;</span><br><span class="line">            Node&lt;E&gt; newNode = <span class="keyword">new</span> <span class="title class_">Node</span>&lt;&gt;(pred, e, <span class="literal">null</span>);</span><br><span class="line">            <span class="keyword">if</span> (pred == <span class="literal">null</span>)</span><br><span class="line">                first = newNode;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                pred.next = newNode;</span><br><span class="line">            pred = newNode;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (succ == <span class="literal">null</span>) &#123;</span><br><span class="line">            last = pred;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            pred.next = succ;</span><br><span class="line">            succ.prev = pred;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        size += numNew;</span><br><span class="line">        modCount++;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-2-add-int-index-E-element"><a href="#3-2-add-int-index-E-element" class="headerlink" title="3.2 add(int index, E element)"></a>3.2 add(int index, E element)</h2><ul>
+<li>add实际上就是往链表的最后添加元素</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> index, E element)</span> &#123;</span><br><span class="line">        checkPositionIndex(index);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (index == size)</span><br><span class="line">            linkLast(element);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            linkBefore(element, node(index));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-3-remove方法"><a href="#3-3-remove方法" class="headerlink" title="3.3 remove方法"></a>3.3 remove方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">remove</span><span class="params">(Object o)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (o == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (Node&lt;E&gt; x = first; x != <span class="literal">null</span>; x = x.next) &#123;</span><br><span class="line">                <span class="keyword">if</span> (x.item == <span class="literal">null</span>) &#123;</span><br><span class="line">                    unlink(x);<span class="comment">//删除元素</span></span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (Node&lt;E&gt; x = first; x != <span class="literal">null</span>; x = x.next) &#123;</span><br><span class="line">                <span class="keyword">if</span> (o.equals(x.item)) &#123;<span class="comment">//删除元素，看看元素是否在里面</span></span><br><span class="line">                    unlink(x);</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//*********************unlike******************</span></span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Unlinks non-null node x.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    E <span class="title function_">unlink</span><span class="params">(Node&lt;E&gt; x)</span> &#123;</span><br><span class="line">        <span class="comment">// assert x != null;</span></span><br><span class="line">        <span class="keyword">final</span> <span class="type">E</span> <span class="variable">element</span> <span class="operator">=</span> x.item;</span><br><span class="line">        <span class="keyword">final</span> Node&lt;E&gt; next = x.next;</span><br><span class="line">        <span class="keyword">final</span> Node&lt;E&gt; prev = x.prev;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (prev == <span class="literal">null</span>) &#123;</span><br><span class="line">            first = next;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            prev.next = next;</span><br><span class="line">            x.prev = <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (next == <span class="literal">null</span>) &#123;</span><br><span class="line">            last = prev;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            next.prev = prev;</span><br><span class="line">            x.next = <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        x.item = <span class="literal">null</span>;</span><br><span class="line">        size--;</span><br><span class="line">        modCount++;</span><br><span class="line">        <span class="keyword">return</span> element;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/blog./home/wangx/%E7%AC%94%E8%AE%B0/img/1571559251341.png" alt="1571559251341"></p>
+<p>相当于这张图</p>
+<h2 id="3-4-get方法"><a href="#3-4-get方法" class="headerlink" title="3.4 get方法"></a>3.4 get方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> E <span class="title function_">get</span><span class="params">(<span class="type">int</span> index)</span> &#123;</span><br><span class="line">        checkElementIndex(index);</span><br><span class="line">        <span class="keyword">return</span> node(index).item;</span><br><span class="line">    &#125;</span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Returns the (non-null) Node at the specified element index.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    Node&lt;E&gt; <span class="title function_">node</span><span class="params">(<span class="type">int</span> index)</span> &#123;</span><br><span class="line">        <span class="comment">// assert isElementIndex(index);</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (index &lt; (size &gt;&gt; <span class="number">1</span>)) &#123;<span class="comment">//下标小于长度的一般就从头遍历</span></span><br><span class="line">            Node&lt;E&gt; x = first;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; index; i++)</span><br><span class="line">                x = x.next;</span><br><span class="line">            <span class="keyword">return</span> x;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            Node&lt;E&gt; x = last;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> size - <span class="number">1</span>; i &gt; index; i--)<span class="comment">//否则从尾部开始遍历</span></span><br><span class="line">                x = x.prev;</span><br><span class="line">            <span class="keyword">return</span> x;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-5-set方法"><a href="#3-5-set方法" class="headerlink" title="3.5 set方法"></a>3.5 set方法</h2><blockquote>
+<p>set方法和get方法其实差不多，<strong>根据下标来判断是从头遍历还是从尾遍历</strong></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> E <span class="title function_">set</span><span class="params">(<span class="type">int</span> index, E element)</span> &#123;</span><br><span class="line">        checkElementIndex(index);</span><br><span class="line">        Node&lt;E&gt; x = node(index);</span><br><span class="line">        <span class="type">E</span> <span class="variable">oldVal</span> <span class="operator">=</span> x.item;</span><br><span class="line">        x.item = element;</span><br><span class="line">        <span class="keyword">return</span> oldVal;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-6-总结"><a href="#3-6-总结" class="headerlink" title="3.6 总结"></a>3.6 总结</h2><ul>
+<li>LInkedLIst的实质是一个双向链表</li>
+<li>LikedList是非线程安全的</li>
+<li><strong>查询多用ArrayList，增删多用LinkedList。</strong></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2019/10/22/%E3%80%90JDK8%20%E6%BA%90%E7%A0%81%E3%80%91LinkedList/" data-id="clmivdq89001usjp6gd46ez10" data-title="【JDK8 源码】LinkedList" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【JDK8 源码】Vector" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2019/10/22/%E3%80%90JDK8%20%E6%BA%90%E7%A0%81%E3%80%91Vector/" class="article-date">
+  <time class="dt-published" datetime="2019-10-22T04:39:00.000Z" itemprop="datePublished">2019-10-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2019/10/22/%E3%80%90JDK8%20%E6%BA%90%E7%A0%81%E3%80%91Vector/">【JDK8 源码】Vector</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="二、Vector"><a href="#二、Vector" class="headerlink" title="二、Vector"></a>二、Vector</h1><p>Vector是jdk1.2的类，比较老旧的一个集合类</p>
+<blockquote>
+<p>Vector底层也是数组，与ArrayList最大的区别就是：<strong>同步(线程安全)</strong></p>
+</blockquote>
+<p>Vector是同步的<img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2019/10/3082567298.png" alt="1571558154066.png"></p>
+<p>我们可以看见这几个方法都是synchronized的。</p>
+<p>在要求非同步的情况下我们可以用ArrayList来替代Vector</p>
+<p>如果想要ArrayList实现同步我们就需要调用collections的方法</p>
+<blockquote>
+<p>List list &#x3D; Collections.synchronizedList(new ArrayList(…));</p>
+</blockquote>
+<p>来实现同步</p>
+<p>还有一个区别就是</p>
+<ul>
+<li>ArratLIst在不够用的时候实在原来基础上拓展0.5倍，而Vector是一倍。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">grow</span><span class="params">(<span class="type">int</span> minCapacity)</span> &#123;</span><br><span class="line">       <span class="comment">// overflow-conscious code</span></span><br><span class="line">       <span class="type">int</span> <span class="variable">oldCapacity</span> <span class="operator">=</span> elementData.length;</span><br><span class="line">       <span class="type">int</span> <span class="variable">newCapacity</span> <span class="operator">=</span> oldCapacity + ((capacityIncrement &gt; <span class="number">0</span>) ?</span><br><span class="line">                                        capacityIncrement : oldCapacity);</span><br><span class="line">       <span class="keyword">if</span> (newCapacity - minCapacity &lt; <span class="number">0</span>)</span><br><span class="line">           newCapacity = minCapacity;</span><br><span class="line">       <span class="keyword">if</span> (newCapacity - MAX_ARRAY_SIZE &gt; <span class="number">0</span>)</span><br><span class="line">           newCapacity = hugeCapacity(minCapacity);</span><br><span class="line">       elementData = Arrays.copyOf(elementData, newCapacity);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>底层是数组，现在很少用，已经被ArrayLIst替代，原因有两个<ul>
+<li>Vector的所有方法都是同步的，有性能损失</li>
+<li>Vector出事话length是10超过length是会以100%的比率增加，相比ArrayList更加小号内存</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2019/10/22/%E3%80%90JDK8%20%E6%BA%90%E7%A0%81%E3%80%91Vector/" data-id="clmivdq89001xsjp63xs647xx" data-title="【JDK8 源码】Vector" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【JDK8 源码】ArrayList" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2019/10/20/%E3%80%90JDK8%20%E6%BA%90%E7%A0%81%E3%80%91ArrayList/" class="article-date">
+  <time class="dt-published" datetime="2019-10-20T00:25:00.000Z" itemprop="datePublished">2019-10-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2019/10/20/%E3%80%90JDK8%20%E6%BA%90%E7%A0%81%E3%80%91ArrayList/">【JDK8 源码】ArrayList</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="一、ArrayList"><a href="#一、ArrayList" class="headerlink" title="一、ArrayList"></a>一、ArrayList</h1><p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2019/10/921275579.png" alt="TIM图片20191020150648.png"></p>
+<p>我们可以发现ArrayLIst的底层是一个数组，其中友谊个扩容的概念，正式因为他，所以ArrayList，才能实现动态增长</p>
+<h2 id="1-1-构造方法"><a href="#1-1-构造方法" class="headerlink" title="1.1 构造方法"></a>1.1 构造方法</h2><hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Constructs an empty list with the specified initial capacity.</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span>  initialCapacity  the initial capacity of the list</span></span><br><span class="line"><span class="comment">* <span class="doctag">@throws</span> IllegalArgumentException if the specified initial capacity</span></span><br><span class="line"><span class="comment">*         is negative</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="title function_">ArrayList</span><span class="params">(<span class="type">int</span> initialCapacity)</span> &#123;</span><br><span class="line"><span class="keyword">if</span> (initialCapacity &gt; <span class="number">0</span>) &#123;</span><br><span class="line"><span class="built_in">this</span>.elementData = <span class="keyword">new</span> <span class="title class_">Object</span>[initialCapacity]; <span class="comment">//指定了容量就初始化为指定容量的数组</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (initialCapacity == <span class="number">0</span>) &#123;</span><br><span class="line"><span class="built_in">this</span>.elementData = EMPTY_ELEMENTDATA;<span class="comment">//如果指定的为0，就返回一个空集合</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"><span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&quot;Illegal Capacity: &quot;</span>+</span><br><span class="line">initialCapacity);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * Constructs an empty list with an initial capacity of ten.</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">ArrayList</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="comment">//空构造函数就返回一个默认的空集合</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="1-2-add方法"><a href="#1-2-add方法" class="headerlink" title="1.2 add方法"></a>1.2 add方法</h2><p>直接添加元素</p>
+<ul>
+<li>确认list容量，尝试容量+1，看看有无必要</li>
+<li>添加元素</li>
+</ul>
+<h3 id="1-2-1-add-E-e"><a href="#1-2-1-add-E-e" class="headerlink" title="1.2.1 add(E e)"></a>1.2.1 add(E e)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Appends the specified element to the end of this list.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> e element to be appended to this list</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> &lt;tt&gt;true&lt;/tt&gt; (as specified by &#123;<span class="doctag">@link</span> Collection#add&#125;)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">add</span><span class="params">(E e)</span> &#123;</span><br><span class="line">        ensureCapacityInternal(size + <span class="number">1</span>);  <span class="comment">// Increments modCount!!</span></span><br><span class="line">        elementData[size++] = e;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//**************************第一步***********************************</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">ensureCapacityInternal</span><span class="params">(<span class="type">int</span> minCapacity)</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) &#123;</span><br><span class="line">                minCapacity = Math.max(DEFAULT_CAPACITY, minCapacity);</span><br><span class="line">                <span class="comment">//想要得到最小的容量(防止浪费资源)</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            ensureExplicitCapacity(minCapacity);</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//****************************第二步********************************</span></span><br><span class="line"><span class="comment">//确定明确的容量</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">ensureExplicitCapacity</span><span class="params">(<span class="type">int</span> minCapacity)</span> &#123;</span><br><span class="line">        modCount++;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// overflow-conscious code</span></span><br><span class="line">        <span class="keyword">if</span> (minCapacity - elementData.length &gt; <span class="number">0</span>)<span class="comment">//如果要的最小容量比数组的容量还要大的话，那么就调用grow()来扩容</span></span><br><span class="line">            <span class="comment">//比如当添加第11个元素时,minCapacity为11，数组长度只有10，那么就需要扩容了</span></span><br><span class="line">            grow(minCapacity);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//*******************************第三步******************************</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">grow</span><span class="params">(<span class="type">int</span> minCapacity)</span> &#123;</span><br><span class="line">        <span class="comment">// overflow-conscious code</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">oldCapacity</span> <span class="operator">=</span> elementData.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">newCapacity</span> <span class="operator">=</span> oldCapacity + (oldCapacity &gt;&gt; <span class="number">1</span>);<span class="comment">//添加oldCapacity的一半  &gt;&gt;1相当于除以2，相当于增加到原来的0.5倍</span></span><br><span class="line">        <span class="keyword">if</span> (newCapacity - minCapacity &lt; <span class="number">0</span>)</span><br><span class="line">            newCapacity = minCapacity;</span><br><span class="line">        <span class="keyword">if</span> (newCapacity - MAX_ARRAY_SIZE &gt; <span class="number">0</span>)</span><br><span class="line">            newCapacity = hugeCapacity(minCapacity);</span><br><span class="line">        <span class="comment">// minCapacity is usually close to size, so this is a win:</span></span><br><span class="line">    <span class="comment">//扩容完成后调用copyOf()方法,将原来的元素复制到新的数组里面</span></span><br><span class="line">        elementData = Arrays.copyOf(elementData, newCapacity);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//*******************第四步，我们看看copyOf方法********************</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; T[] copyOf(T[] original, <span class="type">int</span> newLength) &#123;</span><br><span class="line">        <span class="keyword">return</span> (T[]) copyOf(original, newLength, original.getClass());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T,U&gt; T[] copyOf(U[] original, <span class="type">int</span> newLength, Class&lt;? <span class="keyword">extends</span> <span class="title class_">T</span>[]&gt; newType) &#123;</span><br><span class="line">            <span class="meta">@SuppressWarnings(&quot;unchecked&quot;)</span></span><br><span class="line">            T[] copy = ((Object)newType == (Object)Object[].class)</span><br><span class="line">                ? (T[]) <span class="keyword">new</span> <span class="title class_">Object</span>[newLength]</span><br><span class="line">                : (T[]) Array.newInstance(newType.getComponentType(), newLength);</span><br><span class="line">            System.arraycopy(original, <span class="number">0</span>, copy, <span class="number">0</span>,</span><br><span class="line">                             Math.min(original.length, newLength));</span><br><span class="line">            <span class="keyword">return</span> copy;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>到此我们可以知道add(E e)的实现了，步骤如下:</p>
+<ul>
+<li>首先去检查数组容量是否足够</li>
+<li>不够就扩容到原来<strong>1.5</strong>倍</li>
+<li>第一次扩容，如果容量小于minCapacity，就将容量扩容为minCapacity</li>
+<li>足够：直接添加</li>
+<li>不足够：扩容</li>
+</ul>
+<h3 id="1-2-2-add-int-index-E-element"><a href="#1-2-2-add-int-index-E-element" class="headerlink" title="1.2.2 add(int index,E element)"></a>1.2.2 add(int index,E element)</h3><p>步骤：</p>
+<ul>
+<li>检查角标</li>
+<li>空间检查，如果有需要进行扩容</li>
+<li>插入元素</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Inserts the specified element at the specified position in this</span></span><br><span class="line"><span class="comment">     * list. Shifts the element currently at that position (if any) and</span></span><br><span class="line"><span class="comment">     * any subsequent elements to the right (adds one to their indices).</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> index index at which the specified element is to be inserted</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> element element to be inserted</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IndexOutOfBoundsException &#123;<span class="doctag">@inheritDoc</span>&#125;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">(<span class="type">int</span> index, E element)</span> &#123;</span><br><span class="line">        rangeCheckForAdd(index);<span class="comment">//检查角标是否越界</span></span><br><span class="line">		<span class="comment">//扩容</span></span><br><span class="line">        ensureCapacityInternal(size + <span class="number">1</span>);  <span class="comment">// Increments modCount!!</span></span><br><span class="line">        System.arraycopy(elementData, index, elementData, index + <span class="number">1</span>,</span><br><span class="line">                         size - index);<span class="comment">//调用arraycopy()方法进行插入</span></span><br><span class="line">        elementData[index] = element;</span><br><span class="line">        size++;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们由此可知，关于扩容的ArrayList的add方法底层其实都是**arraycopy()**来实现的，下面我们看看arraycopy()方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title function_">arraycopy</span><span class="params">(Object src,  <span class="type">int</span>  srcPos,</span></span><br><span class="line"><span class="params">                                        Object dest, <span class="type">int</span> destPos,</span></span><br><span class="line"><span class="params">                                        <span class="type">int</span> length)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以发现这个方法是由C&#x2F;C++来实现的，并不是由Java实现的</p>
+<h2 id="1-3-get方法"><a href="#1-3-get方法" class="headerlink" title="1.3 get方法"></a>1.3 get方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> E <span class="title function_">get</span><span class="params">(<span class="type">int</span> index)</span> &#123;    rangeCheck(index);    <span class="keyword">return</span> elementData(index);&#125;</span><br><span class="line"><span class="comment">//************************检查角标*******************************</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">rangeCheck</span><span class="params">(<span class="type">int</span> index)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (index &gt;= size)</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IndexOutOfBoundsException</span>(outOfBoundsMsg(index));</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//***********************返回元素********************</span></span><br><span class="line">E <span class="title function_">elementData</span><span class="params">(<span class="type">int</span> index)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> (E) elementData[index];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>检查角标</li>
+<li>返回元素</li>
+</ul>
+<h2 id="1-4-set-方法"><a href="#1-4-set-方法" class="headerlink" title="1.4 set 方法"></a>1.4 set 方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> E <span class="title function_">set</span><span class="params">(<span class="type">int</span> index, E element)</span> &#123;</span><br><span class="line">        rangeCheck(index);<span class="comment">//检查角标,出错抛出异常</span></span><br><span class="line"></span><br><span class="line">        <span class="type">E</span> <span class="variable">oldValue</span> <span class="operator">=</span> elementData(index);<span class="comment">//保存旧值</span></span><br><span class="line">        elementData[index] = element;<span class="comment">//将值替代</span></span><br><span class="line">        <span class="keyword">return</span> oldValue;<span class="comment">//返回旧值</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>检查角标</li>
+<li>替代元素</li>
+<li>返回旧值</li>
+</ul>
+<h2 id="1-5-remove方法"><a href="#1-5-remove方法" class="headerlink" title="1.5 remove方法"></a>1.5 remove方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> E <span class="title function_">remove</span><span class="params">(<span class="type">int</span> index)</span> &#123;</span><br><span class="line">        rangeCheck(index);</span><br><span class="line"></span><br><span class="line">        modCount++;</span><br><span class="line">        <span class="type">E</span> <span class="variable">oldValue</span> <span class="operator">=</span> elementData(index);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">numMoved</span> <span class="operator">=</span> size - index - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (numMoved &gt; <span class="number">0</span>)</span><br><span class="line">            System.arraycopy(elementData, index+<span class="number">1</span>, elementData, index,</span><br><span class="line">                             numMoved);</span><br><span class="line">        elementData[--size] = <span class="literal">null</span>; <span class="comment">// clear to let GC do its work</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> oldValue;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>检查角标</li>
+<li>可用容量+1</li>
+<li>删除元素</li>
+<li>计算出移动的个数,进行移动</li>
+<li>设置为null，让GC进行回收</li>
+</ul>
+<h2 id="1-6-总结"><a href="#1-6-总结" class="headerlink" title="1.6 总结"></a>1.6 总结</h2><ul>
+<li>ArrayList是 <strong>基于动态数组实现的</strong>，在 增删时候，<strong>需要数组拷贝赋值</strong></li>
+<li>ArrayList的默认初始化容量是10，每次扩容是增加原来容量的一般，就是将现在容量增大1.5倍</li>
+<li>删除元素不会减少容量，若希望减少要调用trimToSize()</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Trims the capacity of this &lt;tt&gt;ArrayList&lt;/tt&gt; instance to be the</span></span><br><span class="line"><span class="comment">     * list&#x27;s current size.  An application can use this operation to minimize</span></span><br><span class="line"><span class="comment">     * the storage of an &lt;tt&gt;ArrayList&lt;/tt&gt; instance.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">trimToSize</span><span class="params">()</span> &#123;</span><br><span class="line">        modCount++;</span><br><span class="line">        <span class="keyword">if</span> (size &lt; elementData.length) &#123;</span><br><span class="line">            elementData = (size == <span class="number">0</span>)</span><br><span class="line">              ? EMPTY_ELEMENTDATA</span><br><span class="line">              : Arrays.copyOf(elementData, size);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>他不是线程安全的。他能存放null值</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2019/10/20/%E3%80%90JDK8%20%E6%BA%90%E7%A0%81%E3%80%91ArrayList/" data-id="clmivdq89001rsjp67p1fh4uj" data-title="【JDK8 源码】ArrayList" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-方法引用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2019/10/18/%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8/" class="article-date">
+  <time class="dt-published" datetime="2019-10-17T20:59:00.000Z" itemprop="datePublished">2019-10-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2019/10/18/%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8/">方法引用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="方法引用-method-reference"><a href="#方法引用-method-reference" class="headerlink" title="方法引用: method reference."></a>方法引用: method reference.</h1><p>方法引用实际上是lambda表达式的一种语法糖</p>
+<p>lambda能实现的恰好一个方法引用能够使用,简化lambda表达式的使用<br>lambda表达式的实现恰好有一个方法,就可以替换方法引用<br>lambda表达式更加通用</p>
+<p>classname::staticmethod<br>classname.staticmethod<br>两者没有关系<br>前者不能传入参数,参数由虚拟机推断得出，相当于方法指针，指向方法<br>后者是一个方法的调用，要传入参数，方法调用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list.forEach(item -&gt; System.out.println(item)); ==&gt; list.forEach(System.out::println);</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="type">PrintStream</span> <span class="variable">out</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+<p>方法引用本质上是 我们可以将方法引用看做一个<strong>【函数指针</strong>】,function pointer<br>:: jdk8 新增语法格式 根据上下文判断</p>
+<h2 id="方法引用分类："><a href="#方法引用分类：" class="headerlink" title="方法引用分类："></a>方法引用分类：</h2><p>1.类名::静态方法名.<br>    创建Student类<br>    定义一个静态方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wangx.methodreference;</span><br><span class="line"><span class="comment">//Studenbt类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> score;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Student</span><span class="params">(String name, <span class="type">int</span> score)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.score = score;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getScore</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> score;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setScore</span><span class="params">(<span class="type">int</span> score)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.score = score;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">compareStudentByScore</span><span class="params">(Student student1, Student student2)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> student1.score - student2.score;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">compareStudentByName</span><span class="params">(Student student1, Student student2)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> student1.getName().compareTo(student2.getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wangx.methodreference;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MethodReferenceTest</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Student</span> <span class="variable">student1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;sha111&quot;</span>,<span class="number">20</span>);</span><br><span class="line">        <span class="type">Student</span> <span class="variable">student2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;sdasd&quot;</span>, <span class="number">458</span>);</span><br><span class="line">        <span class="type">Student</span> <span class="variable">student3</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>(<span class="string">&quot;dasfad&quot;</span>,<span class="number">456</span>);</span><br><span class="line">        List&lt;Student&gt; students = Arrays.asList(student1, student2, student3);</span><br><span class="line">        <span class="comment">//静态方法引用</span></span><br><span class="line"><span class="comment">//        students.sort(Student::compareStudentByScore);</span></span><br><span class="line"><span class="comment">//        students.forEach(item -&gt; System.out.println(item.getName()));</span></span><br><span class="line"><span class="comment">//        System.out.println(&quot;============================&quot;);</span></span><br><span class="line"><span class="comment">//        students.sort(Student::compareStudentByName);</span></span><br><span class="line"><span class="comment">//        students.forEach(item -&gt; System.out.println(item.getName()));</span></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>2.引用名(对象名)::实例方法名.<br>3.<br>4.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2019/10/18/%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8/" data-id="clmivdq8v005fsjp6dwnzhj3x" data-title="方法引用" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【JDK 8 源码】Lambada 表达式" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2019/10/15/%E3%80%90JDK%208%20%E6%BA%90%E7%A0%81%E3%80%91Lambada%20%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="article-date">
+  <time class="dt-published" datetime="2019-10-14T21:35:00.000Z" itemprop="datePublished">2019-10-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2019/10/15/%E3%80%90JDK%208%20%E6%BA%90%E7%A0%81%E3%80%91Lambada%20%E8%A1%A8%E8%BE%BE%E5%BC%8F/">【JDK 8 源码】Lambada 表达式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>#Lambada 表达式</p>
+<h2 id="JDK-8中引入了Lambada表达式"><a href="#JDK-8中引入了Lambada表达式" class="headerlink" title="JDK 8中引入了Lambada表达式"></a>JDK 8中引入了Lambada表达式</h2><h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">() -&gt; code;<span class="comment">//无参数</span></span><br><span class="line">(params1,params2...) -&gt; &#123;body&#125;;<span class="comment">//有参数 </span></span><br><span class="line">a -&gt; code;<span class="comment">//一个参数</span></span><br></pre></td></tr></table></figure>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wangx.jdk8;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionEvent;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionListener;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SwingTest</span> &#123;</span><br><span class="line">       <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">       <span class="type">JFrame</span> <span class="variable">jframe</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JFrame</span>(<span class="string">&quot;my frame&quot;</span>);</span><br><span class="line">       <span class="type">JButton</span> <span class="variable">jButton</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JButton</span>(<span class="string">&quot;my jbutton&quot;</span>);</span><br><span class="line">           <span class="comment">/**</span></span><br><span class="line"><span class="comment"> 			匿名内部类</span></span><br><span class="line"><span class="comment">			**/</span></span><br><span class="line">	<span class="comment">//        jButton.addActionListener(new ActionListener() &#123;</span></span><br><span class="line">	<span class="comment">//            @Override</span></span><br><span class="line">	<span class="comment">//            public void actionPerformed(ActionEvent e) &#123;</span></span><br><span class="line">	<span class="comment">//                System.out.println(&quot;xxxxxxx&quot;);</span></span><br><span class="line">	<span class="comment">//            &#125;</span></span><br><span class="line">	<span class="comment">//        &#125;);</span></span><br><span class="line">			jButton.addActionListener(e -&gt; System.out.println(<span class="string">&quot;Button press&quot;</span>));</span><br><span class="line"></span><br><span class="line">			jframe.add(jButton);</span><br><span class="line">			jframe.pack();</span><br><span class="line">			jframe.setVisible(<span class="literal">true</span>);</span><br><span class="line">			jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2019/10/2597564428.png" alt="46471c115b456ad0b6dec878696fc12d.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2019/10/15/%E3%80%90JDK%208%20%E6%BA%90%E7%A0%81%E3%80%91Lambada%20%E8%A1%A8%E8%BE%BE%E5%BC%8F/" data-id="clmivdq88001nsjp68t314qo7" data-title="【JDK 8 源码】Lambada 表达式" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/blog./page/7/">&laquo; zurück</a><a class="page-number" href="/blog./">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog./page/6/">6</a><a class="page-number" href="/blog./page/7/">7</a><span class="page-number current">8</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JUC/">JUC</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JVM/">JVM</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/LeetCode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/bxjs/">bxjs</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/cuda/">cuda</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/default/">default</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/dsbj/">dsbj</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/jvmbook/">jvmbook</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/muban/">muban</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/selfdriving/">selfdriving</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/youji/">youji</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/zczb/">zczb</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/OpenCDA/" rel="tag">OpenCDA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/V2X/" rel="tag">V2X</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/%E6%91%84%E5%BD%B1/" rel="tag">摄影</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog./tags/OpenCDA/" style="font-size: 10px;">OpenCDA</a> <a href="/blog./tags/V2X/" style="font-size: 10px;">V2X</a> <a href="/blog./tags/%E6%91%84%E5%BD%B1/" style="font-size: 10px;">摄影</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog./2023/09/14/OpenCDA%20V2X%E9%80%9A%E4%BF%A1%E7%9B%B8%E5%85%B3/">OpenCDA V2X通信相关</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/28/%E5%8F%A4%E6%9C%B4%E9%9F%B5%E5%91%B3%E4%B8%8E%E8%8D%92%E9%87%8E%E4%B9%8B%E7%BE%8E%20-------%20%E8%A5%BF%E5%AE%89%E3%80%81%E9%9D%92%E6%B5%B7%E4%B9%8B%E6%97%85/">古朴韵味与荒野之美 ------- 西安、青海之旅</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/03/%E3%80%90OpenCDA%E3%80%91%E7%AE%97%E6%B3%95%E5%AE%9A%E5%88%B6%E5%8C%96%E5%BC%80%E5%8F%91/">【OpenCDA】算法定制化开发</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/01/zlib%20404/">zlib 404</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/07/19/V2X%E5%9C%BA%E6%99%AF%E5%8F%91%E5%B1%95%E5%92%8C%E4%BB%BF%E7%9C%9F/">V2X场景发展和仿真</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 wangxso<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog./" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog./archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog./js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/blog./fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog./js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

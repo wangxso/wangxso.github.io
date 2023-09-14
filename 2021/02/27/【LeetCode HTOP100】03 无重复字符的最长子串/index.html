@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>【LeetCode HTOP100】03 无重复字符的最长子串 | 非典型程序员的一生</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;longest-substring-without-repeating-characters&#x2F; 方法一 暴力法(官方解析用HashSet 我偏不用)123456789101112131415161718192021222324252627&#x2F;&#x2F; 暴力法 算法复杂度O(N^2)    public int lengthOfLongest">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【LeetCode HTOP100】03 无重复字符的最长子串">
+<meta property="og:url" content="https://wangxso.github.io/blog./2021/02/27/%E3%80%90LeetCode%20HTOP100%E3%80%9103%20%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/index.html">
+<meta property="og:site_name" content="非典型程序员的一生">
+<meta property="og:description" content="https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;longest-substring-without-repeating-characters&#x2F; 方法一 暴力法(官方解析用HashSet 我偏不用)123456789101112131415161718192021222324252627&#x2F;&#x2F; 暴力法 算法复杂度O(N^2)    public int lengthOfLongest">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-02-26T19:05:00.000Z">
+<meta property="article:modified_time" content="2023-09-14T07:08:12.078Z">
+<meta property="article:author" content="wangxso">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog./atom.xml" title="非典型程序员的一生" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog./favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog./css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog./fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog./" id="logo">非典型程序员的一生</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/blog./">Home</a>
+        
+          <a class="main-nav-link" href="/blog./archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/blog./atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wangxso.github.io/blog."></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-【LeetCode HTOP100】03 无重复字符的最长子串" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2021/02/27/%E3%80%90LeetCode%20HTOP100%E3%80%9103%20%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/" class="article-date">
+  <time class="dt-published" datetime="2021-02-26T19:05:00.000Z" itemprop="datePublished">2021-02-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/LeetCode/">LeetCode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      【LeetCode HTOP100】03 无重复字符的最长子串
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/">https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/</a></p>
+<h2 id="方法一-暴力法-官方解析用HashSet-我偏不用"><a href="#方法一-暴力法-官方解析用HashSet-我偏不用" class="headerlink" title="方法一 暴力法(官方解析用HashSet 我偏不用)"></a>方法一 暴力法(官方解析用HashSet 我偏不用)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 暴力法 算法复杂度O(N^2)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">lengthOfLongestSubstring</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="comment">// 初始化返回值</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 字符串为空返回0</span></span><br><span class="line">        <span class="keyword">if</span> (s == <span class="literal">null</span> || s.equals(<span class="string">&quot;&quot;</span>)) <span class="keyword">return</span> ans;</span><br><span class="line">        <span class="type">char</span>[] chars = s.toCharArray();</span><br><span class="line">        <span class="comment">//每次将i的作为起始位</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; chars.length; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            System.out.println(i);</span><br><span class="line">            <span class="comment">// 初始化Map 每次循环都要重新构造 判断构造的字符串中的字符是否重复</span></span><br><span class="line">            Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> i; j &lt; chars.length; j++) &#123;</span><br><span class="line">                <span class="comment">// 判断构造的字符串中的字符是否重复</span></span><br><span class="line">                <span class="keyword">if</span> (!map.containsKey(chars[j]))&#123;</span><br><span class="line">                    temp += <span class="number">1</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                map.put(chars[j], j);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 取最大值</span></span><br><span class="line">            ans = Math.max(ans, temp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="方法二-滑动窗口"><a href="#方法二-滑动窗口" class="headerlink" title="方法二 滑动窗口"></a>方法二 滑动窗口</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 滑动窗口</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">lengofLonger</span><span class="params">(String s)</span>&#123;</span><br><span class="line">        <span class="comment">// 初始化返回值</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 字符串为空返回0</span></span><br><span class="line">        <span class="keyword">if</span> (s == <span class="literal">null</span> || s.equals(<span class="string">&quot;&quot;</span>)) <span class="keyword">return</span> ans;</span><br><span class="line">        <span class="comment">// 当前窗口的最左端</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        Map&lt;Character, Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (map.containsKey(s.charAt(i))) &#123;</span><br><span class="line">                <span class="comment">// 构造的字符串包含字符就重新搞最左边</span></span><br><span class="line">                left = Math.max(left, map.get(s.charAt(i)) + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            map.put(s.charAt(i), i);</span><br><span class="line">            ans = Math.max(ans, i-left+<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2021/02/27/%E3%80%90LeetCode%20HTOP100%E3%80%9103%20%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2/" data-id="clmivdq8d002hsjp602zfd78v" data-title="【LeetCode HTOP100】03 无重复字符的最长子串" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog./2021/02/28/%E3%80%90%E5%89%91%E6%8C%87Offer%E3%80%9104.%20%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          【剑指Offer】04. 二维数组中的查找
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog./2021/02/26/%E3%80%90LeetCode%20HTOP100%E3%80%91%2002%20%20%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">【LeetCode HTOP100】 02  两数相加</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JUC/">JUC</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JVM/">JVM</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/LeetCode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/bxjs/">bxjs</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/cuda/">cuda</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/default/">default</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/dsbj/">dsbj</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/jvmbook/">jvmbook</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/muban/">muban</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/selfdriving/">selfdriving</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/youji/">youji</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/zczb/">zczb</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/OpenCDA/" rel="tag">OpenCDA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/V2X/" rel="tag">V2X</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/%E6%91%84%E5%BD%B1/" rel="tag">摄影</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog./tags/OpenCDA/" style="font-size: 10px;">OpenCDA</a> <a href="/blog./tags/V2X/" style="font-size: 10px;">V2X</a> <a href="/blog./tags/%E6%91%84%E5%BD%B1/" style="font-size: 10px;">摄影</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog./2023/09/14/OpenCDA%20V2X%E9%80%9A%E4%BF%A1%E7%9B%B8%E5%85%B3/">OpenCDA V2X通信相关</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/28/%E5%8F%A4%E6%9C%B4%E9%9F%B5%E5%91%B3%E4%B8%8E%E8%8D%92%E9%87%8E%E4%B9%8B%E7%BE%8E%20-------%20%E8%A5%BF%E5%AE%89%E3%80%81%E9%9D%92%E6%B5%B7%E4%B9%8B%E6%97%85/">古朴韵味与荒野之美 ------- 西安、青海之旅</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/03/%E3%80%90OpenCDA%E3%80%91%E7%AE%97%E6%B3%95%E5%AE%9A%E5%88%B6%E5%8C%96%E5%BC%80%E5%8F%91/">【OpenCDA】算法定制化开发</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/01/zlib%20404/">zlib 404</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/07/19/V2X%E5%9C%BA%E6%99%AF%E5%8F%91%E5%B1%95%E5%92%8C%E4%BB%BF%E7%9C%9F/">V2X场景发展和仿真</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 wangxso<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog./" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog./archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog./js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/blog./fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog./js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

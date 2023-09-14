@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>【读书笔记】【深入理解Java虚拟机】垃圾回收算法和垃圾收集器 | 非典型程序员的一生</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="接上一篇我们谈谈来垃圾回收算法 三、垃圾回收算法1. 标记-清除算法标记清除算法是最为基础的垃圾回收算法，顾名思义就是将对象结点如果被标记上为无用的(上篇我们谈到了如何标记一个对象为无用的)，且在标记完成后统一回收掉所有被标记的对象。之所以称同时最基础的算法就是因为之后的算法都是根据他的缺点进行的改进。 缺点  效率问题，标记和清除过程的效率都不高。 空间问题，标记清除会产生大量的不连续的内存碎片">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【读书笔记】【深入理解Java虚拟机】垃圾回收算法和垃圾收集器">
+<meta property="og:url" content="https://wangxso.github.io/blog./2021/10/25/%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%90%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95%E5%92%8C%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/index.html">
+<meta property="og:site_name" content="非典型程序员的一生">
+<meta property="og:description" content="接上一篇我们谈谈来垃圾回收算法 三、垃圾回收算法1. 标记-清除算法标记清除算法是最为基础的垃圾回收算法，顾名思义就是将对象结点如果被标记上为无用的(上篇我们谈到了如何标记一个对象为无用的)，且在标记完成后统一回收掉所有被标记的对象。之所以称同时最基础的算法就是因为之后的算法都是根据他的缺点进行的改进。 缺点  效率问题，标记和清除过程的效率都不高。 空间问题，标记清除会产生大量的不连续的内存碎片">
+<meta property="og:locale">
+<meta property="og:image" content="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/image-20211024172315902.png">
+<meta property="og:image" content="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/image-20211024195204684.png">
+<meta property="og:image" content="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/image-20211024195226082.png">
+<meta property="og:image" content="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/image-20211024195928181.png">
+<meta property="article:published_time" content="2021-10-24T23:26:00.000Z">
+<meta property="article:modified_time" content="2023-09-14T07:08:12.278Z">
+<meta property="article:author" content="wangxso">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/image-20211024172315902.png">
+  
+    <link rel="alternate" href="/blog./atom.xml" title="非典型程序员的一生" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog./favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog./css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog./fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog./" id="logo">非典型程序员的一生</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/blog./">Home</a>
+        
+          <a class="main-nav-link" href="/blog./archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/blog./atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wangxso.github.io/blog."></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-【读书笔记】【深入理解Java虚拟机】垃圾回收算法和垃圾收集器" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2021/10/25/%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%90%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95%E5%92%8C%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" class="article-date">
+  <time class="dt-published" datetime="2021-10-24T23:26:00.000Z" itemprop="datePublished">2021-10-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/jvmbook/">jvmbook</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      【读书笔记】【深入理解Java虚拟机】垃圾回收算法和垃圾收集器
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>接上一篇我们谈谈来垃圾回收算法</p>
+<h1 id="三、垃圾回收算法"><a href="#三、垃圾回收算法" class="headerlink" title="三、垃圾回收算法"></a>三、垃圾回收算法</h1><h2 id="1-标记-清除算法"><a href="#1-标记-清除算法" class="headerlink" title="1. 标记-清除算法"></a>1. 标记-清除算法</h2><p>标记清除算法是最为基础的垃圾回收算法，顾名思义就是将对象结点如果被标记上为无用的(上篇我们谈到了如何标记一个对象为无用的)，且在标记完成后统一回收掉所有被标记的对象。之所以称同时最基础的算法就是因为之后的算法都是根据他的缺点进行的改进。</p>
+<p>缺点</p>
+<ul>
+<li>效率问题，标记和清除过程的效率都不高。</li>
+<li>空间问题，标记清除会产生大量的不连续的内存碎片，对于大对象这些碎片是不可用的。</li>
+</ul>
+<p>学过操作系统的可以看出这些垃圾回收算法类似于操作系统的内存回收和分配算法。</p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/image-20211024172315902.png" alt="标记清除算法示意图"></p>
+<h2 id="2-复制算法"><a href="#2-复制算法" class="headerlink" title="2. 复制算法"></a>2. 复制算法</h2><p>复制算法是为了解决标记-清除算法中的<strong>效率不高的问题</strong>，他的实现是将内存均分为两块，每次只是用其中的一块，如果一块用完了就将还存活的对象复制到了另一块里面，然后把自己的空间一次性清理干净。</p>
+<p>优点：</p>
+<ul>
+<li>实现简单</li>
+<li>运行高效，不用考虑内存碎片</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>内存只能使用一半</li>
+</ul>
+<p>现代商业虚拟机一般都采用这种算法来回收新生代的内存，新生代的对象98%都是朝生夕死的，所以可以不按照对半来划分内存，而是有一块比较大的Eden区和两个比较小的Survivor中还存活着的对象一次性拷贝到另一块Survivor空间上，最后清理掉Eden和刚才的Survivor区。HotSpot虚拟机中这个配置是Eden：survivor &#x3D; 8:1。</p>
+<p>这里还有一点要特别提到那就是，我们无法保证每次回收都只有不多于10%的对象存活，当Survivor空间不够用的时候就需要依赖其他内存(比如老年代)进行分配担保。</p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/image-20211024195204684.png" alt="复制算法示意图"></p>
+<h2 id="3-标记-整理算法"><a href="#3-标记-整理算法" class="headerlink" title="3. 标记-整理算法"></a>3. 标记-整理算法</h2><p>标记-整理算法顾名思义就是对于标记-清除后的残留的对象进行一次整理，让所有的对象都向一端移动，达到让出后面一片连续空间的目的。</p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/image-20211024195226082.png" alt="标记-整理算法示意图"></p>
+<h2 id="4-分代收集算法"><a href="#4-分代收集算法" class="headerlink" title="4.分代收集算法"></a>4.分代收集算法</h2><p>就是根据不同年代的各自特点选用不同的回收算法。</p>
+<h2 id="5-垃圾回收器"><a href="#5-垃圾回收器" class="headerlink" title="5. 垃圾回收器"></a>5. 垃圾回收器</h2><p>垃圾回收算法可以认为是方法论，而垃圾收集器是垃圾回收算法的具体实现。</p>
+<ul>
+<li><p>Serial收集器</p>
+<p>Serial是串行的意思，就像他的名字一样它是一个单线程的收集器，他只会用一个CPU或一条线程去完成回收垃圾的任务。所以他在回收垃圾的时候必须暂停所有的工作进程(Sun将它称为Stop The World)，直到他收集结束。</p>
+</li>
+</ul>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/image-20211024195928181.png" alt="Serial收集器示意图"></p>
+<p>他的缺点就是停顿时间过长，也就是Stop the World的时间过长，而优点就是简单而高效(与其他单线程收集器相比)，对于单个CPU来说，Serial收集器没有线程交互的开销，专心做垃圾收集自然可以获得较高的单线程效率。</p>
+<p>​      是Client端首选的新生代垃圾收集器</p>
+<ul>
+<li><p>ParNew收集器</p>
+<p>这个收集器其实就是Serial的多线程版本，除了多条线程进行垃圾收集外其余都和Serial都一样，实现这两种收集器共用了许多代码。</p>
+<p>是Server模式下的虚拟机首选的新生代收集器</p>
+</li>
+<li><p>Parallel Scavenge收集器</p>
+<p>这也是一款新生代收集器，他也是使用了复制算法，并且是并行的多线程收集器，不同的是他可以达到一个可控制的吞吐量，也就是控制GC的时间在全部运行时间里面的占比。</p>
+</li>
+<li><p>Serial Old收集器</p>
+<p>是Serial的老年代版本。也是一个单线程收集器，使用了”标记-整理”算法。</p>
+</li>
+<li><p>Parallel Old收集器</p>
+<p>Parallel Scavenge收集器的老年代版本，使用多线程和“标记-整理”算法。注重吞吐量和CPU敏感的场合可以优先考虑Parallel Scavenge加Parallel Old收集器。</p>
+</li>
+<li><p>CMS收集器</p>
+<p>CMS全称Concurrent Mark Sweep 收集器是一种以获取最短回收停顿时间为目标的收集器。从名字上我们就可以猜到他采用了标记清除算法，它的运行过程比前面的收集器要复杂一点，分为四个步骤：</p>
+<ul>
+<li><p>初始标记</p>
+<p>需要Stop The World，仅仅标记一下GCRoots能直接关联的对象，速度很快</p>
+</li>
+<li><p>并发标记</p>
+<p>就是在GC的Roots Tracing的过程</p>
+</li>
+<li><p>重新标记</p>
+<p>需要STW，为了修正并发标记期间，用户继续运作而导致标记产生变动的一部分对象标记记录。</p>
+</li>
+<li><p>并发清除</p>
+</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>CMS收集器对CPU资源非常敏感</li>
+<li>CMS收集器无法处理浮动垃圾</li>
+<li>收集结束会有大量碎片空间无法利用</li>
+</ul>
+</li>
+<li><p>G1收集器</p>
+<p>G1收集器是基于标记-整理而实现的收集器，也就是它不会产生内存碎片，二是他可以非常精确的。G1将整个Java堆(包括新生代和老年代)划分为多个固定的独立区域。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2021/10/25/%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%90%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95%E5%92%8C%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" data-id="clmivdq8p004esjp669tz9ft6" data-title="【读书笔记】【深入理解Java虚拟机】垃圾回收算法和垃圾收集器" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog./2021/11/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Xshell%E8%BF%9E%E6%8E%A5%E8%B0%B7%E6%AD%8C%E4%BA%91/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          如何使用Xshell连接谷歌云
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog./2021/10/19/%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%90%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%E5%9E%83%E5%9C%BE%E6%90%9C%E9%9B%86%E5%99%A8%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">【读书笔记】【深入理解Java虚拟机】垃圾搜集器与内存分配策略</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JUC/">JUC</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JVM/">JVM</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/LeetCode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/bxjs/">bxjs</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/cuda/">cuda</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/default/">default</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/dsbj/">dsbj</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/jvmbook/">jvmbook</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/muban/">muban</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/selfdriving/">selfdriving</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/youji/">youji</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/zczb/">zczb</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/OpenCDA/" rel="tag">OpenCDA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/V2X/" rel="tag">V2X</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/%E6%91%84%E5%BD%B1/" rel="tag">摄影</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog./tags/OpenCDA/" style="font-size: 10px;">OpenCDA</a> <a href="/blog./tags/V2X/" style="font-size: 10px;">V2X</a> <a href="/blog./tags/%E6%91%84%E5%BD%B1/" style="font-size: 10px;">摄影</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog./2023/09/14/OpenCDA%20V2X%E9%80%9A%E4%BF%A1%E7%9B%B8%E5%85%B3/">OpenCDA V2X通信相关</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/28/%E5%8F%A4%E6%9C%B4%E9%9F%B5%E5%91%B3%E4%B8%8E%E8%8D%92%E9%87%8E%E4%B9%8B%E7%BE%8E%20-------%20%E8%A5%BF%E5%AE%89%E3%80%81%E9%9D%92%E6%B5%B7%E4%B9%8B%E6%97%85/">古朴韵味与荒野之美 ------- 西安、青海之旅</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/03/%E3%80%90OpenCDA%E3%80%91%E7%AE%97%E6%B3%95%E5%AE%9A%E5%88%B6%E5%8C%96%E5%BC%80%E5%8F%91/">【OpenCDA】算法定制化开发</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/01/zlib%20404/">zlib 404</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/07/19/V2X%E5%9C%BA%E6%99%AF%E5%8F%91%E5%B1%95%E5%92%8C%E4%BB%BF%E7%9C%9F/">V2X场景发展和仿真</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 wangxso<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog./" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog./archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog./js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/blog./fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog./js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

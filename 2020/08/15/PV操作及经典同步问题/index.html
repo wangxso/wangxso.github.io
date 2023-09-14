@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>PV操作及经典同步问题 | 非典型程序员的一生</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="PV操作及经典同步问题 首先要确保你自己知道什么是信号量机制，什么是整型信号量下观看以下内容  一、使用信号量实现同步设S为实现进程P1,P2同步的一个公共信号量，初始值为0。进程P2中语句y要使用进程P1中的语句x的结果所以当x执行完成之后才能执行语句y。实现进程同步的伪代码如下: 123456789101112semaphore S &#x3D; 0    p1() &amp;#123;    	x;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PV操作及经典同步问题">
+<meta property="og:url" content="https://wangxso.github.io/blog./2020/08/15/PV%E6%93%8D%E4%BD%9C%E5%8F%8A%E7%BB%8F%E5%85%B8%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="非典型程序员的一生">
+<meta property="og:description" content="PV操作及经典同步问题 首先要确保你自己知道什么是信号量机制，什么是整型信号量下观看以下内容  一、使用信号量实现同步设S为实现进程P1,P2同步的一个公共信号量，初始值为0。进程P2中语句y要使用进程P1中的语句x的结果所以当x执行完成之后才能执行语句y。实现进程同步的伪代码如下: 123456789101112semaphore S &#x3D; 0    p1() &amp;#123;    	x;">
+<meta property="og:locale">
+<meta property="og:image" content="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/20200815175452.png">
+<meta property="og:image" content="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/20200816143512.png">
+<meta property="article:published_time" content="2020-08-15T03:17:00.000Z">
+<meta property="article:modified_time" content="2023-09-14T07:08:12.002Z">
+<meta property="article:author" content="wangxso">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/20200815175452.png">
+  
+    <link rel="alternate" href="/blog./atom.xml" title="非典型程序员的一生" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog./favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog./css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog./fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog./" id="logo">非典型程序员的一生</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/blog./">Home</a>
+        
+          <a class="main-nav-link" href="/blog./archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/blog./atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wangxso.github.io/blog."></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-PV操作及经典同步问题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2020/08/15/PV%E6%93%8D%E4%BD%9C%E5%8F%8A%E7%BB%8F%E5%85%B8%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98/" class="article-date">
+  <time class="dt-published" datetime="2020-08-15T03:17:00.000Z" itemprop="datePublished">2020-08-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/zczb/">zczb</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      PV操作及经典同步问题
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="PV操作及经典同步问题"><a href="#PV操作及经典同步问题" class="headerlink" title="PV操作及经典同步问题"></a>PV操作及经典同步问题</h1><blockquote>
+<p>首先要确保你自己知道什么是信号量机制，什么是整型信号量下观看以下内容</p>
+</blockquote>
+<h2 id="一、使用信号量实现同步"><a href="#一、使用信号量实现同步" class="headerlink" title="一、使用信号量实现同步"></a>一、使用信号量实现同步</h2><p>设S为实现进程P1,P2同步的一个公共信号量，初始值为0。进程P2中语句y要使用进程P1中的语句x的结果所以当x执行完成之后才能执行语句y。实现进程同步的伪代码如下:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">semaphore S = <span class="number">0</span></span><br><span class="line">    <span class="built_in">p1</span>() &#123;</span><br><span class="line">    	x;</span><br><span class="line">    	<span class="built_in">V</span>(S);<span class="comment">//S=S+1 表示P1已经完成 相当于唤醒P2</span></span><br><span class="line">    	... ...</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">p2</span>() &#123;</span><br><span class="line">        ... ...</span><br><span class="line">        <span class="built_in">P</span>(s);<span class="comment">//若S&gt;0时，让S=S-1,不是就阻塞，执行下面的语句，相当于等待</span></span><br><span class="line">        y;</span><br><span class="line">        ... ...</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、-利用信号量实现互斥"><a href="#二、-利用信号量实现互斥" class="headerlink" title="二、 利用信号量实现互斥"></a>二、 利用信号量实现互斥</h2><p>设S为实现进程P1,P2互斥的信号量，由于每次只允许一个进程进入临界区，所以S的初值为1(就是可用资源数为1)。实现进程互斥的伪代码如下:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">semaphore S = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">P1</span>()&#123;</span><br><span class="line">    	...</span><br><span class="line">        <span class="built_in">P</span>(S); <span class="comment">//准备访问，加锁，若 S&gt;0 S = S - 1</span></span><br><span class="line">    	进程P1的临界区;</span><br><span class="line">    	<span class="built_in">V</span>(S); <span class="comment">//访问结束，解锁，S = S + 1</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">P2</span>()&#123;</span><br><span class="line">        ...</span><br><span class="line">        <span class="built_in">P</span>(S);<span class="comment">//准备访问，加锁，若 S&gt;0 S = S - 1</span></span><br><span class="line">        进程P2的临界区;</span><br><span class="line">        <span class="built_in">V</span>(S);<span class="comment">//访问结束，解锁，S = S + 1</span></span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里相当于一把锁，而要是只有一把，你锁住了别人就不能进入，只有当你出来的时候把钥匙给别人，别人才能进入。</p>
+<h2 id="三、利用信号量机制实现前驱关系"><a href="#三、利用信号量机制实现前驱关系" class="headerlink" title="三、利用信号量机制实现前驱关系"></a>三、利用信号量机制实现前驱关系</h2><p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/20200815175452.png"></p>
+<p>如图，其中S1,S2,S3,… …,S6为简单的程序段(只有一条语句)。为了程序段正确的执行，我们应设置若干初始值为”0”的信号量。有多少个关系就设置多少个信号量,设S1-&gt;S2,S1-&gt;S3，S2-&gt;S4,S2-&gt;S5,S3-&gt;S6,S4-&gt;S6,S5-&gt;S6分别为a1,a2,b1,b2,c,d,e,伪代码如下:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">semaphone a1=a2=b1=b2=c=d=e=<span class="number">0</span>;</span><br><span class="line"><span class="built_in">S1</span>() &#123;</span><br><span class="line">    ...;</span><br><span class="line">    <span class="built_in">V</span>(a1);<span class="built_in">V</span>(a2);<span class="comment">// a1+=1, a2+=1;相当于解锁 让下一个程序运行</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">S2</span>()&#123;</span><br><span class="line">    <span class="built_in">P</span>(a1); <span class="comment">// 若a1&gt;0 ,a1-=1,检查S1是否完成</span></span><br><span class="line">    ...;</span><br><span class="line">    <span class="built_in">V</span>(b1);<span class="built_in">V</span>(b2); <span class="comment">//S2运行完成，提醒下面的程序</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">S3</span>()&#123;</span><br><span class="line">    <span class="built_in">P</span>(a2); <span class="comment">// 检查S1运行完成</span></span><br><span class="line">    ...;</span><br><span class="line">    <span class="built_in">V</span>(c); <span class="comment">// S3运行完成，提醒</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">S4</span>()&#123;</span><br><span class="line">    <span class="built_in">P</span>(b1); <span class="comment">//检查S2是否完成</span></span><br><span class="line">    ...;</span><br><span class="line">    <span class="built_in">V</span>(d);<span class="comment">//S4运行完成</span></span><br><span class="line">&#125;</span><br><span class="line">.....以下省略</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、经典同步问题"><a href="#四、经典同步问题" class="headerlink" title="四、经典同步问题"></a>四、经典同步问题</h2><h3 id="1-生产者-消费者问题"><a href="#1-生产者-消费者问题" class="headerlink" title="1. 生产者-消费者问题"></a>1. 生产者-消费者问题</h3><p><strong>问题描述</strong></p>
+<blockquote>
+<p>一组生产者进程和一组消费者进程共享一个初始为空，大小为n的缓冲区，只有缓冲区没满时，生产者才能把消息放入缓冲区，否则必须等待；只有缓冲区不空时，消费者才能从中取出消息，否则必须等待。由于缓冲区是临界资源，他只允许一个生产者放入消息，一个消费者从中取出消息</p>
+</blockquote>
+<p>我们来分析一下关系</p>
+<p>生产者和消费者对缓冲区互斥访问是一个<strong>互斥关系</strong>，同时生产者和消费者是一个<strong>协作关系</strong>，只有在生产者生产之后，消费者才能消费，他们也是<strong>同步的关系</strong>。</p>
+<p>这里只有生产者和消费者<strong>两个进程</strong>，正好两个进程存在着<strong>互斥关系</strong>和<strong>同步关系</strong>，我们就只需要解决互斥和同步的PV操作的位置</p>
+<p>信号量的设置，信号量<strong>mutex</strong>作为互斥信号量，用来互斥的访问缓冲区，<strong>初始值为1</strong>；信号量<strong>full</strong>用来记录当前缓冲区中消息的个数<strong>初始值为0</strong>，信号量<strong>empty</strong>用于记录当前缓冲区空的数量，<strong>初始值为n</strong></p>
+<p><strong>伪代码如下</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">semaphore mutex = <span class="number">1</span>;</span><br><span class="line">semaphore empty = n;</span><br><span class="line">semaphore full = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">producer</span>()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">        produce an item in nextp;</span><br><span class="line">        <span class="built_in">P</span>(empty);<span class="comment">// 要用到空的缓冲区,empty-=1.要用到什么就P一下</span></span><br><span class="line">        <span class="built_in">P</span>(mutex);<span class="comment">// 互斥加锁</span></span><br><span class="line">        add nextp to buffer; <span class="comment">// 行为，加入缓冲区</span></span><br><span class="line">        <span class="built_in">V</span>(mutex);<span class="comment">//互斥解锁</span></span><br><span class="line">        <span class="built_in">V</span>(full);<span class="comment">// 增加缓存区消息个数的记录值,提供什么就V一下,full+=1</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">comsumer</span>()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">P</span>(full); <span class="comment">//若full不为0，消费掉一个消息</span></span><br><span class="line">        <span class="built_in">P</span>(mutex);<span class="comment">//互斥加锁</span></span><br><span class="line">        remove an item from buffer; (行为)</span><br><span class="line">        <span class="built_in">V</span>(mutex); <span class="comment">//互斥解锁</span></span><br><span class="line">        <span class="built_in">V</span>(empty);<span class="comment">//空的缓冲区单元加一</span></span><br><span class="line">        comsume the item; <span class="comment">// 消费数据</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-读者-写者问题"><a href="#2-读者-写者问题" class="headerlink" title="2. 读者-写者问题"></a>2. 读者-写者问题</h3><p><strong>问题描述</strong></p>
+<blockquote>
+<p>有读者和写者两组并发进程，共享一个文件，当两个或以上的读进程同时访问共享数据不会产生副作用，但某个写进程和其他进程同时访问共享数据时则会导致数据不一致的错误，因此要求①允许多个读者可以同时对文件执行读操作②只允许一个写者往文件里写信息③任一写者完成写操作之前不允许其他读者或写者工作④写者执行写操作之前，应让已有的读者和写者全部退出</p>
+</blockquote>
+<p><strong>问题分析</strong></p>
+<p>读者和写者是<strong>互斥关系</strong>，写者和写者也是<strong>互斥关系</strong>，而读者和读者之间<strong>不存在</strong>互斥关系</p>
+<p>一个两个进程读者和写者，写者是比较简单，他和任何进程互斥，用<strong>PV操作进程互斥</strong>就行。读者的问题比较复杂，他必须和写者互斥，同时和其他读者同步，这里简单的PV操作就不能解决了，我们再这里用一个<strong>计数器</strong>，用它来判断当前是否有读者读文件，当有读者时，写者无法写文件，此时读者就会一直占用文件，当没有读者时，写者才可以写文件，这里不同的读者对于计数器的访问也是<strong>互斥的</strong></p>
+<p>设置信号量count，记录读者的数量，初始值为0；设置mutex为互斥信号量，初始值为1;设置互斥信号量rw，用于读者和写者的互斥访问，初始值为1</p>
+<p><strong>伪代码如下:</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> count = <span class="number">0</span>; <span class="comment">//用于记录当前的读者数量</span></span><br><span class="line">semaphore mutex = <span class="number">1</span>;</span><br><span class="line">semaphore rw = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">writer</span>()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">    	<span class="built_in">P</span>(rw); <span class="comment">//互斥访问共享文件</span></span><br><span class="line">    	writing; <span class="comment">//写入数据信息</span></span><br><span class="line">    	<span class="built_in">v</span>(rw); <span class="comment">//释放共享文件</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">reader</span>()&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">P</span>(mutex); <span class="comment">//互斥访问count变量</span></span><br><span class="line">        <span class="keyword">if</span>(count==<span class="number">0</span>)</span><br><span class="line">            <span class="built_in">P</span>(rw); <span class="comment">//阻止写进程写</span></span><br><span class="line">        count++; <span class="comment">//读者计数器+1</span></span><br><span class="line">        <span class="built_in">V</span>(mutex);<span class="comment">//释放互斥变量cout</span></span><br><span class="line">        reading; <span class="comment">//读取数据</span></span><br><span class="line">        <span class="built_in">P</span>(mutex); <span class="comment">//互斥访问cout变量</span></span><br><span class="line">        count--;</span><br><span class="line">        <span class="keyword">if</span>(count == <span class="number">0</span>) <span class="comment">//当最后一个进程完成了读操作</span></span><br><span class="line">            <span class="built_in">V</span>(rw); <span class="comment">//允许写进程写</span></span><br><span class="line">        <span class="built_in">V</span>(mutex); <span class="comment">//释放互斥变量count</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个算法是读优先的，如果读用户一直占用文件，写进程就无法写入，会出现“饥饿现象”,我们可以让写进程优先。我们只要加一对PV操作就行。</p>
+<h3 id="3-哲学家进餐问题"><a href="#3-哲学家进餐问题" class="headerlink" title="3. 哲学家进餐问题"></a>3. 哲学家进餐问题</h3><p><strong>问题描述</strong></p>
+<blockquote>
+<p>一张圆桌边上坐着五名哲学家，每两名哲学家之间的桌上摆着一根筷子，两根筷子之间试试一碗米饭。如图所示。哲学家们倾注精力去思考和进餐。哲学家在思考时并不影响他人。只有当哲学家在思考时，并不影响他人。只有当哲学家饥饿时才会试图拿起左右两根筷子才可以开始进餐，进餐完毕后，放下筷子继续思考。</p>
+</blockquote>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/20200816143512.png"></p>
+<p><strong>问题分析</strong></p>
+<p>5名哲学家和左右邻居对其中间的筷子是互斥关系</p>
+<p>显然，这里有五个进程。关键是如何让一名哲学家拿到左右两根筷子而不构成死锁或饥饿现象。解决办法有两个 ：</p>
+<ul>
+<li>让他们同时拿两根筷子</li>
+<li>对每名哲学家的动作制定规则，避免饥饿或死锁现象</li>
+</ul>
+<p>定义互斥信号量数组mutexs[5] &#x3D; {1,1,1,1,1},用于对5根筷子的互斥访问。哲学家编号按顺序为0~4，哲学家i左边的筷子为i，右边的筷子为(i+1)%5</p>
+<p><strong>初步实现代码如下</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">semaphonre mutexs[<span class="number">5</span>] = &#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;</span><br><span class="line"><span class="built_in">Pi</span>()&#123;</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        <span class="built_in">P</span>(mutexs[i]); <span class="comment">//取左边的筷子</span></span><br><span class="line">        <span class="built_in">P</span>(mutexs[(i+<span class="number">1</span>)%<span class="number">5</span>]); <span class="comment">//取右边的筷子</span></span><br><span class="line">        eat; <span class="comment">//进餐</span></span><br><span class="line">        <span class="built_in">V</span>(mutexs[i]);<span class="comment">//放回左边的筷子</span></span><br><span class="line">        <span class="built_in">V</span>(mutexs[(i+<span class="number">1</span>)%<span class="number">5</span>]); <span class="comment">//放回右边的筷子</span></span><br><span class="line">        thinking; <span class="comment">// 思考</span></span><br><span class="line">    &#125;<span class="keyword">while</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>改算法会出现当所有的哲学家都拿起左边的筷子就会出现循环等待的死锁现象。</p>
+<p>为了防止死锁，我们要对哲学家进餐加一些限制，比如至多允许四个哲学家同时进餐；仅当一名哲学家左右两边的筷子均可用时才允许他抓起筷子；对哲学家的顺序进行编号要求奇数号先拿起左边的筷子，然后拿右边的筷子，偶数号相反。</p>
+<p>我们使用第一个规则来看一下，设置一个新的信号量记录进餐人数persons,初始值为4</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">semaphonre mutexs[<span class="number">5</span>] = &#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;</span><br><span class="line">semaphonre persons = <span class="number">4</span>;</span><br><span class="line"><span class="built_in">Pi</span>()&#123;</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        <span class="built_in">P</span>(persons); <span class="comment">// 占用一个进餐的位置</span></span><br><span class="line">        <span class="built_in">P</span>(mutexs[i]); <span class="comment">//取左边的筷子</span></span><br><span class="line">        <span class="built_in">P</span>(mutexs[(i+<span class="number">1</span>)%<span class="number">5</span>]); <span class="comment">//取右边的筷子</span></span><br><span class="line">        eat; <span class="comment">//进餐</span></span><br><span class="line">        <span class="built_in">V</span>(mutexs[i]);<span class="comment">//放回左边的筷子</span></span><br><span class="line">        <span class="built_in">V</span>(mutexs[(i+<span class="number">1</span>)%<span class="number">5</span>]); <span class="comment">//放回右边的筷子</span></span><br><span class="line">        <span class="built_in">V</span>(persons); <span class="comment">//返还进餐的位置</span></span><br><span class="line">        thinking; <span class="comment">// 思考</span></span><br><span class="line">    &#125;<span class="keyword">while</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-吸烟者问题"><a href="#5-吸烟者问题" class="headerlink" title="5. 吸烟者问题"></a>5. 吸烟者问题</h3><p><strong>问题描述</strong></p>
+<blockquote>
+<p> 假设一个系统有三个抽烟者进程和一个供应者进程。每个抽烟者不停地卷烟并抽掉他，但要卷起一根烟，抽烟者需要三种材料：</p>
+<ul>
+<li>烟草</li>
+<li>纸</li>
+<li>胶水</li>
+</ul>
+<p>三个抽烟者种，第一个拥有烟草，第二个拥有纸，第三个拥有胶水。供应者无限制的供应这三种材料，供应者每次放两种材料放在桌子上，拥有剩下那种材料的抽烟者卷一根烟并把它抽掉，并给供应者一个信号告诉他已完成，此时供应者会将另外两种材料放到桌子上，如从重复</p>
+</blockquote>
+<p><strong>问题分析</strong></p>
+<p>供应者和三个抽烟者为同步关系。由于供应者无法满足两个或两个以上的抽烟者，所以三个抽烟者对于抽烟这个动作是互斥的。</p>
+<p>显然这里有四个进程，供应者作为生产者向三个抽烟者提供材料。</p>
+<p>信号量offer1,offer2,offer3分别表示烟草和纸,烟草和胶水，胶水和纸的组合资源。信号量finish表示互斥的抽烟完成</p>
+<p><strong>代码如下</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> random; <span class="comment">//存储随机数</span></span><br><span class="line">semaphore offer1 = <span class="number">0</span>;</span><br><span class="line">semaphore offer2 = <span class="number">0</span>;</span><br><span class="line">semaphore offer3 = <span class="number">0</span>;</span><br><span class="line">semaphore finish = <span class="number">0</span>;</span><br><span class="line"><span class="function">process <span class="title">P1</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)&#123;</span><br><span class="line">        random = <span class="built_in">random</span>(); <span class="comment">// 任意一个整数随机数</span></span><br><span class="line">        random %= <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">if</span>(random==<span class="number">0</span>)</span><br><span class="line">            <span class="built_in">V</span>(offer1); <span class="comment">//提供烟草和纸</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(random == <span class="number">1</span>)</span><br><span class="line">            <span class="built_in">V</span>(offer2); <span class="comment">// 提供烟草和胶水</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(random == <span class="number">2</span>)</span><br><span class="line">            <span class="built_in">V</span>(offer3); <span class="comment">//提供胶水和纸</span></span><br><span class="line">        put two items to desktop;</span><br><span class="line">        <span class="built_in">P</span>(finish); <span class="comment">//等待抽烟完成</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">process <span class="title">P2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">P</span>(offer3);</span><br><span class="line">        拿纸和胶水，卷成烟，抽掉;</span><br><span class="line">        <span class="built_in">V</span>(finish); <span class="comment">//通知抽掉了</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">process <span class="title">P3</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">P</span>(offer2);</span><br><span class="line">        拿烟草和胶水，卷成烟，抽掉;</span><br><span class="line">        <span class="built_in">V</span>(finish);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">process <span class="title">P4</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">P</span>(offer1);</span><br><span class="line">        拿烟草和纸，卷成烟，抽掉;</span><br><span class="line">        <span class="built_in">V</span>(finish);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2020/08/15/PV%E6%93%8D%E4%BD%9C%E5%8F%8A%E7%BB%8F%E5%85%B8%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98/" data-id="clmivdq82000rsjp67r6iaxa5" data-title="PV操作及经典同步问题" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog./2021/02/06/Vue%20router%20param%20%E6%97%A0%E6%B3%95%E4%BC%A0%E5%8F%82/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          Vue router param 无法传参
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog./2020/08/10/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%9A%84%E7%94%9F%E6%B4%BB%EF%BC%88%E4%B8%89%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">从零开始数据结构的生活（三）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JUC/">JUC</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JVM/">JVM</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/LeetCode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/bxjs/">bxjs</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/cuda/">cuda</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/default/">default</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/dsbj/">dsbj</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/jvmbook/">jvmbook</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/muban/">muban</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/selfdriving/">selfdriving</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/youji/">youji</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/zczb/">zczb</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/OpenCDA/" rel="tag">OpenCDA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/V2X/" rel="tag">V2X</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/%E6%91%84%E5%BD%B1/" rel="tag">摄影</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog./tags/OpenCDA/" style="font-size: 10px;">OpenCDA</a> <a href="/blog./tags/V2X/" style="font-size: 10px;">V2X</a> <a href="/blog./tags/%E6%91%84%E5%BD%B1/" style="font-size: 10px;">摄影</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog./2023/09/14/OpenCDA%20V2X%E9%80%9A%E4%BF%A1%E7%9B%B8%E5%85%B3/">OpenCDA V2X通信相关</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/28/%E5%8F%A4%E6%9C%B4%E9%9F%B5%E5%91%B3%E4%B8%8E%E8%8D%92%E9%87%8E%E4%B9%8B%E7%BE%8E%20-------%20%E8%A5%BF%E5%AE%89%E3%80%81%E9%9D%92%E6%B5%B7%E4%B9%8B%E6%97%85/">古朴韵味与荒野之美 ------- 西安、青海之旅</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/03/%E3%80%90OpenCDA%E3%80%91%E7%AE%97%E6%B3%95%E5%AE%9A%E5%88%B6%E5%8C%96%E5%BC%80%E5%8F%91/">【OpenCDA】算法定制化开发</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/01/zlib%20404/">zlib 404</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/07/19/V2X%E5%9C%BA%E6%99%AF%E5%8F%91%E5%B1%95%E5%92%8C%E4%BB%BF%E7%9C%9F/">V2X场景发展和仿真</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 wangxso<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog./" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog./archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog./js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/blog./fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog./js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>【Java多线程】Volatile | 非典型程序员的一生</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Volatile一. Volatile的作用 实现内存的可见性 禁止指令重排（内存屏障）  二. 如何实现内存的可见性  上图显示了计算机中的内存结构，现代计算机采用多级缓存机制。Volatile为了是的保证内存的可见性采用了两种原则：  引起处理器的缓存写回内存。  使得处理器独占(Exclusive)共享内存 一般独占的方式不采用锁总线而采用锁缓存的机制。   一个处理器的缓存回写使得其他处理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Java多线程】Volatile">
+<meta property="og:url" content="https://wangxso.github.io/blog./2021/05/22/%E3%80%90Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E3%80%91Volatile/index.html">
+<meta property="og:site_name" content="非典型程序员的一生">
+<meta property="og:description" content="Volatile一. Volatile的作用 实现内存的可见性 禁止指令重排（内存屏障）  二. 如何实现内存的可见性  上图显示了计算机中的内存结构，现代计算机采用多级缓存机制。Volatile为了是的保证内存的可见性采用了两种原则：  引起处理器的缓存写回内存。  使得处理器独占(Exclusive)共享内存 一般独占的方式不采用锁总线而采用锁缓存的机制。   一个处理器的缓存回写使得其他处理">
+<meta property="og:locale">
+<meta property="og:image" content="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/20210522153930.png">
+<meta property="og:image" content="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/image-20210522162649111.png">
+<meta property="article:published_time" content="2021-05-22T00:38:00.000Z">
+<meta property="article:modified_time" content="2023-09-14T07:08:12.158Z">
+<meta property="article:author" content="wangxso">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/20210522153930.png">
+  
+    <link rel="alternate" href="/blog./atom.xml" title="非典型程序员的一生" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog./favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog./css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog./fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog./" id="logo">非典型程序员的一生</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/blog./">Home</a>
+        
+          <a class="main-nav-link" href="/blog./archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/blog./atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wangxso.github.io/blog."></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-【Java多线程】Volatile" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2021/05/22/%E3%80%90Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E3%80%91Volatile/" class="article-date">
+  <time class="dt-published" datetime="2021-05-22T00:38:00.000Z" itemprop="datePublished">2021-05-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/JUC/">JUC</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      【Java多线程】Volatile
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Volatile"><a href="#Volatile" class="headerlink" title="Volatile"></a>Volatile</h2><h3 id="一-Volatile的作用"><a href="#一-Volatile的作用" class="headerlink" title="一. Volatile的作用"></a>一. Volatile的作用</h3><ol>
+<li>实现内存的可见性</li>
+<li>禁止指令重排（内存屏障）</li>
+</ol>
+<h3 id="二-如何实现内存的可见性"><a href="#二-如何实现内存的可见性" class="headerlink" title="二. 如何实现内存的可见性"></a>二. 如何实现内存的可见性</h3><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/20210522153930.png" style="zoom:67%;" />
+
+<p>上图显示了计算机中的内存结构，现代计算机采用多级缓存机制。Volatile为了是的保证内存的可见性采用了两种原则：</p>
+<ol>
+<li><p>引起处理器的缓存写回内存。</p>
+<ul>
+<li>使得处理器独占(Exclusive)共享内存</li>
+<li>一般独占的方式不采用锁总线而采用锁缓存的机制。</li>
+</ul>
+</li>
+<li><p>一个处理器的缓存回写使得其他处理器的缓存失效。采用MESI（M&#x3D;Modify，E&#x3D;Exclusive，S&#x3D;Shared，I&#x3D;Invalid）协议来保持处理器的缓存一致性。</p>
+<ul>
+<li>处理器会嗅探它的内部缓存和其他处理器的缓存是否一致（通过总线）</li>
+<li>如果检测到有处理器写回内存(Modify)并且这个地址处于共享(Shared)状态</li>
+<li>那么正在嗅探的处理器会使得这个缓存行无效，在下次要访问这个地址的时候重新从内存中填充到缓存行中。</li>
+</ul>
+</li>
+</ol>
+<h3 id="三-Volatile的使用优化"><a href="#三-Volatile的使用优化" class="headerlink" title="三. Volatile的使用优化"></a>三. Volatile的使用优化</h3><p>在我看来这个使用优化就是因为处理器强制加载缓存行会一次加载一行，而每一行的大小都等于当前处理器的位数(地址总线的数量)，而通过追加字节的方式能够是的一个数据能够在同一个数据行，减少访问缓存的次数从而减少访问带来的开销。</p>
+<h3 id="四-如何实现禁止指令重排（内存屏障）"><a href="#四-如何实现禁止指令重排（内存屏障）" class="headerlink" title="四. 如何实现禁止指令重排（内存屏障）"></a>四. 如何实现禁止指令重排（内存屏障）</h3><ol>
+<li><p>为什么会出现指令重排？</p>
+<p>由于你写的代码并不是一定适合CPU的运行(也就是说你写的代码知识符合了人类的逻辑而不一定符合机器执行的逻辑)，所以在编译的优化阶段会对你的代码进行优化(指令重排)(编译分为词法分析，语法分析，语义分析，优化 ，目标代码生成五个阶段)。编译器和处理器都会生成的中间代码进行优化。</p>
+</li>
+<li><p>如何实现禁止指令重排？</p>
+<p>首先我们要清除内存屏障的概念，内存屏障又称为内存栅栏，它是一个CPU指令作用是保持特定操作的顺序性和保证某些变量的内存可见性（上面的内存可见性也是通过这个指令来实现的），添加了内存栅栏可以使得在栅栏内的指令不会被CPU或编译器进行重排指令。</p>
+</li>
+</ol>
+<h3 id="五、Volatile保证原子性吗？"><a href="#五、Volatile保证原子性吗？" class="headerlink" title="五、Volatile保证原子性吗？"></a>五、Volatile保证原子性吗？</h3><p>实际上Volatile是无法保证数据的原子性的，比如如下代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestVolatile</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">volatile</span> <span class="type">int</span> <span class="variable">inc</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">increase</span><span class="params">()</span> &#123;</span><br><span class="line">        inc++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="type">TestVolatile</span> <span class="variable">test</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TestVolatile</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; <span class="number">1000</span>; j++) &#123;</span><br><span class="line">                    test.increase();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).start();</span><br><span class="line">        &#125;</span><br><span class="line">	    <span class="comment">// 当当前活动线程数小于1的时候结束打印inc的值</span></span><br><span class="line">        <span class="keyword">while</span> (Thread.activeCount()&gt;<span class="number">1</span>) &#123;</span><br><span class="line">            Thread.<span class="keyword">yield</span>();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(test.inc);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们会发现这个inc会小于10000，而并不是我们所设想的是10000（也可能是但是一次不是10000就可以反证他不拥有原子性）。虽然volatile会使得进程获得最新的数据但是我们假设以下情景。</p>
+<p>当前的inc的值为10，线程1先读取了变量inc的初始值(10),线程1进行自增操作然后线程1被阻塞了；线程2进行自增操作然后线程2也去读取变量inc的原始值，由于线程1只是对原始值进行了读取，未进行修改所以线程2读取到的还是10，自增后还是11。</p>
+<p>我们知道缓存行只有发生修改写回才会失效，但是线程1已经被阻塞了所以未写回信息，导致缓存行仍然是10，导致两个线程计算的写回是都是11。</p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/image-20210522162649111.png" alt="image-20210522162649111"></p>
+<p>   导致这个产生是由于自增本身就不带有原子性，可以采用atomic包里面的进行比如AtomicIntenger等</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.atomic.AtomicInteger;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestVolatile</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">volatile</span> <span class="type">AtomicInteger</span> <span class="variable">inc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AtomicInteger</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">increase</span><span class="params">()</span> &#123;</span><br><span class="line">        inc.incrementAndGet();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="type">TestVolatile</span> <span class="variable">test</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TestVolatile</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; <span class="number">1000</span>; j++) &#123;</span><br><span class="line">                    test.increase();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).start();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (Thread.activeCount()&gt;<span class="number">2</span>) &#123;</span><br><span class="line">            Thread.<span class="keyword">yield</span>();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(test.inc);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2021/05/22/%E3%80%90Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E3%80%91Volatile/" data-id="clmivdq8d002dsjp6c5ai92yq" data-title="【Java多线程】Volatile" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog./2021/07/01/%E3%80%90%E5%B0%8F%E7%A8%8B%E5%BA%8F%E3%80%91%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BD%93%E9%AA%8C%E7%89%88%E4%B9%8B%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%91%E4%B8%8D%E4%BA%86%E8%AF%B7%E6%B1%82/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          【小程序】小程序体验版之为什么发不了请求
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog./2021/04/06/%E3%80%90%E8%80%83%E7%A0%94%E3%80%91%E8%80%83%E7%A0%94%E4%B8%8A%E5%B2%B8%E6%AD%A6%E5%A4%A7%E7%BD%91%E5%AE%89%E7%9A%84%E5%BF%83%E9%85%B8%E5%8E%86%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">【考研】考研上岸武大网安的心酸历程</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JUC/">JUC</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JVM/">JVM</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/LeetCode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/bxjs/">bxjs</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/cuda/">cuda</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/default/">default</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/dsbj/">dsbj</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/jvmbook/">jvmbook</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/muban/">muban</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/selfdriving/">selfdriving</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/youji/">youji</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/zczb/">zczb</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/OpenCDA/" rel="tag">OpenCDA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/V2X/" rel="tag">V2X</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/%E6%91%84%E5%BD%B1/" rel="tag">摄影</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog./tags/OpenCDA/" style="font-size: 10px;">OpenCDA</a> <a href="/blog./tags/V2X/" style="font-size: 10px;">V2X</a> <a href="/blog./tags/%E6%91%84%E5%BD%B1/" style="font-size: 10px;">摄影</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog./2023/09/14/OpenCDA%20V2X%E9%80%9A%E4%BF%A1%E7%9B%B8%E5%85%B3/">OpenCDA V2X通信相关</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/28/%E5%8F%A4%E6%9C%B4%E9%9F%B5%E5%91%B3%E4%B8%8E%E8%8D%92%E9%87%8E%E4%B9%8B%E7%BE%8E%20-------%20%E8%A5%BF%E5%AE%89%E3%80%81%E9%9D%92%E6%B5%B7%E4%B9%8B%E6%97%85/">古朴韵味与荒野之美 ------- 西安、青海之旅</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/03/%E3%80%90OpenCDA%E3%80%91%E7%AE%97%E6%B3%95%E5%AE%9A%E5%88%B6%E5%8C%96%E5%BC%80%E5%8F%91/">【OpenCDA】算法定制化开发</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/01/zlib%20404/">zlib 404</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/07/19/V2X%E5%9C%BA%E6%99%AF%E5%8F%91%E5%B1%95%E5%92%8C%E4%BB%BF%E7%9C%9F/">V2X场景发展和仿真</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 wangxso<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog./" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog./archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog./js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/blog./fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog./js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

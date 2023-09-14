@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>argtable3 使用指南 | 非典型程序员的一生</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="argtable3 使用指南   今天做项目需要在c语言里面解析命令行，然后我看了一下getopt()发现在linux下才能很方便的使用(在Windows下需要进行相关的配置)，然后我记得之前看过有个项目(QDUOJ的核心)的源码中使用了argtable3，觉得还挺方便的。 一、引入头文件和如何编译1.引入头文件1#include &quot;argtable3.h&quot;  头文件可以在官方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="argtable3 使用指南">
+<meta property="og:url" content="https://wangxso.github.io/blog./2021/08/06/argtable3%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/index.html">
+<meta property="og:site_name" content="非典型程序员的一生">
+<meta property="og:description" content="argtable3 使用指南   今天做项目需要在c语言里面解析命令行，然后我看了一下getopt()发现在linux下才能很方便的使用(在Windows下需要进行相关的配置)，然后我记得之前看过有个项目(QDUOJ的核心)的源码中使用了argtable3，觉得还挺方便的。 一、引入头文件和如何编译1.引入头文件1#include &quot;argtable3.h&quot;  头文件可以在官方">
+<meta property="og:locale">
+<meta property="og:image" content="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/202108061851911.png">
+<meta property="og:image" content="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/image-20210806184427171.png">
+<meta property="og:image" content="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/202108061848813.png">
+<meta property="article:published_time" content="2021-08-06T03:19:36.000Z">
+<meta property="article:modified_time" content="2023-09-14T07:08:12.214Z">
+<meta property="article:author" content="wangxso">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/202108061851911.png">
+  
+    <link rel="alternate" href="/blog./atom.xml" title="非典型程序员的一生" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog./favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog./css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog./fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog./" id="logo">非典型程序员的一生</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/blog./">Home</a>
+        
+          <a class="main-nav-link" href="/blog./archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/blog./atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wangxso.github.io/blog."></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-argtable3 使用指南" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2021/08/06/argtable3%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" class="article-date">
+  <time class="dt-published" datetime="2021-08-06T03:19:36.000Z" itemprop="datePublished">2021-08-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/zczb/">zczb</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      argtable3 使用指南
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="argtable3-使用指南"><a href="#argtable3-使用指南" class="headerlink" title="argtable3 使用指南"></a>argtable3 使用指南</h3><p>   今天做项目需要在c语言里面解析命令行，然后我看了一下getopt()发现在linux下才能很方便的使用(在Windows下需要进行相关的配置)，然后我记得之前看过有个<a target="_blank" rel="noopener" href="https://github.com/QingdaoU/Judger">项目(QDUOJ的核心)</a>的源码中使用了argtable3，觉得还挺方便的。</p>
+<h2 id="一、引入头文件和如何编译"><a href="#一、引入头文件和如何编译" class="headerlink" title="一、引入头文件和如何编译"></a>一、引入头文件和如何编译</h2><h4 id="1-引入头文件"><a href="#1-引入头文件" class="headerlink" title="1.引入头文件"></a>1.引入头文件</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;argtable3.h&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>头文件可以在官方的github上下载<a target="_blank" rel="noopener" href="https://github.com/argtable/argtable3/releases/">Releases · argtable&#x2F;argtable3 (github.com)</a></p>
+<p>下载带有amalgamation的文件</p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/202108061851911.png" alt="image-20210806184310801"></p>
+<p>然后解压会有</p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/image-20210806184427171.png" alt="image-20210806184427171"></p>
+<p>将源文件和头文件拷贝到项目目录</p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/202108061848813.png" alt="image-20210806184503508"></p>
+<h3 id="2-编译"><a href="#2-编译" class="headerlink" title="2.编译"></a>2.编译</h3><p>在Windows下面使用VC可以</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cl.exe kernel.c argtable3.c -o kernel</span><br></pre></td></tr></table></figure>
+
+<p>在Linux下使用GCC</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc kernel.c argtable3.c -o kernel</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、开始使用"><a href="#二、开始使用" class="headerlink" title="二、开始使用"></a>二、开始使用</h2><h4 id="1-设置需要的参数"><a href="#1-设置需要的参数" class="headerlink" title="1. 设置需要的参数"></a>1. 设置需要的参数</h4><p>argtable3设置了多种参数的类型，我在下面一一介绍一下。</p>
+<h5 id="1-arg-hdr"><a href="#1-arg-hdr" class="headerlink" title="(1). arg_hdr"></a>(1). arg_hdr</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">arg_hdr</span> &#123;</span><br><span class="line">    <span class="type">char</span> flag;             <span class="comment">/* Modifier flags: ARG_TERMINATOR, ARG_HASVALUE. */</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>* shortopts; <span class="comment">/* String defining the short options */</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>* longopts;  <span class="comment">/* String defiing the long options */</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>* datatype;  <span class="comment">/* Description of the argument data type */</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>* glossary;  <span class="comment">/* Description of the option as shown by arg_print_glossary function */</span></span><br><span class="line">    <span class="type">int</span> mincount;          <span class="comment">/* Minimum number of occurences of this option accepted */</span></span><br><span class="line">    <span class="type">int</span> maxcount;          <span class="comment">/* Maximum number of occurences if this option accepted */</span></span><br><span class="line">    <span class="type">void</span>* parent;          <span class="comment">/* Pointer to parent arg_xxx struct */</span></span><br><span class="line">    arg_resetfn* resetfn;  <span class="comment">/* Pointer to parent arg_xxx reset function */</span></span><br><span class="line">    arg_scanfn* scanfn;    <span class="comment">/* Pointer to parent arg_xxx scan function */</span></span><br><span class="line">    arg_checkfn* checkfn;  <span class="comment">/* Pointer to parent arg_xxx check function */</span></span><br><span class="line">    arg_errorfn* errorfn;  <span class="comment">/* Pointer to parent arg_xxx error function */</span></span><br><span class="line">    <span class="type">void</span>* priv;            <span class="comment">/* Pointer to private header data for use by arg_xxx functions */</span></span><br><span class="line">&#125; <span class="type">arg_hdr_t</span>;</span><br></pre></td></tr></table></figure>
+
+<p>最基本的一个类型，所有的其他类型都包含这个类型。我一一解释下里面的参数的含义</p>
+<ul>
+<li>shortopts: 参数的短名称，比如ls -a 中的a就是短名称。</li>
+<li>longopts: 参数中的长名称，比如ls –all 中的all就是长名称。</li>
+<li>datatype: 参数的数据类型有<int>, <double>, NULL,<file> ,(时间类型传入format字符串),(rex类型传入匹配串),<string>等</li>
+<li>glossary: 对于参数的描述</li>
+<li>mincount: 参数最少的个数(可以规定是否必须有参数比如设置为0为非必须，1…n为必须)</li>
+<li>maxcount: 参数最多的个数，采用Unix风格的，如kernel.exe -l 1 -l 2 -l 3</li>
+<li>其他参数非必须</li>
+</ul>
+<h5 id="2-arg-lit-文字"><a href="#2-arg-lit-文字" class="headerlink" title="(2). arg_lit (文字)"></a>(2). arg_lit (文字)</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">arg_lit</span> &#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">arg_hdr</span> hdr; <span class="comment">/* The mandatory argtable header struct */</span></span><br><span class="line">    <span class="type">int</span> count;          <span class="comment">/* Number of matching command line args */</span></span><br><span class="line">&#125; <span class="type">arg_lit_t</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-arg-int-整数"><a href="#3-arg-int-整数" class="headerlink" title="(3). arg_int(整数)"></a>(3). arg_int(整数)</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">arg_int</span> &#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">arg_hdr</span> hdr; <span class="comment">/* The mandatory argtable header struct */</span></span><br><span class="line">    <span class="type">int</span> count;          <span class="comment">/* Number of matching command line args */</span></span><br><span class="line">    <span class="type">int</span>* ival;          <span class="comment">/* Array of parsed argument values */</span></span><br><span class="line">&#125; <span class="type">arg_int_t</span>;</span><br></pre></td></tr></table></figure>
+
+<p>其中ival指获得的参数的值得一个数组，count表示获得了多少个值。</p>
+<h5 id="4-arg-dbl-双精度浮点数"><a href="#4-arg-dbl-双精度浮点数" class="headerlink" title="(4). arg_dbl(双精度浮点数)"></a>(4). arg_dbl(双精度浮点数)</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">arg_dbl</span> &#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">arg_hdr</span> hdr; <span class="comment">/* The mandatory argtable header struct */</span></span><br><span class="line">    <span class="type">int</span> count;          <span class="comment">/* Number of matching command line args */</span></span><br><span class="line">    <span class="type">double</span>* dval;       <span class="comment">/* Array of parsed argument values */</span></span><br><span class="line">&#125; <span class="type">arg_dbl_t</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 模式匹配</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">arg_rex</span> &#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">arg_hdr</span> hdr; <span class="comment">/* The mandatory argtable header struct */</span></span><br><span class="line">    <span class="type">int</span> count;          <span class="comment">/* Number of matching command line args */</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>** sval;  <span class="comment">/* Array of parsed argument values */</span></span><br><span class="line">&#125; <span class="type">arg_rex_t</span>;</span><br><span class="line"><span class="comment">// 文件</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">arg_file</span> &#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">arg_hdr</span> hdr;     <span class="comment">/* The mandatory argtable header struct */</span></span><br><span class="line">    <span class="type">int</span> count;              <span class="comment">/* Number of matching command line args*/</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>** filename;  <span class="comment">/* Array of parsed filenames  (eg: /home/foo.bar) */</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>** basename;  <span class="comment">/* Array of parsed basenames  (eg: foo.bar) */</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>** extension; <span class="comment">/* Array of parsed extensions (eg: .bar) */</span></span><br><span class="line">&#125; <span class="type">arg_file_t</span>;</span><br><span class="line"><span class="comment">// 时间</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">arg_date</span> &#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">arg_hdr</span> hdr; <span class="comment">/* The mandatory argtable header struct */</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>* format; <span class="comment">/* strptime format string used to parse the date */</span></span><br><span class="line">    <span class="type">int</span> count;          <span class="comment">/* Number of matching command line args */</span></span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">tm</span>* tmval;   <span class="comment">/* Array of parsed time values */</span></span><br><span class="line">&#125; <span class="type">arg_date_t</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-初始化参数-创建空间"><a href="#2-初始化参数-创建空间" class="headerlink" title="2. 初始化参数(创建空间)"></a>2. 初始化参数(创建空间)</h4><ul>
+<li>这里我直接在注释里面说明</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;argtable3.h&quot;</span></span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">arg_int</span> *gpu, *cpu, *opreator, *tn, *l, *r;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">arg_dbl</span> *fc;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">arg_lit</span> *verb, *help, *version;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">arg_end</span> *end;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> VERSION 0x020101</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">parse_args</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>* argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 初始化一个列表表示参数列表</span></span><br><span class="line">	<span class="type">void</span> *argtable[] = &#123;</span><br><span class="line">        <span class="comment">// arg_litn初始化help，其中h为短参数名，help为长参数名,0为mincount，1为maxcount，后面字符串为提示，其中lit可以省略类型</span></span><br><span class="line">        <span class="comment">// litn可以用简便的比如arg_lit0(&quot;h&quot;, &quot;help&quot;, &quot;xxxxxxxx&quot;)表示下面的</span></span><br><span class="line">        <span class="comment">// lit1(&quot;h&quot;, &quot;help&quot;, &quot;xxxxxxx&quot;)可以表示mincount=1,maxcount=1</span></span><br><span class="line">		help = <span class="built_in">arg_litn</span>(<span class="string">&quot;h&quot;</span>, <span class="string">&quot;help&quot;</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="string">&quot;Display Thie Help and Exit&quot;</span>),</span><br><span class="line">		version = <span class="built_in">arg_litn</span>(<span class="string">&quot;v&quot;</span>, <span class="string">&quot;version&quot;</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="string">&quot;Display Version Info And Exit&quot;</span>),</span><br><span class="line">        <span class="comment">// 类似同上，只是加了一个类型表示</span></span><br><span class="line">		cpu = <span class="built_in">arg_intn</span>(<span class="string">&quot;c&quot;</span>, <span class="string">&quot;cpu_number&quot;</span>,<span class="string">&quot;&lt;int&gt;&quot;</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="string">&quot;The CPU Number, Default is 1&quot;</span>),</span><br><span class="line">		gpu = <span class="built_in">arg_intn</span>(<span class="string">&quot;g&quot;</span>, <span class="string">&quot;gpu_number&quot;</span>,<span class="string">&quot;&lt;int&gt;&quot;</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="string">&quot;The GPU number, default is 1&quot;</span>),</span><br><span class="line">		opreator = <span class="built_in">arg_intn</span>(<span class="string">&quot;o&quot;</span>, <span class="string">&quot;op&quot;</span>, <span class="string">&quot;&lt;int&gt;&quot;</span>,<span class="number">0</span>, <span class="number">1</span>, <span class="string">&quot;The opreator of expression default is +(1): 1 is + and -1 is -&quot;</span>),</span><br><span class="line">		tn = <span class="built_in">arg_intn</span>(<span class="string">&quot;t&quot;</span>, <span class="string">&quot;threadnum&quot;</span>, <span class="string">&quot;&lt;int&gt;&quot;</span>,<span class="number">0</span>, <span class="number">1</span>, <span class="string">&quot;Per CPU Run The Thread Number&quot;</span>),</span><br><span class="line">		fc = <span class="built_in">arg_dbln</span>(<span class="string">&quot;f&quot;</span>, <span class="string">&quot;factor&quot;</span>, <span class="string">&quot;&lt;double&gt;&quot;</span>,<span class="number">0</span>, <span class="number">1</span>, <span class="string">&quot;The Factor of Expression, default is 1.0&quot;</span>),</span><br><span class="line">		l = <span class="built_in">arg_intn</span>(<span class="string">&quot;l&quot;</span>, <span class="string">&quot;left&quot;</span>, <span class="string">&quot;&lt;int&gt;&quot;</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="string">&quot;The factor for left expression, default is 1,1,1, exp: -l 1 -l 1 -l 1&quot;</span>),</span><br><span class="line">		r = <span class="built_in">arg_intn</span>(<span class="string">&quot;r&quot;</span>, <span class="string">&quot;right&quot;</span>, <span class="string">&quot;&lt;int&gt;&quot;</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="string">&quot;The factor for right expression, default is 1,1,1,exp -r 1 -r 1 -r 1&quot;</span>),</span><br><span class="line">		end = <span class="built_in">arg_end</span>(<span class="number">10</span>),</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="type">int</span> exitcode = <span class="number">0</span>;</span><br><span class="line">	<span class="type">char</span> name[] = <span class="string">&quot;kernel.exe&quot;</span>;</span><br><span class="line">	<span class="comment">// 解析参数</span></span><br><span class="line">	<span class="type">int</span> nerrors = <span class="built_in">arg_parse</span>(argc, argv, argtable);</span><br><span class="line">	<span class="comment">// count &gt; 0表示有参数</span></span><br><span class="line">	<span class="keyword">if</span> (help-&gt;count &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;Usage: %s&quot;</span>, name);</span><br><span class="line">		<span class="built_in">arg_print_syntax</span>(stdout, argtable, <span class="string">&quot;\n\n&quot;</span>);</span><br><span class="line">		<span class="built_in">arg_print_glossary</span>(stdout, argtable, <span class="string">&quot; %-25s %s\n&quot;</span>);</span><br><span class="line">		<span class="keyword">goto</span> exit;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	 <span class="keyword">if</span> (version-&gt;count &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Version: %d.%d.%d\n&quot;</span>, (VERSION &gt;&gt; <span class="number">16</span>) &amp; <span class="number">0xff</span>, (VERSION &gt;&gt; <span class="number">8</span>) &amp; <span class="number">0xff</span>, VERSION &amp; <span class="number">0xff</span>);</span><br><span class="line">        <span class="keyword">goto</span> exit;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (nerrors &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 错误处理</span></span><br><span class="line">        <span class="built_in">arg_print_errors</span>(stdout, end, name);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Try &#x27;%s --help&#x27; for more information.\n&quot;</span>, name);</span><br><span class="line">        exitcode = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">goto</span> exit;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (cpu-&gt;count &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		CUDA_CONF::CPUn = cpu-&gt;ival[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (gpu-&gt;count &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		CUDA_CONF::GPUn = gpu-&gt;ival[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (opreator-&gt;count &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		CALCULATE_CONF::op = opreator-&gt;ival[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (tn-&gt;count &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		CUDA_CONF::threadnum = tn-&gt;ival[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (fc-&gt;count &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		CALCULATE_CONF::factor = fc-&gt;dval[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (l-&gt;count &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; l-&gt;count; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			CALCULATE_CONF::left[i] = l-&gt;ival[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 拥有多个参数处理</span></span><br><span class="line">	<span class="keyword">if</span> (r-&gt;count &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; r-&gt;count; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			CALCULATE_CONF::right[i] = r-&gt;ival[i];</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;CPUn is %d, GPUn is %d, op is %d, factor is %lf\n&quot;</span>, CUDA_CONF::CPUn, CUDA_CONF::GPUn, CALCULATE_CONF::op, CALCULATE_CONF::factor);</span><br><span class="line">	<span class="built_in">run</span>();</span><br><span class="line">	exit:</span><br><span class="line">    <span class="comment">// 释放参数列表</span></span><br><span class="line">    <span class="built_in">arg_freetable</span>(argtable, <span class="built_in">sizeof</span>(argtable) / <span class="built_in">sizeof</span>(argtable[<span class="number">0</span>]));</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2021/08/06/argtable3%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" data-id="clmivdq86001bsjp67miu1kcp" data-title="argtable3 使用指南" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog./2021/08/07/Celery%20Flower/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          Celery Flower
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog./2021/08/06/CUDA%E7%BC%96%E7%A8%8B02%20HelloWorld/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">CUDA编程02 HelloWorld</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JUC/">JUC</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JVM/">JVM</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/LeetCode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/bxjs/">bxjs</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/cuda/">cuda</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/default/">default</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/dsbj/">dsbj</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/jvmbook/">jvmbook</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/muban/">muban</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/selfdriving/">selfdriving</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/youji/">youji</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/zczb/">zczb</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/OpenCDA/" rel="tag">OpenCDA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/V2X/" rel="tag">V2X</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/%E6%91%84%E5%BD%B1/" rel="tag">摄影</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog./tags/OpenCDA/" style="font-size: 10px;">OpenCDA</a> <a href="/blog./tags/V2X/" style="font-size: 10px;">V2X</a> <a href="/blog./tags/%E6%91%84%E5%BD%B1/" style="font-size: 10px;">摄影</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog./2023/09/14/OpenCDA%20V2X%E9%80%9A%E4%BF%A1%E7%9B%B8%E5%85%B3/">OpenCDA V2X通信相关</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/28/%E5%8F%A4%E6%9C%B4%E9%9F%B5%E5%91%B3%E4%B8%8E%E8%8D%92%E9%87%8E%E4%B9%8B%E7%BE%8E%20-------%20%E8%A5%BF%E5%AE%89%E3%80%81%E9%9D%92%E6%B5%B7%E4%B9%8B%E6%97%85/">古朴韵味与荒野之美 ------- 西安、青海之旅</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/03/%E3%80%90OpenCDA%E3%80%91%E7%AE%97%E6%B3%95%E5%AE%9A%E5%88%B6%E5%8C%96%E5%BC%80%E5%8F%91/">【OpenCDA】算法定制化开发</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/01/zlib%20404/">zlib 404</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/07/19/V2X%E5%9C%BA%E6%99%AF%E5%8F%91%E5%B1%95%E5%92%8C%E4%BB%BF%E7%9C%9F/">V2X场景发展和仿真</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 wangxso<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog./" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog./archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog./js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/blog./fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog./js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>非典型程序员的一生</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="程序员 | 工程师 | 摄影爱好者 | 骑行客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="非典型程序员的一生">
+<meta property="og:url" content="https://wangxso.github.io/blog./page/7/index.html">
+<meta property="og:site_name" content="非典型程序员的一生">
+<meta property="og:description" content="程序员 | 工程师 | 摄影爱好者 | 骑行客">
+<meta property="og:locale">
+<meta property="article:author" content="wangxso">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog./atom.xml" title="非典型程序员的一生" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog./favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog./css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog./fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog./" id="logo">非典型程序员的一生</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/blog./">Home</a>
+        
+          <a class="main-nav-link" href="/blog./archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/blog./atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wangxso.github.io/blog."></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-【JVM系列】01-JVM简介" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2020/04/07/%E3%80%90JVM%E7%B3%BB%E5%88%97%E3%80%9101-JVM%E7%AE%80%E4%BB%8B/" class="article-date">
+  <time class="dt-published" datetime="2020-04-07T06:45:00.000Z" itemprop="datePublished">2020-04-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/JVM/">JVM</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2020/04/07/%E3%80%90JVM%E7%B3%BB%E5%88%97%E3%80%9101-JVM%E7%AE%80%E4%BB%8B/">【JVM系列】01-JVM简介</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>#JVM简介<br>##一、什么是JVM？<br>   JVM(Java Virtula Machine)，Java虚拟机的缩写，是执行字节码文件的一个虚拟的计算机设备。<br>   JVM的出现早于Java语言的出现，并且在JDK7之后JVM可以运行非Java语言编写的字节码文件。<br>##二、JVM的结构<br><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/04/1375290828.jpg" alt="Screenshot_20200407_221637.jpg"></p>
+<h4 id="JVM的整体结构包括："><a href="#JVM的整体结构包括：" class="headerlink" title="JVM的整体结构包括："></a>JVM的整体结构包括：</h4><p><strong>上层：类文件、类加载子系统</strong></p>
+<p><strong>中层：方法区、堆、程序计数器、本地方法栈、JVM虚拟机</strong></p>
+<p><strong>下层：执行引擎、本地方法接口</strong><br>###三、Java代码的执行过程<br> 1.Java源码(xxx.java)导入<br> 2.通过Java编译器编译为字节码文件(xxx.class)<br> 3.进入JVM虚拟机执行<br> 4.通过类加载器加载<br> 5.通过字节码校验器校验是否正确<br> 6.通过JIT编译器翻译字节码</p>
+<h2 id="四、JVM的架构模型"><a href="#四、JVM的架构模型" class="headerlink" title="四、JVM的架构模型"></a>四、JVM的架构模型</h2><p>通常的架构分为<strong>基于栈的指令集</strong>架构和<strong>基于寄存器的指令集</strong>架构<br>1.基于栈的指令集合：</p>
+<ul>
+<li>优点：跨平台，指令集小，指令多</li>
+<li>缺点：执行性能比寄存器差</li>
+</ul>
+<p>2.基于寄存器的指令集合：</p>
+<ul>
+<li>优点：执行性能高，运行更快</li>
+<li>缺点：可移植性差</li>
+</ul>
+<p>Hotspot是基于栈的指令集的架构</p>
+<ul>
+<li>0地址指令：无地址位</li>
+<li>1地址指令：有一个地址位</li>
+</ul>
+<h2 id="五、JVM的生命周期"><a href="#五、JVM的生命周期" class="headerlink" title="五、JVM的生命周期"></a>五、JVM的生命周期</h2><ol>
+<li><strong>虚拟机的启动</strong><br>Java虚拟机的启动是通过<strong>类加载器</strong>(Bootstrap Class Loader)创建一个<strong>初始类</strong>(Initial Class)来完成的，这个类有虚拟机的具体情况指定。</li>
+<li><strong>虚拟机的执行</strong><br>一个运行中的Java虚拟机有一个明确的目的就是执行Java程序</li>
+<li><strong>虚拟机的退出</strong><br>1）程序执行结束<br>2）在执行的过程中出现未处理的异常或错误而终止<br>3）操作系统出现错误使Java虚拟机进程终止<br>4）某线程调用Runtime类或System类的exit方法，或Runtime类的halt方法，并且Java安全管理器也允许这次操作</li>
+</ol>
+<h2 id="六、Java的发展过程"><a href="#六、Java的发展过程" class="headerlink" title="六、Java的发展过程"></a>六、Java的发展过程</h2><p>1.Sum Classic VM<br>&nbsp;&nbsp;&nbsp;只提供了解释器，外挂JITJDK4后被淘汰<br>2.Exact VM<br>&nbsp;&nbsp;&nbsp;准确的内存管理和他的名字一样，可知内存中某个位置的数据类型<br>3.Hotspot VM<br>通过计数器找到最具有价值的代码，触发即时编译器或者栈上替换，Hotspot就代表热点代码探测技术，编译器和解释器协调工作，可以在响应速度和执行时间之间取得一个平衡。<br>4. BEA JRockit<br>专注于服务器端，号称世界上最快的JVM<br>5.IBM J9<br>有影响力的三大商用虚拟机，多用途JVM<br>6.KVM和CDC&#x2F;CLDC Hotspot<br>KVM简单轻量，高度移植性<br>7.Azul VM<br>软硬件结合，性能更加优秀<br>。。。。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2020/04/07/%E3%80%90JVM%E7%B3%BB%E5%88%97%E3%80%9101-JVM%E7%AE%80%E4%BB%8B/" data-id="clmivdq8b0028sjp6dyf0c70f" data-title="【JVM系列】01-JVM简介" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【LeetCode】每日一题 · 买卖股票的最佳时机" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2020/03/09/%E3%80%90LeetCode%E3%80%91%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%C2%B7%20%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/" class="article-date">
+  <time class="dt-published" datetime="2020-03-09T04:35:00.000Z" itemprop="datePublished">2020-03-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/LeetCode/">LeetCode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2020/03/09/%E3%80%90LeetCode%E3%80%91%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%C2%B7%20%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/">【LeetCode】每日一题 · 买卖股票的最佳时机</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>给定一个数组，它的第 i 个元素是一支给定股票第 i 天的价格。</p>
+<p>如果你最多只允许完成一笔交易（即买入和卖出一支股票），设计一个算法来计算你所能获取的最大利润。</p>
+<p>注意你不能在买入股票前卖出股票。</p>
+<p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock">https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxProfit</span><span class="params">(<span class="type">int</span>[] prices)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> prices.length;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span>[] dp = <span class="keyword">new</span> <span class="title class_">int</span>[n];</span><br><span class="line">        <span class="type">int</span> <span class="variable">minprice</span> <span class="operator">=</span> prices[<span class="number">0</span>];</span><br><span class="line">        dp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; n ; i++) &#123;</span><br><span class="line">            minprice = Math.min(minprice,prices[i]);</span><br><span class="line">            dp[i] = Math.max(dp[i-<span class="number">1</span>], prices[i] - minprice);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n-<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2020/03/09/%E3%80%90LeetCode%E3%80%91%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%C2%B7%20%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/" data-id="clmivdq8g002tsjp66bj00hah" data-title="【LeetCode】每日一题 · 买卖股票的最佳时机" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【LeetCode】每日一题 · 队列的最大值" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2020/03/07/%E3%80%90LeetCode%E3%80%91%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%C2%B7%20%E9%98%9F%E5%88%97%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/" class="article-date">
+  <time class="dt-published" datetime="2020-03-06T21:43:00.000Z" itemprop="datePublished">2020-03-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/LeetCode/">LeetCode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2020/03/07/%E3%80%90LeetCode%E3%80%91%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%C2%B7%20%E9%98%9F%E5%88%97%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/">【LeetCode】每日一题 · 队列的最大值</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>来源：力扣（LeetCode）<br>链接：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/dui-lie-de-zui-da-zhi-lcof">https://leetcode-cn.com/problems/dui-lie-de-zui-da-zhi-lcof</a><br>著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。<br>##题干<br>请定义一个队列并实现函数 max_value 得到队列里的最大值，要求函数max_value、push_back和 pop_front 的时间复杂度都是O(1)。</p>
+<p>若队列为空，pop_front 和 max_value 需要返回 -1</p>
+<p>##解析</p>
+<p>  首先我的做法是搞两个队列一个用来存储正常加入的数，一个是优先队列用来存储最大值。但是我这样就做不到O(1)的时间复杂度了。首先优先队列调整的时间复杂度是O(logn),而且每次出队都要去除优先队列里面的值也是O(n)的时间复杂度。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MaxQueue</span> &#123;</span><br><span class="line">    Queue&lt;Integer&gt; queue = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">    Queue&lt;Integer&gt; maxQueue = <span class="keyword">new</span> <span class="title class_">PriorityQueue</span>&lt;&gt;(<span class="keyword">new</span> <span class="title class_">Comparator</span>&lt;Integer&gt;() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Integer o1, Integer o2)</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> o2 - o1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MaxQueue</span><span class="params">()</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">max_value</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (maxQueue.size() == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span>  -<span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">max_val</span> <span class="operator">=</span> maxQueue.poll();</span><br><span class="line">            maxQueue.add(max_val);</span><br><span class="line">            <span class="keyword">return</span> max_val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">push_back</span><span class="params">(<span class="type">int</span> value)</span> &#123;</span><br><span class="line">        queue.add(value);</span><br><span class="line">        maxQueue.add(value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">pop_front</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (queue.size() == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">ret</span> <span class="operator">=</span> queue.poll();</span><br><span class="line">            maxQueue.remove(ret);</span><br><span class="line">            <span class="keyword">return</span> ret;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="别人的方法-我怎么想不到"><a href="#别人的方法-我怎么想不到" class="headerlink" title="别人的方法(我怎么想不到)"></a>别人的方法(<del>我怎么想不到</del>)</h2><p>  利用链表的记录地址的值我们可以设置一个节点记录最大值的地址，当最大值要出去时候就移除这个节点，但是唔觉得</p>
+<p>  他这个每次出去都要扫描一次算不算是O(n)的时间复杂度。懂得可以评论里和我说说，Thanks♪(･ω･)ﾉ</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MaxQueue</span> &#123;</span><br><span class="line">    <span class="comment">//最大的节点</span></span><br><span class="line">    <span class="keyword">private</span> Node max;</span><br><span class="line">    <span class="comment">//根节点</span></span><br><span class="line">    <span class="keyword">private</span> Node root;</span><br><span class="line">    <span class="comment">//尾结点</span></span><br><span class="line">    <span class="keyword">private</span> Node tail;</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Node</span>&#123;</span><br><span class="line">        <span class="type">int</span> val;</span><br><span class="line">        Node next=<span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">public</span> <span class="title function_">Node</span><span class="params">(<span class="type">int</span> val)</span>&#123;<span class="built_in">this</span>.val=val;&#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MaxQueue</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.root=<span class="keyword">new</span> <span class="title class_">Node</span>(-<span class="number">1</span>);</span><br><span class="line">        root.next=<span class="literal">null</span>;</span><br><span class="line">        <span class="built_in">this</span>.max=root;</span><br><span class="line">        <span class="built_in">this</span>.tail=root;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">max_value</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="comment">//队列为空</span></span><br><span class="line">        <span class="keyword">if</span>(root==tail)<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> max.val;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">push_back</span><span class="params">(<span class="type">int</span> value)</span> &#123;</span><br><span class="line">        <span class="comment">//生成临时节点</span></span><br><span class="line">        Node tmp=<span class="keyword">new</span> <span class="title class_">Node</span>(value);</span><br><span class="line">        <span class="comment">//链接进原来的队列</span></span><br><span class="line">        tail.next=tmp;</span><br><span class="line">        <span class="comment">//将尾结点后移</span></span><br><span class="line">        tail=tmp;</span><br><span class="line">        <span class="comment">//存储最大节点的位置和值</span></span><br><span class="line">        <span class="keyword">if</span>(max==root||max.val&lt;=value)max=tmp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">pop_front</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(tail==root)<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        <span class="comment">//root为哨兵</span></span><br><span class="line">        root=root.next;<span class="comment">//root并不代表实际节点</span></span><br><span class="line">        <span class="keyword">if</span>(root==max)&#123;<span class="comment">//最大值要出去了</span></span><br><span class="line">            Node head=root.next;<span class="comment">//head-tail才代表实际的队列</span></span><br><span class="line">            max=head;</span><br><span class="line">            <span class="keyword">while</span>(head!=<span class="literal">null</span>)&#123;</span><br><span class="line">                max=max.val&lt;=head.val?head:max;</span><br><span class="line">                head=head.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        max=(max==<span class="literal">null</span>)?root:max;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> root.val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2020/03/07/%E3%80%90LeetCode%E3%80%91%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%C2%B7%20%E9%98%9F%E5%88%97%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/" data-id="clmivdq8i0033sjp66i8fapwe" data-title="【LeetCode】每日一题 · 队列的最大值" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【LeetCode】每日一题 · 和为S的正数序列" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2020/03/06/%E3%80%90LeetCode%E3%80%91%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%C2%B7%20%E5%92%8C%E4%B8%BAS%E7%9A%84%E6%AD%A3%E6%95%B0%E5%BA%8F%E5%88%97/" class="article-date">
+  <time class="dt-published" datetime="2020-03-05T19:36:00.000Z" itemprop="datePublished">2020-03-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/LeetCode/">LeetCode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2020/03/06/%E3%80%90LeetCode%E3%80%91%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%C2%B7%20%E5%92%8C%E4%B8%BAS%E7%9A%84%E6%AD%A3%E6%95%B0%E5%BA%8F%E5%88%97/">【LeetCode】每日一题 · 和为S的正数序列</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/" title="原题出处">原题出处</a></p>
+<h2 id="题干"><a href="#题干" class="headerlink" title="题干"></a>题干</h2><blockquote>
+<p>输入一个正整数 target ，输出所有和为 target 的连续正整数序列（至少含有两个数）。</p>
+</blockquote>
+<blockquote>
+<p>序列内的数字由小到大排列，不同序列按照首个数字从小到大排列。</p>
+</blockquote>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><h3 id="一、有点暴力法-O-n-2-超时"><a href="#一、有点暴力法-O-n-2-超时" class="headerlink" title="一、有点暴力法(O(n^2) 超时)"></a>一、有点暴力法(O(n^2) 超时)</h3><p>1.开始想到他是个等差数列当相邻的时候已知公差和前n项和求首项和有几项。(<del>绝对是昨天那道题影响到了我</del>)<br>2.Sn &#x3D; na1 + (n-1)<em>n&#x2F;2 * d<br>d &#x3D; 1 Sn 已知<br>na1 + n</em>(n-1)&#x2F;2  &#x3D; Sn</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//有点暴力 O(n^2) 超时了</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[][] findContinuousSequence(<span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">first</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        ArrayList&lt;<span class="type">int</span>[]&gt; ret = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; target; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt;target; j++) &#123;</span><br><span class="line">                first = i;</span><br><span class="line">                n = j;</span><br><span class="line">                <span class="type">int</span>[] ans = <span class="keyword">new</span> <span class="title class_">int</span>[n];</span><br><span class="line">                <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> n * first + n*(n-<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">                <span class="keyword">if</span> (res == target)&#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> <span class="number">0</span>; k &lt; n ; k++) &#123;</span><br><span class="line">                        ans[k] = first + k;</span><br><span class="line">                    &#125;</span><br><span class="line">                    ret.add(ans);</span><br><span class="line">                    count++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret.toArray(<span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">0</span>][]);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二、看了题解后才发现的滑动窗口-双指针-法"><a href="#二、看了题解后才发现的滑动窗口-双指针-法" class="headerlink" title="二、看了题解后才发现的滑动窗口(双指针)法"></a>二、看了题解后才发现的滑动窗口(双指针)法</h3><p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/03/805881467.png" alt="Notepad_202003061124_30036.png"></p>
+<p>解析如图所示</p>
+<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//滑动窗口</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[][] findContinuousSequence(<span class="type">int</span> target) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">l</span> <span class="operator">=</span> <span class="number">1</span>;<span class="comment">//左边界</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">r</span> <span class="operator">=</span> <span class="number">1</span>;<span class="comment">//右边界</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//窗口的数字的和</span></span><br><span class="line">        List&lt;<span class="type">int</span>[]&gt; ans = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">while</span> (l &lt;= target / <span class="number">2</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span> (sum &lt; target)&#123;</span><br><span class="line">                <span class="comment">//右边界向右移动</span></span><br><span class="line">                sum += r;</span><br><span class="line">                r++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (sum &gt; target)&#123;</span><br><span class="line">                <span class="comment">//左边界向右移动</span></span><br><span class="line">                sum-=l;</span><br><span class="line">                l++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (sum == target)&#123;</span><br><span class="line">                <span class="type">int</span>[] res = <span class="keyword">new</span> <span class="title class_">int</span>[r - l];</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> l; i &lt; r ; i++) &#123;</span><br><span class="line">                    res[i - l] = i;</span><br><span class="line">                &#125;</span><br><span class="line">                ans.add(res);</span><br><span class="line">                <span class="comment">//左边界向右移动</span></span><br><span class="line">                sum -= l;</span><br><span class="line">                l++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans.toArray(<span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">0</span>][]);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2020/03/06/%E3%80%90LeetCode%E3%80%91%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%C2%B7%20%E5%92%8C%E4%B8%BAS%E7%9A%84%E6%AD%A3%E6%95%B0%E5%BA%8F%E5%88%97/" data-id="clmivdq8h002ysjp6a0b66cuq" data-title="【LeetCode】每日一题 · 和为S的正数序列" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【LeetCode】每日一题 · 分糖果 II" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2020/03/05/%E3%80%90LeetCode%E3%80%91%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%C2%B7%20%E5%88%86%E7%B3%96%E6%9E%9C%20II/" class="article-date">
+  <time class="dt-published" datetime="2020-03-04T23:10:00.000Z" itemprop="datePublished">2020-03-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/LeetCode/">LeetCode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2020/03/05/%E3%80%90LeetCode%E3%80%91%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%C2%B7%20%E5%88%86%E7%B3%96%E6%9E%9C%20II/">【LeetCode】每日一题 · 分糖果 II</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/distribute-candies-to-people/" title="原题链接">原题链接</a></p>
+<h2 id="题干"><a href="#题干" class="headerlink" title="题干"></a>题干</h2><blockquote>
+<p>排排坐，分糖果。</p>
+</blockquote>
+<blockquote>
+<p>我们买了一些糖果 candies，打算把它们分给排好队的 n &#x3D; num_people 个小朋友。</p>
+</blockquote>
+<blockquote>
+<p>给第一个小朋友 1 颗糖果，第二个小朋友 2 颗，依此类推，直到给最后一个小朋友 n 颗糖果。</p>
+</blockquote>
+<blockquote>
+<p>然后，我们再回到队伍的起点，给第一个小朋友 n + 1 颗糖果，第二个小朋友 n + 2 颗，依此类推，直到给最后一个小朋友 2 * n 颗糖果。</p>
+</blockquote>
+<blockquote>
+<p>重复上述过程（每次都比上一次多给出一颗糖果，当到达队伍终点后再次从队伍起点开始），直到我们分完所有的糖果。注意，就算我们手中的剩下糖果数不够（不比前一次发出的糖果多），这些糖果也会全部发给当前的小朋友。</p>
+</blockquote>
+<blockquote>
+<p>返回一个长度为 num_people、元素之和为 candies 的数组，以表示糖果的最终分发情况（即 ans[i] 表示第 i 个小朋友分到的糖果数）。</p>
+</blockquote>
+<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><h2 id="暴力法"><a href="#暴力法" class="headerlink" title="###暴力法"></a>###暴力法</h2><p>不管怎么来俺就是要莽，莽夫嘛，就是要来一套模拟，搞定。</p>
+<p>每次模拟走一次，然后把剩下的存在最后一个访问的小朋友</p>
+<p>###代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span>[] distributeCandies(<span class="type">int</span> candies, <span class="type">int</span> num_people) &#123;</span><br><span class="line">    <span class="type">int</span>[] ans = <span class="keyword">new</span> <span class="title class_">int</span>[num_people];</span><br><span class="line">    <span class="type">int</span> <span class="variable">pow</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (candies &gt; <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; num_people ; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (candies &gt;= i + <span class="number">1</span> + num_people * pow)&#123;</span><br><span class="line">                candies -= i + <span class="number">1</span> + num_people * pow;</span><br><span class="line">                ans[i] += i + <span class="number">1</span> + num_people * pow;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                ans[i] += candies;</span><br><span class="line">                candies = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        pow++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="数学小想法-莽夫的对立面"><a href="#数学小想法-莽夫的对立面" class="headerlink" title="数学小想法(莽夫的对立面)"></a>数学小想法(<del>莽夫的对立面</del>)</h3><p>使用等差数列的知识，我们可以看出这个完整分配的时候就是一个首项为1，公差为1的等差数列</p>
+<p>已知首项、前n项和和公差求项数<br>Sn &#x3D; a1 x n+(n x n-1)&#x2F;2 x d</p>
+<ul>
+<li>求出完整分配的轮数</li>
+<li>求出最后的杭和烈</li>
+<li>最后加上剩余的<br> <img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/03/722161085.png" alt="AirPlay_Screenshot_2020-03-05_02-57-20.png"><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/03/3813234519.png" alt="AirPlay_Screenshot_2020-03-05_02-57-43.png"></li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//等差数列求和，Sn = n*a1 + n(n-1)d /2,此处已知Sn a1 d 求 n</span></span><br><span class="line">        <span class="comment">// n*a1 + (d * n^2 - d * n) / 2 = Sn ==&gt; n = 土sqrt(2 * Sn + 0.25) - 0.5</span></span><br><span class="line">        <span class="keyword">public</span> <span class="type">int</span>[] distributeCandies(<span class="type">int</span> candies, <span class="type">int</span> num_people) &#123;</span><br><span class="line">            <span class="type">int</span>[] ans = <span class="keyword">new</span> <span class="title class_">int</span>[num_people];</span><br><span class="line">            <span class="comment">//求出完整分配的项数</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> (<span class="type">int</span>) Math.floor(Math.sqrt(<span class="number">2</span>*candies + <span class="number">0.25</span>) - <span class="number">0.5</span>);</span><br><span class="line">            <span class="comment">//求出完整分配的数量</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">sn</span> <span class="operator">=</span> n + (n * (n-<span class="number">1</span>)) / <span class="number">2</span>;</span><br><span class="line">            <span class="comment">//剩余的糖果数</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">less</span> <span class="operator">=</span> candies - sn;</span><br><span class="line">            <span class="comment">//推算出完整分配的行和列</span></span><br><span class="line">            <span class="comment">//rows代表最后一行的行数</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">rows</span> <span class="operator">=</span> n / num_people;</span><br><span class="line">            <span class="comment">// cols 代表最后一个分配的位置</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">cols</span> <span class="operator">=</span> n % num_people;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; num_people ; i++) &#123;</span><br><span class="line">                ans[i] = (i + <span class="number">1</span>) * rows + (<span class="type">int</span>)(rows * (rows - <span class="number">1</span>) * <span class="number">0.5</span>) * num_people;</span><br><span class="line">                <span class="comment">//前cols个人分配一份完整的礼物</span></span><br><span class="line">                <span class="keyword">if</span> (i &lt; cols) ans[i] += i + <span class="number">1</span> + rows * num_people;</span><br><span class="line">            &#125;</span><br><span class="line">            ans[cols] += less;</span><br><span class="line">            <span class="keyword">return</span> ans;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2020/03/05/%E3%80%90LeetCode%E3%80%91%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%C2%B7%20%E5%88%86%E7%B3%96%E6%9E%9C%20II/" data-id="clmivdq8g002vsjp6h8zoehfe" data-title="【LeetCode】每日一题 · 分糖果 II" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【LeetCode】每日一题 · 腐烂的橘子" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2020/03/04/%E3%80%90LeetCode%E3%80%91%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%C2%B7%20%E8%85%90%E7%83%82%E7%9A%84%E6%A9%98%E5%AD%90/" class="article-date">
+  <time class="dt-published" datetime="2020-03-04T05:01:00.000Z" itemprop="datePublished">2020-03-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/LeetCode/">LeetCode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2020/03/04/%E3%80%90LeetCode%E3%80%91%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%C2%B7%20%E8%85%90%E7%83%82%E7%9A%84%E6%A9%98%E5%AD%90/">【LeetCode】每日一题 · 腐烂的橘子</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/rotting-oranges/">LeetCode 994 链接点我</a></p>
+<h2 id="题干"><a href="#题干" class="headerlink" title="题干"></a>题干</h2><blockquote>
+<p>在给定的网格中，每个单元格可以有以下三个值之一：</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>值 0 代表空单元格；</li>
+</ul>
+</blockquote>
+<ul>
+<li>值 1 代表新鲜橘子；</li>
+<li>值 2 代表腐烂的橘子。</li>
+</ul>
+<blockquote>
+<p>每分钟，任何与腐烂的橘子（在 4 个正方向上）相邻的新鲜橘子都会腐烂。</p>
+</blockquote>
+<blockquote>
+<p>返回直到单元格中没有新鲜橘子为止所必须经过的最小分钟数。如果不可能，返回 -1。</p>
+</blockquote>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>一开始我是想暴力的(<del>莽夫就是这样</del>),后来感觉这题有点和搜索题目的意思但是我还是喜欢莽。最后莽不过就直接换了思路，可以看出橘子的扩散类似于波纹扩散，所以果断采用<font color="red">BFS</font></p>
+<ul>
+<li><p>先记录新鲜橘子的数量和腐坏的橘子的位置；</p>
+</li>
+<li><p>在进行bfs出队列入队了操作，每次将符合要求的入队，这一页每次入队的就是没有遍历过得(因为规定了原来是1变成2的才能入队)，注意判断边界</p>
+</li>
+<li><p>注意还剩下新鲜橘子的判断</p>
+</li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="comment">//BFS</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">orangesRotting</span><span class="params">(<span class="type">int</span>[][] grid)</span> &#123;</span><br><span class="line">        <span class="type">int</span>[][] pos = &#123;&#123;<span class="number">1</span>,<span class="number">0</span>&#125;,&#123;<span class="number">0</span>,<span class="number">1</span>&#125;,&#123;-<span class="number">1</span>,<span class="number">0</span>&#125;,&#123;<span class="number">0</span>,-<span class="number">1</span>&#125;&#125;;</span><br><span class="line">        Queue&lt;<span class="type">int</span>[]&gt; queue = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> grid.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> grid[<span class="number">0</span>].length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//新鲜橘子的数量</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; m ; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (grid[i][j] == <span class="number">1</span>)&#123;</span><br><span class="line">                    count++; <span class="comment">//记录新鲜橘子的数量</span></span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span> (grid[i][j] == <span class="number">2</span>)&#123;</span><br><span class="line">                    queue.add(<span class="keyword">new</span> <span class="title class_">int</span>[]&#123;i,j&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">minus</span> <span class="operator">=</span> <span class="number">0</span>;<span class="comment">//经过的时间</span></span><br><span class="line">        <span class="keyword">while</span> (count &gt; <span class="number">0</span> &amp;&amp; !queue.isEmpty())&#123;</span><br><span class="line">            minus++;</span><br><span class="line">            <span class="type">int</span> <span class="variable">s</span> <span class="operator">=</span> queue.size();</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; s ; i++) &#123;</span><br><span class="line">                <span class="type">int</span>[] orange = queue.poll();</span><br><span class="line">                <span class="type">int</span> <span class="variable">r</span> <span class="operator">=</span> orange[<span class="number">0</span>];</span><br><span class="line">                <span class="type">int</span> <span class="variable">c</span> <span class="operator">=</span> orange[<span class="number">1</span>];</span><br><span class="line">                <span class="keyword">if</span> (r-<span class="number">1</span>&gt;=<span class="number">0</span> &amp;&amp; grid[r-<span class="number">1</span>][c] == <span class="number">1</span>)&#123;</span><br><span class="line">                    grid[r-<span class="number">1</span>][c] = <span class="number">2</span>;</span><br><span class="line">                    System.out.println(grid[r-<span class="number">1</span>][c]);</span><br><span class="line">                    count--;</span><br><span class="line">                    queue.add(<span class="keyword">new</span> <span class="title class_">int</span>[]&#123;r-<span class="number">1</span>,c&#125;);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (r+<span class="number">1</span> &lt; n &amp;&amp; grid[r+<span class="number">1</span>][c] == <span class="number">1</span>)&#123;</span><br><span class="line">                    grid[r+<span class="number">1</span>][c] = <span class="number">2</span>;</span><br><span class="line">                    count--;</span><br><span class="line">                    queue.add(<span class="keyword">new</span> <span class="title class_">int</span>[]&#123;r+<span class="number">1</span>,c&#125;);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (c-<span class="number">1</span> &gt;= <span class="number">0</span> &amp;&amp; grid[r][c-<span class="number">1</span>] == <span class="number">1</span>)&#123;</span><br><span class="line">                    grid[r][c-<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">                    count--;</span><br><span class="line">                    queue.add(<span class="keyword">new</span> <span class="title class_">int</span>[]&#123;r,c-<span class="number">1</span>&#125;);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (c+<span class="number">1</span> &lt; m &amp;&amp; grid[r][c+<span class="number">1</span>] == <span class="number">1</span>)&#123;</span><br><span class="line">                    grid[r][c+<span class="number">1</span>] = <span class="number">2</span>;</span><br><span class="line">                    count--;</span><br><span class="line">                    queue.add(<span class="keyword">new</span> <span class="title class_">int</span>[]&#123;r,c+<span class="number">1</span>&#125;);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (count &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            minus = -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(minus);</span><br><span class="line">        <span class="keyword">return</span> minus;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2020/03/04/%E3%80%90LeetCode%E3%80%91%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%C2%B7%20%E8%85%90%E7%83%82%E7%9A%84%E6%A9%98%E5%AD%90/" data-id="clmivdq8h0030sjp6cl60g0ld" data-title="【LeetCode】每日一题 · 腐烂的橘子" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【Mac】如何更换docker for mac最新版的源" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2020/02/29/%E3%80%90Mac%E3%80%91%E5%A6%82%E4%BD%95%E6%9B%B4%E6%8D%A2docker%20for%20mac%E6%9C%80%E6%96%B0%E7%89%88%E7%9A%84%E6%BA%90/" class="article-date">
+  <time class="dt-published" datetime="2020-02-28T21:40:00.000Z" itemprop="datePublished">2020-02-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/zczb/">zczb</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2020/02/29/%E3%80%90Mac%E3%80%91%E5%A6%82%E4%BD%95%E6%9B%B4%E6%8D%A2docker%20for%20mac%E6%9C%80%E6%96%B0%E7%89%88%E7%9A%84%E6%BA%90/">【Mac】如何更换docker for mac最新版的源</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>  ####今天我刚下载了 docker for mac，在网上找了很久都没找到最新版的如何换源，因为最新版的界面已经改变了许多。</p>
+<p>  <img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/02/1368016769.png"></p>
+<p>  ##拉取成功<br>  <img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/02/239946809.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2020/02/29/%E3%80%90Mac%E3%80%91%E5%A6%82%E4%BD%95%E6%9B%B4%E6%8D%A2docker%20for%20mac%E6%9C%80%E6%96%B0%E7%89%88%E7%9A%84%E6%BA%90/" data-id="clmivdq8k003isjp6h0qu7zpk" data-title="【Mac】如何更换docker for mac最新版的源" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【JDK源码】HashMap" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2019/11/06/%E3%80%90JDK%E6%BA%90%E7%A0%81%E3%80%91HashMap/" class="article-date">
+  <time class="dt-published" datetime="2019-11-06T04:45:00.000Z" itemprop="datePublished">2019-11-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2019/11/06/%E3%80%90JDK%E6%BA%90%E7%A0%81%E3%80%91HashMap/">【JDK源码】HashMap</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h1><p>hashmap 的 <strong>数据结构基础</strong> 就是一张<strong>哈希表</strong>,<strong>使用拉链法</strong>来解决哈希冲突</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32595453/article/details/80660676">解决哈希冲突的三种方法（拉链法、开放地址法、再散列法）</a></p>
+<p>HashMap的java语言实现基础是 <strong>数组+（链表 or 红黑树）</strong></p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2019/11/3356721251.png" alt="image-20191105164948556.png"></p>
+<h2 id="0-实现与继承"><a href="#0-实现与继承" class="headerlink" title="0.实现与继承"></a>0.实现与继承</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HashMap</span>&lt;K,V&gt; <span class="keyword">extends</span> <span class="title class_">AbstractMap</span>&lt;K,V&gt;</span><br><span class="line">    <span class="keyword">implements</span> <span class="title class_">Map</span>&lt;K,V&gt;, Cloneable, Serializable</span><br></pre></td></tr></table></figure>
+
+<p>HashMap 继承来自 AbstractMap类</p>
+<p>这个类提供了Map接口的基本实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title class_">AbstractMap</span>&lt;K,V&gt; <span class="keyword">implements</span> <span class="title class_">Map</span>&lt;K,V&gt; </span><br></pre></td></tr></table></figure>
+
+<p>同时实现了Map接口,Cloneable,Serializable接口为标识接口</p>
+<h2 id="1-参数"><a href="#1-参数" class="headerlink" title="1. 参数"></a>1. 参数</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//默认初始容量，必须是2的幂，这里是2^4=16</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">DEFAULT_INITIAL_CAPACITY</span> <span class="operator">=</span> <span class="number">1</span> &lt;&lt; <span class="number">4</span>; <span class="comment">// aka 16</span></span><br><span class="line"><span class="comment">//最大的容量，默认为2^30</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">MAXIMUM_CAPACITY</span> <span class="operator">=</span> <span class="number">1</span> &lt;&lt; <span class="number">30</span>;</span><br><span class="line"><span class="comment">//没有在构造器中指定时，默认的填充因子</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">float</span> <span class="variable">DEFAULT_LOAD_FACTOR</span> <span class="operator">=</span> <span class="number">0.75f</span>;</span><br><span class="line"><span class="comment">//当桶(bucket)上的结点数大于这个值时会转成红黑树</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">TREEIFY_THRESHOLD</span> <span class="operator">=</span> <span class="number">8</span>;</span><br><span class="line"><span class="comment">//当(bucket)上的结点数小于这个值时会还原成链表</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">UNTREEIFY_THRESHOLD</span> <span class="operator">=</span> <span class="number">6</span>;</span><br><span class="line"><span class="comment">//桶中结构转化为红黑树对应的数组的最小大小，如果当前容量小于它，就不会将链表转化为红黑树，而是用resize()代替	</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">MIN_TREEIFY_CAPACITY</span> <span class="operator">=</span> <span class="number">64</span>;</span><br><span class="line"><span class="comment">//存储元素的数组，大小总是2的幂</span></span><br><span class="line"><span class="keyword">transient</span> java.util.HashMap.Node&lt;K,V&gt;[] table;</span><br><span class="line"><span class="comment">//存放具体元素的集合</span></span><br><span class="line"><span class="keyword">transient</span> Set&lt;Map.Entry&lt;K,V&gt;&gt; entrySet;</span><br><span class="line"><span class="comment">//集合目前的大小,并非数组的length,即当前Map存储了多少个元素</span></span><br><span class="line"><span class="keyword">transient</span> <span class="type">int</span> size;</span><br><span class="line"><span class="comment">//计数器，版本号，每次修改就会+1</span></span><br><span class="line"><span class="keyword">transient</span> <span class="type">int</span> modCount;</span><br><span class="line"><span class="comment">//临界值,当实际节点个数超过临界值(容量*填充因子)时，就会进行扩容</span></span><br><span class="line"><span class="type">int</span> threshold;</span><br><span class="line"><span class="comment">//填充因子</span></span><br><span class="line"><span class="keyword">final</span> <span class="type">float</span> loadFactor;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>JDK8中加入了红黑树结构，当链表因为hash冲突超过8的时候就会将链表转换为红黑树</li>
+<li>HashMap数组的大小只能是2的幂次方整数</li>
+<li>当 length &gt; threshold的时候就会进行扩容 threshold &#x3D; table.length* loadFactor</li>
+<li>在HashMap中，<strong>哈希桶数组table的长度length大小必须为2的n次方(一定是合数)<strong>，这是一种非常规的设计，常规的设计是把桶的大小设计为素数。相对来说素数导致冲突的概率要小于合数；</strong>同时也是使用位运算来优化hash%len的前提</strong></li>
+</ul>
+<h2 id="2-构造函数"><a href="#2-构造函数" class="headerlink" title="2. 构造函数"></a>2. 构造函数</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">*带参构造函数，初始化初始容量和填充因子</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">**/</span></span><br><span class="line"><span class="keyword">public</span> <span class="title function_">HashMap</span><span class="params">(<span class="type">int</span> initialCapacity, <span class="type">float</span> loadFactor)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (initialCapacity &lt; <span class="number">0</span>)<span class="comment">//传入的初始容量值小于0，抛出异常</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&quot;Illegal initial capacity: &quot;</span> +</span><br><span class="line">                                               initialCapacity);</span><br><span class="line">        <span class="keyword">if</span> (initialCapacity &gt; MAXIMUM_CAPACITY)<span class="comment">//传入的值大于Integer的最大值，补偿措施</span></span><br><span class="line">            initialCapacity = MAXIMUM_CAPACITY;</span><br><span class="line">        <span class="keyword">if</span> (loadFactor &lt;= <span class="number">0</span> || Float.isNaN(loadFactor))<span class="comment">//填充因子出现问题，抛异常</span></span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&quot;Illegal load factor: &quot;</span> +</span><br><span class="line">                                               loadFactor);</span><br><span class="line">        <span class="built_in">this</span>.loadFactor = loadFactor;<span class="comment">//为填充因子赋值</span></span><br><span class="line">        <span class="built_in">this</span>.threshold = tableSizeFor(initialCapacity); <span class="comment">//为传入的初始容量做处理</span></span><br><span class="line">    <span class="comment">//tableSizeFor 是返回一个比给定整数大的2的幂次方整数</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//假设传入一个65</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="title function_">tableSizeFor</span><span class="params">(<span class="type">int</span> cap)</span> &#123;</span><br><span class="line">    	<span class="comment">//n = 64（1000000）</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> cap - <span class="number">1</span>;</span><br><span class="line">    	<span class="comment">// n &gt;&gt;&gt; 1 = 0100000</span></span><br><span class="line">    	<span class="comment">//    0100000 | 1000000 = 1100000</span></span><br><span class="line">    	<span class="comment">// 可得 n = 00000000 01111111（2进制） 63</span></span><br><span class="line">    	<span class="comment">// &gt;&gt;&gt;表示无符号右移，也叫逻辑右移，即若该数为正，则高位补0，而若该数为负数，则右移后高位同样补0</span></span><br><span class="line">        n |= n &gt;&gt;&gt; <span class="number">1</span>;<span class="comment">// 0011</span></span><br><span class="line">        n |= n &gt;&gt;&gt; <span class="number">2</span>;</span><br><span class="line">        n |= n &gt;&gt;&gt; <span class="number">4</span>;</span><br><span class="line">        n |= n &gt;&gt;&gt; <span class="number">8</span>;</span><br><span class="line">        n |= n &gt;&gt;&gt; <span class="number">16</span>;</span><br><span class="line">        <span class="keyword">return</span> (n &lt; <span class="number">0</span>) ? <span class="number">1</span> : (n &gt;= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + <span class="number">1</span>;<span class="comment">//返回+1 即 64</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//带参构造函数，不指定填充因子，使用默认的填充因子0.75</span></span><br><span class="line"><span class="keyword">public</span> <span class="title function_">HashMap</span><span class="params">(<span class="type">int</span> initialCapacity)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>(initialCapacity, DEFAULT_LOAD_FACTOR);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * HashMap无参构造函数</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">HashMap</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.loadFactor = DEFAULT_LOAD_FACTOR; <span class="comment">// all other fields defaulted</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//带参构造函数，参数是一个Map的实例，作用是把Map转换为HashMap，也可以理解为是拷贝</span></span><br><span class="line"><span class="keyword">public</span> <span class="title function_">HashMap</span><span class="params">(Map&lt;? extends K, ? extends V&gt; m)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.loadFactor = DEFAULT_LOAD_FACTOR;</span><br><span class="line">        putMapEntries(m, <span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-hash函数"><a href="#3-hash函数" class="headerlink" title="3. hash函数"></a>3. hash函数</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="title function_">hash</span><span class="params">(Object key)</span> &#123;</span><br><span class="line">        <span class="type">int</span> h;</span><br><span class="line">        <span class="keyword">return</span> (key == <span class="literal">null</span>) ? <span class="number">0</span> : (h = key.hashCode()) ^ (h &gt;&gt;&gt; <span class="number">16</span>);</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    *key为null则指定hash值为0</span></span><br><span class="line"><span class="comment">    *其他则获取其hashCode方法 然后进行异或运算</span></span><br><span class="line"><span class="comment">    *1. h  = key.hashCode() 取hashCode值</span></span><br><span class="line"><span class="comment">    *2. h^(h &gt;&gt;&gt; 16) 高位参与运算</span></span><br><span class="line"><span class="comment">    *3.  (n - 1) &amp; hash     第三步: 结果对table的数组长度进行取模，得到具体的存储索引位置 </span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>hash函数是HashMap的核心</p>
+</li>
+<li><p>异或计算是两个二进制进行计算，比如000111，100000则是100111，即不同为1，相同为0</p>
+</li>
+<li><p>向右移动16位，数值小的情况下，就是000000….与0进行异或几乎就不需要进行异或、、</p>
+</li>
+<li><p>为什么进行异或计算？<strong>加大hash码低位随机性，是的分布更加均匀</strong>，从而增加存储数组下标的随机性 和 均匀性 ，最终使得减少hash冲突</p>
+</li>
+<li><p>为什么取模运算？ <strong>因为进行二次计算的值可能不在数组的索引范围</strong>，所以结果需要对数组长度进行mod运算，得到具体的数组索引位置，实际应用中<strong>使用hashcode与数组长度-1进行与操作</strong>(效果等于hash%len)。 </p>
+</li>
+<li><p><strong>Java 8 中的取模运算不集成在hash方法中，取模运算出现在真正需要用到计算数组的索引位置时用到，比如put方法，resize方法中</strong></p>
+</li>
+</ul>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2019/11/1023903107.png" alt="image-20191105192405910.png"></p>
+<h2 id="4-put系列函数"><a href="#4-put系列函数" class="headerlink" title="4. put系列函数"></a>4. put系列函数</h2>  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * default方法，不对外公开，只允许构造函数和putAll内部调用,有两种模式</span></span><br><span class="line"><span class="comment">     * putMapEntries的作用：将别的集合元素填充到当前集合中，可以看做是一个拷贝函数</span></span><br><span class="line"><span class="comment">     * 该方法有两个参数m和evict,evict主要在putVal得到使用</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> m 参数集合</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> evict evict为false则代表创建模式，用于HashMap的构造。如果为true,则用于putAll</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"><span class="keyword">final</span> <span class="keyword">void</span> <span class="title function_">putMapEntries</span><span class="params">(Map&lt;? extends K, ? extends V&gt; m, <span class="type">boolean</span> evict)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">s</span> <span class="operator">=</span> m.size(); <span class="comment">//获取s的大小</span></span><br><span class="line">        <span class="keyword">if</span> (s &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">//如果当前集合的table为空，即当前集合是空集合，则初始化参数</span></span><br><span class="line">            <span class="keyword">if</span> (table == <span class="literal">null</span>) &#123; <span class="comment">// pre-size</span></span><br><span class="line">                <span class="type">float</span> <span class="variable">ft</span> <span class="operator">=</span> ((<span class="type">float</span>)s / loadFactor) + <span class="number">1.0F</span>; </span><br><span class="line">                <span class="type">int</span> <span class="variable">t</span> <span class="operator">=</span> ((ft &lt; (<span class="type">float</span>)MAXIMUM_CAPACITY) ? <span class="comment">//判断ft是否小于集合最大支持的容量，是就赋值</span></span><br><span class="line">                         (<span class="type">int</span>)ft : MAXIMUM_CAPACITY);</span><br><span class="line">                <span class="keyword">if</span> (t &gt; threshold) <span class="comment">//判断t是否大于临界值(容量 * 填充因子)</span></span><br><span class="line">                    threshold = tableSizeFor(t);<span class="comment">//修正t为2的幂次方的整数</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//当前不为空，但是大小大于临界值</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (s &gt; threshold)</span><br><span class="line">                resize();<span class="comment">//扩容函数</span></span><br><span class="line">            <span class="keyword">for</span> (Map.Entry&lt;? <span class="keyword">extends</span> <span class="title class_">K</span>, ? <span class="keyword">extends</span> <span class="title class_">V</span>&gt; e : m.entrySet()) &#123;<span class="comment">//循环变量参数集合，放进当前集合中</span></span><br><span class="line">                <span class="type">K</span> <span class="variable">key</span> <span class="operator">=</span> e.getKey();</span><br><span class="line">                <span class="type">V</span> <span class="variable">value</span> <span class="operator">=</span> e.getValue();</span><br><span class="line">                putVal(hash(key), key, value, <span class="literal">false</span>, evict);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//公有方法，实际调用的是putMapEntries方法，但是evict值为true,即代表不是创建模式，即非通过构造函数调用</span></span><br><span class="line"><span class="comment">//其实就是putMapEntries方法的对外公开模式</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">putAll</span><span class="params">(Map&lt;? extends K, ? extends V&gt; m)</span> &#123;</span><br><span class="line">        putMapEntries(m, <span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>putMapEntries是对内的方法，而putAll是对外的方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//onlyIfAbsent为true就不改变现在的值</span></span><br><span class="line"><span class="keyword">final</span> V <span class="title function_">putVal</span><span class="params">(<span class="type">int</span> hash, K key, V value, <span class="type">boolean</span> onlyIfAbsent,</span></span><br><span class="line"><span class="params">                   <span class="type">boolean</span> evict)</span> &#123;</span><br><span class="line">    </span><br><span class="line">        Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; p; <span class="type">int</span> n, i;</span><br><span class="line">    <span class="comment">//如果table为null或tap为空（长度为0）就扩容</span></span><br><span class="line">        <span class="keyword">if</span> ((tab = table) == <span class="literal">null</span> || (n = tab.length) == <span class="number">0</span>)</span><br><span class="line">            n = (tab = resize()).length;</span><br><span class="line">    <span class="comment">//确定插入的位置,算法是(n-1) &amp; hash  在n=2的幂次方的时候，相当于取模</span></span><br><span class="line">    <span class="comment">//不存在这个元素直接新建加入</span></span><br><span class="line">        <span class="keyword">if</span> ((p = tab[i = (n - <span class="number">1</span>) &amp; hash]) == <span class="literal">null</span>)</span><br><span class="line">            tab[i] = newNode(hash, key, value, <span class="literal">null</span>);</span><br><span class="line">    <span class="comment">//在i位置发生碰撞有两种情况,1.key值相等，替换value值,</span></span><br><span class="line">    <span class="comment">//2.key值不一样，又分为两种</span></span><br><span class="line">    <span class="comment">//2.1 存储在i位置的链表中，2.2、存储在红黑树中（大于8的时候）</span></span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            Node&lt;K,V&gt; e; K k;</span><br><span class="line">            <span class="comment">//第一种情况</span></span><br><span class="line">            <span class="keyword">if</span> (p.hash == hash &amp;&amp;</span><br><span class="line">                ((k = p.key) == key || (key != <span class="literal">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">                e = p;</span><br><span class="line">            <span class="comment">//2.2中情况</span></span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (p <span class="keyword">instanceof</span> TreeNode)</span><br><span class="line">                e = ((TreeNode&lt;K,V&gt;)p).putTreeVal(<span class="built_in">this</span>, tab, hash, key, value);</span><br><span class="line">            <span class="comment">//2.1的情况</span></span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">//遍历链表</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">binCount</span> <span class="operator">=</span> <span class="number">0</span>; ; ++binCount) &#123;</span><br><span class="line">                    <span class="comment">//到链表尾都没找到key值相同的节点就新建一个结点插入</span></span><br><span class="line">                    <span class="keyword">if</span> ((e = p.next) == <span class="literal">null</span>) &#123;</span><br><span class="line">                       <span class="comment">//创建结点插入链尾</span></span><br><span class="line">                        p.next = newNode(hash, key, value, <span class="literal">null</span>);</span><br><span class="line">                        <span class="comment">//超过链表预设的长度8就转换为红黑树</span></span><br><span class="line">                        <span class="keyword">if</span> (binCount &gt;= TREEIFY_THRESHOLD - <span class="number">1</span>) <span class="comment">// -1 for 1st</span></span><br><span class="line">                            treeifyBin(tab, hash);</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="comment">//找到key，就替换原来的</span></span><br><span class="line">                    <span class="keyword">if</span> (e.hash == hash &amp;&amp;</span><br><span class="line">                        ((k = e.key) == key || (key != <span class="literal">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    p = e;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">//如果e值不为空就更新值</span></span><br><span class="line">            <span class="keyword">if</span> (e != <span class="literal">null</span>) &#123; <span class="comment">// existing mapping for key</span></span><br><span class="line">                <span class="type">V</span> <span class="variable">oldValue</span> <span class="operator">=</span> e.value;</span><br><span class="line">                <span class="keyword">if</span> (!onlyIfAbsent || oldValue == <span class="literal">null</span>)</span><br><span class="line">                    e.value = value;</span><br><span class="line">                afterNodeAccess(e);</span><br><span class="line">                <span class="keyword">return</span> oldValue;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ++modCount;</span><br><span class="line">        <span class="keyword">if</span> (++size &gt; threshold)</span><br><span class="line">            resize();</span><br><span class="line">        afterNodeInsertion(evict);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在没有这个结点的时候会直接添加它</li>
+<li>如果存在key相等的就直接替换值即可</li>
+<li>发生hash冲突<ul>
+<li>存储在链表里面的，就循环链表找到key值相等的替换，如果没有就在链尾添加结点</li>
+<li>存储在红黑树里面的直接将元素插入红黑树</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> Node&lt;K,V&gt;[] resize() &#123;</span><br><span class="line">        Node&lt;K,V&gt;[] oldTab = table; <span class="comment">//保存旧的table</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">oldCap</span> <span class="operator">=</span> (oldTab == <span class="literal">null</span>) ? <span class="number">0</span> : oldTab.length;<span class="comment">//获取旧的table长度</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">oldThr</span> <span class="operator">=</span> threshold;<span class="comment">//获取旧的table的临界值</span></span><br><span class="line">        <span class="type">int</span> newCap, newThr = <span class="number">0</span>;<span class="comment">//初始化新的容量和临界值</span></span><br><span class="line">        <span class="keyword">if</span> (oldCap &gt; <span class="number">0</span>) &#123;<span class="comment">//当旧的容量&gt;0时</span></span><br><span class="line">            <span class="keyword">if</span> (oldCap &gt;= MAXIMUM_CAPACITY) &#123;<span class="comment">//旧的容量大于最大的容量</span></span><br><span class="line">                threshold = Integer.MAX_VALUE;<span class="comment">//临界值为Integer的最大值</span></span><br><span class="line">                <span class="keyword">return</span> oldTab;<span class="comment">//直接返回旧的table,无法扩容</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> ((newCap = oldCap &lt;&lt; <span class="number">1</span>) &lt; MAXIMUM_CAPACITY &amp;&amp;</span><br><span class="line">                     oldCap &gt;= DEFAULT_INITIAL_CAPACITY)</span><br><span class="line">                <span class="comment">//如果旧容量的两倍小鱼最大容量，并且比初始默认容量(16)大的话就变成原来的两倍</span></span><br><span class="line">                newThr = oldThr &lt;&lt; <span class="number">1</span>; <span class="comment">// double threshold</span></span><br><span class="line">        &#125;</span><br><span class="line">    <span class="comment">//旧的临界值大于0，就去旧的临界值为容量</span></span><br><span class="line">    <span class="comment">///当table没初始化时，threshold持有初始容量。</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (oldThr &gt; <span class="number">0</span>) <span class="comment">// initial capacity was placed in threshold</span></span><br><span class="line">            newCap = oldThr;</span><br><span class="line">        <span class="keyword">else</span> &#123;               <span class="comment">// zero initial threshold signifies using defaults</span></span><br><span class="line">            <span class="comment">//初始化的临界值为0的话就把新的容量赋值为默认的（16），</span></span><br><span class="line">            <span class="comment">//新的临界值为默认填充因子×默认容量,即0.75*16</span></span><br><span class="line">            newCap = DEFAULT_INITIAL_CAPACITY;</span><br><span class="line">            newThr = (<span class="type">int</span>)(DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="comment">//新临界值为0</span></span><br><span class="line">        <span class="keyword">if</span> (newThr == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="type">float</span> <span class="variable">ft</span> <span class="operator">=</span> (<span class="type">float</span>)newCap * loadFactor;</span><br><span class="line">            newThr = (newCap &lt; MAXIMUM_CAPACITY &amp;&amp; ft &lt; (<span class="type">float</span>)MAXIMUM_CAPACITY ?</span><br><span class="line">                      (<span class="type">int</span>)ft : Integer.MAX_VALUE);</span><br><span class="line">        &#125;</span><br><span class="line">        threshold = newThr;</span><br><span class="line">        <span class="meta">@SuppressWarnings(&#123;&quot;rawtypes&quot;,&quot;unchecked&quot;&#125;)</span></span><br><span class="line">    <span class="comment">// 初始化table</span></span><br><span class="line">            Node&lt;K,V&gt;[] newTab = (Node&lt;K,V&gt;[])<span class="keyword">new</span> <span class="title class_">Node</span>[newCap];</span><br><span class="line">        table = newTab;</span><br><span class="line">        <span class="keyword">if</span> (oldTab != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="comment">//table不为空，把oldTab的结点全部rehash到新的table里面</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; oldCap; ++j) &#123;</span><br><span class="line">                Node&lt;K,V&gt; e;</span><br><span class="line">                <span class="keyword">if</span> ((e = oldTab[j]) != <span class="literal">null</span>) &#123;<span class="comment">// 要取的元素不为空</span></span><br><span class="line">                    oldTab[j] = <span class="literal">null</span>;</span><br><span class="line">                    <span class="comment">//若节点是单个节点，直接在 newTab　中进行重定位</span></span><br><span class="line">                    <span class="keyword">if</span> (e.next == <span class="literal">null</span>)</span><br><span class="line">                        newTab[e.hash &amp; (newCap - <span class="number">1</span>)] = e;</span><br><span class="line">                    <span class="comment">//若是树节点，要对红黑树rehash</span></span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span> (e <span class="keyword">instanceof</span> TreeNode)</span><br><span class="line">                        ((TreeNode&lt;K,V&gt;)e).split(<span class="built_in">this</span>, newTab, j, oldCap);</span><br><span class="line">                    <span class="comment">//若为链表，进行链表的rehash</span></span><br><span class="line">                    <span class="keyword">else</span> &#123; <span class="comment">// preserve order</span></span><br><span class="line">                        Node&lt;K,V&gt; loHead = <span class="literal">null</span>, loTail = <span class="literal">null</span>;</span><br><span class="line">                        Node&lt;K,V&gt; hiHead = <span class="literal">null</span>, hiTail = <span class="literal">null</span>;</span><br><span class="line">                        Node&lt;K,V&gt; next;</span><br><span class="line">                        <span class="keyword">do</span> &#123;</span><br><span class="line">                            next = e.next;</span><br><span class="line">                            <span class="comment">//根据算法 e.hash &amp; oldCap判断结点rehash之后是否发生改变，最高位为0就是不改变</span></span><br><span class="line">                            <span class="keyword">if</span> ((e.hash &amp; oldCap) == <span class="number">0</span>) &#123;</span><br><span class="line">                                <span class="keyword">if</span> (loTail == <span class="literal">null</span>)</span><br><span class="line">                                    loHead = e;</span><br><span class="line">                                <span class="keyword">else</span></span><br><span class="line">                                    loTail.next = e;</span><br><span class="line">                                loTail = e;</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="comment">//最高位为1就改变</span></span><br><span class="line">                            <span class="keyword">else</span> &#123;</span><br><span class="line">                                <span class="keyword">if</span> (hiTail == <span class="literal">null</span>)</span><br><span class="line">                                    hiHead = e;</span><br><span class="line">                                <span class="keyword">else</span></span><br><span class="line">                                    hiTail.next = e;</span><br><span class="line">                                hiTail = e;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125; <span class="keyword">while</span> ((e = next) != <span class="literal">null</span>);</span><br><span class="line">                        <span class="keyword">if</span> (loTail != <span class="literal">null</span>) &#123;<span class="comment">//原来bucket位置的尾指针不为空</span></span><br><span class="line">                            loTail.next = <span class="literal">null</span>;<span class="comment">//链表最后的null</span></span><br><span class="line">                            newTab[j] = loHead;<span class="comment">//链表头指针放在新bucket的j处</span></span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">if</span> (hiTail != <span class="literal">null</span>) &#123;</span><br><span class="line">                            hiTail.next = <span class="literal">null</span>;</span><br><span class="line">                            <span class="comment">// rehash 后结点新的位置已定位原基础加上oldCap</span></span><br><span class="line">                            newTab[j + oldCap] = hiHead;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> newTab;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-为什么使用0-75作为负载因子？"><a href="#5-为什么使用0-75作为负载因子？" class="headerlink" title="5. 为什么使用0.75作为负载因子？"></a>5. 为什么使用0.75作为负载因子？</h3><p>负载因子就是Entry数组的填充的程度，填充的程度过低会使得哈希冲突比较严重并且空间利用率低，过高则会导致一定查询效率的减少。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">float</span> <span class="variable">DEFAULT_LOAD_FACTOR</span> <span class="operator">=</span> <span class="number">0.75f</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="6-什么情况下转化为红黑树？"><a href="#6-什么情况下转化为红黑树？" class="headerlink" title="6. 什么情况下转化为红黑树？"></a>6. 什么情况下转化为红黑树？</h3><p>一般都会认为转化为红黑树为链表结点大于8的时候会进行，然后小于6会退化为链表。但是还有一个重要的条件就是数组的长度，如果数组长度大于64的话，才会树化，如果小于的话，就会优先对于数组进行扩容。这样的好处就是可以增加一定的查询效率，避免红黑树左旋右旋等调整带来的一系列开销。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">TREEIFY_THRESHOLD</span> <span class="operator">=</span> <span class="number">8</span>;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">UNTREEIFY_THRESHOLD</span> <span class="operator">=</span> <span class="number">6</span>;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">MIN_TREEIFY_CAPACITY</span> <span class="operator">=</span> <span class="number">64</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="7-看下HashMap的结点是怎么样的。"><a href="#7-看下HashMap的结点是怎么样的。" class="headerlink" title="7. 看下HashMap的结点是怎么样的。"></a>7. 看下HashMap的结点是怎么样的。</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Node</span>&lt;K,V&gt; <span class="keyword">implements</span> <span class="title class_">Map</span>.Entry&lt;K,V&gt; &#123;</span><br><span class="line">        <span class="comment">// 哈希值</span></span><br><span class="line">    	<span class="keyword">final</span> <span class="type">int</span> hash;</span><br><span class="line">        <span class="comment">// 键值</span></span><br><span class="line">    	<span class="keyword">final</span> K key;</span><br><span class="line">        <span class="comment">// 值</span></span><br><span class="line">    	V value;</span><br><span class="line">    	<span class="comment">// 采取拉链法，链表指向下一个</span></span><br><span class="line">        Node&lt;K,V&gt; next;</span><br><span class="line"></span><br><span class="line">        Node(<span class="type">int</span> hash, K key, V value, Node&lt;K,V&gt; next) &#123;</span><br><span class="line">            <span class="built_in">this</span>.hash = hash;</span><br><span class="line">            <span class="built_in">this</span>.key = key;</span><br><span class="line">            <span class="built_in">this</span>.value = value;</span><br><span class="line">            <span class="built_in">this</span>.next = next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">final</span> K <span class="title function_">getKey</span><span class="params">()</span>        &#123; <span class="keyword">return</span> key; &#125;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">final</span> V <span class="title function_">getValue</span><span class="params">()</span>      &#123; <span class="keyword">return</span> value; &#125;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">final</span> String <span class="title function_">toString</span><span class="params">()</span> &#123; <span class="keyword">return</span> key + <span class="string">&quot;=&quot;</span> + value; &#125;</span><br><span class="line">		<span class="comment">// 重写hashCode，为了重写equals方法</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">final</span> <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> Objects.hashCode(key) ^ Objects.hashCode(value);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">final</span> V <span class="title function_">setValue</span><span class="params">(V newValue)</span> &#123;</span><br><span class="line">            <span class="type">V</span> <span class="variable">oldValue</span> <span class="operator">=</span> value;</span><br><span class="line">            value = newValue;</span><br><span class="line">            <span class="keyword">return</span> oldValue;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">final</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object o)</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (o == <span class="built_in">this</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span> (o <span class="keyword">instanceof</span> Map.Entry) &#123;</span><br><span class="line">                Map.Entry&lt;?,?&gt; e = (Map.Entry&lt;?,?&gt;)o;</span><br><span class="line">                <span class="keyword">if</span> (Objects.equals(key, e.getKey()) &amp;&amp;</span><br><span class="line">                    Objects.equals(value, e.getValue()))</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>比较简单的一个结构，就是一个单链表，同时重写了equals方法。</p>
+<h3 id="8-Put函数"><a href="#8-Put函数" class="headerlink" title="8. Put函数"></a>8. Put函数</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> V <span class="title function_">put</span><span class="params">(K key, V value)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> putVal(hash(key), key, value, <span class="literal">false</span>, <span class="literal">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">final</span> V <span class="title function_">putVal</span><span class="params">(<span class="type">int</span> hash, K key, V value, <span class="type">boolean</span> onlyIfAbsent,</span></span><br><span class="line"><span class="params">                   <span class="type">boolean</span> evict)</span> &#123;</span><br><span class="line">        Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; p; <span class="type">int</span> n, i;</span><br><span class="line">    	<span class="comment">// 初始没有，就赋默认值，Cap=16，threshold=12，loadfactor=0.75</span></span><br><span class="line">        <span class="keyword">if</span> ((tab = table) == <span class="literal">null</span> || (n = tab.length) == <span class="number">0</span>)</span><br><span class="line">            n = (tab = resize()).length;</span><br><span class="line">    	<span class="comment">// 数组中不存在该hash值对应的内容，新建一个结点即可</span></span><br><span class="line">        <span class="keyword">if</span> ((p = tab[i = (n - <span class="number">1</span>) &amp; hash]) == <span class="literal">null</span>)</span><br><span class="line">            tab[i] = newNode(hash, key, value, <span class="literal">null</span>);</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            Node&lt;K,V&gt; e; K k;</span><br><span class="line">            <span class="keyword">if</span> (p.hash == hash &amp;&amp;</span><br><span class="line">                ((k = p.key) == key || (key != <span class="literal">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">                e = p;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (p <span class="keyword">instanceof</span> TreeNode)</span><br><span class="line">                e = ((TreeNode&lt;K,V&gt;)p).putTreeVal(<span class="built_in">this</span>, tab, hash, key, value);</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">binCount</span> <span class="operator">=</span> <span class="number">0</span>; ; ++binCount) &#123;</span><br><span class="line">                    <span class="keyword">if</span> ((e = p.next) == <span class="literal">null</span>) &#123;</span><br><span class="line">                        p.next = newNode(hash, key, value, <span class="literal">null</span>);</span><br><span class="line">                        <span class="keyword">if</span> (binCount &gt;= TREEIFY_THRESHOLD - <span class="number">1</span>) <span class="comment">// -1 for 1st</span></span><br><span class="line">                            treeifyBin(tab, hash);</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (e.hash == hash &amp;&amp;</span><br><span class="line">                        ((k = e.key) == key || (key != <span class="literal">null</span> &amp;&amp; key.equals(k))))</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    p = e;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// key存在，只要更新value即可</span></span><br><span class="line">            <span class="keyword">if</span> (e != <span class="literal">null</span>) &#123; <span class="comment">// existing mapping for key</span></span><br><span class="line">                <span class="type">V</span> <span class="variable">oldValue</span> <span class="operator">=</span> e.value;</span><br><span class="line">                <span class="keyword">if</span> (!onlyIfAbsent || oldValue == <span class="literal">null</span>)</span><br><span class="line">                    e.value = value;</span><br><span class="line">                <span class="comment">// 这个是为了LinkedHashMap后续操作设计的，在HashMap中没有实现具体方法</span></span><br><span class="line">                afterNodeAccess(e);</span><br><span class="line">                <span class="keyword">return</span> oldValue;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ++modCount;</span><br><span class="line">    	<span class="comment">// 超过了threshold，扩容</span></span><br><span class="line">        <span class="keyword">if</span> (++size &gt; threshold)</span><br><span class="line">            resize();</span><br><span class="line">    	<span class="comment">// 这个是为了LinkedHashMap后续操作设计的，在HashMap中没有实现具体方法</span></span><br><span class="line">        afterNodeInsertion(evict);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>具体步骤如下：</p>
+<ul>
+<li>先判断table是否为空或者初始cap为0，赋上默认值。</li>
+<li>然后如果想要存的结点key的hash在数组中不存在，则新建结点。</li>
+<li>如果存在，判断该节点是否为树的结点<ul>
+<li>是，将新的结点传入红黑树，红黑树会自动调整位置。</li>
+<li>否，查找到链表尾部，同时判断新加上一个结点是否会超过8，如果超过8，树化，没有直接添加在链表尾部。</li>
+</ul>
+</li>
+<li>更新结点里面的值Value。</li>
+<li>判断当前的数组的大小是否大于threshold，大于就扩容。</li>
+</ul>
+<h2 id="End"><a href="#End" class="headerlink" title="End"></a>End</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2019/11/06/%E3%80%90JDK%E6%BA%90%E7%A0%81%E3%80%91HashMap/" data-id="clmivdq8b0024sjp6fs4shwe9" data-title="【JDK源码】HashMap" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【LeetCode】只出现一次的数字" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2019/10/30/%E3%80%90LeetCode%E3%80%91%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/" class="article-date">
+  <time class="dt-published" datetime="2019-10-30T04:15:00.000Z" itemprop="datePublished">2019-10-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2019/10/30/%E3%80%90LeetCode%E3%80%91%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/">【LeetCode】只出现一次的数字</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a><a href="%22https://leetcode-cn.com/problems/single-number/%22">题目链接</a></h2><hr>
+<p>这是一道很水的题目(我虽然有想法但是我还是被大佬的思考折服了)</p>
+<blockquote>
+<p>给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。</p>
+</blockquote>
+<p>我的想法是直接一个map里面key为数字，value为出现的次数，只需要O(n)就能找出来了。<br>代码如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">singleNumber</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">       <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> -<span class="number">1</span>;</span><br><span class="line">       Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">       <span class="keyword">for</span>(Integer num : nums)&#123;</span><br><span class="line">           <span class="keyword">if</span>(map.get(num)!=<span class="literal">null</span>)&#123;</span><br><span class="line">               <span class="type">Integer</span> <span class="variable">value</span> <span class="operator">=</span> map.get(num);</span><br><span class="line">               value+=<span class="number">1</span>;</span><br><span class="line">               map.put(num, value);</span><br><span class="line">           &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">               map.put(num, <span class="number">1</span>);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">for</span>(Integer key:map.keySet())&#123;</span><br><span class="line">           <span class="keyword">if</span>(map.get(key) == <span class="number">1</span>)&#123;</span><br><span class="line">               res = key;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> res;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>可是大佬毕竟是大佬，当我看到前面那个2ms的我被折服了(我好菜啊)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">singleNumber</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> n : nums) &#123;</span><br><span class="line">        num = num^n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>只需要异或(^)来判断一下这个值是否再次出现不就行了！！！:scream: :scream: </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2019/10/30/%E3%80%90LeetCode%E3%80%91%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/" data-id="clmivdq8f002qsjp61lj93lvy" data-title="【LeetCode】只出现一次的数字" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【JDK8源码】String" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2019/10/30/%E3%80%90JDK8%E6%BA%90%E7%A0%81%E3%80%91String/" class="article-date">
+  <time class="dt-published" datetime="2019-10-30T04:10:46.000Z" itemprop="datePublished">2019-10-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2019/10/30/%E3%80%90JDK8%E6%BA%90%E7%A0%81%E3%80%91String/">【JDK8源码】String</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="String"><a href="#String" class="headerlink" title="String"></a>String</h1><hr>
+<blockquote>
+<p>Strings are constant; their values cannot be changed after they are created. </p>
+<p>String buffers support mutable strings.</p>
+</blockquote>
+<p>看注释我们知道String是一个字符常量，创建后不能被改变的</p>
+<p>而StringBuffer是一个可变的字符串</p>
+<blockquote>
+<p>The Java language provides special support for the string concatenation operator (&nbsp;+&nbsp;), and for conversion of other objects to strings. </p>
+<p>String concatenation is implemented through the {@code StringBuilder}(or {@code StringBuffer}) class and its {@code append} method.</p>
+</blockquote>
+<p>由此可知Java对String提供了特殊的连接符(+)并且可以将别的对象转换为String</p>
+<h2 id="0-实现"><a href="#0-实现" class="headerlink" title="0. 实现"></a>0. 实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">String</span>    <span class="keyword">implements</span> <span class="title class_">java</span>.io.Serializable, Comparable&lt;String&gt;, CharSequence</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>Serializable(序列化)接口,没有任何的方法和域，仅用于表示序列化的语义</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Comparable<String>接口:这个接口只有一个public int compareTo(T o);接口，用于两个实例化对象比较大小</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compareTo</span><span class="params">(T o)</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>CharSequence： 这个接口是一个只读的字符序列。包括length(), charAt(int index), subSequence(int start, int end)这几个API接口，值得一提的是，StringBuffer和StringBuild也是实现了改接口。</p>
+</li>
+</ul>
+<h2 id="1-属性"><a href="#1-属性" class="headerlink" title="1. 属性"></a>1. 属性</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Comparator&lt;String&gt; CASE_INSENSITIVE_ORDER</span><br><span class="line">                                         = <span class="keyword">new</span> <span class="title class_">CaseInsensitiveComparator</span>();</span><br><span class="line"></span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">char</span> value[];</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="type">int</span> hash; <span class="comment">// Default to 0</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>value：用来存储字符，是一个char类型的数组</li>
+<li>hash：字符串的hashcode</li>
+<li>CASE_INSENSITIVE_ORDER ：用于忽略大小写的字符串比较</li>
+</ul>
+<h2 id="2-构造方法"><a href="#2-构造方法" class="headerlink" title="2. 构造方法"></a>2. 构造方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">String</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.value = <span class="string">&quot;&quot;</span>.value;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">// 空构造方法将value字符数组赋进空值</span></span><br><span class="line"><span class="comment">//*************************************</span></span><br><span class="line"><span class="keyword">public</span> <span class="title function_">String</span><span class="params">(String original)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.value = original.value;</span><br><span class="line">        <span class="built_in">this</span>.hash = original.hash;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">public</span> <span class="title function_">String</span><span class="params">(<span class="type">char</span> value[])</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.value = Arrays.copyOf(value, value.length);</span><br><span class="line">    &#125;</span><br><span class="line"> <span class="keyword">public</span> <span class="title function_">String</span><span class="params">(<span class="type">char</span> value[], <span class="type">int</span> offset, <span class="type">int</span> count)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (offset &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">StringIndexOutOfBoundsException</span>(offset);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (count &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (count &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">StringIndexOutOfBoundsException</span>(count);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (offset &lt;= value.length) &#123;</span><br><span class="line">                <span class="built_in">this</span>.value = <span class="string">&quot;&quot;</span>.value;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// Note: offset or count might be near -1&gt;&gt;&gt;1.</span></span><br><span class="line">        <span class="keyword">if</span> (offset &gt; value.length - count) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">StringIndexOutOfBoundsException</span>(offset + count);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">this</span>.value = Arrays.copyOfRange(value, offset, offset+count);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p> 　String支持多种初始化方法，包括接收String，char[],byte[],StringBuffer等多种参数类型的初始化方法。但本质上，其实就是将接收到的参数传递给全局变量value[]。 </p>
+<h2 id="3-内部类"><a href="#3-内部类" class="headerlink" title="3. 内部类"></a>3. 内部类</h2><p>String只有一个内部类那就是</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">CaseInsensitiveComparator</span></span><br><span class="line">            <span class="keyword">implements</span> <span class="title class_">Comparator</span>&lt;String&gt;, java.io.Serializable &#123;</span><br><span class="line">        <span class="comment">// use serialVersionUID from JDK 1.2.2 for interoperability</span></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">serialVersionUID</span> <span class="operator">=</span> <span class="number">8575799808933029326L</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(String s1, String s2)</span> &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">n1</span> <span class="operator">=</span> s1.length();</span><br><span class="line">            <span class="type">int</span> <span class="variable">n2</span> <span class="operator">=</span> s2.length();</span><br><span class="line">            <span class="type">int</span> <span class="variable">min</span> <span class="operator">=</span> Math.min(n1, n2);</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; min; i++) &#123;</span><br><span class="line">                <span class="type">char</span> <span class="variable">c1</span> <span class="operator">=</span> s1.charAt(i);</span><br><span class="line">                <span class="type">char</span> <span class="variable">c2</span> <span class="operator">=</span> s2.charAt(i);</span><br><span class="line">                <span class="keyword">if</span> (c1 != c2) &#123;</span><br><span class="line">                    c1 = Character.toUpperCase(c1);</span><br><span class="line">                    c2 = Character.toUpperCase(c2);</span><br><span class="line">                    <span class="keyword">if</span> (c1 != c2) &#123;</span><br><span class="line">                        c1 = Character.toLowerCase(c1);</span><br><span class="line">                        c2 = Character.toLowerCase(c2);</span><br><span class="line">                        <span class="keyword">if</span> (c1 != c2) &#123;</span><br><span class="line">                            <span class="comment">// No overflow because of numeric promotion</span></span><br><span class="line">                            <span class="keyword">return</span> c1 - c2;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> n1 - n2;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里我就有一个疑惑，为什么String有CompareTo方法，为啥还要一个CaseInsensitiveComparator内部静态类来实现呢？</p>
+<p>其实一切都是为了代码复用</p>
+<p>如果我们每次都想要忽略大小写来比较大小的话(这样场景可能比较多)我们就需要每次都重写这个方法了</p>
+<h2 id="4-其他方法"><a href="#4-其他方法" class="headerlink" title="4. 其他方法"></a>4. 其他方法</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">length</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> value.length;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isEmpty</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> value.length == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">public</span> <span class="type">char</span> <span class="title function_">charAt</span><span class="params">(<span class="type">int</span> index)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> ((index &lt; <span class="number">0</span>) || (index &gt;= value.length)) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">StringIndexOutOfBoundsException</span>(index);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> value[index];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>知道String的内部是由数组实现的我们就可以很清晰的指导这几个方法的实现了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">getChars</span><span class="params">(<span class="type">char</span> dst[], <span class="type">int</span> dstBegin)</span> &#123;</span><br><span class="line">        System.arraycopy(value, <span class="number">0</span>, dst, dstBegin, value.length);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">getChars</span><span class="params">(<span class="type">int</span> srcBegin, <span class="type">int</span> srcEnd, <span class="type">char</span> dst[], <span class="type">int</span> dstBegin)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (srcBegin &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">StringIndexOutOfBoundsException</span>(srcBegin);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (srcEnd &gt; value.length) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">StringIndexOutOfBoundsException</span>(srcEnd);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (srcBegin &gt; srcEnd) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">StringIndexOutOfBoundsException</span>(srcEnd - srcBegin);</span><br><span class="line">        &#125;</span><br><span class="line">        System.arraycopy(value, srcBegin, dst, dstBegin, srcEnd - srcBegin);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>而getChars时调用arraycopy来实现的，我们在很多类中都看到这种手法,比如ArrayList里面</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Deprecated</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">getBytes</span><span class="params">(<span class="type">int</span> srcBegin, <span class="type">int</span> srcEnd, <span class="type">byte</span> dst[], <span class="type">int</span> dstBegin)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (srcBegin &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">StringIndexOutOfBoundsException</span>(srcBegin);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (srcEnd &gt; value.length) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">StringIndexOutOfBoundsException</span>(srcEnd);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (srcBegin &gt; srcEnd) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">StringIndexOutOfBoundsException</span>(srcEnd - srcBegin);</span><br><span class="line">        &#125;</span><br><span class="line">        Objects.requireNonNull(dst);</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> dstBegin;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> srcEnd;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> srcBegin;</span><br><span class="line">        <span class="type">char</span>[] val = value;   <span class="comment">/* avoid getfield opcode */</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (i &lt; n) &#123;</span><br><span class="line">            dst[j++] = (<span class="type">byte</span>)val[i++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//----------------------------------------</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">byte</span>[] getBytes(String charsetName)</span><br><span class="line">            <span class="keyword">throws</span> UnsupportedEncodingException &#123;</span><br><span class="line">        <span class="keyword">if</span> (charsetName == <span class="literal">null</span>) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">NullPointerException</span>();</span><br><span class="line">        <span class="keyword">return</span> StringCoding.encode(charsetName, value, <span class="number">0</span>, value.length);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//----------------------------------------</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">byte</span>[] getBytes(Charset charset) &#123;</span><br><span class="line">        <span class="keyword">if</span> (charset == <span class="literal">null</span>) <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">NullPointerException</span>();</span><br><span class="line">        <span class="keyword">return</span> StringCoding.encode(charset, value, <span class="number">0</span>, value.length);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>获取当前字符串的二进制，其本质都是调用StringCoding.encode实现的，无论返回的byte还是byte数组</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">equals</span><span class="params">(Object anObject)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span> == anObject) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;<span class="comment">//先判断两个对象是否相同</span></span><br><span class="line">        <span class="keyword">if</span> (anObject <span class="keyword">instanceof</span> String) &#123;<span class="comment">//判断传入的是否为String 类型</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">anotherString</span> <span class="operator">=</span> (String)anObject;<span class="comment">//转换类型</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> value.length;<span class="comment">//得到长度</span></span><br><span class="line">            <span class="keyword">if</span> (n == anotherString.value.length) &#123;<span class="comment">//判断长度是否相同</span></span><br><span class="line">                <span class="type">char</span> v1[] = value;</span><br><span class="line">                <span class="type">char</span> v2[] = anotherString.value;</span><br><span class="line">                <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">while</span> (n-- != <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (v1[i] != v2[i])<span class="comment">//逐个字符比较</span></span><br><span class="line">                        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                    i++;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>equals本质就是通过一个字符一个字符比较得出是否相同，另外一个是contentEquals</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">contentEquals</span><span class="params">(StringBuffer sb)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> contentEquals((CharSequence)sb);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">nonSyncContentEquals</span><span class="params">(AbstractStringBuilder sb)</span> &#123;</span><br><span class="line">        <span class="type">char</span> v1[] = value;</span><br><span class="line">        <span class="type">char</span> v2[] = sb.getValue();</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> v1.length;</span><br><span class="line">        <span class="keyword">if</span> (n != sb.length()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (v1[i] != v2[i]) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">contentEquals</span><span class="params">(CharSequence cs)</span> &#123;</span><br><span class="line">        <span class="comment">// Argument is a StringBuffer, StringBuilder</span></span><br><span class="line">        <span class="keyword">if</span> (cs <span class="keyword">instanceof</span> AbstractStringBuilder) &#123;</span><br><span class="line">            <span class="keyword">if</span> (cs <span class="keyword">instanceof</span> StringBuffer) &#123;</span><br><span class="line">                <span class="keyword">synchronized</span>(cs) &#123;</span><br><span class="line">                   <span class="keyword">return</span> nonSyncContentEquals((AbstractStringBuilder)cs);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> nonSyncContentEquals((AbstractStringBuilder)cs);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// Argument is a String</span></span><br><span class="line">        <span class="keyword">if</span> (cs <span class="keyword">instanceof</span> String) &#123;</span><br><span class="line">            <span class="keyword">return</span> equals(cs);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// Argument is a generic CharSequence</span></span><br><span class="line">        <span class="type">char</span> v1[] = value;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> v1.length;</span><br><span class="line">        <span class="keyword">if</span> (n != cs.length()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (v1[i] != cs.charAt(i)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个是比较StringBuffer、StringBuild和String的，这里也看出来StringBuffer和StringBuild都是实现CharSequence接口的， 源码中先判断参数是从哪一个类实例化来的，再根据不同的情况采用不同的方案，不过其实大体都是采用上面那个for循环的方式来进行判断两字符串是否内容相同。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compareTo</span><span class="params">(String anotherString)</span> &#123;</span><br><span class="line">       <span class="type">int</span> <span class="variable">len1</span> <span class="operator">=</span> value.length;</span><br><span class="line">       <span class="type">int</span> <span class="variable">len2</span> <span class="operator">=</span> anotherString.value.length;</span><br><span class="line">       <span class="type">int</span> <span class="variable">lim</span> <span class="operator">=</span> Math.min(len1, len2);<span class="comment">//取最小值</span></span><br><span class="line">       <span class="type">char</span> v1[] = value;</span><br><span class="line">       <span class="type">char</span> v2[] = anotherString.value;<span class="comment">//存储使用,防止修改里面的数据</span></span><br><span class="line"></span><br><span class="line">       <span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">while</span> (k &lt; lim) &#123;</span><br><span class="line">           <span class="type">char</span> <span class="variable">c1</span> <span class="operator">=</span> v1[k];</span><br><span class="line">           <span class="type">char</span> <span class="variable">c2</span> <span class="operator">=</span> v2[k];</span><br><span class="line">           <span class="keyword">if</span> (c1 != c2) &#123;</span><br><span class="line">               <span class="keyword">return</span> c1 - c2;<span class="comment">//当遇到第一个较小的字符时，判定该字符串小，返回</span></span><br><span class="line">           &#125;</span><br><span class="line">           k++;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> len1 - len2;<span class="comment">//字符串长度较大的较大</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p> 其核心就是那个while循环，通过从第一个开始比较每一个字符，当遇到第一个较小的字符时，判定该字符串小。 </p>
+<p> 一种是在较小长度的字符粗每个字符都和另一个字符串的每个字符相等，那么字符串长度较大的较大。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">startsWith</span><span class="params">(String prefix, <span class="type">int</span> toffset)</span> &#123;</span><br><span class="line">        <span class="type">char</span> ta[] = value;<span class="comment">//获取原字符串，防止被修改</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">to</span> <span class="operator">=</span> toffset;<span class="comment">//字符串开始寻找的位置</span></span><br><span class="line">        <span class="type">char</span> pa[] = prefix.value;<span class="comment">//获取要寻找的字符串的值</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">po</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">pc</span> <span class="operator">=</span> prefix.value.length;</span><br><span class="line">        <span class="comment">// Note: toffset might be near -1&gt;&gt;&gt;1.</span></span><br><span class="line">        <span class="keyword">if</span> ((toffset &lt; <span class="number">0</span>) || (toffset &gt; value.length - pc)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (--pc &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (ta[to++] != pa[po++]) &#123;<span class="comment">//出现不相同返回false</span></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//s[0]*31^(n-1) + s[1]*31^(n-2) + ... + s[n-1]</span></span><br><span class="line"><span class="comment">//hash值的计算公式</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">hashCode</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">h</span> <span class="operator">=</span> hash;</span><br><span class="line">        <span class="keyword">if</span> (h == <span class="number">0</span> &amp;&amp; value.length &gt; <span class="number">0</span>) &#123;<span class="comment">//判断hash值==0是为了缓存hash值，hash值默认为0</span></span><br><span class="line">            <span class="type">char</span> val[] = value;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; value.length; i++) &#123;</span><br><span class="line">                h = <span class="number">31</span> * h + val[i];</span><br><span class="line">            &#125;</span><br><span class="line">            hash = h;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> h;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>为什么用31这个神奇的数字呢？</p>
+<ul>
+<li><p>31是奇素数。</p>
+</li>
+<li><p><strong>哈希分布较为均匀。偶数的冲突率基本都很高，只有少数例外。较小的乘数，冲突率也比较高，如1至20</strong>。</p>
+</li>
+<li><p><strong>哈希计算速度快。可用移位和减法来代替乘法。现代的VM可以自动完成这种优化，如31 * i &#x3D; (i &lt;&lt; 5) – i</strong>。</p>
+</li>
+<li><p>31和33的计算速度和哈希分布基本一致，整体表现好，选择它们就很自然了。</p>
+<p>大家可以参考,<a target="_blank" rel="noopener" href="http://ddrv.cn/a/16343">为什么Java String哈希乘数为31？</a></p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">indexOf</span><span class="params">(<span class="type">int</span> ch, <span class="type">int</span> fromIndex)</span> &#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> value.length;<span class="comment">//获取字符串长度</span></span><br><span class="line">    	<span class="comment">//判断越界</span></span><br><span class="line">    	<span class="keyword">if</span> (fromIndex &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            fromIndex = <span class="number">0</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (fromIndex &gt;= max) &#123;</span><br><span class="line">            <span class="comment">// Note: fromIndex might be near -1&gt;&gt;&gt;1.</span></span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    	</span><br><span class="line">		<span class="comment">//这个字符小于最小提供字符编码</span></span><br><span class="line">        <span class="keyword">if</span> (ch &lt; Character.MIN_SUPPLEMENTARY_CODE_POINT) &#123;</span><br><span class="line">            <span class="comment">// handle most cases here (ch is a BMP code point or a</span></span><br><span class="line">            <span class="comment">// negative value (invalid code point))</span></span><br><span class="line">            <span class="keyword">final</span> <span class="type">char</span>[] value = <span class="built_in">this</span>.value;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> fromIndex; i &lt; max; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (value[i] == ch) &#123;</span><br><span class="line">                    <span class="keyword">return</span> i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> indexOfSupplementary(ch, fromIndex);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>而在Character中看到</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">MIN_SUPPLEMENTARY_CODE_POINT</span> <span class="operator">=</span> <span class="number">0x010000</span>;</span><br></pre></td></tr></table></figure>
+
+<p>这表明在java中char存储的值通常都是比ox010000小的，就是BMP类型的字符。<br>而当比这个值大的时候，就是增补字符了，那么会调用Character先判断是否是有效的字符，再进一步处理。</p>
+<h2 id="5-总结"><a href="#5-总结" class="headerlink" title="5.总结"></a>5.总结</h2><p>String类的底层其实使用char [] values 来实现的，抓住这个要点我们就很容易可以理解了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2019/10/30/%E3%80%90JDK8%E6%BA%90%E7%A0%81%E3%80%91String/" data-id="clmivdq8a0021sjp62uk502zn" data-title="【JDK8源码】String" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/blog./page/6/">&laquo; zurück</a><a class="page-number" href="/blog./">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog./page/5/">5</a><a class="page-number" href="/blog./page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/blog./page/8/">8</a><a class="extend next" rel="next" href="/blog./page/8/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JUC/">JUC</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JVM/">JVM</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/LeetCode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/bxjs/">bxjs</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/cuda/">cuda</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/default/">default</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/dsbj/">dsbj</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/jvmbook/">jvmbook</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/muban/">muban</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/selfdriving/">selfdriving</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/youji/">youji</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/zczb/">zczb</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/OpenCDA/" rel="tag">OpenCDA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/V2X/" rel="tag">V2X</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/%E6%91%84%E5%BD%B1/" rel="tag">摄影</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog./tags/OpenCDA/" style="font-size: 10px;">OpenCDA</a> <a href="/blog./tags/V2X/" style="font-size: 10px;">V2X</a> <a href="/blog./tags/%E6%91%84%E5%BD%B1/" style="font-size: 10px;">摄影</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog./2023/09/14/OpenCDA%20V2X%E9%80%9A%E4%BF%A1%E7%9B%B8%E5%85%B3/">OpenCDA V2X通信相关</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/28/%E5%8F%A4%E6%9C%B4%E9%9F%B5%E5%91%B3%E4%B8%8E%E8%8D%92%E9%87%8E%E4%B9%8B%E7%BE%8E%20-------%20%E8%A5%BF%E5%AE%89%E3%80%81%E9%9D%92%E6%B5%B7%E4%B9%8B%E6%97%85/">古朴韵味与荒野之美 ------- 西安、青海之旅</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/03/%E3%80%90OpenCDA%E3%80%91%E7%AE%97%E6%B3%95%E5%AE%9A%E5%88%B6%E5%8C%96%E5%BC%80%E5%8F%91/">【OpenCDA】算法定制化开发</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/01/zlib%20404/">zlib 404</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/07/19/V2X%E5%9C%BA%E6%99%AF%E5%8F%91%E5%B1%95%E5%92%8C%E4%BB%BF%E7%9C%9F/">V2X场景发展和仿真</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 wangxso<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog./" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog./archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog./js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/blog./fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog./js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

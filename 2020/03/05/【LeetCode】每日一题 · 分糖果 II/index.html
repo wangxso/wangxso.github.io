@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>【LeetCode】每日一题 · 分糖果 II | 非典型程序员的一生</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="原题链接 题干 排排坐，分糖果。   我们买了一些糖果 candies，打算把它们分给排好队的 n &#x3D; num_people 个小朋友。   给第一个小朋友 1 颗糖果，第二个小朋友 2 颗，依此类推，直到给最后一个小朋友 n 颗糖果。   然后，我们再回到队伍的起点，给第一个小朋友 n + 1 颗糖果，第二个小朋友 n + 2 颗，依此类推，直到给最后一个小朋友 2 * n 颗糖果。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【LeetCode】每日一题 · 分糖果 II">
+<meta property="og:url" content="https://wangxso.github.io/blog./2020/03/05/%E3%80%90LeetCode%E3%80%91%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%C2%B7%20%E5%88%86%E7%B3%96%E6%9E%9C%20II/index.html">
+<meta property="og:site_name" content="非典型程序员的一生">
+<meta property="og:description" content="原题链接 题干 排排坐，分糖果。   我们买了一些糖果 candies，打算把它们分给排好队的 n &#x3D; num_people 个小朋友。   给第一个小朋友 1 颗糖果，第二个小朋友 2 颗，依此类推，直到给最后一个小朋友 n 颗糖果。   然后，我们再回到队伍的起点，给第一个小朋友 n + 1 颗糖果，第二个小朋友 n + 2 颗，依此类推，直到给最后一个小朋友 2 * n 颗糖果。">
+<meta property="og:locale">
+<meta property="og:image" content="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/03/722161085.png">
+<meta property="og:image" content="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/03/3813234519.png">
+<meta property="article:published_time" content="2020-03-04T23:10:00.000Z">
+<meta property="article:modified_time" content="2023-09-14T07:08:11.858Z">
+<meta property="article:author" content="wangxso">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/03/722161085.png">
+  
+    <link rel="alternate" href="/blog./atom.xml" title="非典型程序员的一生" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog./favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog./css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog./fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog./" id="logo">非典型程序员的一生</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/blog./">Home</a>
+        
+          <a class="main-nav-link" href="/blog./archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/blog./atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wangxso.github.io/blog."></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-【LeetCode】每日一题 · 分糖果 II" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2020/03/05/%E3%80%90LeetCode%E3%80%91%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%C2%B7%20%E5%88%86%E7%B3%96%E6%9E%9C%20II/" class="article-date">
+  <time class="dt-published" datetime="2020-03-04T23:10:00.000Z" itemprop="datePublished">2020-03-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/LeetCode/">LeetCode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      【LeetCode】每日一题 · 分糖果 II
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/distribute-candies-to-people/" title="原题链接">原题链接</a></p>
+<h2 id="题干"><a href="#题干" class="headerlink" title="题干"></a>题干</h2><blockquote>
+<p>排排坐，分糖果。</p>
+</blockquote>
+<blockquote>
+<p>我们买了一些糖果 candies，打算把它们分给排好队的 n &#x3D; num_people 个小朋友。</p>
+</blockquote>
+<blockquote>
+<p>给第一个小朋友 1 颗糖果，第二个小朋友 2 颗，依此类推，直到给最后一个小朋友 n 颗糖果。</p>
+</blockquote>
+<blockquote>
+<p>然后，我们再回到队伍的起点，给第一个小朋友 n + 1 颗糖果，第二个小朋友 n + 2 颗，依此类推，直到给最后一个小朋友 2 * n 颗糖果。</p>
+</blockquote>
+<blockquote>
+<p>重复上述过程（每次都比上一次多给出一颗糖果，当到达队伍终点后再次从队伍起点开始），直到我们分完所有的糖果。注意，就算我们手中的剩下糖果数不够（不比前一次发出的糖果多），这些糖果也会全部发给当前的小朋友。</p>
+</blockquote>
+<blockquote>
+<p>返回一个长度为 num_people、元素之和为 candies 的数组，以表示糖果的最终分发情况（即 ans[i] 表示第 i 个小朋友分到的糖果数）。</p>
+</blockquote>
+<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><h2 id="暴力法"><a href="#暴力法" class="headerlink" title="###暴力法"></a>###暴力法</h2><p>不管怎么来俺就是要莽，莽夫嘛，就是要来一套模拟，搞定。</p>
+<p>每次模拟走一次，然后把剩下的存在最后一个访问的小朋友</p>
+<p>###代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span>[] distributeCandies(<span class="type">int</span> candies, <span class="type">int</span> num_people) &#123;</span><br><span class="line">    <span class="type">int</span>[] ans = <span class="keyword">new</span> <span class="title class_">int</span>[num_people];</span><br><span class="line">    <span class="type">int</span> <span class="variable">pow</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (candies &gt; <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; num_people ; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (candies &gt;= i + <span class="number">1</span> + num_people * pow)&#123;</span><br><span class="line">                candies -= i + <span class="number">1</span> + num_people * pow;</span><br><span class="line">                ans[i] += i + <span class="number">1</span> + num_people * pow;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                ans[i] += candies;</span><br><span class="line">                candies = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        pow++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="数学小想法-莽夫的对立面"><a href="#数学小想法-莽夫的对立面" class="headerlink" title="数学小想法(莽夫的对立面)"></a>数学小想法(<del>莽夫的对立面</del>)</h3><p>使用等差数列的知识，我们可以看出这个完整分配的时候就是一个首项为1，公差为1的等差数列</p>
+<p>已知首项、前n项和和公差求项数<br>Sn &#x3D; a1 x n+(n x n-1)&#x2F;2 x d</p>
+<ul>
+<li>求出完整分配的轮数</li>
+<li>求出最后的杭和烈</li>
+<li>最后加上剩余的<br> <img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/03/722161085.png" alt="AirPlay_Screenshot_2020-03-05_02-57-20.png"><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2020/03/3813234519.png" alt="AirPlay_Screenshot_2020-03-05_02-57-43.png"></li>
+</ul>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//等差数列求和，Sn = n*a1 + n(n-1)d /2,此处已知Sn a1 d 求 n</span></span><br><span class="line">        <span class="comment">// n*a1 + (d * n^2 - d * n) / 2 = Sn ==&gt; n = 土sqrt(2 * Sn + 0.25) - 0.5</span></span><br><span class="line">        <span class="keyword">public</span> <span class="type">int</span>[] distributeCandies(<span class="type">int</span> candies, <span class="type">int</span> num_people) &#123;</span><br><span class="line">            <span class="type">int</span>[] ans = <span class="keyword">new</span> <span class="title class_">int</span>[num_people];</span><br><span class="line">            <span class="comment">//求出完整分配的项数</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> (<span class="type">int</span>) Math.floor(Math.sqrt(<span class="number">2</span>*candies + <span class="number">0.25</span>) - <span class="number">0.5</span>);</span><br><span class="line">            <span class="comment">//求出完整分配的数量</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">sn</span> <span class="operator">=</span> n + (n * (n-<span class="number">1</span>)) / <span class="number">2</span>;</span><br><span class="line">            <span class="comment">//剩余的糖果数</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">less</span> <span class="operator">=</span> candies - sn;</span><br><span class="line">            <span class="comment">//推算出完整分配的行和列</span></span><br><span class="line">            <span class="comment">//rows代表最后一行的行数</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">rows</span> <span class="operator">=</span> n / num_people;</span><br><span class="line">            <span class="comment">// cols 代表最后一个分配的位置</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">cols</span> <span class="operator">=</span> n % num_people;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; num_people ; i++) &#123;</span><br><span class="line">                ans[i] = (i + <span class="number">1</span>) * rows + (<span class="type">int</span>)(rows * (rows - <span class="number">1</span>) * <span class="number">0.5</span>) * num_people;</span><br><span class="line">                <span class="comment">//前cols个人分配一份完整的礼物</span></span><br><span class="line">                <span class="keyword">if</span> (i &lt; cols) ans[i] += i + <span class="number">1</span> + rows * num_people;</span><br><span class="line">            &#125;</span><br><span class="line">            ans[cols] += less;</span><br><span class="line">            <span class="keyword">return</span> ans;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2020/03/05/%E3%80%90LeetCode%E3%80%91%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%C2%B7%20%E5%88%86%E7%B3%96%E6%9E%9C%20II/" data-id="clmivdq8g002vsjp6h8zoehfe" data-title="【LeetCode】每日一题 · 分糖果 II" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog./2020/03/06/%E3%80%90LeetCode%E3%80%91%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%C2%B7%20%E5%92%8C%E4%B8%BAS%E7%9A%84%E6%AD%A3%E6%95%B0%E5%BA%8F%E5%88%97/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          【LeetCode】每日一题 · 和为S的正数序列
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog./2020/03/04/%E3%80%90LeetCode%E3%80%91%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%C2%B7%20%E8%85%90%E7%83%82%E7%9A%84%E6%A9%98%E5%AD%90/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">【LeetCode】每日一题 · 腐烂的橘子</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JUC/">JUC</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JVM/">JVM</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/LeetCode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/bxjs/">bxjs</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/cuda/">cuda</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/default/">default</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/dsbj/">dsbj</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/jvmbook/">jvmbook</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/muban/">muban</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/selfdriving/">selfdriving</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/youji/">youji</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/zczb/">zczb</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/OpenCDA/" rel="tag">OpenCDA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/V2X/" rel="tag">V2X</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/%E6%91%84%E5%BD%B1/" rel="tag">摄影</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog./tags/OpenCDA/" style="font-size: 10px;">OpenCDA</a> <a href="/blog./tags/V2X/" style="font-size: 10px;">V2X</a> <a href="/blog./tags/%E6%91%84%E5%BD%B1/" style="font-size: 10px;">摄影</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog./2023/09/14/OpenCDA%20V2X%E9%80%9A%E4%BF%A1%E7%9B%B8%E5%85%B3/">OpenCDA V2X通信相关</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/28/%E5%8F%A4%E6%9C%B4%E9%9F%B5%E5%91%B3%E4%B8%8E%E8%8D%92%E9%87%8E%E4%B9%8B%E7%BE%8E%20-------%20%E8%A5%BF%E5%AE%89%E3%80%81%E9%9D%92%E6%B5%B7%E4%B9%8B%E6%97%85/">古朴韵味与荒野之美 ------- 西安、青海之旅</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/03/%E3%80%90OpenCDA%E3%80%91%E7%AE%97%E6%B3%95%E5%AE%9A%E5%88%B6%E5%8C%96%E5%BC%80%E5%8F%91/">【OpenCDA】算法定制化开发</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/01/zlib%20404/">zlib 404</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/07/19/V2X%E5%9C%BA%E6%99%AF%E5%8F%91%E5%B1%95%E5%92%8C%E4%BB%BF%E7%9C%9F/">V2X场景发展和仿真</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 wangxso<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog./" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog./archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog./js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/blog./fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog./js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

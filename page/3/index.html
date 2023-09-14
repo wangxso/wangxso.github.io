@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>非典型程序员的一生</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="程序员 | 工程师 | 摄影爱好者 | 骑行客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="非典型程序员的一生">
+<meta property="og:url" content="https://wangxso.github.io/blog./page/3/index.html">
+<meta property="og:site_name" content="非典型程序员的一生">
+<meta property="og:description" content="程序员 | 工程师 | 摄影爱好者 | 骑行客">
+<meta property="og:locale">
+<meta property="article:author" content="wangxso">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog./atom.xml" title="非典型程序员的一生" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog./favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog./css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog./fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog./" id="logo">非典型程序员的一生</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/blog./">Home</a>
+        
+          <a class="main-nav-link" href="/blog./archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/blog./atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wangxso.github.io/blog."></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-【LeetCode】第 282 场周赛" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2022/02/27/%E3%80%90LeetCode%E3%80%91%E7%AC%AC%20282%20%E5%9C%BA%E5%91%A8%E8%B5%9B/" class="article-date">
+  <time class="dt-published" datetime="2022-02-26T22:30:58.000Z" itemprop="datePublished">2022-02-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/%E7%AE%97%E6%B3%95/">算法</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2022/02/27/%E3%80%90LeetCode%E3%80%91%E7%AC%AC%20282%20%E5%9C%BA%E5%91%A8%E8%B5%9B/">【LeetCode】第 282 场周赛</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="第-282-场周赛"><a href="#第-282-场周赛" class="headerlink" title="第 282 场周赛"></a>第 282 场周赛</h1><p>十点起床，打了会原神，才记起来有周赛。做了两题就想去吃饭。堕落了啊。</p>
+<h2 id="第一题-6008-统计包含给定前缀的字符串"><a href="#第一题-6008-统计包含给定前缀的字符串" class="headerlink" title="第一题 6008. 统计包含给定前缀的字符串"></a>第一题 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/counting-words-with-a-given-prefix/">6008. 统计包含给定前缀的字符串</a></h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>水题，就是判断下前缀是否包含<code>pref</code>，然后统计下个数。我直接用Java的API写了，手写的话也不用几分钟。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">prefixCount</span><span class="params">(String[] words, String pref)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i &lt; words.length; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(words[i].startsWith(pref)) &#123;</span><br><span class="line">                n++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第二题-6009-使两字符串互为字母异位词的最少步骤数"><a href="#第二题-6009-使两字符串互为字母异位词的最少步骤数" class="headerlink" title="第二题 6009. 使两字符串互为字母异位词的最少步骤数"></a>第二题 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-number-of-steps-to-make-two-strings-anagram-ii/">6009. 使两字符串互为字母异位词的最少步骤数</a></h2><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>增加一些字符让两个字符串<code>s</code>和<code>t</code>变成字母异位次，也就是字母相同但是顺序不同的两个字符串。</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>这里我们发现只要增加两个串里面不存在的字符或者不够个数的字符即可。我们这里统计一下第一个字符串的字符个数，然后减去第二个字符串的字符个数，如果数组出现负数那就是不足的需要补上，正数那就是第一个字符串不足的。我们把正数和负数的绝对值相加就能得到答案。</p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">minSteps</span><span class="params">(String s, String t)</span> &#123;</span><br><span class="line">        <span class="type">int</span>[] count = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">26</span>];</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            count[s.charAt(i) - <span class="string">&#x27;a&#x27;</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; t.length(); i++) &#123;</span><br><span class="line">            count[t.charAt(i) - <span class="string">&#x27;a&#x27;</span>]--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span> ; i &lt;= <span class="number">25</span>; i++) &#123;</span><br><span class="line">            n += Math.abs(count[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第三题-6010-完成旅途的最少时间"><a href="#第三题-6010-完成旅途的最少时间" class="headerlink" title="第三题 6010. 完成旅途的最少时间"></a>第三题 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/minimum-time-to-complete-trips/">6010. 完成旅途的最少时间</a></h2><h3 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h3><p>给你每辆公交车完成一趟需要的时间<code>time[]</code>，并且公交车在完成后可以继续使用。让你求完成<code>totalTrips</code>趟需要的最少时间。</p>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>我一开始的想法是把<code>time</code>进行排序，然后每次都加一下time[0]，<code>ans++</code> ，每次统计下时间<code>totalTime</code>然后判断time中是否存在<code>time[i] &gt;= totalTime</code>然后将<code>ans++</code>。但是我们需要判断每个time[i]在一个周期只能加一次，而这个周期是time中最大的那辆车的一趟的时间。很麻烦，也很绕。</p>
+<p>然后我看了别人的解法。他们是使用二分的解法，对于我来说不是很好想。</p>
+<p>显然这题返回的时间不会超过每次都跑一趟时间最少的那辆公交车的时间也就是<code>time[0]*totalTrips</code>(这里time[0]是排序后最小的时间)。然后我们只需要<code>1--&gt;(time[0]*totalTrips)</code>之间寻找我们的答案即可。我们统计算出当前时间下能进行的趟数，如果大于我们就往左边搜(l -&gt; mid - 1)，小于就往右边搜(mid+1, r)</p>
+<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">long</span> <span class="title function_">minimumTime</span><span class="params">(<span class="type">int</span>[] time, <span class="type">int</span> totalTrips)</span> &#123;</span><br><span class="line">        Arrays.sort(time);</span><br><span class="line">        <span class="type">long</span> <span class="variable">lo</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="type">long</span> <span class="variable">hi</span> <span class="operator">=</span> (<span class="type">long</span>)time[<span class="number">0</span>] * totalTrips;</span><br><span class="line">        <span class="keyword">while</span>(lo &lt;= hi) &#123;</span><br><span class="line">            <span class="type">long</span> <span class="variable">mid</span> <span class="operator">=</span> (lo + hi) / <span class="number">2</span>;</span><br><span class="line">            <span class="type">long</span> <span class="variable">trips</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> num:time) &#123;</span><br><span class="line">                trips += mid/num;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(trips &gt;=totalTrips) &#123;</span><br><span class="line">                hi = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                lo = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> lo;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2022/02/27/%E3%80%90LeetCode%E3%80%91%E7%AC%AC%20282%20%E5%9C%BA%E5%91%A8%E8%B5%9B/" data-id="clmivdq8i0035sjp64w556tvy" data-title="【LeetCode】第 282 场周赛" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【LeetCode】第72场双周赛 补题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2022/02/20/%E3%80%90LeetCode%E3%80%91%E7%AC%AC72%E5%9C%BA%E5%8F%8C%E5%91%A8%E8%B5%9B%20%E8%A1%A5%E9%A2%98/" class="article-date">
+  <time class="dt-published" datetime="2022-02-19T23:49:00.000Z" itemprop="datePublished">2022-02-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/LeetCode/">LeetCode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2022/02/20/%E3%80%90LeetCode%E3%80%91%E7%AC%AC72%E5%9C%BA%E5%8F%8C%E5%91%A8%E8%B5%9B%20%E8%A1%A5%E9%A2%98/">【LeetCode】第72场双周赛 补题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="第72场双周赛-蔚来"><a href="#第72场双周赛-蔚来" class="headerlink" title="第72场双周赛 蔚来"></a>第72场双周赛 蔚来</h1><h2 id="第一题-5996-统计数组中相等且可以被整除的数对"><a href="#第一题-5996-统计数组中相等且可以被整除的数对" class="headerlink" title="第一题 5996. 统计数组中相等且可以被整除的数对"></a>第一题 5996. 统计数组中相等且可以被整除的数对</h2><h3 id="题意-思路"><a href="#题意-思路" class="headerlink" title="题意 &amp; 思路"></a>题意 &amp; 思路</h3><p>简单的就是找出满足这些条件</p>
+<ul>
+<li><code>0 &lt;= i &lt; j &lt; n</code></li>
+<li><code>nums[i] == nums[j]</code></li>
+<li><code>(i * j)%k==0</code></li>
+</ul>
+<p>的这样一个i，j对的个数。而且该题的数据范围很小所以我们直接双重循环解决。</p>
+<blockquote>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 100</code></li>
+<li><code>1 &lt;= nums[i], k &lt;= 100</code></li>
+</ul>
+</blockquote>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">countPairs</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> nums.length;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> i+<span class="number">1</span>; j &lt; n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>((i*j) % k == <span class="number">0</span> &amp;&amp; (nums[i] == nums[j])) &#123;</span><br><span class="line">                    ans++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>算法时间复杂度O(N^2)</p>
+<h2 id="第二题-5997-找到和为给定整数的三个连续整数"><a href="#第二题-5997-找到和为给定整数的三个连续整数" class="headerlink" title="第二题 5997. 找到和为给定整数的三个连续整数"></a>第二题 5997. 找到和为给定整数的三个连续整数</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给你一个整数你把它拆分为三个连续整数的和。如果不能拆分就返回空。</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>我们看下33之类的三个数相加必然包含了33整除3。</p>
+<p>我们夹着要求的数字为<code>x</code>,则有<code>(x/3) + (x/3) - 1 + (x/3) +1 &lt;= x</code>并且有<code>x &gt;= (x/3) + (x/3) + 1 + (x/3) + 2)</code></p>
+<p>我们只需要求这两个就行了。</p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">long</span>[] sumOfThree(<span class="type">long</span> num) &#123;</span><br><span class="line">        <span class="type">long</span> <span class="variable">tmp</span> <span class="operator">=</span> num / <span class="number">3</span>;</span><br><span class="line">        <span class="type">long</span> <span class="variable">minN</span> <span class="operator">=</span> (tmp-<span class="number">1</span>) + tmp + tmp+<span class="number">1</span>;</span><br><span class="line">        <span class="type">long</span> <span class="variable">maxN</span> <span class="operator">=</span> tmp + tmp+<span class="number">1</span> + tmp+<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(minN == num) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">long</span>[]&#123;tmp-<span class="number">1</span>, tmp, tmp+<span class="number">1</span>&#125;;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(minN == maxN) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">long</span>[]&#123;tmp, tmp+<span class="number">1</span>, tmp+<span class="number">2</span>&#125;;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">long</span>[]&#123;&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>算法时间复杂度O(1)</p>
+<h2 id="第三题-5998-拆分成最多数目的偶整数之和"><a href="#第三题-5998-拆分成最多数目的偶整数之和" class="headerlink" title="第三题 5998. 拆分成最多数目的偶整数之和"></a>第三题 5998. 拆分成最多数目的偶整数之和</h2><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>给你一个整数，让你求这个整数能够拆分成多少个偶数，并且这些偶数不能相等。</p>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>显然奇数不能被拆分。</p>
+<p>我们把这个整数减去一些偶数这些偶数从小到大分别是2,4,6,8,10, ……..,这样的，但是并不是所有的都能按顺序拆分我们要判断下他能不能拆分。</p>
+<p>比如28，</p>
+<ul>
+<li>28 - 2 &#x3D; 26</li>
+<li>26 - 4 &#x3D; 22</li>
+<li>22 - 6 &#x3D; 16</li>
+</ul>
+<p>这里我们判断下16的一半能否被后面一个完整的拆分，也就是判断下<code>(16 - 8) &gt; 8 ?</code>，我们得到的答案是false，那么我们就不要把16拆分直接使用16即可。</p>
+<p>那么我们的答案就是<code>[2,4,6,16]</code></p>
+<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;Long&gt; <span class="title function_">maximumEvenSplit</span><span class="params">(<span class="type">long</span> finalSum)</span> &#123;</span><br><span class="line">        List&lt;Long&gt; ansList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span>(finalSum % <span class="number">2</span> != <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> ansList;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="type">long</span> <span class="variable">tmp</span> <span class="operator">=</span> finalSum;</span><br><span class="line">        <span class="type">long</span> <span class="variable">cnt</span> <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">while</span>(tmp &gt;= cnt) &#123;</span><br><span class="line">            <span class="keyword">if</span>(tmp - cnt &gt; cnt) &#123;</span><br><span class="line">                ansList.add(cnt);</span><br><span class="line">                tmp -= cnt;</span><br><span class="line">                cnt+=<span class="number">2</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                ansList.add(tmp);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ansList;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>算法时间复杂度O(√n)</p>
+<h2 id="第四题-5999-统计数组中好三元组数目"><a href="#第四题-5999-统计数组中好三元组数目" class="headerlink" title="第四题 5999. 统计数组中好三元组数目"></a>第四题 5999. 统计数组中好三元组数目</h2><p>还不会做。。。。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2022/02/20/%E3%80%90LeetCode%E3%80%91%E7%AC%AC72%E5%9C%BA%E5%8F%8C%E5%91%A8%E8%B5%9B%20%E8%A1%A5%E9%A2%98/" data-id="clmivdq8k003fsjp64jrq602d" data-title="【LeetCode】第72场双周赛 补题" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【LeetCode】第280场周赛 补题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2022/02/18/%E3%80%90LeetCode%E3%80%91%E7%AC%AC280%E5%9C%BA%E5%91%A8%E8%B5%9B%20%E8%A1%A5%E9%A2%98/" class="article-date">
+  <time class="dt-published" datetime="2022-02-18T01:41:27.000Z" itemprop="datePublished">2022-02-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/LeetCode/">LeetCode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2022/02/18/%E3%80%90LeetCode%E3%80%91%E7%AC%AC280%E5%9C%BA%E5%91%A8%E8%B5%9B%20%E8%A1%A5%E9%A2%98/">【LeetCode】第280场周赛 补题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="第280场周赛-补题"><a href="#第280场周赛-补题" class="headerlink" title="第280场周赛 补题"></a>第280场周赛 补题</h1><h2 id="第一题-2169-得到-0-的操作数"><a href="#第一题-2169-得到-0-的操作数" class="headerlink" title="第一题 2169. 得到 0 的操作数"></a>第一题 2169. 得到 0 的操作数</h2><p>水题一看就知道模拟一下就可以了，可以说是签到题了。</p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p>给你两个 <strong>非负</strong> 整数 <code>num1</code> 和 <code>num2</code> 。</p>
+<p>每一步 <strong>操作</strong> 中，如果 <code>num1 &gt;= num2</code> ，你必须用 <code>num1</code> 减 <code>num2</code> ；否则，你必须用 <code>num2</code> 减 <code>num1</code> 。</p>
+<ul>
+<li>例如，<code>num1 = 5</code> 且 <code>num2 = 4</code> ，应该用 <code>num1</code> 减 <code>num2</code> ，因此，得到 <code>num1 = 1</code> 和 <code>num2 = 4</code> 。然而，如果 <code>num1 = 4</code>且 <code>num2 = 5</code> ，一步操作后，得到 <code>num1 = 4</code> 和 <code>num2 = 1</code> 。</li>
+</ul>
+<p>返回使 <code>num1 = 0</code> 或 <code>num2 = 0</code> 的 <strong>操作数</strong> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">输入：num1 = 2, num2 = 3</span><br><span class="line">输出：3</span><br><span class="line">解释：</span><br><span class="line">- 操作 1 ：num1 = 2 ，num2 = 3 。由于 num1 &lt; num2 ，num2 减 num1 得到 num1 = 2 ，num2 = 3 - 2 = 1 。</span><br><span class="line">- 操作 2 ：num1 = 2 ，num2 = 1 。由于 num1 &gt; num2 ，num1 减 num2 。</span><br><span class="line">- 操作 3 ：num1 = 1 ，num2 = 1 。由于 num1 == num2 ，num1 减 num2 。</span><br><span class="line">此时 num1 = 0 ，num2 = 1 。由于 num1 == 0 ，不需要再执行任何操作。</span><br><span class="line">所以总操作数是 3 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：num1 = 10, num2 = 10</span><br><span class="line">输出：1</span><br><span class="line">解释：</span><br><span class="line">- 操作 1 ：num1 = 10 ，num2 = 10 。由于 num1 == num2 ，num1 减 num2 得到 num1 = 10 - 10 = 0 。</span><br><span class="line">此时 num1 = 0 ，num2 = 10 。由于 num1 == 0 ，不需要再执行任何操作。</span><br><span class="line">所以总操作数是 1 。</span><br></pre></td></tr></table></figure>
+
+
+</blockquote>
+<h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>让你操作当<code>num1</code>大于<code>num2</code>的时候<code>num1</code>变成<code>num1-num2</code>，当<code>num1 &lt; num2</code>的时候让<code>num2</code>变成<code>num2 - num1</code>，直到<code>num1</code>或<code>num2</code>之中有一个为0。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">countOperations</span><span class="params">(<span class="type">int</span> num1, <span class="type">int</span> num2)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">cnt</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(num1 != <span class="number">0</span> &amp;&amp; num2 !=<span class="number">0</span>) &#123;</span><br><span class="line">            cnt++;</span><br><span class="line">            <span class="keyword">if</span>(num1 &gt; num2) &#123;</span><br><span class="line">                num1 = num1 - num2;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                num2 = num2 - num1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cnt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第二题-2170-使数组变成交替数组的最少操作数"><a href="#第二题-2170-使数组变成交替数组的最少操作数" class="headerlink" title="第二题 2170. 使数组变成交替数组的最少操作数"></a>第二题 2170. 使数组变成交替数组的最少操作数</h2><p>这题我一看就头大感觉自己最烦这种操作xx把什么变成xx的问题了。然后我一开始想的是查找不满足这些条件的数字有几个并且进行去重但是样例能过，但是这样就不是很严谨了。</p>
+<p>下面是看了别人的答案后才想出来的答案。</p>
+<h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p>给你一个下标从 <strong>0</strong> 开始的数组 <code>nums</code> ，该数组由 <code>n</code> 个正整数组成。</p>
+<p>如果满足下述条件，则数组 <code>nums</code> 是一个 <strong>交替数组</strong> ：</p>
+<ul>
+<li><code>nums[i - 2] == nums[i]</code> ，其中 <code>2 &lt;= i &lt;= n - 1</code> 。</li>
+<li><code>nums[i - 1] != nums[i]</code> ，其中 <code>1 &lt;= i &lt;= n - 1</code> 。</li>
+</ul>
+<p>在一步 <strong>操作</strong> 中，你可以选择下标 <code>i</code> 并将 <code>nums[i]</code> <strong>更改</strong> 为 <strong>任一</strong> 正整数。</p>
+<p>返回使数组变成交替数组的 <strong>最少操作数</strong> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [3,1,3,2,4,3]</span><br><span class="line">输出：3</span><br><span class="line">解释：</span><br><span class="line">使数组变成交替数组的方法之一是将该数组转换为 [3,1,3,1,3,1] 。</span><br><span class="line">在这种情况下，操作数为 3 。</span><br><span class="line">可以证明，操作数少于 3 的情况下，无法使数组变成交替数组。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1,2,2,2,2]</span><br><span class="line">输出：2</span><br><span class="line">解释：</span><br><span class="line">使数组变成交替数组的方法之一是将该数组转换为 [1,2,1,2,1].</span><br><span class="line">在这种情况下，操作数为 2 。</span><br><span class="line">注意，数组不能转换成 [2,2,2,2,2] 。因为在这种情况下，nums[0] == nums[1]，不满足交替数组的条件</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>题目的要求是让数组的元素交替相等，相邻的元素不相等。</p>
+<p>我们可以看出如果要使得这样的数组成立， 我们就需要把奇数位的数字相同，偶数位的数字相同，并且奇数位和偶数位的数字不想同。那么我们利用贪心的思想可以知道我们只需要选择奇数位出现次数最多的数字和偶数位出现次数最多的次数。**但是存在特殊的情况那就是奇数位出现最多的数字和偶数位出现最多的数字相等，那么我们就选择Max(奇数位最多+偶数位次多，偶数位最多+奇数位次多)**然后把数字的总个数减去它。</p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">     <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">minimumOperations</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">        <span class="comment">// 贪心</span></span><br><span class="line">        <span class="keyword">if</span> (nums.length == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> nums.length;</span><br><span class="line">        Map&lt;Integer, Integer&gt; oddMap = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        Map&lt;Integer, Integer&gt; evenMap = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        <span class="comment">// 统计数字在奇数位和偶数位出现的次数</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (i % <span class="number">2</span> != <span class="number">0</span>) &#123;</span><br><span class="line">                oddMap.put(nums[i], oddMap.getOrDefault(nums[i], <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                evenMap.put(nums[i], evenMap.getOrDefault(nums[i], <span class="number">0</span>) + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 保存出现次数最多的数字(xxxKey).和他出现的次数，还有奇数位/偶数位出现第二多的数字的次数。</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">oddKey</span> <span class="operator">=</span> <span class="number">0</span>, odd1st = <span class="number">0</span>, odd2nd = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">evenKey</span> <span class="operator">=</span> <span class="number">0</span>, even1st = <span class="number">0</span>, even2nd = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (Integer key:oddMap.keySet()) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">val</span> <span class="operator">=</span> oddMap.get(key);</span><br><span class="line">            <span class="keyword">if</span> (val &gt; odd1st) &#123;</span><br><span class="line">                odd2nd = odd1st;</span><br><span class="line">                odd1st = val;</span><br><span class="line">                oddKey = key;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (val &gt; odd2nd)&#123;</span><br><span class="line">                odd2nd = val;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (Integer key:evenMap.keySet()) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">val</span> <span class="operator">=</span> evenMap.get(key);</span><br><span class="line">            <span class="keyword">if</span> (val &gt; even1st) &#123;</span><br><span class="line">                even2nd = even1st;</span><br><span class="line">                even1st = val;</span><br><span class="line">                evenKey = key;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (val &gt; even2nd) &#123;</span><br><span class="line">                even2nd = val;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 如果这两个key不一样，那么就返回</span></span><br><span class="line">        <span class="keyword">if</span> (oddKey != evenKey) &#123;</span><br><span class="line">            <span class="keyword">return</span> n - odd1st - even1st;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> n - Math.max(odd1st + even2nd, odd2nd + even1st);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第三题-2171-拿出最少数目的魔法豆"><a href="#第三题-2171-拿出最少数目的魔法豆" class="headerlink" title="第三题 2171. 拿出最少数目的魔法豆"></a>第三题 2171. 拿出最少数目的魔法豆</h2><p>观察下题目我们可以发现这是考我们思维逻辑的题目，如果想要相等我们只能吧袋子里的豆子变成袋子里已经存在的豆子的数量的某一个。然后我就来了一发暴力果然TLE了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">long</span> <span class="title function_">minimumRemoval</span><span class="params">(<span class="type">int</span>[] beans)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> Integer.MAX_VALUE;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> beans.length;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">tmp</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(beans[i] &gt; beans[j]) &#123;</span><br><span class="line">                    tmp += beans[j];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    tmp += beans[j] - beans[i];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ans = Math.min(tmp, ans);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>算法复杂度O(N^2)</p>
+<h3 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p>给你一个 <strong>正</strong> 整数数组 <code>beans</code> ，其中每个整数表示一个袋子里装的魔法豆的数目。</p>
+<p>请你从每个袋子中 <strong>拿出</strong> 一些豆子（也可以 <strong>不拿出</strong>），使得剩下的 <strong>非空</strong> 袋子中（即 <strong>至少</strong> 还有 <strong>一颗</strong> 魔法豆的袋子）魔法豆的数目 <strong>相等</strong> 。一旦魔法豆从袋子中取出，你不能将它放到任何其他的袋子中。</p>
+<p>请你返回你需要拿出魔法豆的 <strong>最少数目</strong>。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">输入：beans = [4,1,6,5]</span><br><span class="line">输出：4</span><br><span class="line">解释：</span><br><span class="line">- 我们从有 1 个魔法豆的袋子中拿出 1 颗魔法豆。</span><br><span class="line">  剩下袋子中魔法豆的数目为：[4,0,6,5]</span><br><span class="line">- 然后我们从有 6 个魔法豆的袋子中拿出 2 个魔法豆。</span><br><span class="line">  剩下袋子中魔法豆的数目为：[4,0,4,5]</span><br><span class="line">- 然后我们从有 5 个魔法豆的袋子中拿出 1 个魔法豆。</span><br><span class="line">  剩下袋子中魔法豆的数目为：[4,0,4,4]</span><br><span class="line">总共拿出了 1 + 2 + 1 = 4 个魔法豆，剩下非空袋子中魔法豆的数目相等。</span><br><span class="line">没有比取出 4 个魔法豆更少的方案。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">输入：beans = [2,10,3,2]</span><br><span class="line">输出：7</span><br><span class="line">解释：</span><br><span class="line">- 我们从有 2 个魔法豆的其中一个袋子中拿出 2 个魔法豆。</span><br><span class="line">  剩下袋子中魔法豆的数目为：[0,10,3,2]</span><br><span class="line">- 然后我们从另一个有 2 个魔法豆的袋子中拿出 2 个魔法豆。</span><br><span class="line">  剩下袋子中魔法豆的数目为：[0,10,3,0]</span><br><span class="line">- 然后我们从有 3 个魔法豆的袋子中拿出 3 个魔法豆。</span><br><span class="line">  剩下袋子中魔法豆的数目为：[0,10,0,0]</span><br><span class="line">总共拿出了 2 + 2 + 3 = 7 个魔法豆，剩下非空袋子中魔法豆的数目相等。</span><br><span class="line">没有比取出 7 个魔法豆更少的方案。</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= beans.length &lt;= 105</code></li>
+<li><code>1 &lt;= beans[i] &lt;= 105</code></li>
+</ul>
+</blockquote>
+<h3 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h3><p>给你一个bean数组，然后把这个数组中除了0之外的数字都相等，问你需要每个下标需要减去多少数字最小的总和。</p>
+<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">      <span class="keyword">public</span> <span class="type">long</span> <span class="title function_">minimumRemoval</span><span class="params">(<span class="type">int</span>[] beans)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> beans.length;</span><br><span class="line">        <span class="type">long</span>[] suff = <span class="keyword">new</span> <span class="title class_">long</span>[n+<span class="number">1</span>];</span><br><span class="line">        <span class="type">long</span>[] right = <span class="keyword">new</span> <span class="title class_">long</span>[n+<span class="number">1</span>];</span><br><span class="line">        <span class="type">long</span> <span class="variable">ans</span> <span class="operator">=</span> Long.MAX_VALUE;</span><br><span class="line">        Arrays.sort(beans);</span><br><span class="line">        <span class="comment">// 求前缀和</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            suff[i] = suff[i-<span class="number">1</span>] + beans[i-<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 求后面n个的和(后缀和)</span></span><br><span class="line">        right[n-<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> n-<span class="number">2</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            right[i] = right[i+<span class="number">1</span>] + beans[i+<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i &lt; n; i++) &#123;</span><br><span class="line">            <span class="comment">//(n-i-1)表示i后面的每个减去beans[i]</span></span><br><span class="line">            <span class="type">long</span> <span class="variable">tmp</span> <span class="operator">=</span> suff[i] + right[i] -(n-i-<span class="number">1</span>)*(<span class="type">long</span>)beans[i];</span><br><span class="line">            ans = Math.min(ans, tmp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2022/02/18/%E3%80%90LeetCode%E3%80%91%E7%AC%AC280%E5%9C%BA%E5%91%A8%E8%B5%9B%20%E8%A1%A5%E9%A2%98/" data-id="clmivdq8j003asjp6g37hdc8e" data-title="【LeetCode】第280场周赛 补题" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-如何把阿里云盘挂载到本地" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2022/02/15/%E5%A6%82%E4%BD%95%E6%8A%8A%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E6%9C%AC%E5%9C%B0/" class="article-date">
+  <time class="dt-published" datetime="2022-02-15T03:47:00.000Z" itemprop="datePublished">2022-02-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2022/02/15/%E5%A6%82%E4%BD%95%E6%8A%8A%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E6%9C%AC%E5%9C%B0/">如何把阿里云盘挂载到本地</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="如何把阿里云盘挂载到本地"><a href="#如何把阿里云盘挂载到本地" class="headerlink" title="如何把阿里云盘挂载到本地"></a>如何把阿里云盘挂载到本地</h1><h2 id="CloudDrive介绍"><a href="#CloudDrive介绍" class="headerlink" title="CloudDrive介绍"></a>CloudDrive介绍</h2><blockquote>
+<p>CloudDrive是一款个人开发者开发的网盘挂载工具，他可以将阿里云盘、115网盘、WebDAV、天翼云盘等国内网盘挂载映射到电脑本地，将网盘变成变成本地磁盘来使用。挂载成功后，网盘空间容量就会变成本地磁盘容量。网盘内容的资源也可以像本地磁盘一样复制、粘贴、删除、重命名等。</p>
+</blockquote>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>[hide]<br>「CloudDriveSetup-X64-1.1.41.exe」<a target="_blank" rel="noopener" href="https://www.aliyundrive.com/s/ne2ySJfcQUx">https://www.aliyundrive.com/s/ne2ySJfcQUx</a><br>点击链接保存，或者复制本段内容，打开「阿里云盘」APP ，无需下载极速在线查看，视频原画倍速播放。<br>[&#x2F;hide]</p>
+<h4 id="1-选择语言"><a href="#1-选择语言" class="headerlink" title="1.选择语言"></a>1.选择语言</h4><p><img src="https://s2.loli.net/2022/02/15/xWseoKA9yn52pva.png"></p>
+<h4 id="2-然后默认下一步就行"><a href="#2-然后默认下一步就行" class="headerlink" title="2.然后默认下一步就行"></a>2.然后默认下一步就行</h4><h4 id="3-点击桌面出现的图标"><a href="#3-点击桌面出现的图标" class="headerlink" title="3.点击桌面出现的图标"></a>3.点击桌面出现的图标</h4><p><img src="https://s2.loli.net/2022/02/15/Yb7vg1sKa9C8t6J.png"></p>
+<h4 id="4-注册-登录"><a href="#4-注册-登录" class="headerlink" title="4.注册&amp;登录"></a>4.注册&amp;登录</h4><h4 id="5-点击网盘图标，选择阿里云盘"><a href="#5-点击网盘图标，选择阿里云盘" class="headerlink" title="5.点击网盘图标，选择阿里云盘"></a>5.点击网盘图标，选择阿里云盘</h4><p><img src="https://s2.loli.net/2022/02/15/loHDq8iAjZytUfv.png"></p>
+<h4 id="6-扫码登录"><a href="#6-扫码登录" class="headerlink" title="6. 扫码登录"></a>6. 扫码登录</h4><h4 id="7-出现阿里云盘图标"><a href="#7-出现阿里云盘图标" class="headerlink" title="7. 出现阿里云盘图标"></a>7. 出现阿里云盘图标</h4><p><img src="https://s2.loli.net/2022/02/15/MHtyjFgNRmZW16A.png"></p>
+<h4 id="8-点击右上角齿轮按钮"><a href="#8-点击右上角齿轮按钮" class="headerlink" title="8. 点击右上角齿轮按钮"></a>8. 点击右上角齿轮按钮</h4><p><img src="https://s2.loli.net/2022/02/15/E2SkrqTB3ILMAWO.png"></p>
+<h4 id="9-点击自动挂载，选择网络盘"><a href="#9-点击自动挂载，选择网络盘" class="headerlink" title="9. 点击自动挂载，选择网络盘"></a>9. 点击自动挂载，选择网络盘</h4><p><img src="https://s2.loli.net/2022/02/15/gaWF9vQzdrs8OZL.png"></p>
+<h4 id="10-完成"><a href="#10-完成" class="headerlink" title="10. 完成"></a>10. 完成</h4><p><img src="https://s2.loli.net/2022/02/15/LIa7TUybOJvAVp6.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2022/02/15/%E5%A6%82%E4%BD%95%E6%8A%8A%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%E6%8C%82%E8%BD%BD%E5%88%B0%E6%9C%AC%E5%9C%B0/" data-id="clmivdq8u0056sjp67ozz6cbv" data-title="如何把阿里云盘挂载到本地" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【算法模板】快速排序" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2022/02/15/%E3%80%90%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF%E3%80%91%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" class="article-date">
+  <time class="dt-published" datetime="2022-02-15T03:17:00.000Z" itemprop="datePublished">2022-02-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/muban/">muban</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2022/02/15/%E3%80%90%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF%E3%80%91%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">【算法模板】快速排序</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><h2 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h2><p>快速排序的基本思想就是类似于分书。我记得我学快速排序听到的故事就是分书的故事。<br>有一堆书他们有相应的序号，现在图书管理员希望你帮他把这些书按序号从小到大分好给他。我们采取的方案是把第一本书作为基准，把序号比他大的丢到右边，序号比他小的丢到左边。从而我们一直分直到所有的书都按顺序排好为止。</p>
+<p>只要左右分的方法我们就称为快速排序。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">quickSort</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> l, <span class="type">int</span> r)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(l &lt; r) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> partition(arr, l, r);</span><br><span class="line">            quickSort(arr, l, pivot);</span><br><span class="line">            quickSort(arr, pivot+<span class="number">1</span>, r);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">partition</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> l, <span class="type">int</span> r)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> arr[l];</span><br><span class="line">        <span class="keyword">while</span>(l &lt; r) &#123;</span><br><span class="line">            <span class="keyword">while</span>(l &lt; r &amp;&amp; arr[r] &gt;= pivot) r--;</span><br><span class="line">            arr[l] = arr[r];</span><br><span class="line">            <span class="keyword">while</span>(l &lt; r &amp;&amp; arr[l] &lt;= pivot) l++;</span><br><span class="line">            arr[r] = arr[l];</span><br><span class="line">        &#125;</span><br><span class="line">        arr[l] = pivot;</span><br><span class="line">        <span class="keyword">return</span> l;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2022/02/15/%E3%80%90%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF%E3%80%91%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" data-id="clmivdq8o0045sjp6ffznddem" data-title="【算法模板】快速排序" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-一个最简单的OS的启动" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2021/11/19/%E4%B8%80%E4%B8%AA%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84OS%E7%9A%84%E5%90%AF%E5%8A%A8/" class="article-date">
+  <time class="dt-published" datetime="2021-11-19T01:28:09.000Z" itemprop="datePublished">2021-11-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/dsbj/">dsbj</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2021/11/19/%E4%B8%80%E4%B8%AA%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84OS%E7%9A%84%E5%90%AF%E5%8A%A8/">一个最简单的OS的启动</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://time.geekbang.org/column/article/369502">https://time.geekbang.org/column/article/369502</a><br><a target="_blank" rel="noopener" href="https://gitee.com/lmos/cosmos">https://gitee.com/lmos/cosmos</a></p>
+<h3 id="一、下载Virtual-Box"><a href="#一、下载Virtual-Box" class="headerlink" title="一、下载Virtual Box"></a>一、下载Virtual Box</h3><p><a target="_blank" rel="noopener" href="https://www.virtualbox.org/">Oracle VM VirtualBox</a></p>
+<h3 id="二、下载Ubuntu-镜像"><a href="#二、下载Ubuntu-镜像" class="headerlink" title="二、下载Ubuntu 镜像"></a>二、下载Ubuntu 镜像</h3><p><a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/ubuntu-releases/20.04/">Index of &#x2F;ubuntu-releases&#x2F;20.04&#x2F; (aliyun.com)</a></p>
+<h3 id="三、创建虚拟机"><a href="#三、创建虚拟机" class="headerlink" title="三、创建虚拟机"></a>三、创建虚拟机</h3><h4 id="1-点击新建"><a href="#1-点击新建" class="headerlink" title="1. 点击新建"></a>1. 点击新建</h4><p><img src="https://i.loli.net/2021/11/19/7iF28QaAJbDPu59.png" alt="image-20211119164837210"></p>
+<h4 id="2-填写信息"><a href="#2-填写信息" class="headerlink" title="2. 填写信息"></a>2. 填写信息</h4><p><img src="https://i.loli.net/2021/11/19/2wXNtbx3K9WP4cM.png" alt="image-20211119164955108"></p>
+<h4 id="3-根据你的内存大小选择，我们运行GUI所以给大点"><a href="#3-根据你的内存大小选择，我们运行GUI所以给大点" class="headerlink" title="3.根据你的内存大小选择，我们运行GUI所以给大点"></a>3.根据你的内存大小选择，我们运行GUI所以给大点</h4><p><img src="https://i.loli.net/2021/11/19/s7umRivLS2gZ9lG.png" alt="image-20211119165046447"></p>
+<h4 id="4-创建硬盘-之后默认即可"><a href="#4-创建硬盘-之后默认即可" class="headerlink" title="4. 创建硬盘(之后默认即可)"></a>4. 创建硬盘(之后默认即可)</h4><p><img src="https://i.loli.net/2021/11/19/CYvomt9wDaqWQZd.png" alt="image-20211119165116449"></p>
+<h4 id="5-启动安装Ubuntu"><a href="#5-启动安装Ubuntu" class="headerlink" title="5. 启动安装Ubuntu"></a>5. 启动安装Ubuntu</h4><p><img src="https://i.loli.net/2021/11/19/vTw7JndZa1IXzRF.png" alt="image-20211119165207555"></p>
+<p><img src="https://i.loli.net/2021/11/19/3YocRi61dLDPAq7.png" alt="image-20211119165227214"></p>
+<p><img src="https://i.loli.net/2021/11/19/czfCO7oesY9FBJS.png" alt="image-20211119165236028"></p>
+<p><img src="https://i.loli.net/2021/11/19/ycPDUvAmsdwt4Xh.png" alt="image-20211119165251009"></p>
+<h4 id="6-安装Ubuntu"><a href="#6-安装Ubuntu" class="headerlink" title="6. 安装Ubuntu"></a>6. 安装Ubuntu</h4><p><img src="https://i.loli.net/2021/11/19/HrgxvVBmjqXhzcb.png" alt="image-20211119165527007"></p>
+<p>你可以选择中文，这样你的apt源就会是中国的，或者选英文之后再改。一路默认即可。</p>
+<h3 id="三、配置环境"><a href="#三、配置环境" class="headerlink" title="三、配置环境"></a>三、配置环境</h3><h4 id="1-安装nasm"><a href="#1-安装nasm" class="headerlink" title="1. 安装nasm"></a>1. 安装nasm</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install nasm</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-安装gcc和make"><a href="#2-安装gcc和make" class="headerlink" title="2. 安装gcc和make"></a>2. 安装gcc和make</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install gcc make -y</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="四、编译和配置grub"><a href="#四、编译和配置grub" class="headerlink" title="四、编译和配置grub"></a>四、编译和配置grub</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
+
+<p>成功后会出现</p>
+<p><img src="https://i.loli.net/2021/11/19/sjNCkKwRzxQ95Jv.png" alt="image-20211119170055316"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">cp</span> HelloOS.bin /boot/</span><br><span class="line"><span class="built_in">cd</span> /boot/</span><br><span class="line"><span class="built_in">cd</span> /grub/</span><br></pre></td></tr></table></figure>
+
+<p>你会看到<strong>grub.cfg</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano grub.cfg</span><br></pre></td></tr></table></figure>
+
+<p>添加这个</p>
+<p><img src="https://i.loli.net/2021/11/19/6dOqT5HnvaFeuWA.png" alt="image-20211119170523989"></p>
+<p>这里是&#x2F;dev&#x2F;sda5 所以要把下面的”hd0, msdos4” -&gt; “hd0, msdos5”</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">menuentry <span class="string">&#x27;HelloOS&#x27;</span> &#123; </span><br><span class="line">    insmod part_msdos #GRUB加载分区模块识别分区</span><br><span class="line">    insmod ext2 #GRUB加载ext文件系统模块识别ext文件系统</span><br><span class="line">    <span class="built_in">set</span> root=<span class="string">&#x27;hd0,msdos4&#x27;</span> #注意boot目录挂载的分区，这是我机器上的情况</span><br><span class="line">    multiboot2 /boot/HelloOS.bin #GRUB以multiboot2协议加载HelloOS.bin </span><br><span class="line">    boot #GRUB启动HelloOS.bin</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2021/11/19/qlsre4juTWXhQDA.png" alt="image-20211119171014509"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="五、错误"><a href="#五、错误" class="headerlink" title="五、错误"></a>五、错误</h3><p>发现重启后没有按照grub启动，因为默认启动被隐藏了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br><span class="line"><span class="built_in">cd</span> /etc/default</span><br><span class="line">nano grub</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-找到hidden，注释掉"><a href="#1-找到hidden，注释掉" class="headerlink" title="1.找到hidden，注释掉"></a>1.找到hidden，注释掉</h4><p><img src="https://i.loli.net/2021/11/19/7rGdgzKwpWq51Mt.png" alt="image-20211119171449596"></p>
+<h4 id="2-把GRUB-TIMEOUT-0改成30，GRUB-CMDLINE-LINUX-DEFAULT改成text，如下图"><a href="#2-把GRUB-TIMEOUT-0改成30，GRUB-CMDLINE-LINUX-DEFAULT改成text，如下图" class="headerlink" title="2. 把GRUB_TIMEOUT&#x3D;0改成30，GRUB_CMDLINE_LINUX_DEFAULT改成text，如下图"></a>2. 把GRUB_TIMEOUT&#x3D;0改成30，GRUB_CMDLINE_LINUX_DEFAULT改成text，如下图</h4><p><img src="https://i.loli.net/2021/11/19/NiacjxbtJLvSRes.png" alt="image-20211119171642806"></p>
+<h4 id="3-保存，重启"><a href="#3-保存，重启" class="headerlink" title="3. 保存，重启"></a>3. 保存，重启</h4><p>Ctrl + O 保存</p>
+<p>Ctrl + X 退出</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo update-grub</span><br></pre></td></tr></table></figure>
+
+<p><font color="red"><strong>这里我重启之后发现HelloOS没有，然后发现之前的&#x2F;boot&#x2F;grub&#x2F;grub.cfg里面写的内容消失了，重新写一次就行。</strong></font></p>
+<h3 id="六、成功"><a href="#六、成功" class="headerlink" title="六、成功"></a>六、成功</h3><p><img src="https://i.loli.net/2021/11/19/wUExZvTdLuSq6o2.png" alt="image-20211119172421389"></p>
+<p><img src="https://i.loli.net/2021/11/19/M6qPmFYs7oKbki9.png" alt="image-20211119172458263"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2021/11/19/%E4%B8%80%E4%B8%AA%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84OS%E7%9A%84%E5%90%AF%E5%8A%A8/" data-id="clmivdq8q004lsjp65n5l3o1l" data-title="一个最简单的OS的启动" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-LeetCode周赛 267 " class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2021/11/14/LeetCode%E5%91%A8%E8%B5%9B%20267%20/" class="article-date">
+  <time class="dt-published" datetime="2021-11-13T20:02:07.000Z" itemprop="datePublished">2021-11-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/LeetCode/">LeetCode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2021/11/14/LeetCode%E5%91%A8%E8%B5%9B%20267%20/">LeetCode周赛 267</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="5926-买票需要的时间"><a href="#5926-买票需要的时间" class="headerlink" title="5926. 买票需要的时间"></a>5926. 买票需要的时间</h4><blockquote>
+<p>有 <code>n</code> 个人前来排队买票，其中第 <code>0</code> 人站在队伍 <strong>最前方</strong> ，第 <code>(n - 1)</code> 人站在队伍 <strong>最后方</strong> 。</p>
+<p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>tickets</code> ，数组长度为 <code>n</code> ，其中第 <code>i</code> 人想要购买的票数为 <code>tickets[i]</code> 。</p>
+<p>每个人买票都需要用掉 <strong>恰好 1 秒</strong> 。一个人 <strong>一次只能买一张票</strong> ，如果需要购买更多票，他必须走到 <strong>队尾</strong> 重新排队（<strong>瞬间</strong> 发生，不计时间）。如果一个人没有剩下需要买的票，那他将会 <strong>离开</strong> 队伍。</p>
+<p>返回位于位置 <code>k</code>（下标从 <strong>0</strong> 开始）的人完成买票需要的时间（以秒为单位）。</p>
+</blockquote>
+<h5 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h5><p>利用队列模拟这个过程</p>
+<h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">        <span class="type">int</span> pos;</span><br><span class="line">        <span class="type">int</span> val;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">timeRequiredToBuy</span><span class="params">(<span class="type">int</span>[] tickets, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        Queue&lt;Node&gt; queue = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; tickets.length; i++) &#123;</span><br><span class="line">            <span class="type">Node</span> <span class="variable">node</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Node</span>();</span><br><span class="line">            node.pos = i;</span><br><span class="line">            node.val = tickets[i];</span><br><span class="line">            queue.add(node);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="type">Node</span> <span class="variable">node</span> <span class="operator">=</span> queue.poll();</span><br><span class="line">            node.val--;</span><br><span class="line">            <span class="keyword">if</span> (node.pos == k &amp;&amp; node.val == <span class="number">0</span>) &#123;</span><br><span class="line">                res++;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (node.val &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                queue.add(node);</span><br><span class="line">            &#125;</span><br><span class="line">            res++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5927-反转偶数长度组的节点"><a href="#5927-反转偶数长度组的节点" class="headerlink" title="5927. 反转偶数长度组的节点"></a>5927. 反转偶数长度组的节点</h4><blockquote>
+<p>给你一个链表的头节点 <code>head</code> 。</p>
+<p>链表中的节点 <strong>按顺序</strong> 划分成若干 <strong>非空</strong> 组，这些非空组的长度构成一个自然数序列（<code>1, 2, 3, 4, ...</code>）。一个组的 <strong>长度</strong> 就是组中分配到的节点数目。换句话说：</p>
+<ul>
+<li>节点 <code>1</code> 分配给第一组</li>
+<li>节点 <code>2</code> 和 <code>3</code> 分配给第二组</li>
+<li>节点 <code>4</code>、<code>5</code> 和 <code>6</code> 分配给第三组，以此类推</li>
+</ul>
+<p>注意，最后一组的长度可能小于或者等于 <code>1 + 倒数第二组的长度</code> 。</p>
+<p><strong>反转</strong> 每个 <strong>偶数</strong> 长度组中的节点，并返回修改后链表的头节点 <code>head</code> 。</p>
+</blockquote>
+<h5 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h5><p>先统计链表长度，在分组，在利用<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-linked-list-ii/">92. 反转链表 II - 力扣（LeetCode） (leetcode-cn.com)</a></p>
+<p>中的区间反转链表实现对于偶数分组的反转。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode() &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val) &#123; this.val = val; &#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"> <span class="keyword">class</span> <span class="title class_">Group</span> &#123;</span><br><span class="line">        <span class="type">int</span> start;</span><br><span class="line">        <span class="type">int</span> end;</span><br><span class="line">        <span class="keyword">public</span> <span class="title function_">Group</span><span class="params">(<span class="type">int</span> start, <span class="type">int</span> end)</span> &#123;</span><br><span class="line">            <span class="built_in">this</span>.start = start;</span><br><span class="line">            <span class="built_in">this</span>.end = end;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="title function_">Group</span><span class="params">()</span> &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">reverseEvenLengthGroups</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="literal">null</span> || head.next == <span class="literal">null</span> || head.next.next == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> head;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 统计长度</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">length</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">p</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="keyword">while</span> (p!=<span class="literal">null</span>) &#123;</span><br><span class="line">            p = p.next;</span><br><span class="line">            length++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 分组</span></span><br><span class="line">        List&lt;Group&gt; groupList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="type">int</span> <span class="variable">cnt</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">lastStart</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> length;</span><br><span class="line">        <span class="keyword">while</span> (length &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            length -= cnt+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (length &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                groupList.add(<span class="keyword">new</span> <span class="title class_">Group</span>(lastStart , len-<span class="number">1</span>));</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            groupList.add(<span class="keyword">new</span> <span class="title class_">Group</span>(lastStart ,lastStart+cnt));</span><br><span class="line">            cnt++;</span><br><span class="line">            lastStart += cnt;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 反转偶数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; groupList.size(); i++) &#123;</span><br><span class="line">            <span class="type">Group</span> <span class="variable">g</span> <span class="operator">=</span> groupList.get(i);</span><br><span class="line">            <span class="keyword">if</span> ((g.end - g.start + <span class="number">1</span>) % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                    head = reverseBetween(head,g.start+<span class="number">1</span>, g.end+<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">reverseBetween</span><span class="params">(ListNode head, <span class="type">int</span> m, <span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">dummy</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ListNode</span>(<span class="number">0</span>);</span><br><span class="line">        dummy.next = head;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">pre</span> <span class="operator">=</span> dummy;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt; m; i++)&#123;</span><br><span class="line">            pre = pre.next;</span><br><span class="line">        &#125;</span><br><span class="line">        head = pre.next;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> m; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="type">ListNode</span> <span class="variable">nex</span> <span class="operator">=</span> head.next;</span><br><span class="line">            head.next = nex.next;</span><br><span class="line">            nex.next = pre.next;</span><br><span class="line">            pre.next = nex;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummy.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5928-解码斜向换位密码"><a href="#5928-解码斜向换位密码" class="headerlink" title="5928. 解码斜向换位密码"></a>5928. 解码斜向换位密码</h4><h4 id="5929-处理含限制条件的好友请求"><a href="#5929-处理含限制条件的好友请求" class="headerlink" title="5929. 处理含限制条件的好友请求"></a>5929. 处理含限制条件的好友请求</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2021/11/14/LeetCode%E5%91%A8%E8%B5%9B%20267%20/" data-id="clmivdq80000jsjp60nyr8k42" data-title="LeetCode周赛 267" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【Go】Import cycle not allowed in test" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2021/11/12/%E3%80%90Go%E3%80%91Import%20cycle%20not%20allowed%20in%20test/" class="article-date">
+  <time class="dt-published" datetime="2021-11-11T23:34:57.000Z" itemprop="datePublished">2021-11-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/zczb/">zczb</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2021/11/12/%E3%80%90Go%E3%80%91Import%20cycle%20not%20allowed%20in%20test/">【Go】Import cycle not allowed in test</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>  今天写测试文件的时候发现的一个错误，，当我在wangxsrpc&#x2F;codec 中引用wangxsrpc包的时候出现了该错误<br>项目结构图如下<br><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2021/11/2499754333.png" alt="项目结构图"></p>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>将测试用例的包从codec改为codec_test</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> codec ----&gt; <span class="keyword">package</span> codec_test</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2021/11/12/%E3%80%90Go%E3%80%91Import%20cycle%20not%20allowed%20in%20test/" data-id="clmivdq87001jsjp6ahfo8n1o" data-title="【Go】Import cycle not allowed in test" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-LeetCode 206.反转链表(递归与非递归解法)" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2021/11/09/LeetCode%20206.%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8(%E9%80%92%E5%BD%92%E4%B8%8E%E9%9D%9E%E9%80%92%E5%BD%92%E8%A7%A3%E6%B3%95)/" class="article-date">
+  <time class="dt-published" datetime="2021-11-09T02:35:40.000Z" itemprop="datePublished">2021-11-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/LeetCode/">LeetCode</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2021/11/09/LeetCode%20206.%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8(%E9%80%92%E5%BD%92%E4%B8%8E%E9%9D%9E%E9%80%92%E5%BD%92%E8%A7%A3%E6%B3%95)/">LeetCode 206.反转链表(递归与非递归解法)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/reverse-linked-list/">206. 反转链表 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
+<h3 id="1-非递归-迭代-实现"><a href="#1-非递归-迭代-实现" class="headerlink" title="1. 非递归(迭代)实现"></a>1. 非递归(迭代)实现</h3><p>这题的非递归实现比递归实现更好理解，先上代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">reverseList</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">pre</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">cur</span> <span class="operator">=</span> head;</span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">next</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">       <span class="keyword">while</span>(cur != <span class="literal">null</span>) &#123;</span><br><span class="line">           next = cur.next;</span><br><span class="line">           cur.next = pre;</span><br><span class="line">           pre = cur;</span><br><span class="line">           cur = next;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们利用当前的和前面的还有下一个的三个指针来实现链表的交换从而实现反转，具体步骤如下：</p>
+<p>如下图，一开始我们的pre指向null，cur指向链表的第一个结点，next指向cur的下一个结点。</p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/image-20211109165231356.png" alt="初始状态"></p>
+<p>然后我们将1-&gt;2的这条删了，将1的next指向pre(null)，如下图所示。</p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/image-20211109165440594.png" alt="改变next指向"></p>
+<p>然后移动pre，cur和next指针将pre 变成当前的cur（值为1的结点），然后将cur变成他的下一个结点也就是值为2的结点，而next则是值为2的结点的下一个结点也就是值为3的结点，如下图所示。</p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/image-20211109165610841.png" alt="指针移动"></p>
+<p>如此往复，就可以将所有的结点反转，然后最后的头结点就是pre所在的结点。</p>
+<p>该算法的时间复杂度为<strong>O(N)</strong></p>
+<h3 id="2-递归实现"><a href="#2-递归实现" class="headerlink" title="2. 递归实现"></a>2. 递归实现</h3><p>首先我们需要将这些结点递归到最后一个结点（类似于压到栈里面），然后对于后面的结点进行反转。类似于下图。</p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/image-20211109183240811.png" alt="递归后反转示意图"></p>
+<p>类似于将head的next的next的指针指向head从而达到反转，head的next为null为了最后能够结束而不是构造成一个环。</p>
+<p>代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">reverseList</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">       <span class="keyword">if</span>(head == <span class="literal">null</span> || head.next == <span class="literal">null</span>) &#123;</span><br><span class="line">           <span class="keyword">return</span> head;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="type">ListNode</span> <span class="variable">newHead</span> <span class="operator">=</span> reverseList(head.next);</span><br><span class="line">       head.next.next = head;</span><br><span class="line">       head.next = <span class="literal">null</span>;</span><br><span class="line">       <span class="keyword">return</span> newHead;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>算法复杂度<strong>O(N)</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2021/11/09/LeetCode%20206.%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8(%E9%80%92%E5%BD%92%E4%B8%8E%E9%9D%9E%E9%80%92%E5%BD%92%E8%A7%A3%E6%B3%95)/" data-id="clmivdq7z000fsjp6dyt9fvnr" data-title="LeetCode 206.反转链表(递归与非递归解法)" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【MySQL】浅谈MySQL索引" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2021/11/08/%E3%80%90MySQL%E3%80%91%E6%B5%85%E8%B0%88MySQL%E7%B4%A2%E5%BC%95/" class="article-date">
+  <time class="dt-published" datetime="2021-11-08T04:59:00.000Z" itemprop="datePublished">2021-11-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/SQL/">SQL</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2021/11/08/%E3%80%90MySQL%E3%80%91%E6%B5%85%E8%B0%88MySQL%E7%B4%A2%E5%BC%95/">【MySQL】浅谈MySQL索引</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="浅谈MySQL索引"><a href="#浅谈MySQL索引" class="headerlink" title="浅谈MySQL索引"></a>浅谈MySQL索引</h2><h3 id="首先我们要清楚什么是索引？"><a href="#首先我们要清楚什么是索引？" class="headerlink" title="首先我们要清楚什么是索引？"></a>首先我们要清楚什么是索引？</h3><p>​	索引就是相当于一本书的目录，可以帮助你快速的查找你所需要的内容。好比你想要用新华字典查一个字，你可以利用拼音或者部首进行查找在表中找到所对应的页码然后查看你想要查的这个字的详细内容。也就是说索引可以帮助我们更快的拿到MySQL中所存储的内容。</p>
+<p>一般索引可以采用好多种数据结构进行存储，像上面所说的新华字典的相对于的就类似于Hash表的这么一个结构。</p>
+<h3 id="哈希索引"><a href="#哈希索引" class="headerlink" title="哈希索引"></a>哈希索引</h3><p>哈希表是一种以键值对为存储单元的数据结构，你只要输入key就能得到相应的值Value。哈希的思想很简单就是将元素通过哈希函数确定元素在数组中的位置。但是这样子哈希就不可避免的会出现有不同的key在同一个数组的位置，处理这种哈希冲突(碰撞)的方法一般采用<strong>拉链法</strong>。</p>
+<p>所谓的拉链法就是当发生冲突的时候通过链表将发生冲突的结点挂到这条链上。</p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/image-20211108195437975.png" alt="拉链法"></p>
+<p>如上图发生冲突的时候就会把相应的元素挂到对于的链表上。图中key不一定是递增的，所以哈希如果要查找一个区间内的所有元素的话需要将全部的结点扫描一次。<strong>因此哈希只适用于只有等值查询的场景下</strong>。</p>
+<h3 id="有序数组"><a href="#有序数组" class="headerlink" title="有序数组"></a>有序数组</h3><p><strong>有序数组在等值查询和范围查询的性能都很优秀</strong>。我们根据一个例子来说明一下。我们要根据学号查找对应的学生姓名，如果用有序数组实现的话，如下图。</p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/image-20211108200241048.png" alt="有序数组示意图"></p>
+<p>这里我们假设学号没有重复，这个数组是按照学号递增的顺序保存的。这时候如果你想要查一个id对应的名字，使用二分法很快就能找出，算法复杂度是O(log(N))</p>
+<p>同时如果想要查找一个[id1, id2]的范围的学生名字，我们可以遍历找到第一个id为id1的学生，然后向右继续遍历知道遇到第一个id大于id2的学生为止。</p>
+<p>而<strong>有序数组最大的缺点就是更新代价太大</strong>，如果你想插入一个新的记录你就要将这个记录后面的所有记录都往后移动。</p>
+<p>所以<strong>有序数组所以一般只适用于静态存储引擎</strong>，比如某年的人口普查信息等一些不会被修改的信息。</p>
+<h3 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h3><p>二叉搜索树是很经典的数据结构，他的特点是每个结点的左儿子小于父节点，右儿子大于父节点。这样我们要查找某个学号id的话，就可以通过StuA-&gt;StuC-&gt;StuF-&gt;Stu2这个路径得到。这样的算法复杂度是<strong>O(log(N)).</strong></p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/image-20211108201903955.png" alt="二叉搜索树示意图"></p>
+<p>为了保持查询复杂度为O(log(N)),我们需要保证每次插入新的记录都是有序的所以需要使用O(log(N))进行更新。</p>
+<p>搜索二叉树有缺点就是他不是硬盘友好型的，因为索引不只存在内存中，还要写在磁盘上。如果搜索二叉树的高度太高的话，比如<strong>100万个结点</strong>的搜索二叉树，<strong>树高20</strong>。一次查询就要访问20个数据块，在机械硬盘时代，从磁盘随机读一个数据块需要<strong>10ms</strong>左右的寻址时间，</p>
+<p>所以单独访问一个行就需要200ms的时间，这个查询真的有够慢的。</p>
+<p>讲了半天我们都在讲一些数据结构相关的，但是这些都是数据库处理数据的核心概念之一，在分析问题的时候时常会用到。</p>
+<p>下面我们正式走进InnoDB的索引模型</p>
+<h3 id="InnoDB的索引模型"><a href="#InnoDB的索引模型" class="headerlink" title="InnoDB的索引模型"></a>InnoDB的索引模型</h3><p>在InnoDB中我们采用了<strong>B+树</strong>来存储索引，之所以使用B+树是由于他相对于二叉树来说能够有很好的硬盘亲和性，它是一棵多叉树，查询只要读取很少的数据块即可，相对于B树来说他的优势就是他的数据都存在叶子结点，并且将叶子结点连成了一个链表，能够顺序访问这些数据。</p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/image-20211108205532018.png" alt="InnoDB的索引组织结构"></p>
+<p>从图中不难看出，根据叶子结点的内容，索引的类型分为主键索引和非主键索引，主键索引的叶子结点存的是整行数据，非主键索引存储的是主键的值，在InnoDB中主键索引也称为聚簇索引，而非主键索引称为二级索引。</p>
+<hr>
+<p>根据上面的索引结构说明，我们来讨论一个问题：<strong>基于主键索引和普通索引的查询有什么区别</strong>？</p>
+<ul>
+<li>如果语句是 select * from T where ID&#x3D;500，即主键查询方式，则只需要搜索 ID 这棵 B+<br>树；</li>
+<li>如果语句是 select * from T where k&#x3D;5，即普通索引查询方式，则需要先搜索 k 索引树，</li>
+</ul>
+<p>得到 ID 的值为 500，再到 ID 索引树搜索一次。这个过程称为回表。也就是说，基于非主键索引的查询需要多扫描一棵索引树。因此，我们在应用中应该尽量使用主键查询</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2021/11/08/%E3%80%90MySQL%E3%80%91%E6%B5%85%E8%B0%88MySQL%E7%B4%A2%E5%BC%95/" data-id="clmivdq8k003ksjp62j3u3wgr" data-title="【MySQL】浅谈MySQL索引" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/blog./page/2/">&laquo; zurück</a><a class="page-number" href="/blog./">1</a><a class="page-number" href="/blog./page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/blog./page/4/">4</a><a class="page-number" href="/blog./page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/blog./page/8/">8</a><a class="extend next" rel="next" href="/blog./page/4/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JUC/">JUC</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JVM/">JVM</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/LeetCode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/bxjs/">bxjs</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/cuda/">cuda</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/default/">default</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/dsbj/">dsbj</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/jvmbook/">jvmbook</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/muban/">muban</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/selfdriving/">selfdriving</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/youji/">youji</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/zczb/">zczb</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/OpenCDA/" rel="tag">OpenCDA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/V2X/" rel="tag">V2X</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/%E6%91%84%E5%BD%B1/" rel="tag">摄影</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog./tags/OpenCDA/" style="font-size: 10px;">OpenCDA</a> <a href="/blog./tags/V2X/" style="font-size: 10px;">V2X</a> <a href="/blog./tags/%E6%91%84%E5%BD%B1/" style="font-size: 10px;">摄影</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog./2023/09/14/OpenCDA%20V2X%E9%80%9A%E4%BF%A1%E7%9B%B8%E5%85%B3/">OpenCDA V2X通信相关</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/28/%E5%8F%A4%E6%9C%B4%E9%9F%B5%E5%91%B3%E4%B8%8E%E8%8D%92%E9%87%8E%E4%B9%8B%E7%BE%8E%20-------%20%E8%A5%BF%E5%AE%89%E3%80%81%E9%9D%92%E6%B5%B7%E4%B9%8B%E6%97%85/">古朴韵味与荒野之美 ------- 西安、青海之旅</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/03/%E3%80%90OpenCDA%E3%80%91%E7%AE%97%E6%B3%95%E5%AE%9A%E5%88%B6%E5%8C%96%E5%BC%80%E5%8F%91/">【OpenCDA】算法定制化开发</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/01/zlib%20404/">zlib 404</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/07/19/V2X%E5%9C%BA%E6%99%AF%E5%8F%91%E5%B1%95%E5%92%8C%E4%BB%BF%E7%9C%9F/">V2X场景发展和仿真</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 wangxso<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog./" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog./archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog./js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/blog./fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog./js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

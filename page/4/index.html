@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>非典型程序员的一生</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="程序员 | 工程师 | 摄影爱好者 | 骑行客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="非典型程序员的一生">
+<meta property="og:url" content="https://wangxso.github.io/blog./page/4/index.html">
+<meta property="og:site_name" content="非典型程序员的一生">
+<meta property="og:description" content="程序员 | 工程师 | 摄影爱好者 | 骑行客">
+<meta property="og:locale">
+<meta property="article:author" content="wangxso">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog./atom.xml" title="非典型程序员的一生" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog./favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog./css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog./fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog./" id="logo">非典型程序员的一生</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/blog./">Home</a>
+        
+          <a class="main-nav-link" href="/blog./archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/blog./atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wangxso.github.io/blog."></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-如何使用Xshell连接谷歌云" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2021/11/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Xshell%E8%BF%9E%E6%8E%A5%E8%B0%B7%E6%AD%8C%E4%BA%91/" class="article-date">
+  <time class="dt-published" datetime="2021-11-08T00:50:22.000Z" itemprop="datePublished">2021-11-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/zczb/">zczb</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2021/11/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Xshell%E8%BF%9E%E6%8E%A5%E8%B0%B7%E6%AD%8C%E4%BA%91/">如何使用Xshell连接谷歌云</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="如何使用Xshell连接谷歌云"><a href="#如何使用Xshell连接谷歌云" class="headerlink" title="如何使用Xshell连接谷歌云"></a>如何使用Xshell连接谷歌云</h1><h3 id="Step1-打开谷歌云的SSH自带的工具-网页端"><a href="#Step1-打开谷歌云的SSH自带的工具-网页端" class="headerlink" title="Step1 打开谷歌云的SSH自带的工具(网页端)"></a>Step1 打开谷歌云的SSH自带的工具(网页端)</h3><p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/image-20211108164020103.png" alt="image-20211108164020103"></p>
+<h3 id="Step2-切换到root权限"><a href="#Step2-切换到root权限" class="headerlink" title="Step2 切换到root权限"></a>Step2 切换到root权限</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -i</span><br></pre></td></tr></table></figure>
+
+<h3 id="Step3-修改Root密码"><a href="#Step3-修改Root密码" class="headerlink" title="Step3 修改Root密码"></a>Step3 修改Root密码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">passwd root</span><br><span class="line"><span class="comment"># enter password....</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Step4-修改ssh配置文件-这里特别注意修改的是sshd-config而不是ssh-config"><a href="#Step4-修改ssh配置文件-这里特别注意修改的是sshd-config而不是ssh-config" class="headerlink" title="Step4 修改ssh配置文件(这里特别注意修改的是sshd_config而不是ssh_config)"></a>Step4 修改ssh配置文件(这里特别注意修改的是sshd_config而不是ssh_config)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+
+<p>修改PermitRootLogin和PasswordAuthentication为yes</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Authentication:</span></span><br><span class="line">PermitRootLogin <span class="built_in">yes</span> //默认为no，需要开启root用户访问改为<span class="built_in">yes</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Change to no to disable tunnelled clear text passwords</span></span><br><span class="line">PasswordAuthentication <span class="built_in">yes</span> //默认为no，改为<span class="built_in">yes</span>开启密码登陆</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Step5-重启ssh服务"><a href="#Step5-重启ssh服务" class="headerlink" title="Step5 重启ssh服务"></a>Step5 重启ssh服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service sshd restart </span><br><span class="line"><span class="comment"># 或 </span></span><br><span class="line">/etc/init.d/ssh restart</span><br></pre></td></tr></table></figure>
+
+<h3 id="Step6-使用Xshell登录"><a href="#Step6-使用Xshell登录" class="headerlink" title="Step6 使用Xshell登录"></a>Step6 使用Xshell登录</h3><p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/image-20211108164808214.png" alt="image-20211108164808214"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2021/11/08/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Xshell%E8%BF%9E%E6%8E%A5%E8%B0%B7%E6%AD%8C%E4%BA%91/" data-id="clmivdq8t0052sjp63pfkhme6" data-title="如何使用Xshell连接谷歌云" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【读书笔记】【深入理解Java虚拟机】垃圾回收算法和垃圾收集器" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2021/10/25/%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%90%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95%E5%92%8C%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" class="article-date">
+  <time class="dt-published" datetime="2021-10-24T23:26:00.000Z" itemprop="datePublished">2021-10-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/jvmbook/">jvmbook</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2021/10/25/%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%90%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95%E5%92%8C%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/">【读书笔记】【深入理解Java虚拟机】垃圾回收算法和垃圾收集器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>接上一篇我们谈谈来垃圾回收算法</p>
+<h1 id="三、垃圾回收算法"><a href="#三、垃圾回收算法" class="headerlink" title="三、垃圾回收算法"></a>三、垃圾回收算法</h1><h2 id="1-标记-清除算法"><a href="#1-标记-清除算法" class="headerlink" title="1. 标记-清除算法"></a>1. 标记-清除算法</h2><p>标记清除算法是最为基础的垃圾回收算法，顾名思义就是将对象结点如果被标记上为无用的(上篇我们谈到了如何标记一个对象为无用的)，且在标记完成后统一回收掉所有被标记的对象。之所以称同时最基础的算法就是因为之后的算法都是根据他的缺点进行的改进。</p>
+<p>缺点</p>
+<ul>
+<li>效率问题，标记和清除过程的效率都不高。</li>
+<li>空间问题，标记清除会产生大量的不连续的内存碎片，对于大对象这些碎片是不可用的。</li>
+</ul>
+<p>学过操作系统的可以看出这些垃圾回收算法类似于操作系统的内存回收和分配算法。</p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/image-20211024172315902.png" alt="标记清除算法示意图"></p>
+<h2 id="2-复制算法"><a href="#2-复制算法" class="headerlink" title="2. 复制算法"></a>2. 复制算法</h2><p>复制算法是为了解决标记-清除算法中的<strong>效率不高的问题</strong>，他的实现是将内存均分为两块，每次只是用其中的一块，如果一块用完了就将还存活的对象复制到了另一块里面，然后把自己的空间一次性清理干净。</p>
+<p>优点：</p>
+<ul>
+<li>实现简单</li>
+<li>运行高效，不用考虑内存碎片</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>内存只能使用一半</li>
+</ul>
+<p>现代商业虚拟机一般都采用这种算法来回收新生代的内存，新生代的对象98%都是朝生夕死的，所以可以不按照对半来划分内存，而是有一块比较大的Eden区和两个比较小的Survivor中还存活着的对象一次性拷贝到另一块Survivor空间上，最后清理掉Eden和刚才的Survivor区。HotSpot虚拟机中这个配置是Eden：survivor &#x3D; 8:1。</p>
+<p>这里还有一点要特别提到那就是，我们无法保证每次回收都只有不多于10%的对象存活，当Survivor空间不够用的时候就需要依赖其他内存(比如老年代)进行分配担保。</p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/image-20211024195204684.png" alt="复制算法示意图"></p>
+<h2 id="3-标记-整理算法"><a href="#3-标记-整理算法" class="headerlink" title="3. 标记-整理算法"></a>3. 标记-整理算法</h2><p>标记-整理算法顾名思义就是对于标记-清除后的残留的对象进行一次整理，让所有的对象都向一端移动，达到让出后面一片连续空间的目的。</p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/image-20211024195226082.png" alt="标记-整理算法示意图"></p>
+<h2 id="4-分代收集算法"><a href="#4-分代收集算法" class="headerlink" title="4.分代收集算法"></a>4.分代收集算法</h2><p>就是根据不同年代的各自特点选用不同的回收算法。</p>
+<h2 id="5-垃圾回收器"><a href="#5-垃圾回收器" class="headerlink" title="5. 垃圾回收器"></a>5. 垃圾回收器</h2><p>垃圾回收算法可以认为是方法论，而垃圾收集器是垃圾回收算法的具体实现。</p>
+<ul>
+<li><p>Serial收集器</p>
+<p>Serial是串行的意思，就像他的名字一样它是一个单线程的收集器，他只会用一个CPU或一条线程去完成回收垃圾的任务。所以他在回收垃圾的时候必须暂停所有的工作进程(Sun将它称为Stop The World)，直到他收集结束。</p>
+</li>
+</ul>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/image-20211024195928181.png" alt="Serial收集器示意图"></p>
+<p>他的缺点就是停顿时间过长，也就是Stop the World的时间过长，而优点就是简单而高效(与其他单线程收集器相比)，对于单个CPU来说，Serial收集器没有线程交互的开销，专心做垃圾收集自然可以获得较高的单线程效率。</p>
+<p>​      是Client端首选的新生代垃圾收集器</p>
+<ul>
+<li><p>ParNew收集器</p>
+<p>这个收集器其实就是Serial的多线程版本，除了多条线程进行垃圾收集外其余都和Serial都一样，实现这两种收集器共用了许多代码。</p>
+<p>是Server模式下的虚拟机首选的新生代收集器</p>
+</li>
+<li><p>Parallel Scavenge收集器</p>
+<p>这也是一款新生代收集器，他也是使用了复制算法，并且是并行的多线程收集器，不同的是他可以达到一个可控制的吞吐量，也就是控制GC的时间在全部运行时间里面的占比。</p>
+</li>
+<li><p>Serial Old收集器</p>
+<p>是Serial的老年代版本。也是一个单线程收集器，使用了”标记-整理”算法。</p>
+</li>
+<li><p>Parallel Old收集器</p>
+<p>Parallel Scavenge收集器的老年代版本，使用多线程和“标记-整理”算法。注重吞吐量和CPU敏感的场合可以优先考虑Parallel Scavenge加Parallel Old收集器。</p>
+</li>
+<li><p>CMS收集器</p>
+<p>CMS全称Concurrent Mark Sweep 收集器是一种以获取最短回收停顿时间为目标的收集器。从名字上我们就可以猜到他采用了标记清除算法，它的运行过程比前面的收集器要复杂一点，分为四个步骤：</p>
+<ul>
+<li><p>初始标记</p>
+<p>需要Stop The World，仅仅标记一下GCRoots能直接关联的对象，速度很快</p>
+</li>
+<li><p>并发标记</p>
+<p>就是在GC的Roots Tracing的过程</p>
+</li>
+<li><p>重新标记</p>
+<p>需要STW，为了修正并发标记期间，用户继续运作而导致标记产生变动的一部分对象标记记录。</p>
+</li>
+<li><p>并发清除</p>
+</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>CMS收集器对CPU资源非常敏感</li>
+<li>CMS收集器无法处理浮动垃圾</li>
+<li>收集结束会有大量碎片空间无法利用</li>
+</ul>
+</li>
+<li><p>G1收集器</p>
+<p>G1收集器是基于标记-整理而实现的收集器，也就是它不会产生内存碎片，二是他可以非常精确的。G1将整个Java堆(包括新生代和老年代)划分为多个固定的独立区域。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2021/10/25/%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%90%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95%E5%92%8C%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" data-id="clmivdq8p004esjp669tz9ft6" data-title="【读书笔记】【深入理解Java虚拟机】垃圾回收算法和垃圾收集器" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【读书笔记】【深入理解Java虚拟机】垃圾搜集器与内存分配策略" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2021/10/19/%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%90%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%E5%9E%83%E5%9C%BE%E6%90%9C%E9%9B%86%E5%99%A8%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5/" class="article-date">
+  <time class="dt-published" datetime="2021-10-19T00:54:00.000Z" itemprop="datePublished">2021-10-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/jvmbook/">jvmbook</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2021/10/19/%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%90%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%E5%9E%83%E5%9C%BE%E6%90%9C%E9%9B%86%E5%99%A8%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5/">【读书笔记】【深入理解Java虚拟机】垃圾搜集器与内存分配策略</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="二、垃圾搜集器与内存分配策略"><a href="#二、垃圾搜集器与内存分配策略" class="headerlink" title="二、垃圾搜集器与内存分配策略"></a>二、垃圾搜集器与内存分配策略</h1><h2 id="1、如何判断对象是否死亡？"><a href="#1、如何判断对象是否死亡？" class="headerlink" title="1、如何判断对象是否死亡？"></a>1、如何判断对象是否死亡？</h2><h3 id="1-1-引用计数法"><a href="#1-1-引用计数法" class="headerlink" title="1.1 引用计数法"></a>1.1 引用计数法</h3><h4 id="1-1-1-基本算法"><a href="#1-1-1-基本算法" class="headerlink" title="1.1.1 基本算法"></a>1.1.1 基本算法</h4><p>​	给对象添加一个引用计数器，每当有一个地方引用它时，计数器值就加1；当引用失效时，计数器就减1；任何时刻计数器为0的对象就是不可能再被使用的对象也就是<strong>“对象已经死亡”</strong>（一般人对于引用计数法的理解）</p>
+<h4 id="1-1-2-缺陷"><a href="#1-1-2-缺陷" class="headerlink" title="1.1.2 缺陷"></a>1.1.2 缺陷</h4><p>最大的缺陷就是很难解决对象之间的相互循环引用的问题。举个例子下面代码中的testGC()方法：对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> wang.wangx.jvm.gc;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * testGC() 方法执行完后，objA和objB会不会被GC呢？</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wangxs</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ReferenceCountingGC</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">Object</span> <span class="variable">instance</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">_1MB</span> <span class="operator">=</span> <span class="number">1024</span> * <span class="number">1024</span>;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 这个成员的唯一作用就是占内存，以便于GC日志中能清楚看到是否被回收</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">byte</span>[] bigSize = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">2</span> * _1MB];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">testGC</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">ReferenceCountingGC</span> <span class="variable">objA</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ReferenceCountingGC</span>();</span><br><span class="line">        <span class="type">ReferenceCountingGC</span> <span class="variable">objB</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ReferenceCountingGC</span>();</span><br><span class="line">        objA.instance = objB;</span><br><span class="line">        objB.instance = objA;</span><br><span class="line"></span><br><span class="line">        objA = <span class="literal">null</span>;</span><br><span class="line">        objB = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        System.gc();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>运行结果如下</p>
+<blockquote>
+<p>[GC (System.gc()) [PSYoungGen: 8002K-&gt;888K(75776K)] 8002K-&gt;896K(249344K), 0.0010171 secs] [Times: user&#x3D;0.00 sys&#x3D;0.00, real&#x3D;0.00 secs]<br>[Full GC (System.gc()) [<strong>PSYoungGen: 888K-&gt;0K(75776K)</strong>] [ParOldGen: 8K-&gt;611K(173568K)] 896K-&gt;611K(249344K), [Metaspace: 3262K-&gt;3262K(1056768K)], 0.0038091 secs] [Times: user&#x3D;0.01 sys&#x3D;0.00, real&#x3D;0.00 secs]<br>Heap<br> PSYoungGen      total 75776K, used 1951K [0x000000076be00000, 0x0000000771280000, 0x00000007c0000000)<br>  eden space 65024K, 3% used [0x000000076be00000,0x000000076bfe7c68,0x000000076fd80000)<br>  from space 10752K, 0% used [0x000000076fd80000,0x000000076fd80000,0x0000000770800000)<br>  to   space 10752K, 0% used [0x0000000770800000,0x0000000770800000,0x0000000771280000)<br> ParOldGen       total 173568K, used 611K [0x00000006c3a00000, 0x00000006ce380000, 0x000000076be00000)<br>  object space 173568K, 0% used [0x00000006c3a00000,0x00000006c3a98de0,0x00000006ce380000)<br> Metaspace       used 3279K, capacity 4496K, committed 4864K, reserved 1056768K<br>  class space    used 355K, capacity 388K, committed 512K, reserved 1048576K</p>
+</blockquote>
+<p>可以看到一次full gc后从888k-&gt;0k，意味着Java虚拟机并没有因为两个对象互相引用而就不回收它们，这也就侧面的反映了虚拟机不是采用引用计数法来判断对象是否存活的。</p>
+<h3 id="1-2-可达性分析算法"><a href="#1-2-可达性分析算法" class="headerlink" title="1.2 可达性分析算法"></a>1.2 可达性分析算法</h3><h4 id="1-2-1-基本算法"><a href="#1-2-1-基本算法" class="headerlink" title="1.2.1 基本算法"></a>1.2.1 基本算法</h4><p>​		通过一系列的称为“GC Roots”的对象作为起始点，从这些结点往下搜索，搜索所走过的路径称为引用链(Reference Chain)，当一个对象到GC Roots没有任何引用链相连，也就是GC Roots到这个对象不可达，则证明这个对象不可用(“已经死亡”)。</p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/image-20211019160640626.png" alt="可达性分析示意图"></p>
+<h4 id="1-2-2-可作为GC-Roots的对象"><a href="#1-2-2-可作为GC-Roots的对象" class="headerlink" title="1.2.2 可作为GC Roots的对象"></a>1.2.2 可作为GC Roots的对象</h4><ul>
+<li>虚拟机栈(栈帧中的本地变量表)中引用的对象</li>
+<li>方法区中静态属性引用的对象</li>
+<li>方法区中常量引用的对象</li>
+<li>本地方法栈中JNI（即一般说的Native方法）引用的对象</li>
+</ul>
+<p>一般来说这些对象都具有一定的稳定性，一般不会被丢弃使用</p>
+<h3 id="1-3-为什么会出现强引用、软引用等"><a href="#1-3-为什么会出现强引用、软引用等" class="headerlink" title="1.3 为什么会出现强引用、软引用等"></a>1.3 为什么会出现强引用、软引用等</h3><p>在JDK1.2以前，Java对于引用的定义很传统：如果reference类型的数据中存储的数值代表的是另一块内存的起始地址，就称为这块内存代表了一个引用，这种定义很纯粹但是很狭隘，一种对象在这种定义下只有引用和没有被引用两种状态，对于那种“食之无味，弃之可惜“的对象就显得有点无能为力了。在内存很紧张的时候可以适当的抛弃一些不太重要的对象。</p>
+<p>自JDK1.2以后Java就对引用的概念进行了扩充，将引用分为</p>
+<ul>
+<li>强引用(Strong Reference)：就是指在程序代码之中普遍存在的，类似“Object obj &#x3D; new Object()”这类引用，<strong>只要强引用在，垃圾回收器永远不会回收掉被引用对象</strong></li>
+<li>软引用(Soft Reference)：用来描述一些还有用，但是非必须的对象。软引用对象在系统将要发生内存溢出异常之前，将会把这些对象列入回收范围之中进行第二次回收。</li>
+<li>弱引用(Weak Reference)：描述非必须对象，但是他的强度比软引用还要更弱一些，被弱引用关联的对象只能生存到下一次垃圾收集发生之前。无论内存是否不足都会被回收 </li>
+<li>虚引用(Phantom Reference)：又称幽灵引用或幻影引用，它是最弱的一种引用关系。一个对象是否有虚引用的存在，完全不会对其生存时间构成影响，也无法通过虚引用来取得一个对象实例。为一个对象设置虚引用只有一个目的那就是能在对象被回收的时候收到一个通知。</li>
+</ul>
+<p><strong>下一次我们谈谈垃圾回收算法</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2021/10/19/%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%90%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%E5%9E%83%E5%9C%BE%E6%90%9C%E9%9B%86%E5%99%A8%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5/" data-id="clmivdq8p004hsjp61syt6s7c" data-title="【读书笔记】【深入理解Java虚拟机】垃圾搜集器与内存分配策略" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【读书笔记】【深入理解Java虚拟机】 Java内存区域与内存溢出异常" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2021/10/15/%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%90%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%20Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/" class="article-date">
+  <time class="dt-published" datetime="2021-10-15T00:15:00.000Z" itemprop="datePublished">2021-10-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/jvmbook/">jvmbook</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2021/10/15/%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%90%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%20Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/">【读书笔记】【深入理解Java虚拟机】 Java内存区域与内存溢出异常</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="一、Java内存区域与内存溢出异常"><a href="#一、Java内存区域与内存溢出异常" class="headerlink" title="一、Java内存区域与内存溢出异常"></a>一、Java内存区域与内存溢出异常</h1><h2 id="1-运行时数据区"><a href="#1-运行时数据区" class="headerlink" title="1. 运行时数据区"></a>1. 运行时数据区</h2><p>根据Java虚拟机规范的规定，Java虚拟机所管理的内存将会包括以下几个运行区域：</p>
+<ul>
+<li>方法区<ul>
+<li>作用：存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据</li>
+<li>异常：<ul>
+<li>OutOfMemoryError：当方法区无法满足内存分配需求时将会抛出。</li>
+</ul>
+</li>
+<li>线程共享</li>
+</ul>
+</li>
+<li>堆<ul>
+<li>作用：存放对象实例，几乎所有的对象实例都在这里分配内存。</li>
+<li>异常：<ul>
+<li>OutOfMemoryError：如果对堆中没有内存完成实例分配，并且堆也无法在拓展的时候，将会抛出。(堆空间可以通过-Xmx和-Xms来控制)</li>
+</ul>
+</li>
+<li>线程共享</li>
+</ul>
+</li>
+<li>虚拟机栈<ul>
+<li>作用：为方法创建栈帧（用于存储局部变量表、操作数栈、动态链接、方法出口等信息）。</li>
+<li>异常<ul>
+<li>StackOverflowError：线程请求的栈深度大于虚拟机规定的深度。</li>
+<li>OutOfMemoryError：如果虚拟机栈可以动态拓展，如果拓展无法申请到足够的内存就会产生。、</li>
+</ul>
+</li>
+<li>线程私有</li>
+</ul>
+</li>
+<li>本地方法栈<ul>
+<li>作用：为本地方法服务，创建本地方法栈帧，分配相关内存</li>
+<li>异常<ul>
+<li>StackoverflowError：线程请求栈的深度大于虚拟机所规定的深度。</li>
+<li>OutOfMemoryError：如果拓展的时候无法申请到足够的内存。</li>
+</ul>
+</li>
+<li>线程私有</li>
+</ul>
+</li>
+<li>程序计数器<ul>
+<li>作用：通过改变计数器的值选取下一条执行的字节码指令</li>
+<li>异常：无(唯一不会产生OutOfMemoryError的区域)</li>
+<li>线程私有</li>
+</ul>
+</li>
+<li>直接内存(由于NIO的引入Java对于内存有了直接操作)<ul>
+<li>作用：由于NIO引入通道和缓存区的I&#x2F;O方式，它可以使用Native函数库直接分配堆外内存，然后通过一个存储在Java堆中的DirectByteBuffer对象作为这块内存的引用进行操作，这样能在一些场景显著提高性能，因为避免了Java对和Native堆来回的内存拷贝。</li>
+<li>异常：<ul>
+<li>OutOfMemoryError：各个内存区域总和大于物理内存的限制，从而导致动态拓展出现异常。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA.png" alt="运行时数据区" style="zoom:50%;" />
+
+<h2 id="2-HotSpot虚拟机对象探秘"><a href="#2-HotSpot虚拟机对象探秘" class="headerlink" title="2. HotSpot虚拟机对象探秘"></a>2. HotSpot虚拟机对象探秘</h2><h3 id="2-1-对象的创建过程"><a href="#2-1-对象的创建过程" class="headerlink" title="2.1 对象的创建过程"></a>2.1 对象的创建过程</h3><ul>
+<li>类若未加载必须将类先进行加载</li>
+<li>为新生对象分配内存<ul>
+<li>指针碰撞法：假设Java堆内存是绝对规整的，所有用过的内存都放在一边，空闲的内存都放在另一边，中间放着一个指针作为分界点的指示器，那所分配的内存就仅仅把哪个指针向空闲空间那边挪动一段距与对象大小相同的距离。(并发环境下指针可能出现异常，采用CAS加上retry的方式保证原子性)</li>
+<li>空闲列表：虚拟机必须维护一个列表，记录上那些内存块是可用的，在分配的时候从列表中找一块足够大的内存空间划分给对象实例，并更新列表上的记录。</li>
+</ul>
+</li>
+</ul>
+<img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%E7%9A%84%E8%BF%87%E7%A8%8B.png" alt="对象创建的过程" style="zoom:50%;" />
+
+<h3 id="2-2-对象的内存布局"><a href="#2-2-对象的内存布局" class="headerlink" title="2.2 对象的内存布局"></a>2.2 对象的内存布局</h3><p>在Hotspot虚拟机中，对象在内存中存储的布局可以分为三块区域：对象头（Header）、实例对象（Instance Data）、对齐填充（Padding）。</p>
+<ul>
+<li><p>对象头：</p>
+<ul>
+<li><p>存储对象自身的运行时数据：如哈希码、GC分代年龄、锁状态标志、线程持有的锁、偏向线程ID、偏向时间戳等</p>
+<ul>
+<li>长度：32bit(32位虚拟机)、64bit(64位虚拟机)，官方称为Mark Word</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>|               存储内容               | 标志位 |       状态       |<br>      | :———————————-: | :—-: | :————–: |<br>      |       对象哈希码、对象分代年龄       |   01   |      未锁定      |<br>      |           指向锁记录的指针           |   00   |    轻量级锁定    |<br>      |          指向重量级锁的指针          |   10   | 膨胀(重量级锁定) |<br>      |          空、不需要记录信息          |   11   |      GC标记      |<br>      | 偏向线程ID、偏向时间戳、对象分代年龄 |   01   |      可偏向      |</p>
+<ul>
+<li><p>类型指针：对象指向它的类元数据的指针（虚拟机通过这个指针确定这个对象是哪个类的实例）</p>
+</li>
+<li><p>实例数据：对象真正存储的有效信息，也就是程序代码中所定义的各个类型的字段内容。</p>
+</li>
+<li><p>对齐填充：HotSpot VM的自动内存管理系统要求对象起始地址必须是8字节的整数倍。（如果不对齐，你要取一部分数据，但是他们不再同一行，你就要取两次，导致效率下降）</p>
+</li>
+</ul>
+<h3 id="2-3-对象的访问定位"><a href="#2-3-对象的访问定位" class="headerlink" title="2.3 对象的访问定位"></a>2.3 对象的访问定位</h3><p>建立对象就是为了使用对象，我们都知道对象使用过存储在栈中的引用(Reference)来调用。但是JVM规范并没有规定如何定位和访问堆中的对象的具体位置。目前主流的两种方式分为句柄和直接访问两种方式。</p>
+<ul>
+<li>句柄：Java堆中划分出一部分作为句柄池，reference中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与类型数据各自的具体地址。<ul>
+<li>优点：对象被移动(垃圾收集移动对象是非常普遍的事情)时只会改变句柄中的实例数据指针，而reference本身不需要修改</li>
+<li>缺点：增加了一次指针定位的开销，速度较慢</li>
+</ul>
+</li>
+<li>直接内存：reference直接存储对象的地址<ul>
+<li>优点：节省了一次指针定位开销，速度较快</li>
+<li>缺点：同上句柄优点的反面</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2021/10/15/%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%90%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%20Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/" data-id="clmivdq8p004csjp6a1fregli" data-title="【读书笔记】【深入理解Java虚拟机】 Java内存区域与内存溢出异常" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Celery Flower" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2021/08/07/Celery%20Flower/" class="article-date">
+  <time class="dt-published" datetime="2021-08-07T02:25:08.000Z" itemprop="datePublished">2021-08-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/bxjs/">bxjs</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2021/08/07/Celery%20Flower/">Celery Flower</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Celery-Flower"><a href="#Celery-Flower" class="headerlink" title="Celery Flower"></a>Celery Flower</h1><p>在看教程的时候遇到一个问题，启动flower的时候一直都是amqp也就是rabbitmq是flower的默认配置，仔细阅读了报错发现</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">celery flower --broker=redis://localhost:6379/1</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>You have incorrectly specified the following celery arguments after flower command: [‘–broker’]. Please specify them after celery command instead following this templat e: celery [celery args] flower [flower args].</p>
+</blockquote>
+<p>大概的意思就是–broker需要跟在celery命令的构面而不是flower后面。</p>
+<p>改成</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">celery --broker=redis://localhost:6379/1 flower</span><br></pre></td></tr></table></figure>
+
+<p>当前的flower版本是</p>
+<blockquote>
+<p>flower&#x3D;&#x3D;&#x3D;1.0.0</p>
+<p>python &#x3D;&#x3D;&#x3D;3.6</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2021/08/07/Celery%20Flower/" data-id="clmivdq7x000asjp66fkjd4eo" data-title="Celery Flower" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-argtable3 使用指南" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2021/08/06/argtable3%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" class="article-date">
+  <time class="dt-published" datetime="2021-08-06T03:19:36.000Z" itemprop="datePublished">2021-08-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/zczb/">zczb</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2021/08/06/argtable3%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/">argtable3 使用指南</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="argtable3-使用指南"><a href="#argtable3-使用指南" class="headerlink" title="argtable3 使用指南"></a>argtable3 使用指南</h3><p>   今天做项目需要在c语言里面解析命令行，然后我看了一下getopt()发现在linux下才能很方便的使用(在Windows下需要进行相关的配置)，然后我记得之前看过有个<a target="_blank" rel="noopener" href="https://github.com/QingdaoU/Judger">项目(QDUOJ的核心)</a>的源码中使用了argtable3，觉得还挺方便的。</p>
+<h2 id="一、引入头文件和如何编译"><a href="#一、引入头文件和如何编译" class="headerlink" title="一、引入头文件和如何编译"></a>一、引入头文件和如何编译</h2><h4 id="1-引入头文件"><a href="#1-引入头文件" class="headerlink" title="1.引入头文件"></a>1.引入头文件</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;argtable3.h&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>头文件可以在官方的github上下载<a target="_blank" rel="noopener" href="https://github.com/argtable/argtable3/releases/">Releases · argtable&#x2F;argtable3 (github.com)</a></p>
+<p>下载带有amalgamation的文件</p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/202108061851911.png" alt="image-20210806184310801"></p>
+<p>然后解压会有</p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/image-20210806184427171.png" alt="image-20210806184427171"></p>
+<p>将源文件和头文件拷贝到项目目录</p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/202108061848813.png" alt="image-20210806184503508"></p>
+<h3 id="2-编译"><a href="#2-编译" class="headerlink" title="2.编译"></a>2.编译</h3><p>在Windows下面使用VC可以</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cl.exe kernel.c argtable3.c -o kernel</span><br></pre></td></tr></table></figure>
+
+<p>在Linux下使用GCC</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc kernel.c argtable3.c -o kernel</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、开始使用"><a href="#二、开始使用" class="headerlink" title="二、开始使用"></a>二、开始使用</h2><h4 id="1-设置需要的参数"><a href="#1-设置需要的参数" class="headerlink" title="1. 设置需要的参数"></a>1. 设置需要的参数</h4><p>argtable3设置了多种参数的类型，我在下面一一介绍一下。</p>
+<h5 id="1-arg-hdr"><a href="#1-arg-hdr" class="headerlink" title="(1). arg_hdr"></a>(1). arg_hdr</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">arg_hdr</span> &#123;</span><br><span class="line">    <span class="type">char</span> flag;             <span class="comment">/* Modifier flags: ARG_TERMINATOR, ARG_HASVALUE. */</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>* shortopts; <span class="comment">/* String defining the short options */</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>* longopts;  <span class="comment">/* String defiing the long options */</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>* datatype;  <span class="comment">/* Description of the argument data type */</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>* glossary;  <span class="comment">/* Description of the option as shown by arg_print_glossary function */</span></span><br><span class="line">    <span class="type">int</span> mincount;          <span class="comment">/* Minimum number of occurences of this option accepted */</span></span><br><span class="line">    <span class="type">int</span> maxcount;          <span class="comment">/* Maximum number of occurences if this option accepted */</span></span><br><span class="line">    <span class="type">void</span>* parent;          <span class="comment">/* Pointer to parent arg_xxx struct */</span></span><br><span class="line">    arg_resetfn* resetfn;  <span class="comment">/* Pointer to parent arg_xxx reset function */</span></span><br><span class="line">    arg_scanfn* scanfn;    <span class="comment">/* Pointer to parent arg_xxx scan function */</span></span><br><span class="line">    arg_checkfn* checkfn;  <span class="comment">/* Pointer to parent arg_xxx check function */</span></span><br><span class="line">    arg_errorfn* errorfn;  <span class="comment">/* Pointer to parent arg_xxx error function */</span></span><br><span class="line">    <span class="type">void</span>* priv;            <span class="comment">/* Pointer to private header data for use by arg_xxx functions */</span></span><br><span class="line">&#125; <span class="type">arg_hdr_t</span>;</span><br></pre></td></tr></table></figure>
+
+<p>最基本的一个类型，所有的其他类型都包含这个类型。我一一解释下里面的参数的含义</p>
+<ul>
+<li>shortopts: 参数的短名称，比如ls -a 中的a就是短名称。</li>
+<li>longopts: 参数中的长名称，比如ls –all 中的all就是长名称。</li>
+<li>datatype: 参数的数据类型有<int>, <double>, NULL,<file> ,(时间类型传入format字符串),(rex类型传入匹配串),<string>等</li>
+<li>glossary: 对于参数的描述</li>
+<li>mincount: 参数最少的个数(可以规定是否必须有参数比如设置为0为非必须，1…n为必须)</li>
+<li>maxcount: 参数最多的个数，采用Unix风格的，如kernel.exe -l 1 -l 2 -l 3</li>
+<li>其他参数非必须</li>
+</ul>
+<h5 id="2-arg-lit-文字"><a href="#2-arg-lit-文字" class="headerlink" title="(2). arg_lit (文字)"></a>(2). arg_lit (文字)</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">arg_lit</span> &#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">arg_hdr</span> hdr; <span class="comment">/* The mandatory argtable header struct */</span></span><br><span class="line">    <span class="type">int</span> count;          <span class="comment">/* Number of matching command line args */</span></span><br><span class="line">&#125; <span class="type">arg_lit_t</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-arg-int-整数"><a href="#3-arg-int-整数" class="headerlink" title="(3). arg_int(整数)"></a>(3). arg_int(整数)</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">arg_int</span> &#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">arg_hdr</span> hdr; <span class="comment">/* The mandatory argtable header struct */</span></span><br><span class="line">    <span class="type">int</span> count;          <span class="comment">/* Number of matching command line args */</span></span><br><span class="line">    <span class="type">int</span>* ival;          <span class="comment">/* Array of parsed argument values */</span></span><br><span class="line">&#125; <span class="type">arg_int_t</span>;</span><br></pre></td></tr></table></figure>
+
+<p>其中ival指获得的参数的值得一个数组，count表示获得了多少个值。</p>
+<h5 id="4-arg-dbl-双精度浮点数"><a href="#4-arg-dbl-双精度浮点数" class="headerlink" title="(4). arg_dbl(双精度浮点数)"></a>(4). arg_dbl(双精度浮点数)</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">arg_dbl</span> &#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">arg_hdr</span> hdr; <span class="comment">/* The mandatory argtable header struct */</span></span><br><span class="line">    <span class="type">int</span> count;          <span class="comment">/* Number of matching command line args */</span></span><br><span class="line">    <span class="type">double</span>* dval;       <span class="comment">/* Array of parsed argument values */</span></span><br><span class="line">&#125; <span class="type">arg_dbl_t</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 模式匹配</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">arg_rex</span> &#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">arg_hdr</span> hdr; <span class="comment">/* The mandatory argtable header struct */</span></span><br><span class="line">    <span class="type">int</span> count;          <span class="comment">/* Number of matching command line args */</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>** sval;  <span class="comment">/* Array of parsed argument values */</span></span><br><span class="line">&#125; <span class="type">arg_rex_t</span>;</span><br><span class="line"><span class="comment">// 文件</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">arg_file</span> &#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">arg_hdr</span> hdr;     <span class="comment">/* The mandatory argtable header struct */</span></span><br><span class="line">    <span class="type">int</span> count;              <span class="comment">/* Number of matching command line args*/</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>** filename;  <span class="comment">/* Array of parsed filenames  (eg: /home/foo.bar) */</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>** basename;  <span class="comment">/* Array of parsed basenames  (eg: foo.bar) */</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>** extension; <span class="comment">/* Array of parsed extensions (eg: .bar) */</span></span><br><span class="line">&#125; <span class="type">arg_file_t</span>;</span><br><span class="line"><span class="comment">// 时间</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">arg_date</span> &#123;</span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">arg_hdr</span> hdr; <span class="comment">/* The mandatory argtable header struct */</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>* format; <span class="comment">/* strptime format string used to parse the date */</span></span><br><span class="line">    <span class="type">int</span> count;          <span class="comment">/* Number of matching command line args */</span></span><br><span class="line">    <span class="keyword">struct</span> <span class="title class_">tm</span>* tmval;   <span class="comment">/* Array of parsed time values */</span></span><br><span class="line">&#125; <span class="type">arg_date_t</span>;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-初始化参数-创建空间"><a href="#2-初始化参数-创建空间" class="headerlink" title="2. 初始化参数(创建空间)"></a>2. 初始化参数(创建空间)</h4><ul>
+<li>这里我直接在注释里面说明</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;argtable3.h&quot;</span></span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">arg_int</span> *gpu, *cpu, *opreator, *tn, *l, *r;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">arg_dbl</span> *fc;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">arg_lit</span> *verb, *help, *version;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">arg_end</span> *end;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> VERSION 0x020101</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">parse_args</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>* argv[])</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 初始化一个列表表示参数列表</span></span><br><span class="line">	<span class="type">void</span> *argtable[] = &#123;</span><br><span class="line">        <span class="comment">// arg_litn初始化help，其中h为短参数名，help为长参数名,0为mincount，1为maxcount，后面字符串为提示，其中lit可以省略类型</span></span><br><span class="line">        <span class="comment">// litn可以用简便的比如arg_lit0(&quot;h&quot;, &quot;help&quot;, &quot;xxxxxxxx&quot;)表示下面的</span></span><br><span class="line">        <span class="comment">// lit1(&quot;h&quot;, &quot;help&quot;, &quot;xxxxxxx&quot;)可以表示mincount=1,maxcount=1</span></span><br><span class="line">		help = <span class="built_in">arg_litn</span>(<span class="string">&quot;h&quot;</span>, <span class="string">&quot;help&quot;</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="string">&quot;Display Thie Help and Exit&quot;</span>),</span><br><span class="line">		version = <span class="built_in">arg_litn</span>(<span class="string">&quot;v&quot;</span>, <span class="string">&quot;version&quot;</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="string">&quot;Display Version Info And Exit&quot;</span>),</span><br><span class="line">        <span class="comment">// 类似同上，只是加了一个类型表示</span></span><br><span class="line">		cpu = <span class="built_in">arg_intn</span>(<span class="string">&quot;c&quot;</span>, <span class="string">&quot;cpu_number&quot;</span>,<span class="string">&quot;&lt;int&gt;&quot;</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="string">&quot;The CPU Number, Default is 1&quot;</span>),</span><br><span class="line">		gpu = <span class="built_in">arg_intn</span>(<span class="string">&quot;g&quot;</span>, <span class="string">&quot;gpu_number&quot;</span>,<span class="string">&quot;&lt;int&gt;&quot;</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="string">&quot;The GPU number, default is 1&quot;</span>),</span><br><span class="line">		opreator = <span class="built_in">arg_intn</span>(<span class="string">&quot;o&quot;</span>, <span class="string">&quot;op&quot;</span>, <span class="string">&quot;&lt;int&gt;&quot;</span>,<span class="number">0</span>, <span class="number">1</span>, <span class="string">&quot;The opreator of expression default is +(1): 1 is + and -1 is -&quot;</span>),</span><br><span class="line">		tn = <span class="built_in">arg_intn</span>(<span class="string">&quot;t&quot;</span>, <span class="string">&quot;threadnum&quot;</span>, <span class="string">&quot;&lt;int&gt;&quot;</span>,<span class="number">0</span>, <span class="number">1</span>, <span class="string">&quot;Per CPU Run The Thread Number&quot;</span>),</span><br><span class="line">		fc = <span class="built_in">arg_dbln</span>(<span class="string">&quot;f&quot;</span>, <span class="string">&quot;factor&quot;</span>, <span class="string">&quot;&lt;double&gt;&quot;</span>,<span class="number">0</span>, <span class="number">1</span>, <span class="string">&quot;The Factor of Expression, default is 1.0&quot;</span>),</span><br><span class="line">		l = <span class="built_in">arg_intn</span>(<span class="string">&quot;l&quot;</span>, <span class="string">&quot;left&quot;</span>, <span class="string">&quot;&lt;int&gt;&quot;</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="string">&quot;The factor for left expression, default is 1,1,1, exp: -l 1 -l 1 -l 1&quot;</span>),</span><br><span class="line">		r = <span class="built_in">arg_intn</span>(<span class="string">&quot;r&quot;</span>, <span class="string">&quot;right&quot;</span>, <span class="string">&quot;&lt;int&gt;&quot;</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="string">&quot;The factor for right expression, default is 1,1,1,exp -r 1 -r 1 -r 1&quot;</span>),</span><br><span class="line">		end = <span class="built_in">arg_end</span>(<span class="number">10</span>),</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="type">int</span> exitcode = <span class="number">0</span>;</span><br><span class="line">	<span class="type">char</span> name[] = <span class="string">&quot;kernel.exe&quot;</span>;</span><br><span class="line">	<span class="comment">// 解析参数</span></span><br><span class="line">	<span class="type">int</span> nerrors = <span class="built_in">arg_parse</span>(argc, argv, argtable);</span><br><span class="line">	<span class="comment">// count &gt; 0表示有参数</span></span><br><span class="line">	<span class="keyword">if</span> (help-&gt;count &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;Usage: %s&quot;</span>, name);</span><br><span class="line">		<span class="built_in">arg_print_syntax</span>(stdout, argtable, <span class="string">&quot;\n\n&quot;</span>);</span><br><span class="line">		<span class="built_in">arg_print_glossary</span>(stdout, argtable, <span class="string">&quot; %-25s %s\n&quot;</span>);</span><br><span class="line">		<span class="keyword">goto</span> exit;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	 <span class="keyword">if</span> (version-&gt;count &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Version: %d.%d.%d\n&quot;</span>, (VERSION &gt;&gt; <span class="number">16</span>) &amp; <span class="number">0xff</span>, (VERSION &gt;&gt; <span class="number">8</span>) &amp; <span class="number">0xff</span>, VERSION &amp; <span class="number">0xff</span>);</span><br><span class="line">        <span class="keyword">goto</span> exit;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (nerrors &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 错误处理</span></span><br><span class="line">        <span class="built_in">arg_print_errors</span>(stdout, end, name);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Try &#x27;%s --help&#x27; for more information.\n&quot;</span>, name);</span><br><span class="line">        exitcode = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">goto</span> exit;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (cpu-&gt;count &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		CUDA_CONF::CPUn = cpu-&gt;ival[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (gpu-&gt;count &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		CUDA_CONF::GPUn = gpu-&gt;ival[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (opreator-&gt;count &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		CALCULATE_CONF::op = opreator-&gt;ival[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (tn-&gt;count &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		CUDA_CONF::threadnum = tn-&gt;ival[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (fc-&gt;count &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		CALCULATE_CONF::factor = fc-&gt;dval[<span class="number">0</span>];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (l-&gt;count &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; l-&gt;count; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			CALCULATE_CONF::left[i] = l-&gt;ival[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 拥有多个参数处理</span></span><br><span class="line">	<span class="keyword">if</span> (r-&gt;count &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; r-&gt;count; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			CALCULATE_CONF::right[i] = r-&gt;ival[i];</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;CPUn is %d, GPUn is %d, op is %d, factor is %lf\n&quot;</span>, CUDA_CONF::CPUn, CUDA_CONF::GPUn, CALCULATE_CONF::op, CALCULATE_CONF::factor);</span><br><span class="line">	<span class="built_in">run</span>();</span><br><span class="line">	exit:</span><br><span class="line">    <span class="comment">// 释放参数列表</span></span><br><span class="line">    <span class="built_in">arg_freetable</span>(argtable, <span class="built_in">sizeof</span>(argtable) / <span class="built_in">sizeof</span>(argtable[<span class="number">0</span>]));</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2021/08/06/argtable3%20%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/" data-id="clmivdq86001bsjp67miu1kcp" data-title="argtable3 使用指南" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-CUDA编程02 HelloWorld" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2021/08/06/CUDA%E7%BC%96%E7%A8%8B02%20HelloWorld/" class="article-date">
+  <time class="dt-published" datetime="2021-08-05T18:53:50.000Z" itemprop="datePublished">2021-08-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/cuda/">cuda</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2021/08/06/CUDA%E7%BC%96%E7%A8%8B02%20HelloWorld/">CUDA编程02 HelloWorld</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="CUDA编程02-HelloWorld"><a href="#CUDA编程02-HelloWorld" class="headerlink" title="CUDA编程02 HelloWorld"></a>CUDA编程02 HelloWorld</h1><h2 id="一、主机和设备"><a href="#一、主机和设备" class="headerlink" title="一、主机和设备"></a>一、主机和设备</h2><h3 id="1-主机-Host"><a href="#1-主机-Host" class="headerlink" title="1. 主机(Host)"></a>1. 主机(Host)</h3><p>CPU以及系统的内存称为主机</p>
+<h3 id="2-设备-Device"><a href="#2-设备-Device" class="headerlink" title="2.设备(Device)"></a>2.设备(Device)</h3><p>GPU以及其内存称为设备</p>
+<h3 id="3-核函数-Kernel"><a href="#3-核函数-Kernel" class="headerlink" title="3.核函数(Kernel)"></a>3.核函数(Kernel)</h3><p>在GPU上运行的函数</p>
+<h3 id="4-标识符"><a href="#4-标识符" class="headerlink" title="4.标识符"></a>4.标识符</h3><ul>
+<li><p>__ global __命名的函数可以由主机(Host)调用在GPU（Device）上运行的函数</p>
+</li>
+<li><p>__ device __ 只能由GPU（Device）上的函数调用的函数</p>
+</li>
+<li><p>__ host __ 在主机上运行的函数</p>
+</li>
+</ul>
+<h3 id="二、HelloWorld代码"><a href="#二、HelloWorld代码" class="headerlink" title="二、HelloWorld代码"></a>二、HelloWorld代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line">__global__ <span class="type">void</span> <span class="title function_">kernel</span><span class="params">(<span class="type">void</span>)</span> &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    kernel&lt;&lt;&lt;<span class="number">1</span>,<span class="number">1</span>&gt;&gt;&gt;();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;HelloWorld!&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上面的代码中我们看到在主机中调用kernel使用三个尖括号里面的中的数字指的向内核中传递的执行参数，执行参数一共有四个，</p>
+<ul>
+<li>第一个表示网格大小(grid)</li>
+<li>第二个声明块的大小(block)</li>
+<li>第三个声明动态分配的共享存储器大小，默认为0</li>
+<li>最后一个参数声明执行的流，默认为0。</li>
+</ul>
+<h3 id="三、加法运算-展示如何传递参数"><a href="#三、加法运算-展示如何传递参数" class="headerlink" title="三、加法运算(展示如何传递参数)"></a>三、加法运算(展示如何传递参数)</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function">__global__ <span class="title">kernel</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> *c)</span> </span>&#123;</span><br><span class="line">    *c = a + b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> c;</span><br><span class="line">    <span class="type">int</span> *dev_c;</span><br><span class="line">    <span class="built_in">cudaMalloc</span>((<span class="type">void</span>**)&amp;dev_c, <span class="built_in">sizeof</span>(<span class="type">int</span>));</span><br><span class="line">    add&lt;&lt;&lt;<span class="number">1</span>,<span class="number">1</span>&gt;&gt;&gt;(<span class="number">7</span>,<span class="number">2</span>,dev_c);</span><br><span class="line">    <span class="built_in">cudaMemcpy</span>(&amp;c, dev_c, <span class="built_in">sizeof</span>(<span class="type">int</span>), cudaMemcpyDeviceToHost);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;7 + 2 = %d\n&quot;</span>, c);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当设备执行任何有用的操作(需要对数据记录)的时候都需要分配内存，例如计算值的返回。</p>
+<p>给数据分配内存类似于c的malloc这里使用的关键字是cudaMalloc</p>
+<ul>
+<li>第一个参数是一个指针，指向用于保存新分配的内存地址的变量</li>
+<li>第二个参数需要分配的内存空间大小</li>
+</ul>
+<p>cudaMemcpyDeviceToHost相当于一个标识，标识数据流动的方向。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2021/08/06/CUDA%E7%BC%96%E7%A8%8B02%20HelloWorld/" data-id="clmivdq7w0008sjp6bthre4xv" data-title="CUDA编程02 HelloWorld" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【杂七杂八】我毕业啦！" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2021/07/07/%E3%80%90%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E3%80%91%E6%88%91%E6%AF%95%E4%B8%9A%E5%95%A6%EF%BC%81/" class="article-date">
+  <time class="dt-published" datetime="2021-07-06T18:52:00.000Z" itemprop="datePublished">2021-07-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/zczb/">zczb</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2021/07/07/%E3%80%90%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E3%80%91%E6%88%91%E6%AF%95%E4%B8%9A%E5%95%A6%EF%BC%81/">【杂七杂八】我毕业啦！</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>  吉首大学，可能你们都没有听过有这么一个大学。但是在这里给我留下了一段美好的回忆。</p>
+<p>  初入校园，这里给我带来的就是虽然环境不太好，但是学习的环境还是不错的，虽然道路破败，但是在四年(大体我们在学校学习的生活只有两年半左右)里有所改善。因为19年突如其来的新冠疫情导致我们在学校的时光仅有短短的两年半左右，有时候我们就调侃说我们两年多一点就毕业了。</p>
+<p>  大一我们军训虽然说很累，但是我觉得还是很有意义的，可能那时候也许是我的体能的巅峰(大学以来最瘦的时候吧)。军训完就差不多十月份了，我们也就开始了真正的大学生活(没课可以睡懒觉了)，因为我高中就对计算机比较感兴趣，就自学了一些C语言的知识，所以相对来说有那么一丢丢的优势。然后大家就开始刷题，那时候很开心的就是大家一起看排行榜一起竞争，感觉那时候由衷的开心。也认识了许多大佬，在后面也受到了他们的许多帮助。</p>
+<p>  在选择学校的实验室的时候在启航和创新创业之间，我选择了启航，到了启航虽然参加竞赛的机会变少了，但是重在自由，自己瞎搞也导致那时候浪费了时间(有一丢丢难受)。在启航我也认识了许多有趣的灵魂，大家都很努力也很有天赋。</p>
+<p>  大三的下学期结束，我们就从家里(因为疫情在家里线上上课)到了中山的基地，也就是那个夏天我决定开始考研，刚开始我很迷茫不知道从何入手，那时候数学从张宇到汤家凤我都觉得不是很透彻，知道我发现武忠祥老师，我在看了他的课之后可以写课后的题目了，那时候我才有了前进的动力。那时候选择院校我没想那么多，想去深圳之类的大城市。就将理想的院校暂时选为中国科学院大学深圳先进技术研究所(那时候年少轻狂，不知道中科院各所复试修罗场),但是中科院各所还没有改专业课为408但是课程差不多，我就按照408来复习。刚开始四五月份复习的时候，和研友一起就说先不急着复习专业课，先把数学过一遍。对于英语我真的觉得我提不起兴趣，刚开始看了刘晓艳的长难句的讲解，之后就每天做做真题阅读，我感觉对我提升不大，特别是唐迟的阅读课，我没多大兴趣听。后面英语差不多就是裸考的。</p>
+<p>  暑假后我们就来到了中山基地，学校特别为我们考研的划出来两个考研班，可以说非常不错了。在班里大家早上有很早到的，也有姗姗来迟的。晚上有很早走的，也有注重养生的。大家都非常的努力的向着自己的目标冲刺。在这里我每周的周末大概率会休息一下，回寝室和室友打打游戏或者出去吃个小烧烤之类的。转眼就到了填报志愿的时候了，那时候经过各个群的水群，我已经改变了目标，那时候我就想着武汉理工大学的海南计划有可能捡漏，所以我就第一次报名了这个。然后我一个同学告诉我，武汉大学网安学院的推免电子信息专硕没推满，剩下的名额给了统招。我进官网一看的确如此，我就想改成这个吧。然后我给我们的辅导员说让他和那边考试院说下(因为我们不在本学校，所以需要和本地的考试院协商)，就这样阴差阳错的就把志愿换成了武汉大学。</p>
+<p>  寒假成绩出来那天我一看314分，一个不是很理想或者说很低的分数，心里想这种分数怎么可能上武汉大学。我就开始准备春招，刚开始我在boss上找那些小企业投投，想要积累面试经验，但是很奇怪，没有一个企业给我发面试或者笔试的通知。后面我就开始在牛客上找大的企业开始投，我记得第一个面试是美团的面试，那时候我已经知道了自己进入了武汉大学的复试，在知道这个消息的前一天我睡得特别早，仿佛知道那天要出的一样。第二天早上起的特别早，我看到手机里有几条消息，我看到我的同学告诉我我进复试了，这一刻我走出去和我的妈妈、奶奶一起庆祝了一下，但是我知道复试并不一一定能够进入，我还需要好好准备。我看了复试的内容是笔试+面试，笔试是一本叫做《信息系统安全概论》的书，一开始什么安全攻击，什么安全模型我看的头大，后面我觉得这个安全模型还是比较重要的。谁想笔试写了跟小作文一样，感觉认真看过书的分数都不会低。面试我导致老师笑了两次，第一次我不知道抽了的英语题目不是给我自己看的而是给老师的，这我差点把它的题目抢过来，第二次我们我有什么爱好，我说编程，老师们说这也能算爱好么？哈哈。</p>
+<p>  我记得出拟录取名单那天就是清明节，那天我刚扫墓完，然后大概两点多的样子，群里说出了拟录取名单，我一个一个的往下拉，心里非常的紧张，当看到我的名字后面出现了一个拟录取的字眼，我心里狂喜，也许那时候是最开心得吧。
+  </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2021/07/07/%E3%80%90%E6%9D%82%E4%B8%83%E6%9D%82%E5%85%AB%E3%80%91%E6%88%91%E6%AF%95%E4%B8%9A%E5%95%A6%EF%BC%81/" data-id="clmivdq8n0043sjp6bwtlehfi" data-title="【杂七杂八】我毕业啦！" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【小程序】小程序体验版之为什么发不了请求" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2021/07/01/%E3%80%90%E5%B0%8F%E7%A8%8B%E5%BA%8F%E3%80%91%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BD%93%E9%AA%8C%E7%89%88%E4%B9%8B%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%91%E4%B8%8D%E4%BA%86%E8%AF%B7%E6%B1%82/" class="article-date">
+  <time class="dt-published" datetime="2021-07-01T06:25:38.000Z" itemprop="datePublished">2021-07-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/zczb/">zczb</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2021/07/01/%E3%80%90%E5%B0%8F%E7%A8%8B%E5%BA%8F%E3%80%91%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BD%93%E9%AA%8C%E7%89%88%E4%B9%8B%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%91%E4%B8%8D%E4%BA%86%E8%AF%B7%E6%B1%82/">【小程序】小程序体验版之为什么发不了请求</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>一开始我使用的是IP,我忽然记起小程序是要使用域名才能上线的(而且还需要https)。</strong></p>
+<p>**<br>后面换成域名就没问题了。记得要在微信小程序开发后台配置request域名啥的！**</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2021/07/01/%E3%80%90%E5%B0%8F%E7%A8%8B%E5%BA%8F%E3%80%91%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BD%93%E9%AA%8C%E7%89%88%E4%B9%8B%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8F%91%E4%B8%8D%E4%BA%86%E8%AF%B7%E6%B1%82/" data-id="clmivdq8n0041sjp6dxnofn9k" data-title="【小程序】小程序体验版之为什么发不了请求" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-【Java多线程】Volatile" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2021/05/22/%E3%80%90Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E3%80%91Volatile/" class="article-date">
+  <time class="dt-published" datetime="2021-05-22T00:38:00.000Z" itemprop="datePublished">2021-05-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/JUC/">JUC</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/blog./2021/05/22/%E3%80%90Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E3%80%91Volatile/">【Java多线程】Volatile</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Volatile"><a href="#Volatile" class="headerlink" title="Volatile"></a>Volatile</h2><h3 id="一-Volatile的作用"><a href="#一-Volatile的作用" class="headerlink" title="一. Volatile的作用"></a>一. Volatile的作用</h3><ol>
+<li>实现内存的可见性</li>
+<li>禁止指令重排（内存屏障）</li>
+</ol>
+<h3 id="二-如何实现内存的可见性"><a href="#二-如何实现内存的可见性" class="headerlink" title="二. 如何实现内存的可见性"></a>二. 如何实现内存的可见性</h3><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/20210522153930.png" style="zoom:67%;" />
+
+<p>上图显示了计算机中的内存结构，现代计算机采用多级缓存机制。Volatile为了是的保证内存的可见性采用了两种原则：</p>
+<ol>
+<li><p>引起处理器的缓存写回内存。</p>
+<ul>
+<li>使得处理器独占(Exclusive)共享内存</li>
+<li>一般独占的方式不采用锁总线而采用锁缓存的机制。</li>
+</ul>
+</li>
+<li><p>一个处理器的缓存回写使得其他处理器的缓存失效。采用MESI（M&#x3D;Modify，E&#x3D;Exclusive，S&#x3D;Shared，I&#x3D;Invalid）协议来保持处理器的缓存一致性。</p>
+<ul>
+<li>处理器会嗅探它的内部缓存和其他处理器的缓存是否一致（通过总线）</li>
+<li>如果检测到有处理器写回内存(Modify)并且这个地址处于共享(Shared)状态</li>
+<li>那么正在嗅探的处理器会使得这个缓存行无效，在下次要访问这个地址的时候重新从内存中填充到缓存行中。</li>
+</ul>
+</li>
+</ol>
+<h3 id="三-Volatile的使用优化"><a href="#三-Volatile的使用优化" class="headerlink" title="三. Volatile的使用优化"></a>三. Volatile的使用优化</h3><p>在我看来这个使用优化就是因为处理器强制加载缓存行会一次加载一行，而每一行的大小都等于当前处理器的位数(地址总线的数量)，而通过追加字节的方式能够是的一个数据能够在同一个数据行，减少访问缓存的次数从而减少访问带来的开销。</p>
+<h3 id="四-如何实现禁止指令重排（内存屏障）"><a href="#四-如何实现禁止指令重排（内存屏障）" class="headerlink" title="四. 如何实现禁止指令重排（内存屏障）"></a>四. 如何实现禁止指令重排（内存屏障）</h3><ol>
+<li><p>为什么会出现指令重排？</p>
+<p>由于你写的代码并不是一定适合CPU的运行(也就是说你写的代码知识符合了人类的逻辑而不一定符合机器执行的逻辑)，所以在编译的优化阶段会对你的代码进行优化(指令重排)(编译分为词法分析，语法分析，语义分析，优化 ，目标代码生成五个阶段)。编译器和处理器都会生成的中间代码进行优化。</p>
+</li>
+<li><p>如何实现禁止指令重排？</p>
+<p>首先我们要清除内存屏障的概念，内存屏障又称为内存栅栏，它是一个CPU指令作用是保持特定操作的顺序性和保证某些变量的内存可见性（上面的内存可见性也是通过这个指令来实现的），添加了内存栅栏可以使得在栅栏内的指令不会被CPU或编译器进行重排指令。</p>
+</li>
+</ol>
+<h3 id="五、Volatile保证原子性吗？"><a href="#五、Volatile保证原子性吗？" class="headerlink" title="五、Volatile保证原子性吗？"></a>五、Volatile保证原子性吗？</h3><p>实际上Volatile是无法保证数据的原子性的，比如如下代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestVolatile</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">volatile</span> <span class="type">int</span> <span class="variable">inc</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">increase</span><span class="params">()</span> &#123;</span><br><span class="line">        inc++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="type">TestVolatile</span> <span class="variable">test</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TestVolatile</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; <span class="number">1000</span>; j++) &#123;</span><br><span class="line">                    test.increase();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).start();</span><br><span class="line">        &#125;</span><br><span class="line">	    <span class="comment">// 当当前活动线程数小于1的时候结束打印inc的值</span></span><br><span class="line">        <span class="keyword">while</span> (Thread.activeCount()&gt;<span class="number">1</span>) &#123;</span><br><span class="line">            Thread.<span class="keyword">yield</span>();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(test.inc);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们会发现这个inc会小于10000，而并不是我们所设想的是10000（也可能是但是一次不是10000就可以反证他不拥有原子性）。虽然volatile会使得进程获得最新的数据但是我们假设以下情景。</p>
+<p>当前的inc的值为10，线程1先读取了变量inc的初始值(10),线程1进行自增操作然后线程1被阻塞了；线程2进行自增操作然后线程2也去读取变量inc的原始值，由于线程1只是对原始值进行了读取，未进行修改所以线程2读取到的还是10，自增后还是11。</p>
+<p>我们知道缓存行只有发生修改写回才会失效，但是线程1已经被阻塞了所以未写回信息，导致缓存行仍然是10，导致两个线程计算的写回是都是11。</p>
+<p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/image-20210522162649111.png" alt="image-20210522162649111"></p>
+<p>   导致这个产生是由于自增本身就不带有原子性，可以采用atomic包里面的进行比如AtomicIntenger等</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.concurrent.atomic.AtomicInteger;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestVolatile</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">volatile</span> <span class="type">AtomicInteger</span> <span class="variable">inc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AtomicInteger</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">increase</span><span class="params">()</span> &#123;</span><br><span class="line">        inc.incrementAndGet();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="type">TestVolatile</span> <span class="variable">test</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TestVolatile</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; <span class="number">1000</span>; j++) &#123;</span><br><span class="line">                    test.increase();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).start();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (Thread.activeCount()&gt;<span class="number">2</span>) &#123;</span><br><span class="line">            Thread.<span class="keyword">yield</span>();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(test.inc);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2021/05/22/%E3%80%90Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E3%80%91Volatile/" data-id="clmivdq8d002dsjp6c5ai92yq" data-title="【Java多线程】Volatile" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/blog./page/3/">&laquo; zurück</a><a class="page-number" href="/blog./">1</a><a class="page-number" href="/blog./page/2/">2</a><a class="page-number" href="/blog./page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/blog./page/5/">5</a><a class="page-number" href="/blog./page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/blog./page/8/">8</a><a class="extend next" rel="next" href="/blog./page/5/">weiter &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JUC/">JUC</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JVM/">JVM</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/LeetCode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/bxjs/">bxjs</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/cuda/">cuda</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/default/">default</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/dsbj/">dsbj</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/jvmbook/">jvmbook</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/muban/">muban</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/selfdriving/">selfdriving</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/youji/">youji</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/zczb/">zczb</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/OpenCDA/" rel="tag">OpenCDA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/V2X/" rel="tag">V2X</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/%E6%91%84%E5%BD%B1/" rel="tag">摄影</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog./tags/OpenCDA/" style="font-size: 10px;">OpenCDA</a> <a href="/blog./tags/V2X/" style="font-size: 10px;">V2X</a> <a href="/blog./tags/%E6%91%84%E5%BD%B1/" style="font-size: 10px;">摄影</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog./2023/09/14/OpenCDA%20V2X%E9%80%9A%E4%BF%A1%E7%9B%B8%E5%85%B3/">OpenCDA V2X通信相关</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/28/%E5%8F%A4%E6%9C%B4%E9%9F%B5%E5%91%B3%E4%B8%8E%E8%8D%92%E9%87%8E%E4%B9%8B%E7%BE%8E%20-------%20%E8%A5%BF%E5%AE%89%E3%80%81%E9%9D%92%E6%B5%B7%E4%B9%8B%E6%97%85/">古朴韵味与荒野之美 ------- 西安、青海之旅</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/03/%E3%80%90OpenCDA%E3%80%91%E7%AE%97%E6%B3%95%E5%AE%9A%E5%88%B6%E5%8C%96%E5%BC%80%E5%8F%91/">【OpenCDA】算法定制化开发</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/01/zlib%20404/">zlib 404</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/07/19/V2X%E5%9C%BA%E6%99%AF%E5%8F%91%E5%B1%95%E5%92%8C%E4%BB%BF%E7%9C%9F/">V2X场景发展和仿真</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 wangxso<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog./" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog./archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog./js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/blog./fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog./js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

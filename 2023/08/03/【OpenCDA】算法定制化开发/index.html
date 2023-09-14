@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>【OpenCDA】算法定制化开发 | 非典型程序员的一生</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="定制化由于OpenCDA的高度模块化，您可以方便地用自己的算法替换任何默认模块。定制的方法是将您定制的模块放在opencda&#x2F;customize&#x2F;...里面，并且使用继承来覆盖原有算法。然后在VehicleManager中导入你定制的算法即可。如果你想要修改单个模块你所需要做的事情就是保证修改后的模块和原有的模块的输入输出格式保持一致。此外，对于Control算法模块的修改并不是在opencda&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【OpenCDA】算法定制化开发">
+<meta property="og:url" content="https://wangxso.github.io/blog./2023/08/03/%E3%80%90OpenCDA%E3%80%91%E7%AE%97%E6%B3%95%E5%AE%9A%E5%88%B6%E5%8C%96%E5%BC%80%E5%8F%91/index.html">
+<meta property="og:site_name" content="非典型程序员的一生">
+<meta property="og:description" content="定制化由于OpenCDA的高度模块化，您可以方便地用自己的算法替换任何默认模块。定制的方法是将您定制的模块放在opencda&#x2F;customize&#x2F;...里面，并且使用继承来覆盖原有算法。然后在VehicleManager中导入你定制的算法即可。如果你想要修改单个模块你所需要做的事情就是保证修改后的模块和原有的模块的输入输出格式保持一致。此外，对于Control算法模块的修改并不是在opencda&#x2F;">
+<meta property="og:locale">
+<meta property="og:image" content="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2023/08/120818750.png">
+<meta property="article:published_time" content="2023-08-02T23:08:00.000Z">
+<meta property="article:modified_time" content="2023-09-14T07:08:12.638Z">
+<meta property="article:author" content="wangxso">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2023/08/120818750.png">
+  
+    <link rel="alternate" href="/blog./atom.xml" title="非典型程序员的一生" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog./favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog./css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog./fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog./" id="logo">非典型程序员的一生</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/blog./">Home</a>
+        
+          <a class="main-nav-link" href="/blog./archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/blog./atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wangxso.github.io/blog."></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-【OpenCDA】算法定制化开发" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2023/08/03/%E3%80%90OpenCDA%E3%80%91%E7%AE%97%E6%B3%95%E5%AE%9A%E5%88%B6%E5%8C%96%E5%BC%80%E5%8F%91/" class="article-date">
+  <time class="dt-published" datetime="2023-08-02T23:08:00.000Z" itemprop="datePublished">2023-08-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/selfdriving/">selfdriving</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      【OpenCDA】算法定制化开发
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="定制化"><a href="#定制化" class="headerlink" title="定制化"></a>定制化</h1><p><img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/usr/uploads/2023/08/120818750.png"><br>由于OpenCDA的高度模块化，您可以方便地用自己的算法替换任何默认模块。定制的方法是将您定制的模块放在<code>opencda/customize/...</code>里面，并且使用继承来覆盖原有算法。然后在<code>VehicleManager</code>中导入你定制的算法即可。如果你想要修改单个模块你所需要做的事情就是保证修改后的模块和原有的模块的输入输出格式保持一致。此外，对于Control算法模块的修改并不是在<code>opencda/customize/...</code> 里面，而是在原来的<code>opencda/core/acutation/</code></p>
+<p>下面介绍各个模块都是如何进行算法的定制化开发的。</p>
+<h2 id="Localization-Customization"><a href="#Localization-Customization" class="headerlink" title="Localization Customization"></a><strong><strong>Localization Customization</strong></strong></h2><p><code>LocalizationManager</code> 负责定位任务。在初始化阶段，将生成的GPS和IMU传感器来收集定位相关的信息。</p>
+<p>里面的核心功能是<code>localize()</code> ，这个方法没有任何的输入，他主要的作用是为了<code>self._ego_pos</code> 和<code>_speed</code> 提供正确的值。</p>
+<p>融合 GPS 和 IMU 数据的默认算法是卡尔曼滤波器(Kalman Filter)，它以当前的gps和imu数据为输入，然后返回修正后的$(x, y, z)$坐标。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># opencda/core/sensing/localization/localization_manager.py:line 142</span></span><br><span class="line"><span class="keyword">from</span> opencda.core.sensing.localization.kalman_filter <span class="keyword">import</span> KalmanFilter</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">LocalizationManager</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">     <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, vehicle, config_yaml, carla_map</span>):</span><br><span class="line">        self.kf = KalmanFilter(self.dt)</span><br><span class="line">     </span><br><span class="line">     <span class="keyword">def</span> <span class="title function_">localize</span>(<span class="params">self</span>):</span><br><span class="line">        ...</span><br><span class="line">        corrected_cords = self.kf(x, y, z, speed, yaw, imu_yaw_rate)</span><br></pre></td></tr></table></figure>
+
+<p>如果用户想要保留定位的整个结构而只更换滤波器（例如扩展卡尔曼滤波器），然后他只需要创建一个在  <code>opencda/customize/core/sensing/localization</code>目录下创建一个 <code>localization_manager.py</code> 。并且在<code>CustomizedLocalizationManager</code> 中初始化的时候加入拓展卡尔曼滤波器。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># opencda/customize/core/sensing/localization/localization_manager.py:line 0</span></span><br><span class="line"><span class="keyword">from</span> opencda.core.sensing.localization.localization_manager <span class="keyword">import</span> LocalizationManager</span><br><span class="line"><span class="keyword">from</span> opencda.customize.core.sensing.localization.extented_kalman_filter <span class="keyword">import</span> ExtentedKalmanFilter</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CustomizedLocalizationManager</span>(<span class="title class_ inherited__">LocalizationManager</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, vehicle, config_yaml, carla_map</span>):</span><br><span class="line">        <span class="built_in">super</span>(CustomizedLocalizationManager, self).__init__(vehicle, config_yaml, carla_map)</span><br><span class="line">        self.kf = ExtentedKalmanFilter(self.dt)         </span><br></pre></td></tr></table></figure>
+
+<p>然后去<code>VehicleManger</code> 类里面导入自定义模块并且设置其启用:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> opencda.core.sensing.localization.localization_manager <span class="keyword">import</span> LocalizationManager</span><br><span class="line"><span class="keyword">from</span> opencda.customize.core.sensing.localization.localization_manager <span class="keyword">import</span> CustomizedLocalizationManager</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">VehicleManager</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, vehicle, config_yaml, application, carla_map, cav_world</span>):</span><br><span class="line">        <span class="comment"># self.localizer = LocalizationManager(vehicle, sensing_config[&#x27;localization&#x27;], carla_map)</span></span><br><span class="line">        self.localizer = CustomizedLocalizationManager(vehicle, sensing_config[<span class="string">&#x27;localization&#x27;</span>], carla_map)</span><br></pre></td></tr></table></figure>
+
+<p>如果您想修改的更多，比如改变数据预处理等。只需要在</p>
+<p><code>CustomizedLocalizationManager</code> 中填充<code>localize()</code> 中的<code>self._ego_gps</code> 和<code>self._speed</code> 不会对下游模块造成任何问题。</p>
+<h2 id="Perception-Customization"><a href="#Perception-Customization" class="headerlink" title="Perception Customization"></a><strong><strong>Perception Customization</strong></strong></h2><p><code>PerceptionManager</code> 负责感知相关的任务。现在它支持车辆检测和交通信号灯检测。核心方法<code>detect(ego_pos)</code> 将定位模块的ego_car的自我位置作为输入，返回值是一个<code>objects</code> 字典，这个字典的key是对象的类别，值是该类别中世界坐标系下每个对象的属性(比如三维姿态等)。</p>
+<p>要定义您自己的目标检测算法，请在<code>opencda/customize/core/sensing/perception/</code> 文件夹下面创建一个<code>perception_manager.py</code> 文件。这里的核心就是你的<code>your_algorithm(rgb_images, lidar_data)</code> 他的输入是获取的图像信息和激光雷达点云信息。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">from</span> opencda.core.sensing.perception.perception_manager <span class="keyword">import</span> PerceptionManager</span><br><span class="line"><span class="keyword">from</span> opencda.core.sensing.perception.obstacle_vehicle <span class="keyword">import</span> ObstacleVehicle</span><br><span class="line"><span class="keyword">from</span> opencda.core.sensing.perception.static_obstacle <span class="keyword">import</span> TrafficLight</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CustomziedPeceptionManager</span>(<span class="title class_ inherited__">PerceptionManager</span>):</span><br><span class="line">     <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, vehicle, config_yaml, cav_world, data_dump=<span class="literal">False</span></span>):</span><br><span class="line">        <span class="built_in">super</span>(CustomizedLocalizationManager, self).__init__(vehicle, config_yaml, cav_world, data_dump)</span><br><span class="line">     </span><br><span class="line">     <span class="keyword">def</span> <span class="title function_">detect</span>(<span class="params">self, ego_pos</span>):</span><br><span class="line">        objects = &#123;<span class="string">&#x27;vehicles&#x27;</span>: [],</span><br><span class="line">                   <span class="string">&#x27;traffic_lights&#x27;</span>: [],</span><br><span class="line">                   <span class="string">&#x27;other_objects_you_wanna_add&#x27;</span> : []&#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># retrieve current rgb images from all cameras</span></span><br><span class="line">        rgb_images = []</span><br><span class="line">        <span class="keyword">for</span> rgb_camera <span class="keyword">in</span> self.rgb_camera:</span><br><span class="line">            <span class="keyword">while</span> rgb_camera.image <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            rgb_images.append(cv2.cvtColor(np.array(rgb_camera.image),</span><br><span class="line">                    cv2.COLOR_BGR2RGB))</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># retrieve lidar data from the sensor</span></span><br><span class="line">        lidar_data = self.lidar.data</span><br><span class="line">        </span><br><span class="line">        <span class="comment">########################################</span></span><br><span class="line">        <span class="comment"># this is where you put your algorithm #</span></span><br><span class="line">        <span class="comment">########################################</span></span><br><span class="line">        objects = your_algorithm(rgb_images, lidar_data)</span><br><span class="line">        <span class="keyword">assert</span> <span class="built_in">type</span>(objects[<span class="string">&#x27;vehicles&#x27;</span>]) == ObstacleVehicle</span><br><span class="line">        <span class="keyword">assert</span> <span class="built_in">type</span>(objects[<span class="string">&#x27;traffic_lights&#x27;</span>]) == TrafficLight</span><br><span class="line">         </span><br><span class="line">     <span class="keyword">return</span> objects</span><br></pre></td></tr></table></figure>
+
+<h2 id="Behavior-Planning-Customization"><a href="#Behavior-Planning-Customization" class="headerlink" title="Behavior Planning Customization"></a><strong><strong>Behavior Planning Customization</strong></strong></h2><p>在仿真运行期间，<code>BehaviorAgent</code> 首先会通过函数<code>update_information</code>保存从<code>PerceptionManager</code> 和<code>LocalizationManager</code> 中获得的ego vehicle的位置、速度和周围物体信息。之后<code>BehaviorAgent</code> 将会调用函数<code>run_step()</code> 执行单步，并返回<code>target_speed</code> 和<code>target_location</code> 信息。</p>
+<p>您要定义自己的行为规划算法。请在<code>opencda/customize/core/plan/</code> 文件夹下创建<code>behavior_agent.py</code>文件。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> carla.libcarla</span><br><span class="line"><span class="keyword">from</span> opencda.core.plan.behavior_agent <span class="keyword">import</span> BehaviorAgent</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CustomizedBehaviorAgent</span>(<span class="title class_ inherited__">BehaviorAgent</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, vehicle, carla_map, config_yaml</span>):</span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">update_information</span>(<span class="params">self, ego_pos, ego_speed, objects</span>):</span><br><span class="line">        <span class="comment">########################################</span></span><br><span class="line">        <span class="comment"># this is where you put your algorithm #</span></span><br><span class="line">        <span class="comment">########################################</span></span><br><span class="line">        do_some_preprocessing(ego_pos, ego_speed, objects)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">run_step</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment">########################################</span></span><br><span class="line">        <span class="comment"># this is where you put your algorithm #</span></span><br><span class="line">        <span class="comment">########################################</span></span><br><span class="line">        target_speed, target_loc = your_plan_algorithm()</span><br><span class="line">        <span class="keyword">assert</span> <span class="built_in">type</span>(target_speed) == <span class="built_in">float</span></span><br><span class="line">        <span class="keyword">assert</span> <span class="built_in">type</span>(target_loc) == carla.Location</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> target_speed, target_loc</span><br></pre></td></tr></table></figure>
+
+<h2 id="Control-Customization"><a href="#Control-Customization" class="headerlink" title="Control Customization"></a><strong><strong>Control Customization</strong></strong></h2><p>和<code>BehaviorAgent, ControlManger</code>类似，首先通过<code>update_info()</code> 函数保存ego vehicle的位置信息，然后通过<code>run_step()</code> 获取<code>BehaviorAgent</code>生成的<code>target_speed</code> 和<code>target_loc</code> 信息，生成最终的指令。</p>
+<p>与其他模块不同，ControlManager更像是一个抽象类，它提供了调用相应控制器（默认pid控制器）的接口。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> importlib</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ControlManager</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, control_config</span>):</span><br><span class="line">        controller_type = control_config[<span class="string">&#x27;type&#x27;</span>]</span><br><span class="line">        controller = <span class="built_in">getattr</span>(</span><br><span class="line">            importlib.import_module(</span><br><span class="line">                <span class="string">&quot;opencda.core.actuation.%s&quot;</span> %</span><br><span class="line">                controller_type), <span class="string">&#x27;Controller&#x27;</span>)</span><br><span class="line">        self.controller = controller(control_config[<span class="string">&#x27;args&#x27;</span>])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">update_info</span>(<span class="params">self, ego_pos, ego_speed</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Update ego vehicle information for controller.</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        self.controller.update_info(ego_pos, ego_speed)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">run_step</span>(<span class="params">self, target_speed, target_loc</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Execute current controller step.</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        control_command = self.controller.run_step(target_speed, waypoint)</span><br><span class="line">        <span class="keyword">return</span> control_command</span><br></pre></td></tr></table></figure>
+
+<p>因此，如果你想使用 pid 控制器以外的控制器，你可以在 <code>opencda/core/acutation/</code>文件夹下创建<code>customize_controller.py</code>，并遵循相同的输入和输出数据格式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">CustomizeController</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">update_info</span>(<span class="params">self, ego_pos, ego_spd</span>):</span><br><span class="line">        <span class="comment">########################################</span></span><br><span class="line">        <span class="comment"># this is where you put your algorithm #</span></span><br><span class="line">        <span class="comment">########################################</span></span><br><span class="line">        do_some_process(ego_pos, ego_spd)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">run_step</span>(<span class="params">self, target_speed, target_loc</span>):</span><br><span class="line">        <span class="comment">########################################</span></span><br><span class="line">        <span class="comment"># this is where you put your algorithm #</span></span><br><span class="line">        <span class="comment">########################################</span></span><br><span class="line">        control_command = control(target_speed, target_loc)</span><br><span class="line">        <span class="keyword">assert</span> control_command == carla.libcarla.VehicleControl</span><br><span class="line">        <span class="keyword">return</span> control_command</span><br></pre></td></tr></table></figure>
+
+<p>然后将控制器的名称放入 yaml 文件中：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">vehicle_base:</span></span><br><span class="line">    <span class="attr">controller:</span></span><br><span class="line">        <span class="attr">type:</span> <span class="string">customize_controller</span> <span class="comment"># this has to be exactly the same name as the controller py file</span></span><br><span class="line">        <span class="attr">args:</span> <span class="string">......</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2023/08/03/%E3%80%90OpenCDA%E3%80%91%E7%AE%97%E6%B3%95%E5%AE%9A%E5%88%B6%E5%8C%96%E5%BC%80%E5%8F%91/" data-id="clmivdq8l003msjp617ys5eoi" data-title="【OpenCDA】算法定制化开发" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog./2023/08/28/%E5%8F%A4%E6%9C%B4%E9%9F%B5%E5%91%B3%E4%B8%8E%E8%8D%92%E9%87%8E%E4%B9%8B%E7%BE%8E%20-------%20%E8%A5%BF%E5%AE%89%E3%80%81%E9%9D%92%E6%B5%B7%E4%B9%8B%E6%97%85/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          古朴韵味与荒野之美 ------- 西安、青海之旅
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog./2023/08/01/zlib%20404/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">zlib 404</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JUC/">JUC</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JVM/">JVM</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/LeetCode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/bxjs/">bxjs</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/cuda/">cuda</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/default/">default</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/dsbj/">dsbj</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/jvmbook/">jvmbook</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/muban/">muban</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/selfdriving/">selfdriving</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/youji/">youji</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/zczb/">zczb</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/OpenCDA/" rel="tag">OpenCDA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/V2X/" rel="tag">V2X</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/%E6%91%84%E5%BD%B1/" rel="tag">摄影</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog./tags/OpenCDA/" style="font-size: 10px;">OpenCDA</a> <a href="/blog./tags/V2X/" style="font-size: 10px;">V2X</a> <a href="/blog./tags/%E6%91%84%E5%BD%B1/" style="font-size: 10px;">摄影</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog./2023/09/14/OpenCDA%20V2X%E9%80%9A%E4%BF%A1%E7%9B%B8%E5%85%B3/">OpenCDA V2X通信相关</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/28/%E5%8F%A4%E6%9C%B4%E9%9F%B5%E5%91%B3%E4%B8%8E%E8%8D%92%E9%87%8E%E4%B9%8B%E7%BE%8E%20-------%20%E8%A5%BF%E5%AE%89%E3%80%81%E9%9D%92%E6%B5%B7%E4%B9%8B%E6%97%85/">古朴韵味与荒野之美 ------- 西安、青海之旅</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/03/%E3%80%90OpenCDA%E3%80%91%E7%AE%97%E6%B3%95%E5%AE%9A%E5%88%B6%E5%8C%96%E5%BC%80%E5%8F%91/">【OpenCDA】算法定制化开发</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/01/zlib%20404/">zlib 404</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/07/19/V2X%E5%9C%BA%E6%99%AF%E5%8F%91%E5%B1%95%E5%92%8C%E4%BB%BF%E7%9C%9F/">V2X场景发展和仿真</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 wangxso<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog./" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog./archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog./js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/blog./fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog./js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

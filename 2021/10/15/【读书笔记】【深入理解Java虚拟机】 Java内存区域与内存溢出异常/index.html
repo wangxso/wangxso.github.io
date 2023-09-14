@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>【读书笔记】【深入理解Java虚拟机】 Java内存区域与内存溢出异常 | 非典型程序员的一生</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一、Java内存区域与内存溢出异常1. 运行时数据区根据Java虚拟机规范的规定，Java虚拟机所管理的内存将会包括以下几个运行区域：  方法区 作用：存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据 异常： OutOfMemoryError：当方法区无法满足内存分配需求时将会抛出。   线程共享   堆 作用：存放对象实例，几乎所有的对象实例都在这里分配内存。 异常： O">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【读书笔记】【深入理解Java虚拟机】 Java内存区域与内存溢出异常">
+<meta property="og:url" content="https://wangxso.github.io/blog./2021/10/15/%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%90%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%20Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/index.html">
+<meta property="og:site_name" content="非典型程序员的一生">
+<meta property="og:description" content="一、Java内存区域与内存溢出异常1. 运行时数据区根据Java虚拟机规范的规定，Java虚拟机所管理的内存将会包括以下几个运行区域：  方法区 作用：存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据 异常： OutOfMemoryError：当方法区无法满足内存分配需求时将会抛出。   线程共享   堆 作用：存放对象实例，几乎所有的对象实例都在这里分配内存。 异常： O">
+<meta property="og:locale">
+<meta property="og:image" content="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA.png">
+<meta property="og:image" content="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%E7%9A%84%E8%BF%87%E7%A8%8B.png">
+<meta property="article:published_time" content="2021-10-15T00:15:00.000Z">
+<meta property="article:modified_time" content="2023-09-14T07:08:12.254Z">
+<meta property="article:author" content="wangxso">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA.png">
+  
+    <link rel="alternate" href="/blog./atom.xml" title="非典型程序员的一生" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog./favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog./css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog./fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog./" id="logo">非典型程序员的一生</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/blog./">Home</a>
+        
+          <a class="main-nav-link" href="/blog./archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/blog./atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wangxso.github.io/blog."></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-【读书笔记】【深入理解Java虚拟机】 Java内存区域与内存溢出异常" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2021/10/15/%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%90%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%20Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/" class="article-date">
+  <time class="dt-published" datetime="2021-10-15T00:15:00.000Z" itemprop="datePublished">2021-10-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/jvmbook/">jvmbook</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      【读书笔记】【深入理解Java虚拟机】 Java内存区域与内存溢出异常
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="一、Java内存区域与内存溢出异常"><a href="#一、Java内存区域与内存溢出异常" class="headerlink" title="一、Java内存区域与内存溢出异常"></a>一、Java内存区域与内存溢出异常</h1><h2 id="1-运行时数据区"><a href="#1-运行时数据区" class="headerlink" title="1. 运行时数据区"></a>1. 运行时数据区</h2><p>根据Java虚拟机规范的规定，Java虚拟机所管理的内存将会包括以下几个运行区域：</p>
+<ul>
+<li>方法区<ul>
+<li>作用：存储已被虚拟机加载的类信息、常量、静态变量、即时编译器编译后的代码等数据</li>
+<li>异常：<ul>
+<li>OutOfMemoryError：当方法区无法满足内存分配需求时将会抛出。</li>
+</ul>
+</li>
+<li>线程共享</li>
+</ul>
+</li>
+<li>堆<ul>
+<li>作用：存放对象实例，几乎所有的对象实例都在这里分配内存。</li>
+<li>异常：<ul>
+<li>OutOfMemoryError：如果对堆中没有内存完成实例分配，并且堆也无法在拓展的时候，将会抛出。(堆空间可以通过-Xmx和-Xms来控制)</li>
+</ul>
+</li>
+<li>线程共享</li>
+</ul>
+</li>
+<li>虚拟机栈<ul>
+<li>作用：为方法创建栈帧（用于存储局部变量表、操作数栈、动态链接、方法出口等信息）。</li>
+<li>异常<ul>
+<li>StackOverflowError：线程请求的栈深度大于虚拟机规定的深度。</li>
+<li>OutOfMemoryError：如果虚拟机栈可以动态拓展，如果拓展无法申请到足够的内存就会产生。、</li>
+</ul>
+</li>
+<li>线程私有</li>
+</ul>
+</li>
+<li>本地方法栈<ul>
+<li>作用：为本地方法服务，创建本地方法栈帧，分配相关内存</li>
+<li>异常<ul>
+<li>StackoverflowError：线程请求栈的深度大于虚拟机所规定的深度。</li>
+<li>OutOfMemoryError：如果拓展的时候无法申请到足够的内存。</li>
+</ul>
+</li>
+<li>线程私有</li>
+</ul>
+</li>
+<li>程序计数器<ul>
+<li>作用：通过改变计数器的值选取下一条执行的字节码指令</li>
+<li>异常：无(唯一不会产生OutOfMemoryError的区域)</li>
+<li>线程私有</li>
+</ul>
+</li>
+<li>直接内存(由于NIO的引入Java对于内存有了直接操作)<ul>
+<li>作用：由于NIO引入通道和缓存区的I&#x2F;O方式，它可以使用Native函数库直接分配堆外内存，然后通过一个存储在Java堆中的DirectByteBuffer对象作为这块内存的引用进行操作，这样能在一些场景显著提高性能，因为避免了Java对和Native堆来回的内存拷贝。</li>
+<li>异常：<ul>
+<li>OutOfMemoryError：各个内存区域总和大于物理内存的限制，从而导致动态拓展出现异常。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA.png" alt="运行时数据区" style="zoom:50%;" />
+
+<h2 id="2-HotSpot虚拟机对象探秘"><a href="#2-HotSpot虚拟机对象探秘" class="headerlink" title="2. HotSpot虚拟机对象探秘"></a>2. HotSpot虚拟机对象探秘</h2><h3 id="2-1-对象的创建过程"><a href="#2-1-对象的创建过程" class="headerlink" title="2.1 对象的创建过程"></a>2.1 对象的创建过程</h3><ul>
+<li>类若未加载必须将类先进行加载</li>
+<li>为新生对象分配内存<ul>
+<li>指针碰撞法：假设Java堆内存是绝对规整的，所有用过的内存都放在一边，空闲的内存都放在另一边，中间放着一个指针作为分界点的指示器，那所分配的内存就仅仅把哪个指针向空闲空间那边挪动一段距与对象大小相同的距离。(并发环境下指针可能出现异常，采用CAS加上retry的方式保证原子性)</li>
+<li>空闲列表：虚拟机必须维护一个列表，记录上那些内存块是可用的，在分配的时候从列表中找一块足够大的内存空间划分给对象实例，并更新列表上的记录。</li>
+</ul>
+</li>
+</ul>
+<img src="https://wangxblog.oss-cn-hangzhou.aliyuncs.com/img/%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%E7%9A%84%E8%BF%87%E7%A8%8B.png" alt="对象创建的过程" style="zoom:50%;" />
+
+<h3 id="2-2-对象的内存布局"><a href="#2-2-对象的内存布局" class="headerlink" title="2.2 对象的内存布局"></a>2.2 对象的内存布局</h3><p>在Hotspot虚拟机中，对象在内存中存储的布局可以分为三块区域：对象头（Header）、实例对象（Instance Data）、对齐填充（Padding）。</p>
+<ul>
+<li><p>对象头：</p>
+<ul>
+<li><p>存储对象自身的运行时数据：如哈希码、GC分代年龄、锁状态标志、线程持有的锁、偏向线程ID、偏向时间戳等</p>
+<ul>
+<li>长度：32bit(32位虚拟机)、64bit(64位虚拟机)，官方称为Mark Word</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>|               存储内容               | 标志位 |       状态       |<br>      | :———————————-: | :—-: | :————–: |<br>      |       对象哈希码、对象分代年龄       |   01   |      未锁定      |<br>      |           指向锁记录的指针           |   00   |    轻量级锁定    |<br>      |          指向重量级锁的指针          |   10   | 膨胀(重量级锁定) |<br>      |          空、不需要记录信息          |   11   |      GC标记      |<br>      | 偏向线程ID、偏向时间戳、对象分代年龄 |   01   |      可偏向      |</p>
+<ul>
+<li><p>类型指针：对象指向它的类元数据的指针（虚拟机通过这个指针确定这个对象是哪个类的实例）</p>
+</li>
+<li><p>实例数据：对象真正存储的有效信息，也就是程序代码中所定义的各个类型的字段内容。</p>
+</li>
+<li><p>对齐填充：HotSpot VM的自动内存管理系统要求对象起始地址必须是8字节的整数倍。（如果不对齐，你要取一部分数据，但是他们不再同一行，你就要取两次，导致效率下降）</p>
+</li>
+</ul>
+<h3 id="2-3-对象的访问定位"><a href="#2-3-对象的访问定位" class="headerlink" title="2.3 对象的访问定位"></a>2.3 对象的访问定位</h3><p>建立对象就是为了使用对象，我们都知道对象使用过存储在栈中的引用(Reference)来调用。但是JVM规范并没有规定如何定位和访问堆中的对象的具体位置。目前主流的两种方式分为句柄和直接访问两种方式。</p>
+<ul>
+<li>句柄：Java堆中划分出一部分作为句柄池，reference中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与类型数据各自的具体地址。<ul>
+<li>优点：对象被移动(垃圾收集移动对象是非常普遍的事情)时只会改变句柄中的实例数据指针，而reference本身不需要修改</li>
+<li>缺点：增加了一次指针定位的开销，速度较慢</li>
+</ul>
+</li>
+<li>直接内存：reference直接存储对象的地址<ul>
+<li>优点：节省了一次指针定位开销，速度较快</li>
+<li>缺点：同上句柄优点的反面</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2021/10/15/%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%90%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%20Java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98%E6%BA%A2%E5%87%BA%E5%BC%82%E5%B8%B8/" data-id="clmivdq8p004csjp6a1fregli" data-title="【读书笔记】【深入理解Java虚拟机】 Java内存区域与内存溢出异常" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog./2021/10/19/%E3%80%90%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%E3%80%91%E3%80%90%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%91%E5%9E%83%E5%9C%BE%E6%90%9C%E9%9B%86%E5%99%A8%E4%B8%8E%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          【读书笔记】【深入理解Java虚拟机】垃圾搜集器与内存分配策略
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog./2021/08/07/Celery%20Flower/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">Celery Flower</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JUC/">JUC</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JVM/">JVM</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/LeetCode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/bxjs/">bxjs</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/cuda/">cuda</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/default/">default</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/dsbj/">dsbj</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/jvmbook/">jvmbook</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/muban/">muban</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/selfdriving/">selfdriving</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/youji/">youji</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/zczb/">zczb</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/OpenCDA/" rel="tag">OpenCDA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/V2X/" rel="tag">V2X</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/%E6%91%84%E5%BD%B1/" rel="tag">摄影</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog./tags/OpenCDA/" style="font-size: 10px;">OpenCDA</a> <a href="/blog./tags/V2X/" style="font-size: 10px;">V2X</a> <a href="/blog./tags/%E6%91%84%E5%BD%B1/" style="font-size: 10px;">摄影</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog./2023/09/14/OpenCDA%20V2X%E9%80%9A%E4%BF%A1%E7%9B%B8%E5%85%B3/">OpenCDA V2X通信相关</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/28/%E5%8F%A4%E6%9C%B4%E9%9F%B5%E5%91%B3%E4%B8%8E%E8%8D%92%E9%87%8E%E4%B9%8B%E7%BE%8E%20-------%20%E8%A5%BF%E5%AE%89%E3%80%81%E9%9D%92%E6%B5%B7%E4%B9%8B%E6%97%85/">古朴韵味与荒野之美 ------- 西安、青海之旅</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/03/%E3%80%90OpenCDA%E3%80%91%E7%AE%97%E6%B3%95%E5%AE%9A%E5%88%B6%E5%8C%96%E5%BC%80%E5%8F%91/">【OpenCDA】算法定制化开发</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/01/zlib%20404/">zlib 404</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/07/19/V2X%E5%9C%BA%E6%99%AF%E5%8F%91%E5%B1%95%E5%92%8C%E4%BB%BF%E7%9C%9F/">V2X场景发展和仿真</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 wangxso<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog./" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog./archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog./js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/blog./fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog./js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

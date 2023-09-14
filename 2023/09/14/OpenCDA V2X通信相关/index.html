@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>OpenCDA V2X通信相关 | 非典型程序员的一生</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="一、V2X Managerinit 变量  cav_world(object): OpenCDA的对象，详细可见core&#x2F;common&#x2F;cav_world.py.定制的世界对象，可以保存所有的CDA车辆信息和管理共享ML模型，在联合仿真中也可以保存Sumo-Carla的ID映射。  config_yaml(dict): v2x模块的配置信息字典变量。  vid: 相应vehicle manager">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenCDA V2X通信相关">
+<meta property="og:url" content="https://wangxso.github.io/blog./2023/09/14/OpenCDA%20V2X%E9%80%9A%E4%BF%A1%E7%9B%B8%E5%85%B3/index.html">
+<meta property="og:site_name" content="非典型程序员的一生">
+<meta property="og:description" content="一、V2X Managerinit 变量  cav_world(object): OpenCDA的对象，详细可见core&#x2F;common&#x2F;cav_world.py.定制的世界对象，可以保存所有的CDA车辆信息和管理共享ML模型，在联合仿真中也可以保存Sumo-Carla的ID映射。  config_yaml(dict): v2x模块的配置信息字典变量。  vid: 相应vehicle manager">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-09-13T22:19:49.000Z">
+<meta property="article:modified_time" content="2023-09-14T07:08:12.662Z">
+<meta property="article:author" content="wangxso">
+<meta property="article:tag" content="V2X">
+<meta property="article:tag" content="OpenCDA">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/blog./atom.xml" title="非典型程序员的一生" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/blog./favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/blog./css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/blog./fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog./" id="logo">非典型程序员的一生</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/blog./">Home</a>
+        
+          <a class="main-nav-link" href="/blog./archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/blog./atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wangxso.github.io/blog."></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-OpenCDA V2X通信相关" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/blog./2023/09/14/OpenCDA%20V2X%E9%80%9A%E4%BF%A1%E7%9B%B8%E5%85%B3/" class="article-date">
+  <time class="dt-published" datetime="2023-09-13T22:19:49.000Z" itemprop="datePublished">2023-09-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog./categories/selfdriving/">selfdriving</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      OpenCDA V2X通信相关
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="一、V2X-Manager"><a href="#一、V2X-Manager" class="headerlink" title="一、V2X Manager"></a>一、V2X Manager</h2><h3 id="init"><a href="#init" class="headerlink" title="init"></a>init</h3><ol>
+<li><p>变量</p>
+<ul>
+<li><p>cav_world(object): OpenCDA的对象，详细可见<code>core/common/cav_world.py</code>.定制的世界对象，可以保存所有的CDA车辆信息和管理共享ML模型，在联合仿真中也可以保存Sumo-Carla的ID映射。</p>
+</li>
+<li><p>config_yaml(dict): v2x模块的配置信息字典变量。</p>
+</li>
+<li><p>vid: 相应vehicle manager的uuid。</p>
+</li>
+</ul>
+</li>
+<li><p>方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, cav_world, config_yaml, vid</span>):</span><br><span class="line">        <span class="comment"># if disabled, no cooperation will be operated</span></span><br><span class="line">        <span class="comment"># 如果是disabled，协作相关的不会被运用。</span></span><br><span class="line">        self.cda_enabled = config_yaml[<span class="string">&#x27;enabled&#x27;</span>]</span><br><span class="line">        <span class="comment"># 读取通信距离</span></span><br><span class="line">        self.communication_range = config_yaml[<span class="string">&#x27;communication_range&#x27;</span>]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># found CAVs nearby</span></span><br><span class="line">        <span class="comment"># 被发现的周边的CAVs</span></span><br><span class="line">        self.cav_nearby = &#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># used for cooperative perception.</span></span><br><span class="line">        <span class="comment"># 收到数据的缓存, dict</span></span><br><span class="line">        self._recieved_buffer = &#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># used for platooning communication</span></span><br><span class="line">        <span class="comment"># 队列通信，platooning_plugin是队列通信器件所使用的队列插件</span></span><br><span class="line">        self.platooning_plugin = PlatooningPlugin(</span><br><span class="line">            self.communication_range, self.cda_enabled)</span><br><span class="line">		<span class="comment"># weakref.ref 是 Python 中的一个内置模块，它提供了一种创建对象的弱引用的方式。</span></span><br><span class="line">        <span class="comment"># 这里的作用应该是让cav_world在不被使用的时候能够及时被回收。</span></span><br><span class="line">        self.cav_world = weakref.ref(cav_world)()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># ego position buffer. use deque so we can simulate lagging</span></span><br><span class="line">        <span class="comment"># ego car的位置和速度信息缓存，使用deque可以模拟延迟。</span></span><br><span class="line">        self.ego_pos = deque(maxlen=<span class="number">100</span>)</span><br><span class="line">        self.ego_spd = deque(maxlen=<span class="number">100</span>)</span><br><span class="line">        <span class="comment"># used to exclude the cav self during searching</span></span><br><span class="line">        <span class="comment"># 用于搜索周边车辆的时候排除自身</span></span><br><span class="line">        self.vid = vid</span><br><span class="line"></span><br><span class="line">        <span class="comment"># check if lag or noise needed to be added during communication</span></span><br><span class="line">        <span class="comment"># 添加一些噪声和延迟</span></span><br><span class="line">        self.loc_noise = <span class="number">0.0</span></span><br><span class="line">        self.yaw_noise = <span class="number">0.0</span></span><br><span class="line">        self.speed_noise = <span class="number">0.0</span></span><br><span class="line">        self.lag = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># Add noise to V2X communication if needed.</span></span><br><span class="line">        <span class="comment"># 如果在配置文件中配置，就添加相关的噪声</span></span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;loc_noise&#x27;</span> <span class="keyword">in</span> config_yaml:</span><br><span class="line">            self.loc_noise = config_yaml[<span class="string">&#x27;loc_noise&#x27;</span>]</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;yaw_noise&#x27;</span> <span class="keyword">in</span> config_yaml:</span><br><span class="line">            self.yaw_noise = config_yaml[<span class="string">&#x27;yaw_noise&#x27;</span>]</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;speed_noise&#x27;</span> <span class="keyword">in</span> config_yaml:</span><br><span class="line">            self.speed_noise = config_yaml[<span class="string">&#x27;speed_noise&#x27;</span>]</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;lag&#x27;</span> <span class="keyword">in</span> config_yaml:</span><br><span class="line">            self.lag = config_yaml[<span class="string">&#x27;lag&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>该方法是来初始化v2x_manager的，相关的逻辑在注释中已经写出。这里大概是通过本身所拥有的cav_nearby字典来保存发现的周围车辆发送的V2X信息。</p>
+</li>
+</ol>
+<h3 id="update-info"><a href="#update-info" class="headerlink" title="update_info"></a>update_info</h3><ol>
+<li>变量<ul>
+<li>ego_pos: 车辆的位置信息，是carla的transform对象</li>
+<li>ego_spd: 车辆的速度信息，float，km&#x2F;h</li>
+</ul>
+</li>
+<li>方法</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">update_info</span>(<span class="params">self, ego_pos, ego_spd</span>):</span><br><span class="line">       <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">       Update all communication plugins with current localization info.</span></span><br><span class="line"><span class="string">       &quot;&quot;&quot;</span></span><br><span class="line">       <span class="comment"># 更新所有的通信插件中的当前位置信息</span></span><br><span class="line">       self.ego_pos.append(ego_pos)</span><br><span class="line">       self.ego_spd.append(ego_spd)</span><br><span class="line">       <span class="comment"># 并且同时搜索周围的车辆信息</span></span><br><span class="line">       self.search()</span><br><span class="line"></span><br><span class="line">       <span class="comment"># the ego pos in platooning_plugin is used for self-localization,</span></span><br><span class="line">       <span class="comment"># so we shouldn&#x27;t add noise or lag.</span></span><br><span class="line">       self.platooning_plugin.update_info(ego_pos, ego_spd)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>首先会在本车的<code>ego_pos</code>和<code>ego_spd</code>的队列中添加当前的位置，然后所有周围的车辆信息，同时更新所有的插件中的当前位置信息。下面我们看看<code>search()</code>中是怎么实现的。</p>
+<h3 id="search"><a href="#search" class="headerlink" title="search"></a>search</h3><ol>
+<li><p>变量</p>
+<p>无</p>
+</li>
+<li><p>方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">search</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Search the CAVs nearby.</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 获取当前CAV World中的车辆字典</span></span><br><span class="line">        vehicle_manager_dict = self.cav_world.get_vehicle_managers()</span><br><span class="line">		</span><br><span class="line">        <span class="comment"># 获取所有车辆的vid和vm</span></span><br><span class="line">        <span class="keyword">for</span> vid, vm <span class="keyword">in</span> vehicle_manager_dict.items():</span><br><span class="line">            <span class="comment"># avoid the Nonetype error at the first simulation step</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> vm.v2x_manager.get_ego_pos():</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="comment"># avoid add itself as the cav nearby</span></span><br><span class="line">            <span class="keyword">if</span> vid == self.vid:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="comment"># 计算车辆和当前车的距离</span></span><br><span class="line">            distance = compute_distance(</span><br><span class="line">                self.ego_pos[-<span class="number">1</span>].location,</span><br><span class="line">                vm.v2x_manager.get_ego_pos().location)</span><br><span class="line">			<span class="comment"># 如果距离在通信范围内，就将周围cav的获取的信息更新</span></span><br><span class="line">            <span class="keyword">if</span> distance &lt; self.communication_range:</span><br><span class="line">                self.cav_nearby.update(&#123;vid: vm&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>大概的过程就是先从cav world里面获取所有的车辆信息，遍历这些车辆，通过计算车辆和当前车辆的距离信息，如果距离在通信范围内的话，就会将车辆发送的信息加入到<code>cav_nearby</code>里面。</p>
+</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>大概的方法就这些，主要就是实现一个<code>search</code>的方法，还有一些方法没有提到比如<code>get_ego_pos</code>和<code>get_ego_speed</code>这些都是在获取位置和速度信息的时候增加一些噪声。</p>
+<h2 id="二、RSUManager-鉴定为半成品"><a href="#二、RSUManager-鉴定为半成品" class="headerlink" title="二、RSUManager(鉴定为半成品)"></a>二、RSUManager(鉴定为半成品)</h2><h3 id="init-1"><a href="#init-1" class="headerlink" title="init"></a>init</h3><ol>
+<li><p>变量</p>
+<ul>
+<li>carla_world(carla.World): Carla的world对象，我们从中获取蓝图(blueprint)</li>
+<li>config_yaml(dict): 关于RSU的配置信息</li>
+<li>carla_map(carla.Map):  carla里面的地图对象</li>
+<li>cav_world(object): cav世界中的相关信息，包括车辆信息等</li>
+<li>current_time(str): 仿真开始的时间戳，用于数据导出</li>
+<li>data_dumping(bool)：在仿真期间是否导出传感器信息</li>
+</ul>
+</li>
+<li><p>方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params"></span></span><br><span class="line"><span class="params">            self,</span></span><br><span class="line"><span class="params">            carla_world,</span></span><br><span class="line"><span class="params">            config_yaml,</span></span><br><span class="line"><span class="params">            carla_map,</span></span><br><span class="line"><span class="params">            cav_world,</span></span><br><span class="line"><span class="params">            current_time=<span class="string">&#x27;&#x27;</span>,</span></span><br><span class="line"><span class="params">            data_dumping=<span class="literal">False</span></span>):</span><br><span class="line"></span><br><span class="line">        self.rid = config_yaml[<span class="string">&#x27;id&#x27;</span>]</span><br><span class="line">        <span class="comment"># The id of rsu is always a negative int</span></span><br><span class="line">        <span class="comment"># rsu的id永远是一个负整数，这是为了和车辆id进行区分</span></span><br><span class="line">        <span class="keyword">if</span> self.rid &gt; <span class="number">0</span>:</span><br><span class="line">            self.rid = -self.rid</span><br><span class="line"></span><br><span class="line">        <span class="comment"># read map from the world everytime is time-consuming, so we need</span></span><br><span class="line">        <span class="comment"># explicitly extract here</span></span><br><span class="line">        <span class="comment"># 每次都读取地图会很耗时，所以我们在一开始就读取，这样只用一次就好了。</span></span><br><span class="line">        self.carla_map = carla_map</span><br><span class="line"></span><br><span class="line">        <span class="comment"># retrieve the configure for different modules</span></span><br><span class="line">        <span class="comment"># 检索不同模块的配置信息</span></span><br><span class="line">        <span class="comment"># todo: add v2x module to rsu later</span></span><br><span class="line">        sensing_config = config_yaml[<span class="string">&#x27;sensing&#x27;</span>]</span><br><span class="line">        sensing_config[<span class="string">&#x27;localization&#x27;</span>][<span class="string">&#x27;global_position&#x27;</span>] = \</span><br><span class="line">            config_yaml[<span class="string">&#x27;spawn_position&#x27;</span>]</span><br><span class="line">        sensing_config[<span class="string">&#x27;perception&#x27;</span>][<span class="string">&#x27;global_position&#x27;</span>] = \</span><br><span class="line">            config_yaml[<span class="string">&#x27;spawn_position&#x27;</span>]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># localization module</span></span><br><span class="line">        <span class="comment"># 获取定位模块</span></span><br><span class="line">        self.localizer = LocalizationManager(carla_world,</span><br><span class="line">                                             sensing_config[<span class="string">&#x27;localization&#x27;</span>],</span><br><span class="line">                                             self.carla_map)</span><br><span class="line">        <span class="comment"># perception module</span></span><br><span class="line">        <span class="comment"># 获取预测模块</span></span><br><span class="line">        self.perception_manager = PerceptionManager(vehicle=<span class="literal">None</span>,</span><br><span class="line">                                                    config_yaml=sensing_config[<span class="string">&#x27;perception&#x27;</span>],</span><br><span class="line">                                                    cav_world=cav_world,</span><br><span class="line">                                                    carla_world=carla_world,</span><br><span class="line">                                                    data_dump=data_dumping,</span><br><span class="line">                                                    infra_id=self.rid)</span><br><span class="line">        <span class="comment"># 判断是否需要导出数据</span></span><br><span class="line">        <span class="keyword">if</span> data_dumping:</span><br><span class="line">            self.data_dumper = DataDumper(self.perception_manager,</span><br><span class="line">                                          self.rid,</span><br><span class="line">                                          save_time=current_time)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.data_dumper = <span class="literal">None</span></span><br><span class="line">		<span class="comment"># 更新world中的rsu信息</span></span><br><span class="line">        cav_world.update_rsu_manager(self)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="update-info（main分支未完成）"><a href="#update-info（main分支未完成）" class="headerlink" title="update_info（main分支未完成）"></a>update_info（main分支未完成）</h3><ol>
+<li><p>变量</p>
+<p>无</p>
+</li>
+<li><p>方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">update_info</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Call perception and localization module to</span></span><br><span class="line"><span class="string">        retrieve surrounding info an ego position.</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="comment"># localization</span></span><br><span class="line">        self.localizer.localize()</span><br><span class="line"></span><br><span class="line">        ego_pos = self.localizer.get_ego_pos()</span><br><span class="line">        ego_spd = self.localizer.get_ego_spd()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># object detection todo: pass it to other CAVs for V2X percetion</span></span><br><span class="line">        objects = self.perception_manager.detect(ego_pos)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="run-step"><a href="#run-step" class="headerlink" title="run_step"></a>run_step</h3><ol>
+<li><p>变量</p>
+<p>无</p>
+</li>
+<li><p>方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">run_step</span>(<span class="params">self</span>):</span><br><span class="line">       <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">       Currently only used for dumping data.</span></span><br><span class="line"><span class="string">       &quot;&quot;&quot;</span></span><br><span class="line">       <span class="comment"># dump data</span></span><br><span class="line">       <span class="keyword">if</span> self.data_dumper:</span><br><span class="line">           self.data_dumper.run_step(self.perception_manager,</span><br><span class="line">                                     self.localizer,</span><br><span class="line">                                     <span class="literal">None</span>)</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="destroy"><a href="#destroy" class="headerlink" title="destroy"></a>destroy</h3><ol>
+<li><p>变量</p>
+<p>无</p>
+</li>
+<li><p>方法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">   </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">destroy</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Destroy the actor vehicle</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    self.perception_manager.destroy()</span><br><span class="line">    self.localizer.destroy()</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><p>这个RSU基本上属于半成品，或者半成品都不到，只是新建文件夹这种。反正在main分支上是这样的，其他分支我还需要后续看看。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wangxso.github.io/blog./2023/09/14/OpenCDA%20V2X%E9%80%9A%E4%BF%A1%E7%9B%B8%E5%85%B3/" data-id="clmivdq82000psjp60ulc3v7l" data-title="OpenCDA V2X通信相关" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog./tags/OpenCDA/" rel="tag">OpenCDA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog./tags/V2X/" rel="tag">V2X</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog./2023/08/28/%E5%8F%A4%E6%9C%B4%E9%9F%B5%E5%91%B3%E4%B8%8E%E8%8D%92%E9%87%8E%E4%B9%8B%E7%BE%8E%20-------%20%E8%A5%BF%E5%AE%89%E3%80%81%E9%9D%92%E6%B5%B7%E4%B9%8B%E6%97%85/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">古朴韵味与荒野之美 ------- 西安、青海之旅</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JUC/">JUC</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/JVM/">JVM</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/LeetCode/">LeetCode</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/SQL/">SQL</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/bxjs/">bxjs</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/cuda/">cuda</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/default/">default</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/dsbj/">dsbj</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/jvmbook/">jvmbook</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/muban/">muban</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/selfdriving/">selfdriving</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/youji/">youji</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/zczb/">zczb</a></li><li class="category-list-item"><a class="category-list-link" href="/blog./categories/%E7%AE%97%E6%B3%95/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/OpenCDA/" rel="tag">OpenCDA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/V2X/" rel="tag">V2X</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog./tags/%E6%91%84%E5%BD%B1/" rel="tag">摄影</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog./tags/OpenCDA/" style="font-size: 10px;">OpenCDA</a> <a href="/blog./tags/V2X/" style="font-size: 10px;">V2X</a> <a href="/blog./tags/%E6%91%84%E5%BD%B1/" style="font-size: 10px;">摄影</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/05/">May 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog./archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog./2023/09/14/OpenCDA%20V2X%E9%80%9A%E4%BF%A1%E7%9B%B8%E5%85%B3/">OpenCDA V2X通信相关</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/28/%E5%8F%A4%E6%9C%B4%E9%9F%B5%E5%91%B3%E4%B8%8E%E8%8D%92%E9%87%8E%E4%B9%8B%E7%BE%8E%20-------%20%E8%A5%BF%E5%AE%89%E3%80%81%E9%9D%92%E6%B5%B7%E4%B9%8B%E6%97%85/">古朴韵味与荒野之美 ------- 西安、青海之旅</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/03/%E3%80%90OpenCDA%E3%80%91%E7%AE%97%E6%B3%95%E5%AE%9A%E5%88%B6%E5%8C%96%E5%BC%80%E5%8F%91/">【OpenCDA】算法定制化开发</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/08/01/zlib%20404/">zlib 404</a>
+          </li>
+        
+          <li>
+            <a href="/blog./2023/07/19/V2X%E5%9C%BA%E6%99%AF%E5%8F%91%E5%B1%95%E5%92%8C%E4%BB%BF%E7%9C%9F/">V2X场景发展和仿真</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 wangxso<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog./" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog./archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/blog./js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/blog./fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/blog./js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
